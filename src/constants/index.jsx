@@ -3,6 +3,7 @@ export const CUSTOMER_SECTIONS = {
     ORDERS: 'orders',
    CART:'cart',
    TRANSACTIONS:'transactions',
+   CHAT:'chat'
  };
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
@@ -18,16 +19,21 @@ export const CUSTOMER_SECTIONS = {
    REVIEWS:'reviews',
    CHAT:'chat',
    MYPROFIT:'myprofit',
+   FINDSELLER:'findseller',
+   ADDCART:'addcart',
+   MYCROP:'mycrop'
    
  };
  export const GARDENER_SECTIONS = {
     DASHBOARD: 'dashboard',
-    ADDCROP:'addcrop',
+    FINDSELLER:'findseller',
     ORDERS: 'orders',
     SALES:'sales',
+    ADDCART:'addcart',
     TRANSACTIONS:'transactions',
    REVIEWS:'reviews',
    CHAT:'chat',
+   MYCROP:'mycrop'
   
    
  };

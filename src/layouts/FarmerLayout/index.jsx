@@ -26,6 +26,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {Stack } from '@mui/material';
 import { FARMER_SECTIONS } from '../../constants';
 import FarmerListItems from './farmerListItem';
+import MySchedule from '../../pages/Farmer/mySchedule';
+import Chat from '../../pages/Farmer/chat';
+import MyProfit from '../../pages/Farmer/myProfit';
+import Orders from '../../pages/Farmer/orders';
+import DashBoard from '../../pages/Farmer/dashboard';
+import Reviews from '../../pages/Farmer/review';
 
 const drawerWidth = 240;
 
@@ -91,15 +97,25 @@ export default function FarmerLayout() {
       const subComponent = params[2];
       switch (subComponent) {
         case FARMER_SECTIONS.DASHBOARD:
-          setOpenPane(<LoginPage/>);
+          setOpenPane(<DashBoard/>);
           break;
         case FARMER_SECTIONS.ORDERS:
-          setOpenPane(<LoginPage/>);
+          setOpenPane(<Orders/>);
           break;
-
-        
+        case FARMER_SECTIONS.MYSCHEDULE:
+          setOpenPane(<MySchedule/>);
+          break;
+        case FARMER_SECTIONS.CHAT:
+          setOpenPane(<Chat/>);
+          break;
+        case FARMER_SECTIONS.MYPROFIT:
+          setOpenPane(<MyProfit/>);
+          break;
+        case FARMER_SECTIONS.REVIEWS:
+          setOpenPane(<Reviews/>);
+          break;
         default:
-          break;
+          
       }
     }
   }, [location]);

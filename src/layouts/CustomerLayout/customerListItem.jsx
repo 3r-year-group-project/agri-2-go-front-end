@@ -11,7 +11,10 @@ import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
 import { CUSTOMER_SECTIONS } from '../../constants';
-
+import ChatIcon from '@mui/icons-material/Chat';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import { ViewList } from '@mui/icons-material';
+import Tooltip from '@mui/material/Tooltip';
 
 
 export default function CustomerListItems() {
@@ -24,31 +27,47 @@ export default function CustomerListItems() {
     <React.Fragment>
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.DASHBOARD)}>
         <ListItemIcon>
+          <Tooltip title="Dashboard">
           <DashboardIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CART)}>
+        <ListItemIcon>
+          <Tooltip title="Cart">
+          <ShoppingCartIcon color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Cart" />
+      </ListItemButton>
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.ORDERS)}>
         <ListItemIcon>
-          <AssignmentIcon  color="secondary" />
+          <Tooltip title="Orders">
+          <ViewListIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
 
-      <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CART)}>
-        <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="Cart" />
-      </ListItemButton>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
       </ListSubheader> */}
+      <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CHAT)}>
+        <ListItemIcon>
+          <Tooltip title="Chat">
+          <ChatIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Chat" />
+      </ListItemButton>
 
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.TRANSACTIONS)}>
         <ListItemIcon>
+          <Tooltip title="Transactions">
           <PaidIcon  color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>

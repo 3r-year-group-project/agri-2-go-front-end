@@ -7,37 +7,71 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import Divider from '@mui/material/Divider';
+
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
-import { FARMER_SECTIONS } from '../../constants';
+import { FARMER_SECTIONS, GARDENER_SECTIONS } from '../../constants';
+import ChatIcon from '@mui/icons-material/Chat';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import RateReview from '@mui/icons-material/RateReview';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import Tooltip from '@mui/material/Tooltip';
+import SearchIcon from '@mui/icons-material/Search';
 
 
-
-export default function FarmerListItems() {
+export default function GardenerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/farmer/${page}`);
+    navigate(`/gardener/${page}`);
   }
   return (
     <React.Fragment>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.DASHBOARD)}>
         <ListItemIcon>
-          <DashboardIcon color="secondary" />
+      <Tooltip title="Dashboard">
+        <DashboardIcon color="secondary" />
+      </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYSCHEDULE)}>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
-          <AssignmentIcon  color="secondary" />
+        <Tooltip title="Find Sellers">
+        <SearchIcon color="secondary" />
+      </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="My Schedule" />
+        <ListItemText primary="Find Sellers" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CART)}>
+        <ListItemIcon>
+        <Tooltip title="Cart">
+        <ShoppingCartIcon color="secondary" />
+      </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Cart" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYCROP)}>
+        <ListItemIcon>
+        <Tooltip title="My Crops">
+        <AssignmentIcon  color="secondary" />
+      </Tooltip>          
+        </ListItemIcon>
+        <ListItemText primary="My Crops" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SALES)}>
+        <ListItemIcon>
+          <Tooltip title="Sales"><ReceiptIcon color="secondary" /></Tooltip>          
+        </ListItemIcon>
+        <ListItemText primary="Sales" />
       </ListItemButton>
 
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.ORDERS)}>
         <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
+          <Tooltip title="Orders">
+          <ViewListIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
@@ -48,28 +82,29 @@ export default function FarmerListItems() {
 
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.TRANSACTIONS)}>
         <ListItemIcon>
+          <Tooltip title="Transactions">
           <PaidIcon  color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>
-        <ListItemIcon>
-          <PaidIcon  color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="Reviews" />
-      </ListItemButton>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CHAT)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <Tooltip title="Chats">
+        <ChatIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYPROFIT)}>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <Tooltip title="Reviews">
+          <RateReview  color="secondary" />
+          </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="My Profit" />
+        <ListItemText primary="Reviews" />
       </ListItemButton>
+      
     </React.Fragment>
   );
 }

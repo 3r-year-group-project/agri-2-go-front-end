@@ -11,8 +11,13 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
 import { GARDENER_SECTIONS } from '../../constants';
-
-
+import ChatIcon from '@mui/icons-material/Chat';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import RateReview from '@mui/icons-material/RateReview';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import Tooltip from '@mui/material/Tooltip';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function GardenerListItems() {
   const navigate = useNavigate();
@@ -24,26 +29,48 @@ export default function GardenerListItems() {
     <React.Fragment>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.DASHBOARD)}>
         <ListItemIcon>
-          <DashboardIcon color="secondary" />
+      <Tooltip title="Dashboard">
+        <DashboardIcon color="secondary" />
+      </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
-      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ADDCROP)}>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
-          <AssignmentIcon  color="secondary" />
+        <Tooltip title="Find Sellers">
+        <SearchIcon color="secondary" />
+      </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="Add Crop" />
+        <ListItemText primary="Find Sellers" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ADDCART)}>
+        <ListItemIcon>
+        <Tooltip title="Cart">
+        <ShoppingCartIcon color="secondary" />
+      </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Cart" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.MYCROP)}>
+        <ListItemIcon>
+        <Tooltip title="My Crops">
+        <AssignmentIcon  color="secondary" />
+      </Tooltip>          
+        </ListItemIcon>
+        <ListItemText primary="My Crops" />
       </ListItemButton>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.SALES)}>
         <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
+          <Tooltip title="Sales"><ReceiptIcon color="secondary" /></Tooltip>          
         </ListItemIcon>
         <ListItemText primary="Sales" />
       </ListItemButton>
 
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ORDERS)}>
         <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
+          <Tooltip title="Orders">
+          <ViewListIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
@@ -54,21 +81,27 @@ export default function GardenerListItems() {
 
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.TRANSACTIONS)}>
         <ListItemIcon>
+          <Tooltip title="Transactions">
           <PaidIcon  color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
-      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.REVIEWS)}>
-        <ListItemIcon>
-          <PaidIcon  color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="Reviews" />
-      </ListItemButton>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHAT)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <Tooltip title="Chats">
+        <ChatIcon color="secondary" />
+          </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Chat" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.REVIEWS)}>
+        <ListItemIcon>
+          <Tooltip title="Reviews">
+          <RateReview  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Reviews" />
       </ListItemButton>
       
     </React.Fragment>

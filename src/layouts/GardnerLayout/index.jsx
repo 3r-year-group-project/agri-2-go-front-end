@@ -77,7 +77,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-export default function GardenerLayout() {
+export default function GardnerLayout() {
   
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);

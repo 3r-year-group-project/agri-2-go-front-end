@@ -15,9 +15,16 @@ function App() {
     if (isAuthenticated) {
       axios.get(setApiEndPoint(`/user?userId=${user.user_id}`)).then(res =>{
           setUserType(res.userType);
+          /**
+           * TODO: add codes what needs to be done after user type is found
+           */
       }).catch(err => {
         console.log(err);
       });
+    }else{
+      /***
+       * TODO: add code what needs to be done if user is not authenticated
+       */
     }
   }, isAuthenticated);
   return (

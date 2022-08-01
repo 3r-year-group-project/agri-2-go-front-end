@@ -22,10 +22,11 @@ import { Button } from '@mui/material';
 import LoginPage from '../../pages/LoginPage';
 
 import logo from '../../assets/images/logo5.png';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import UserProfileIcon from '../UserProfileIcon';
 import {Stack } from '@mui/material';
-import { GARDENER_SECTIONS } from '../../constants';
-import GardenerListItems from './gardenerListItem';
+import { FARMER_SECTIONS } from '../../constants';
+
 
 const drawerWidth = 240;
 
@@ -77,32 +78,14 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-export default function GardenerLayout() {
+export default function SidePanel(Props) {
   
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
   const [openPane, setOpenPane] = React.useState();
   const location = useLocation();
 
-  React.useEffect(() => {
-    const params = location.pathname.split('/');
-
-    if (params.length === 3) {
-      const subComponent = params[2];
-      switch (subComponent) {
-        case GARDENER_SECTIONS.DASHBOARD:
-          setOpenPane();
-          break;
-        case GARDENER_SECTIONS.ORDERS:
-          setOpenPane();
-          break;
-
-        
-        default:
-          break;
-      }
-    }
-  }, [location]);
+  
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -165,18 +148,7 @@ export default function GardenerLayout() {
             {/* </Button> */}
            
             
-            <Button color="inherit" onClick={() => navigate('/#')}>
-            <IconButton
-          size="inherit"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircleIcon />
-        </IconButton>
-        
-            </Button>
+            <UserProfileIcon item2={Props.item2}/>
           </Stack>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}></Box>
         </Toolbar>
@@ -199,8 +171,8 @@ export default function GardenerLayout() {
           </IconButton>
         </Toolbar>
         <Divider />
-        <List component="nav">
-        <GardenerListItems/>
+        <List component="nav" >
+        {Props.list}
         </List>
       </Drawer>
       <Box
@@ -217,3 +189,9 @@ export default function GardenerLayout() {
     </Box>
   );
 }
+
+  
+        
+      
+
+ 

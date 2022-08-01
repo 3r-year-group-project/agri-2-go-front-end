@@ -1,21 +1,13 @@
 import * as React from 'react';
-
 import { useNavigate } from 'react-router-dom';
 
 import { useLocation } from 'react-router-dom';
-
-
-import AdminListItems from './adminListItem';
-
-import LoginPage from '../../pages/LoginPage';
-
-
-import { ADMIN_SECTIONS } from '../../constants';
+import { GARDENER_SECTIONS } from '../../constants';
+import GardenerListItems from './gardenerListItem';
 import SidePanel from '../../components/SidePanel';
 
+export default function GardenerLayout() {
 
-export default function AdminLayout() {
-  
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
   const [openPane, setOpenPane] = React.useState();
@@ -27,23 +19,22 @@ export default function AdminLayout() {
     if (params.length === 3) {
       const subComponent = params[2];
       switch (subComponent) {
-        case ADMIN_SECTIONS.DASHBOARD:
-          setOpenPane(<LoginPage/>);
+        case GARDENER_SECTIONS.DASHBOARD:
+          setOpenPane();
           break;
-        case ADMIN_SECTIONS.ORDERS:
-          setOpenPane(<LoginPage/>);
+        case GARDENER_SECTIONS.ORDERS:
+          setOpenPane();
           break;
 
-       
+        
         default:
           break;
       }
     }
   }, [location]);
 
- 
-
+  
   return (
-    <SidePanel list={<AdminListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<GardenerListItems/>} item2="Categories" item3="Dashboard"/>
   );
 }

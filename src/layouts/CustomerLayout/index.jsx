@@ -27,6 +27,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { CUSTOMER_SECTIONS } from '../../constants';
 
 import {Stack } from '@mui/material';
+import CalendarScedule from '../../components/Calendar';
 
 const drawerWidth = 240;
 
@@ -93,7 +94,7 @@ export default function CustomerLayout() {
       const subComponent = params[2];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
-          setOpenPane(<LoginPage/>);
+          setOpenPane(<CalendarScedule/>);
           break;
         case CUSTOMER_SECTIONS.ORDERS:
           setOpenPane(<LoginPage/>);

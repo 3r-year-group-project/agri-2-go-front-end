@@ -13,6 +13,7 @@ function Input(props) {
     type={props.type}
     id={props.id}
     autoComplete={props.autoComplete}
+    startAdornment={props.startAdornment}
   />
   </div>;
 }

@@ -189,9 +189,3 @@ export default function SidePanel(Props) {
     </Box>
   );
 }
-
-  
-        
-      
-
- 

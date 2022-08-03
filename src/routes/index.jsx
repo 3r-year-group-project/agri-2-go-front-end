@@ -13,8 +13,10 @@ import CategoryPage from "../pages/CategoryPage";
 
 
 export default function Router() {
+
   const isAuthenticated='1';
   const userRole='2';
+
   // admin=1
   // customer=2
   // farmer=3

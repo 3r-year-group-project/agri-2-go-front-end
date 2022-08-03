@@ -1,6 +1,5 @@
-import React from "react";
 import { Typography } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import React from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/Navbar";
 import { CssBaseline} from '@mui/material';
@@ -13,8 +12,6 @@ import background from "../../assets/images/bg4.jpg"
 
 
 export default function HomePage(params) {
-
-    const navigate = useNavigate();
     const isAuthenticated='0';
     return(
     <React.Fragment>
@@ -55,35 +52,25 @@ export default function HomePage(params) {
                 Welcome to 'Agri2Go'. We are...
             </Typography>
             </div>
-            {isAuthenticated==='1' && <div><Button
-                  color="secondary"
-                  variant="contained"
-                  
-                  sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
-                >
-                 <b> LOGOUT</b> 
-                </Button></div> }
-            {
-                isAuthenticated==='0' && <div>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={() => navigate('/signup')}
-                  sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
-                >
-                 <b> TRY FOR FREE</b> 
-                </Button>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={() => navigate('/login')}
-                  sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
-                >
-                 <b> LOGIN</b> 
-                </Button>
-                </div>
-            }
             
+            <div>
+            <Button
+              color="secondary"
+              variant="contained"
+              
+              sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
+            >
+             <b> TRY FOR FREE</b> 
+            </Button>
+            <Button
+              color="secondary"
+              variant="contained"
+              
+              sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
+            >
+             <b> LOGIN</b> 
+            </Button>
+            </div>
             </div>
         </div>
         <Footer/>

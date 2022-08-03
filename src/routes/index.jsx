@@ -11,9 +11,10 @@ import TransporterLayout from "../layouts/TransporterLayout";
 import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 
+
 export default function Router() {
-  const isAuthenticated='0';
-  const userRole='1';
+  const isAuthenticated='1';
+  const userRole='2';
   // admin=1
   // customer=2
   // farmer=3
@@ -28,6 +29,7 @@ export default function Router() {
         <BrowserRouter>
         <Routes>
         <Route path="/" element={<HomePage/>}/>
+       
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/> */}
         <Route path="/admin/dash/:page" element={isAuthenticated==='1' && userRole==='1'?<AdminLayout/>:<HomePage/>}/>

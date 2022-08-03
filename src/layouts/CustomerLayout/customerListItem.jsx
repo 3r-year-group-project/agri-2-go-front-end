@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -21,7 +22,7 @@ export default function CustomerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/customer/${page}`);
+    navigate(`/customer/dash/${page}`);
   }
   return (
     <React.Fragment>

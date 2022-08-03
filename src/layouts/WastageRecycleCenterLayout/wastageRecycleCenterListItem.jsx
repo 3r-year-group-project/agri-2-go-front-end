@@ -18,7 +18,7 @@ export default function WastageRecycleCenterListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/wastageRecycleCenter/${page}`);
+    navigate(`/wastageRecycleCenter/dash/${page}`);
   }
   return (
     <React.Fragment>

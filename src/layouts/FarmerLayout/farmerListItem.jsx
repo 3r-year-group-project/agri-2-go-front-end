@@ -24,7 +24,7 @@ export default function GardenerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/gardener/${page}`);
+    navigate(`/farmer/dash/${page}`);
   }
   return (
     <React.Fragment>

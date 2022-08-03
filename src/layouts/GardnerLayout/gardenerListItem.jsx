@@ -23,7 +23,7 @@ export default function GardenerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/gardener/${page}`);
+    navigate(`/gardener/dash/${page}`);
   }
   return (
     <React.Fragment>

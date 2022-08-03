@@ -18,7 +18,7 @@ export default function TransporterListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/transporter/${page}`);
+    navigate(`/transporter/dash/${page}`);
   }
   return (
     <React.Fragment>

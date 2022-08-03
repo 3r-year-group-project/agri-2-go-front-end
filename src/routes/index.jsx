@@ -10,12 +10,15 @@ import GrocerySellerLayout from "../layouts/GrocerySellerLayout";
 import TransporterLayout from "../layouts/TransporterLayout";
 import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
+import RegisterPage from "../pages/RegisterPage";
+import ContinueRegistration from "../pages/ContinueRegistration";
+
 
 
 export default function Router() {
 
   const isAuthenticated='1';
-  const userRole='2';
+  const userRole='0';
 
   // admin=1
   // customer=2
@@ -32,6 +35,8 @@ export default function Router() {
         <Routes>
         <Route path="/" element={<HomePage/>}/>
        
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/continueregistration" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/> */}
         <Route path="/admin/dash/:page" element={isAuthenticated==='1' && userRole==='1'?<AdminLayout/>:<HomePage/>}/>

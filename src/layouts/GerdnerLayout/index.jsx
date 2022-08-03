@@ -26,6 +26,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {Stack } from '@mui/material';
 import { GARDENER_SECTIONS } from '../../constants';
 import GardenerListItems from './gardenerListItem';
+import GardenerDashboard from '../../pages/GardenerDashboard';
+import GardenerAddCrop from '../../pages/GardenerAddCrop';
+import ChatApp from '../../components/chat';
+
 
 const drawerWidth = 240;
 
@@ -93,11 +97,24 @@ export default function GardenerLayout() {
         case GARDENER_SECTIONS.DASHBOARD:
           setOpenPane();
           break;
+        case GARDENER_SECTIONS.ADDCROP:
+          setOpenPane(<font color='black'><GardenerAddCrop/></font>);
+          break;
+        case GARDENER_SECTIONS.SALES:
+          setOpenPane();
+          break;
         case GARDENER_SECTIONS.ORDERS:
           setOpenPane();
           break;
-
-        
+        case GARDENER_SECTIONS.TRANSACTIONS:
+          setOpenPane();
+          break;
+        case GARDENER_SECTIONS.REVIEWS:
+          setOpenPane();
+          break;
+        case GARDENER_SECTIONS.CHAT:
+          setOpenPane(<ChatApp/>);
+          break;
         default:
           break;
       }

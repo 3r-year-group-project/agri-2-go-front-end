@@ -1,1 +1,0 @@
-#react routes should be in this folder

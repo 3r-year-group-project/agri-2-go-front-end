@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import Router from "./routes";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './services/utils/theme';
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
+import { setApiPath } from './services/utils/api/index';
+
 
 function App() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [userType, setUserType] = useState(0);
+  useEffect(()=>{
+    if (isAuthenticated) {
+      axios.get(setApiPath(`/user?userId=${user.user_id}`)).then(res =>{
+          setUserType(res.userType);
+          /**
+           * TODO: add codes what needs to be done after user type is found
+           */
+      }).catch(err => {
+        console.log(err);
+      });
+    }else{
+      /***
+       * TODO: add code what needs to be done if user is not authenticated
+       */
+    }
+  }, isAuthenticated);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      
+  <Router/>
+
+  </ThemeProvider>
   );
 }
 

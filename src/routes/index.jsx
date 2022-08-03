@@ -12,8 +12,8 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 
 export default function Router() {
-  const isAuthenticated='0';
-  const userRole='0';
+  const isAuthenticated='1';
+  const userRole='2';
   // admin=1
   // customer=2
   // farmer=3

@@ -36,7 +36,7 @@ export default function CustomerLayout() {
           break;
 
         case CUSTOMER_SECTIONS.CART:
-          setOpenPane(<RegisterPage/>);
+          setOpenPane();
           break;
         case CUSTOMER_SECTIONS.TRANSACTIONS:
           setOpenPane();

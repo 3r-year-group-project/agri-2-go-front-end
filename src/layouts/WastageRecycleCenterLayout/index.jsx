@@ -17,8 +17,8 @@ export default function WastageRecyclecenterLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case WASTAGE_RECYCLE_CENTER_SECTIONS.DASHBOARD:
           setOpenPane(<LoginPage/>);
@@ -36,6 +36,6 @@ export default function WastageRecyclecenterLayout() {
 
  
   return (
-    <SidePanel list={<WastageRecycleCenterListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<WastageRecycleCenterListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
   );
 }

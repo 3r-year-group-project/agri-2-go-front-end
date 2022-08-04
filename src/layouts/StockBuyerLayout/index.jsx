@@ -19,8 +19,8 @@ export default function StockBuyerLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case STOCK_BUYER_SECTIONS.DASHBOARD:
           setOpenPane();
@@ -39,6 +39,6 @@ export default function StockBuyerLayout() {
  
 
   return (
-    <SidePanel list={<StockBuyerListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<StockBuyerListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
   );
 }

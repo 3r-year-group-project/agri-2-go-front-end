@@ -82,7 +82,7 @@ export default function SidePanel(Props) {
   
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
-  const [openPane, setOpenPane] = React.useState();
+ 
   const location = useLocation();
 
   
@@ -184,7 +184,7 @@ export default function SidePanel(Props) {
         }}
       >
         <Toolbar />
-      {openPane}
+      {Props.page}
       </Box>
     </Box>
   );

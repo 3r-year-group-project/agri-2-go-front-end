@@ -11,8 +11,7 @@ import LoginPage from '../../pages/LoginPage';
 import { CUSTOMER_SECTIONS } from '../../constants';
 
 import SidePanel from '../../components/SidePanel';
-import OrderTables from '../../pages/OrderTables';
-import HomePage from '../../pages/HomePage';
+
 import RegisterPage from '../../pages/RegisterPage';
 
 
@@ -33,7 +32,7 @@ export default function CustomerLayout() {
           setOpenPane(<LoginPage/>);
           break;
         case CUSTOMER_SECTIONS.ORDERS:
-          setOpenPane(<OrderTables/>);
+          setOpenPane();
           break;
 
         case CUSTOMER_SECTIONS.CART:

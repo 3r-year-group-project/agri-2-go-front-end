@@ -16,7 +16,7 @@ export default function HomePage(params) {
 
 
   const isAuthenticated='1';
-  const userRole='0';
+  const userRole='2';
 
 
 if (isAuthenticated==1) {

@@ -16,8 +16,8 @@ export default function GrocerySellerLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case GROCERY_SELLER_SECTIONS.DASHBOARD:
           setOpenPane();
@@ -35,6 +35,6 @@ export default function GrocerySellerLayout() {
 
  
   return (
-    <SidePanel list={<GrocerySellerListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<GrocerySellerListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
   );
 }

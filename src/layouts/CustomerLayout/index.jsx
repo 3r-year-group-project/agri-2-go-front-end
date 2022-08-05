@@ -13,6 +13,7 @@ import { CUSTOMER_SECTIONS } from '../../constants';
 import SidePanel from '../../components/SidePanel';
 
 
+
 export default function CustomerLayout() {
   
   const navigate = useNavigate();
@@ -23,8 +24,8 @@ export default function CustomerLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
           setOpenPane(<LoginPage/>);
@@ -47,6 +48,6 @@ export default function CustomerLayout() {
 
  
   return (
-    <SidePanel list={<CustomerListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<CustomerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

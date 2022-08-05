@@ -19,8 +19,8 @@ export default function TransporterLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case TRANSPORTER_SECTIONS.DASHBOARD:
           setOpenPane();
@@ -39,6 +39,6 @@ export default function TransporterLayout() {
  
 
   return (
-    <SidePanel list={<TransporterListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<TransporterListItems/>} item2="Categories"  page={openPane}/>
   );
 }

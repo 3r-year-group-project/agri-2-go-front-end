@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { Divider } from '@mui/material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { useNavigate } from 'react-router-dom';
@@ -35,6 +35,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
         <Tooltip title="Find Sellers">
@@ -43,6 +44,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Find Sellers" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ADDCART)}>
         <ListItemIcon>
         <Tooltip title="Cart">
@@ -51,6 +53,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Cart" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.MYCROP)}>
         <ListItemIcon>
         <Tooltip title="My Crops">
@@ -59,13 +62,14 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="My Crops" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.SALES)}>
         <ListItemIcon>
           <Tooltip title="Sales"><ReceiptIcon color="secondary" /></Tooltip>          
         </ListItemIcon>
         <ListItemText primary="Sales" />
       </ListItemButton>
-
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <Tooltip title="Orders">
@@ -74,6 +78,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
+      <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
@@ -87,6 +92,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHAT)}>
         <ListItemIcon>
           <Tooltip title="Chats">
@@ -95,6 +101,7 @@ export default function GardenerListItems() {
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <Tooltip title="Reviews">

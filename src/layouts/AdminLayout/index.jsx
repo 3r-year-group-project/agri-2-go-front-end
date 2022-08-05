@@ -24,8 +24,8 @@ export default function AdminLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case ADMIN_SECTIONS.DASHBOARD:
           setOpenPane(<LoginPage/>);
@@ -44,6 +44,6 @@ export default function AdminLayout() {
  
 
   return (
-    <SidePanel list={<AdminListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<AdminListItems/>} item2="Categories" item3="Dashboard"  page={openPane}/>
   );
 }

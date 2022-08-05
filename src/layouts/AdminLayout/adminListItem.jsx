@@ -33,19 +33,21 @@ export default function AdminListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
-
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.CART)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Cart" />
       </ListItemButton>
+      <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations

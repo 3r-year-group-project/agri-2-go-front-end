@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { GARDENER_SECTIONS } from '../../constants';
 import GardenerListItems from './gardenerListItem';
 import SidePanel from '../../components/SidePanel';
+import ChatApp from '../../components/chat';
 
 export default function GardenerLayout() {
 
@@ -24,6 +25,9 @@ export default function GardenerLayout() {
           break;
         case GARDENER_SECTIONS.ORDERS:
           setOpenPane();
+          break;
+        case GARDENER_SECTIONS.CHAT:
+          setOpenPane(<ChatApp/>);
           break;
 
         

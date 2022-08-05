@@ -12,10 +12,6 @@ import { CssBaseline, Stack, Typography } from '@mui/material';
 
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-
-
-
-
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
@@ -32,10 +28,11 @@ import Logo from '../../components/Logo/logo';
 
 
 
+
 export default function LoginPage() {
 
   const navigate = useNavigate();
-
+  const [searchItem, setSearchItem] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -67,6 +64,7 @@ return (
      
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3,mb:15}}>
             <Grid container spacing={2}>
+            
               <Grid item xs={12} >
                 <Input
                   required
@@ -115,12 +113,16 @@ return (
                 </Grid>
                 <Grid item color={"#075E54"}xs={6} md={6}>
                 <Typography variant='subtitle1'>Don't have an account?</Typography>
-                <Link href="/" variant="subtitle1" >
+                <Link href="/signup" variant="subtitle1" >
                    Create Account
                 </Link>
                 
+                
               </Grid>
             </Grid>
+ 
+
+
             
           </Box>
           

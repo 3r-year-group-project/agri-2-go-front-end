@@ -1,1 +1,0 @@
-#this folder should contain images of the application

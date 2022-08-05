@@ -18,7 +18,7 @@ export default function GrocerySellerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/groceryseller/${page}`);
+    navigate(`/groceryseller/dash/${page}`);
   }
   return (
     <React.Fragment>

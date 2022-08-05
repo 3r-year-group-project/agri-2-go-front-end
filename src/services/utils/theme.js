@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    type: 'dark',
+    type: 'light',
     primary: {
       main: '#128C7E',
     // main: '#075E54',
@@ -34,9 +34,16 @@ const theme = createTheme({
     subtitle1: {
       fontSize: 14,
     },
+   
     body1: {
       fontWeight: 500,
+      
     },
+    body2: {
+      fontWeight: 500,
+      color:'black',
+    },
+   
     
   },
   step: {

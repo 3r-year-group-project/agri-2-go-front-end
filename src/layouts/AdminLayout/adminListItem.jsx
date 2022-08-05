@@ -18,9 +18,12 @@ import { ADMIN_SECTIONS } from '../../constants';
 
 export default function AdminListItems() {
   const navigate = useNavigate();
-
+/**
+ * change url according to click
+ * @param {@page} page 
+ */
   function routeToPage(page) {
-    navigate(`/admin/${page}`);
+    navigate(`/admin/dash/${page}`);
   }
   return (
     <React.Fragment>

@@ -18,7 +18,7 @@ export default function StockBuyerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
-    navigate(`/stockbuyer/${page}`);
+    navigate(`/stockbuyer/dash/${page}`);
   }
   return (
     <React.Fragment>

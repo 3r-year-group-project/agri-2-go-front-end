@@ -27,10 +27,10 @@ export default function CustomerLayout() {
       const subComponent = params[2];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<LoginPage/>);
           break;
         case CUSTOMER_SECTIONS.ORDERS:
-          setOpenPane(<LoginPage/>);
+          setOpenPane();
           break;
 
         case CUSTOMER_SECTIONS.CART:

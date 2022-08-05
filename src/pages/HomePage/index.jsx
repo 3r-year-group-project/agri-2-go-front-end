@@ -6,6 +6,7 @@ import { CssBaseline} from '@mui/material';
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import background from "../../assets/images/bg4.jpg"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -13,10 +14,10 @@ import background from "../../assets/images/bg4.jpg"
 
 export default function HomePage(params) {
   const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
 
-
-  const isAuthenticated='1';
-  const userRole='0';
+  const isAuthenticated= 0;
+  const userRole=1;
 
 
 if (isAuthenticated==1) {
@@ -107,6 +108,7 @@ else{
               variant="contained"
               
               sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
+              onClick={() => loginWithRedirect()}
             >
              <b> LOGIN</b> 
             </Button>

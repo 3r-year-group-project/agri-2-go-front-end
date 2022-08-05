@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {Routes,Route,Navigate,BrowserRouter} from 'react-router-dom';
 import HomePage from "../pages/HomePage";
 import AdminLayout from "../layouts/AdminLayout";
@@ -12,13 +12,32 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
+import { setApiPath } from '../services/utils/api/index';
 
 
 
 export default function Router() {
 
-  const isAuthenticated='1';
-  const userRole='0';
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [isAuth,setIsAuth] = useState(0);
+  const [userRole, setUserRole] = useState(0);
+  useEffect(()=>{
+    if (isAuthenticated) {
+      axios.get(setApiPath(`/api/users/role/{user.user_id}`)).then(res =>{
+          /**
+           * TODO: add codes what needs to be done after user type is found
+           */
+      }).catch(err => {
+        console.log(err);
+      });
+    }else{
+      /***
+       * TODO: add code what needs to be done if user is not authenticated
+       */
+    }
+  }, isAuthenticated);
 
   // admin=1
   // customer=2
@@ -38,7 +57,7 @@ export default function Router() {
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/continueregistration" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
-        <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/> */}
+        <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={isAuthenticated==='1' && userRole==='1'?<AdminLayout/>:<HomePage/>}/>
         <Route path="/customer/dash/:page" element={isAuthenticated==='1' && userRole==='2'?<CustomerLayout/>:<HomePage/>}/>
         <Route path="/customer/category" element={isAuthenticated==='1' && userRole==='2'?<CategoryPage/>:<HomePage/>}/>

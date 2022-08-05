@@ -16,6 +16,7 @@ import ContinueRegistration from "../pages/ContinueRegistration";
 
 
 
+
 export default function Router() {
 
   const isAuthenticated='1';
@@ -35,7 +36,7 @@ export default function Router() {
         <BrowserRouter>
         <Routes>
         <Route path="/" element={<HomePage/>}/>
-       
+        
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/continueregistration" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>

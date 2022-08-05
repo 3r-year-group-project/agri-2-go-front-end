@@ -39,6 +39,6 @@ export default function StockBuyerLayout() {
  
 
   return (
-    <SidePanel list={<StockBuyerListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
+    <SidePanel list={<StockBuyerListItems/>} item2="Categories" page={openPane}/>
   );
 }

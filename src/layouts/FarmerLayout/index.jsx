@@ -58,6 +58,6 @@ export default function FarmerLayout() {
  
 
   return (
-    <SidePanel list={<FarmerListItems/>} item2="Categories" item3="Dashboard"  page={openPane}/>
+    <SidePanel list={<FarmerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

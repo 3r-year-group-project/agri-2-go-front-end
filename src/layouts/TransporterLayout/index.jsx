@@ -39,6 +39,6 @@ export default function TransporterLayout() {
  
 
   return (
-    <SidePanel list={<TransporterListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
+    <SidePanel list={<TransporterListItems/>} item2="Categories"  page={openPane}/>
   );
 }

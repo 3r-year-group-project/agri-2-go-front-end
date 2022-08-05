@@ -35,6 +35,6 @@ export default function GrocerySellerLayout() {
 
  
   return (
-    <SidePanel list={<GrocerySellerListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
+    <SidePanel list={<GrocerySellerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

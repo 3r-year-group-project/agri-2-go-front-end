@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { Divider } from '@mui/material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { useNavigate } from 'react-router-dom';
@@ -28,28 +28,28 @@ export default function WastageRecycleCenterListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Schedule" />
       </ListItemButton>
-
-    
-
-      
+      <Divider/> 
       <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.CHAT)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />

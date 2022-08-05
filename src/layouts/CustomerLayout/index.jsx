@@ -12,7 +12,6 @@ import { CUSTOMER_SECTIONS } from '../../constants';
 
 import SidePanel from '../../components/SidePanel';
 
-import RegisterPage from '../../pages/RegisterPage';
 
 
 export default function CustomerLayout() {
@@ -49,6 +48,6 @@ export default function CustomerLayout() {
 
  
   return (
-    <SidePanel list={<CustomerListItems/>} item2="Categories" item3="Dashboard" page={openPane}/>
+    <SidePanel list={<CustomerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

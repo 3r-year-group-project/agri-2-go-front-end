@@ -35,6 +35,6 @@ export default function GardenerLayout() {
 
   
   return (
-    <SidePanel list={<GardenerListItems/>} item2="Categories" item3="Dashboard"  page={openPane}/>
+    <SidePanel list={<GardenerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

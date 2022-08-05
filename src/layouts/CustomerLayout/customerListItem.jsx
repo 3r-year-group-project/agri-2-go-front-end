@@ -34,14 +34,16 @@ export default function CustomerListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CART)}>
         <ListItemIcon>
           <Tooltip title="Cart">
           <ShoppingCartIcon color="secondary" />
           </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="Cart" />
+       <ListItemText primary="Cart" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <Tooltip title="Orders">
@@ -50,6 +52,7 @@ export default function CustomerListItems() {
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
+      <Divider/>
 
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
@@ -63,6 +66,7 @@ export default function CustomerListItems() {
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
 
       <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.TRANSACTIONS)}>
         <ListItemIcon>

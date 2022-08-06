@@ -24,11 +24,7 @@ const theme = createTheme({
       secondary: 'gray',
     },
     //#34B7F1
-    divider: {
-      default:'#ffffff',
-     
-      secondary: 'gray',
-    },
+   
   },
   typography: {
     subtitle1: {

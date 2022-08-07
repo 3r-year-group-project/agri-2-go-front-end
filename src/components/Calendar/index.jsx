@@ -1,4 +1,4 @@
-import { Button, requirePropFactory } from '@mui/material';
+import { Button, requirePropFactory, TextField, Typography } from '@mui/material';
 import { Fragment } from 'react';
 import { Calendar,dateFnsLocalizer } from 'react-big-calendar';
 import format from 'date-fns/format';
@@ -57,22 +57,22 @@ export default function CalendarScedule(){
     return(
 
       <>
-      <h1>Calendar</h1>
-      <h2>Add New Event</h2>
+      <Typography variant='h1' style={{color:"black"}}>Calendar</Typography> 
+      <h2 style={{color:"black"}}>Add New Event</h2>
       <div>
-        <input type="text" placeholder='Add Title' style={{width: "20%" , marginRight: "10px"}}
+        <TextField variant="outlined" sx={{ input: { color: 'black' } , margin: '10px' , width:'20%'}} type="text" placeholder='Add Title'
         value = {newEvent.title} onChange = {(e) => setNewEvent({...newEvent,title:e.target.value})}
         />
 
-        <DatePicker placeholderText='Start Date' style = {{marginRight: "10px"}}
+        <DatePicker placeholderText='Start Date' 
         selected = {newEvent.start} onChange = {(start) => setNewEvent({...newEvent,start})}
         />
 
-        <DatePicker placeholderText='End Date' style = {{marginRight: "10px"}}
+        <DatePicker placeholderText='End Date' 
         selected = {newEvent.end} onChange = {(end) => setNewEvent({...newEvent,end})}
         />
 
-        <button style={{marginTop: "10px"}} onClick={handleEvent}>Add Event</button>
+        <Button variant="contained" style={{margin: "10px"}} onClick={handleEvent}>Add Event</Button>
       </div>
       <Calendar localizer={localizer}
         events={allEvents}

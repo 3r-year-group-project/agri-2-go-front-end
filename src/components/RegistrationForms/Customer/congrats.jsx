@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import check from '../../assets/images/check.png';
+import check from '../../../assets/images/check.png'
 
 export default function CongratsMessage(){
     return(

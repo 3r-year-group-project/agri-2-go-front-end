@@ -2,7 +2,7 @@ import React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import { Divider } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -28,19 +28,21 @@ export default function StockBuyerListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Schedule" />
       </ListItemButton>
-
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItemButton>
+      <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
@@ -52,18 +54,21 @@ export default function StockBuyerListItems() {
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.CHAT)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYPROFIT)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />

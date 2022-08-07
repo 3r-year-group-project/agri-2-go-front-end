@@ -2,7 +2,7 @@ import React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import { Divider } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -28,13 +28,14 @@ export default function TransporterListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.TRIPSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Trip Schedule" />
       </ListItemButton>
-      
+      <Divider/>
 
       <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHAT)}>
         <ListItemIcon>
@@ -42,6 +43,7 @@ export default function TransporterListItems() {
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
@@ -53,6 +55,7 @@ export default function TransporterListItems() {
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />

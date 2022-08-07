@@ -13,6 +13,15 @@ import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
 
+import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
+import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
+import StockBuyerRegistrationForm from "../components/RegistrationForms/StockBuyer";
+import GrocerySellerRegistrationForm from "../components/RegistrationForms/GrocerySeller";
+import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
+import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
+import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+
+
 
 
 
@@ -29,6 +38,15 @@ export default function Router() {
         <Route path="/" element={<HomePage />}/>
        
         <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/register/farmer" element={<FarmerRegistrationForm/>}/>
+        <Route path="/register/gardener" element={<GardenerRegistrationForm/>}/>
+        <Route path="/register/stockbuyer" element={<StockBuyerRegistrationForm/>}/>
+        <Route path="/register/groceryseller" element={<GrocerySellerRegistrationForm/>}/>
+        <Route path="/register/customer" element={<CustomerRegistrationForm/>}/>
+        <Route path="/register/wastagerecyclecenter" element={<WastageRecycleCenterRegistrationForm/>}/>
+        <Route path="/register/transporter" element={<TransporterRegistrationForm/>}/>
+        
+        
         <Route path="/continueregistration" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}

@@ -8,20 +8,19 @@ import { Box, CssBaseline, Typography } from "@mui/material";
 import StepOne from "./stepOne";
 import StepTwo from "./stepTwo";
 import StepThree from "./stepThree";
-import StepFour from "./stepFour";
 
-import Logo from '../../components/Logo/logo';
+import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
 import { Link } from "react-router-dom";
 
 
-export default function RegistrationForm() {
+export default function WastageRecycleCenterRegistrationForm() {
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
     function getSteps() {
-        return ["", "", "", ""];
-        // return ["CHOOSE ROLE", "CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
+        return ["", "", ""];
+        // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
     }
 
     const handleNext = () => {
@@ -42,8 +41,6 @@ export default function RegistrationForm() {
                 return <StepTwo/>;
             case 2:
                 return <StepThree/>;
-            case 3:
-                return <StepFour/>;
             default: return "Unknown Step";
         }
     } 
@@ -93,8 +90,8 @@ export default function RegistrationForm() {
                     alignItems="flex-end"
                     >
                         <Button size="medium" onClick={handleBack}>
-                            Back
-                            {/* {activeStep === 0 ? <Link to={'/register'}>Back</Link> : "Back"} */}
+                            {/* Back */}
+                            {activeStep === 0 ? <Link to={'/register'} style={{ textDecoration: 'none' }}>Back</Link> : "Back"}
                         </Button>
 
                         <Button variant="contained" size="medium" onClick={handleNext}>

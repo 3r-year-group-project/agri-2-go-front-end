@@ -1,14 +1,16 @@
-import React from "react";
-import { Typography, Grid, Card, Button, Container} from "@mui/material";
+import React, { useState } from "react";
+import { Link, Route, useNavigate } from "react-router-dom";
+import { Typography, Grid, Card, Button, Container, CssBaseline, Box, FormControl} from "@mui/material";
 import 'react-tippy/dist/tippy.css';
  
 import farmer from '../../assets/images/farmer.png';
 import gardener from '../../assets/images/gardener.png';
 import stockbuyer from '../../assets/images/stockbuyer.png';
 import groceryseller from '../../assets/images/groceryseller.png';
-import wastagecenter from '../../assets/images/recyclecenter.png';
+import wastagerecyclecenter from '../../assets/images/wastagerecyclecenter.png';
 import transporter from '../../assets/images/transporter.png';
 import customer from '../../assets/images/customer.png';
+
 
 import {
     Tooltip,
@@ -22,16 +24,54 @@ const inputStyles = {
 };
 
 
-export default function StepOne() {
-        return (
+export default function UserRoleSelector() {
+    const [selected, setSelected] = useState('farmer');
+
+    const handleChange=(e)=>{
+        setSelected( e.target.value);
+     }
+
+    const navigate = useNavigate();
+
+    const redirect = () => {
+        switch(selected) {
+            case 'farmer':
+                return navigate('/register/farmer');    
+            case 'gardener':
+                return navigate('/register/gardener');   
+            case 'stockbuyer':
+                return navigate('/register/stockbuyer');
+            case 'groceryseller':
+                return navigate('/register/groceryseller');    
+            case 'customer':
+                return navigate('/register/customer');
+            case 'wastagerecyclecenter':
+                return navigate('/register/wastagerecyclecenter'); 
+            case 'transporter':
+                return navigate('/register/transporter');               
+            default: return "Unknown Step";
+        }
+    } 
+
+           return (
             <div>
-                <Container>
+                <CssBaseline/>                
+                <Box
+                    sx={{
+                        width: '50%',
+                        m: '6rem auto',
+                        border: '1px solid #FFFFFF',
+                        p: 2,
+                        boxShadow: 3,
+                        borderRadius: 2,
+                    }}
+                >    
                 <br /> 
                     <Typography variant="h6" align="center" sx={{color: '#128C7E'}}>
                         Select User Role
                     </Typography>
                     <br />
-
+                    <form>
                     <Grid item container pr={5} pl={5} spacing={4} direction="row" alignItems="center" justifyContent="center" display="flex">        
                    
                             <Grid item xs={12} md={4}>
@@ -40,10 +80,11 @@ export default function StepOne() {
                                     theme="light"
                                 >
                                     <label>
-                                        <Card  
+                                        <Card
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
@@ -51,7 +92,7 @@ export default function StepOne() {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
                                             <Typography align="center" variant="body2" sx={{color:'#000000'}}>Farmer</Typography>
-                                            <input type="radio" name="test" value="farmer" checked/>
+                                            <input type="radio" name="user" value="farmer" onChange={handleChange}/>
                                             <img src={farmer} alt="farmer" width="100" height="100"/>
                                         </Card>
                                     </label>
@@ -64,19 +105,20 @@ export default function StepOne() {
                                     theme="light"
                                 >
                                     <label>
-                                        <Card  
+                                        <Card
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
                                             "&:hover": {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
-                                            <Typography align="center" variant="body2" sx={{color:'#000000'}}>Gardner</Typography>
-                                            <input type="radio" name="test" value="gardner" checked/>
-                                            <img src={gardener} alt="gardner" width="100" height="100"/>
+                                            <Typography align="center" variant="body2" sx={{color:'#000000'}}>Gardener</Typography>
+                                            <input type="radio" name="user" value="gardener" onChange={handleChange}/>
+                                            <img src={gardener} alt="gardener" width="100" height="100"/>
                                         </Card>
                                     </label>
                                 </Tooltip>
@@ -92,6 +134,7 @@ export default function StepOne() {
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
@@ -99,7 +142,7 @@ export default function StepOne() {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
                                             <Typography align="center" variant="body2" sx={{color:'#000000'}}>Stock Buyer</Typography>
-                                            <input type="radio" name="test" value="stockbuyer" checked/>
+                                            <input type="radio" name="user" value="stockbuyer" onChange={handleChange}/>
                                             <img src={stockbuyer} alt="stockbuyer" width="100" height="100"/>
                                         </Card>
                                     </label>
@@ -116,6 +159,7 @@ export default function StepOne() {
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
@@ -123,7 +167,7 @@ export default function StepOne() {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
                                             <Typography align="center" variant="body2" sx={{color:'#000000'}}>Grocery Seller</Typography>
-                                            <input type="radio" name="test" value="groceryseller" checked/>
+                                            <input type="radio" name="user" value="groceryseller" onChange={handleChange}/>
                                             <img src={groceryseller} alt="groceryseller" width="100" height="100"/>
                                         </Card>
                                     </label>
@@ -140,6 +184,7 @@ export default function StepOne() {
                                     sx={{
                                         padding: '10px 35px',
                                         border: '1px solid',
+                                        cursor: 'pointer',
                                         borderRadius: 2,
                                         backgroundColor: '#FFFFFF', 
                                         boxShadow: '1',
@@ -147,7 +192,7 @@ export default function StepOne() {
                                         backgroundColor: "#EAEAEA",},
                                     }}>
                                         <Typography align="center" variant="body2" sx={{color:'#000000'}}>Customer</Typography>
-                                        <input type="radio" name="test" value="customer" checked/>
+                                        <input type="radio" name="user" value="customer" onChange={handleChange}/>
                                         <img src={customer} alt="customer" width="100" height="100"/>
                                     </Card>
                                 </label>
@@ -164,15 +209,16 @@ export default function StepOne() {
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
                                             "&:hover": {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
-                                            <Typography align="center" variant="body2" sx={{color:'#000000'}}>Wastage Recycle</Typography>
-                                            <input type="radio" name="test" value="wastagecenter" checked/>
-                                            <img src={wastagecenter} alt="wastagecenter" width="100" height="100"/>
+                                            <Typography align="center" variant="body2" sx={{color:'#000000'}}>Wastage Recycle Center</Typography>
+                                            <input type="radio" name="user" value="wastagerecyclecenter" onChange={handleChange}/>
+                                            <img src={wastagerecyclecenter} alt="wastagerecyclecenter" width="100" height="100"/>
                                         </Card>
                                     </label>
                                 </Tooltip>
@@ -188,6 +234,7 @@ export default function StepOne() {
                                         sx={{
                                             padding: '10px 35px',
                                             border: '1px solid',
+                                            cursor: 'pointer',
                                             borderRadius: 2,
                                             backgroundColor: '#FFFFFF', 
                                             boxShadow: '1',
@@ -195,17 +242,18 @@ export default function StepOne() {
                                             backgroundColor: "#EAEAEA",},
                                         }}>
                                             <Typography align="center" variant="body2" sx={{color:'#000000'}}>Transporter</Typography>
-                                            <input type="radio" name="test" value="transporter" checked/>
+                                            <input type="radio" name="user" value="transporter" onChange={handleChange}/>
                                             <img src={transporter} alt="transporter" width="100" height="100"/>
                                         </Card>
                                     </label>
                                 </Tooltip>
                             </Grid>    
                         </Grid>
-                    {/* <Button sx={{mt:4, width: 400, align:"center"}} variant="contained"  component={Link} to={'/register/form'}>CONFIRM USER ROLE</Button> */}
-         
-            </Container>
-            
+                        {/* <p>You role is {selected}</p> */}
+                    <Button type='submit' sx={{mt:4}} fullWidth variant="contained"  onClick={redirect}>CONFIRM USER ROLE</Button>
+                    </form>
+                    </Box>
+               
         </div>
     );
 }

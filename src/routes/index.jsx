@@ -12,6 +12,7 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
+import PageNotFound from "../pages/PageNotFound";
 
 
 
@@ -35,6 +36,7 @@ export default function Router() {
        
         <BrowserRouter>
         <Routes>
+        
         <Route path="/" element={<HomePage/>}/>
         
         <Route path="/register" element={<RegisterPage/>}/>
@@ -52,6 +54,8 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={isAuthenticated==='1' && userRole==='6'?<GrocerySellerLayout/>:<HomePage/>}/>
         <Route path="/transporter/dash/:page" element={isAuthenticated==='1' && userRole==='7'?<TransporterLayout/>:<HomePage/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={isAuthenticated==='1' && userRole==='8'?<WastageRecyclecenterLayout/>:<HomePage/>}/>
+        <Route path="*" element={<PageNotFound/>}/>
+        
         </Routes>
         </BrowserRouter>
    

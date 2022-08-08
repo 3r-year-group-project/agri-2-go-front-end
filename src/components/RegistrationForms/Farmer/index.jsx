@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -18,29 +18,90 @@ export default function FarmerRegistrationForm() {
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
+    //form states
+    const [stepState,setStepState] = useState([false,false,false]);
+   
+    //form Data
+    var fData = {
+        paymentPlan : "",
+        cardNumber : "",
+        holder: "",
+        expiryDate: "",
+        cvv : ""
+    };
+    
+    const handleSubmitComponent1 = (pay) => {
+       setStepState((prev) => {
+        return [
+            true,
+            ...prev.slice(1, prev.length - 1),
+        ]
+       });
+       fData.paymentPlan = pay; 
+    };
+
+    
+   const handleSubmitComponent2 = (ob) => {
+    setStepState((prev) => {
+         return [
+           prev[0],
+           true,
+           prev[2],
+        ]
+       });
+       fData.cvv = ob.cvv;
+       fData.holder = ob.holder;
+       fData.expiry = ob.expiry;
+       fData.cardNumber = ob.cardNumber;
+       console.log("form data" , fData);
+       
+    }
+    ;
+
+    const handleSubmitComponent3 = (ob) => {
+        setStepState((prev) => {
+        return [
+           prev[0],
+           prev[1],
+           true,
+        ]
+    });
+}
+   
+       
+  
+
+    const updateDatabase = () => {
+        //send user update query to the database
+    }
+
     function getSteps() {
         return ["", "", ""];
         // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
     }
 
-    const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1)
+    const handleNext = (prevActiveStep) => {
+        if(stepState[activeStep])
+            setActiveStep(prevActiveStep => prevActiveStep + 1)
+        else
+            alert("finish the form first");
     }
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1)
     }
 
+
     const steps = getSteps();
 
     function getStepsContent(stepIndex) {
         switch(stepIndex) {
             case 0:
-                return <StepOne/>;
+                return <StepOne handleSubmitComponent1={handleSubmitComponent1}/>;
             case 1:
-                return <StepTwo/>;
+                return <StepTwo handleSubmitComponent2={handleSubmitComponent2}/>;
             case 2:
-                return <StepThree/>;
+                return <StepThree handleSubmitComponent3={handleSubmitComponent3}/>;
             default: return "Unknown Step";
         }
     } 

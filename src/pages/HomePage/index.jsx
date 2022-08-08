@@ -18,9 +18,6 @@ export default function HomePage(props) {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const { loginWithRedirect} = useAuth0();
-  // my API url
-  axios.defaults.baseURL = "http://localhost:3002";
-  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*' // for all requests
   if(isLoading) console.log('Loading...');
   if (isAuthenticated && !isLoading) {
     console.log(user);

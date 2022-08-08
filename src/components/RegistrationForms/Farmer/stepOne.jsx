@@ -1,8 +1,22 @@
-import React from "react";
+import React,{ useState,useEffect} from "react";
 import { Typography, Grid, Container, Box} from "@mui/material";
+import { ContentCutOutlined } from "@mui/icons-material";
 
 
-export default function StepOne() {
+export default function StepOne(props) {
+
+    var pack =  "";
+    const onchangeRadioButton = (e)=>{
+        pack = e.target.value;
+        console.log("target: " + e.target.value);
+        console.log("pack:" ,pack);
+        props.handleSubmitComponent1(pack);
+       
+    }
+
+    
+    
+
     return(
         <div>
             <Container>
@@ -32,7 +46,7 @@ export default function StepOne() {
                         },
                     }}
                     >   
-                        <input type="radio" name="subscription" value="free"/>
+                        <input type="radio" name="subscription" value="free" onChange={onchangeRadioButton}/>
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Free</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$0</Typography>
                         {/* <Grid container direction="row" alignItems="center">
@@ -76,7 +90,7 @@ export default function StepOne() {
                                 top: '-10px'},
                         }}
                         >   
-                        <input type="radio" name="subscription" value="basic"/>                
+                        <input onChange={onchangeRadioButton} type="radio" name="subscription" value="basic"/>                
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Basic</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$19
                         <Typography variant="body1" sx={{display: 'inline-block'}} >/month</Typography>
@@ -119,7 +133,7 @@ export default function StepOne() {
                                 top: '-10px'},
                         }}
                         >
-                        <input type="radio" name="subscription" value="professional"/>                    
+                        <input onChange={onchangeRadioButton} type="radio" name="subscription" value="professional"/>                    
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Professional</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$99
                         <Typography variant="body1" sx={{display: 'inline-block'}} >/year</Typography>

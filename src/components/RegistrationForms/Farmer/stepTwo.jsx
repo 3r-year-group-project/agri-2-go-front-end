@@ -1,9 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
 import pic from '../../../assets/images/creditcards.png';
+import inputState from "../../FormInputState/index";
+import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation" 
 
+export default function StepTwo(props) {
+    var err = [false,false,false,false];
+    var data = {
+        cardNumber: "",
+        holder : "",
+        expiry : "",
+        cvv : "",
+    }
 
-export default function StepTwo() {
+    const checkCardNum = (e) => {
+        let v = e.target.value;
+        let ob = checkWord(v,5,20);
+        if(ob.state){
+            err[0] = true;
+            data.cardNumber = v;
+            if(!err.includes(false))
+                props.handleSubmitComponent2(data);
+        }else{
+            err[0] = false;
+        }
+    }
+
+    const cardHolderName = (e) => {
+        let v = e.target.value;
+        let ob = checkWord(v,5,50);
+        if(ob){
+            err[1] = true;
+            data.holder = v;
+            if(!err.includes(false))
+                props.handleSubmitComponent2(data);
+        }else{
+            err[1] = false;
+        }
+        console.log("name",ob);
+    }
+
+    const expiryDate = (e) => {
+        let v = e.target.value;
+        let ob = checkWord(v,5,20);
+        if(ob){
+            err[2] = true;
+            data.expiry = v;
+            if(!err.includes(false))
+                props.handleSubmitComponent2(data);
+        }else{
+            err[2] = false;
+        }
+        console.log("ex Date",ob);
+    }
+
+    const cvv = (e) => {
+        let v = e.target.value;
+        let ob = checkWordExactLen(v,3);
+        if(ob){
+            err[3] = true;
+            data.cvv = v;
+            if(!err.includes(false))
+                props.handleSubmitComponent2(data);
+        }else{
+            err[3] = false;
+        }
+        console.log("cvv",ob);
+    };
+
     return(
         <div>
             <Container>
@@ -25,7 +89,8 @@ export default function StepTwo() {
                             label="Card Number"
                             id="cardnumber"
                             name="cardnumber"
-                            autoComplete="cardnumber"        
+                            autoComplete="cardnumber"
+                            onChange={checkCardNum}        
                     />
                     <TextField
                             sx={{margin: '1rem 0'}}
@@ -34,9 +99,11 @@ export default function StepTwo() {
                             label="Card Holder Name"
                             id="cardholdername"
                             name="cardholdername"
-                            autoComplete="cardholdername"        
+                            autoComplete="cardholdername"
+                            onChange={cardHolderName}        
                     />
                     <TextField
+                            onChange={expiryDate}
                             sx={{margin: '1rem 0'}}
                             required
                             fullWidth
@@ -50,6 +117,7 @@ export default function StepTwo() {
                 }}       
                     />
                     <TextField
+                            onChange={cvv}
                             sx={{margin: '1rem 0'}}
                             required
                             fullWidth

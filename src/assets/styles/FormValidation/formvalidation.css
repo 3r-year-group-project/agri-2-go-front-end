@@ -1,0 +1,9 @@
+.errorBox{
+    color: #940c1c;
+    text-align: center;
+}
+
+.correctBox{
+    color: #0c941c;
+    text-align: center;
+}

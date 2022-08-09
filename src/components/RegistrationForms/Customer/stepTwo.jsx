@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
-import pic from '../../assets/images/creditcards.png';
+import pic from '../../../assets/images/creditcards.png';
 
 
-export default function StepThree() {
+export default function StepTwo() {
     return(
         <div>
             <Container>

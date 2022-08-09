@@ -37,14 +37,14 @@ export default function Router() {
         <Routes>
         <Route path="/" element={<HomePage />}/>
        
-        <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/register/farmer" element={<FarmerRegistrationForm/>}/>
-        <Route path="/register/gardener" element={<GardenerRegistrationForm/>}/>
-        <Route path="/register/stockbuyer" element={<StockBuyerRegistrationForm/>}/>
-        <Route path="/register/groceryseller" element={<GrocerySellerRegistrationForm/>}/>
-        <Route path="/register/customer" element={<CustomerRegistrationForm/>}/>
-        <Route path="/register/wastagerecyclecenter" element={<WastageRecycleCenterRegistrationForm/>}/>
-        <Route path="/register/transporter" element={<TransporterRegistrationForm/>}/>
+        <Route path="/register/:id" element={<RegisterPage/>}/>
+        <Route path="/register/farmer/:id" element={<FarmerRegistrationForm/>}/>
+        <Route path="/register/gardener/:id" element={<GardenerRegistrationForm/>}/>
+        <Route path="/register/stockbuyer/:id" element={<StockBuyerRegistrationForm/>}/>
+        <Route path="/register/groceryseller/:id" element={<GrocerySellerRegistrationForm/>}/>
+        <Route path="/register/customer/:id" element={<CustomerRegistrationForm/>}/>
+        <Route path="/register/wastagerecyclecenter/:id" element={<WastageRecycleCenterRegistrationForm/>}/>
+        <Route path="/register/transporter/:id" element={<TransporterRegistrationForm/>}/>
         
         
         <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>

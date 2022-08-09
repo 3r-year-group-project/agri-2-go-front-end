@@ -6,13 +6,14 @@ import Footer from "../../components/Footer";
 import NavBar from '../../components/Navbar';
 import Logo from '../../components/Logo/logo';
 import UserRoleSelector from "../../components/UserRoleSelector";
-
+import { useParams } from 'react-router-dom';
 
 
 export default function RegisterPage() {
+    const { id } = useParams();
     return (
             <Fragment>
-                <UserRoleSelector/>
+                <UserRoleSelector id={id}/>
 
                 
             {/* <NavBar/> */}

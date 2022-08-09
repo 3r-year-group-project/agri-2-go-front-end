@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
 import pic from '../../../assets/images/creditcards.png';
 import inputState from "../../FormInputState/index";
-import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation" 
+import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
+import { useParams } from "react-router-dom";
 
 export default function StepTwo(props) {
     var err = [false,false,false,false];
+    var {id} = useParams();
     var data = {
+        id: id,
         cardNumber: "",
         holder : "",
         expiry : "",

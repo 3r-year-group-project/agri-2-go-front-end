@@ -1,16 +1,14 @@
 import React,{ useState,useEffect} from "react";
 import { Typography, Grid, Container, Box} from "@mui/material";
 import { ContentCutOutlined } from "@mui/icons-material";
+import { useParams } from "react-router-dom";
 
 
 export default function StepOne(props) {
-
-    var pack =  "";
+    var {id} = useParams();
     const onchangeRadioButton = (e)=>{
-        pack = e.target.value;
-        console.log("target: " + e.target.value);
-        console.log("pack:" ,pack);
-        props.handleSubmitComponent1(pack);
+        let pack = e.target.value;
+        props.handleSubmitComponent1({package: pack,id:id,});
        
     }
 

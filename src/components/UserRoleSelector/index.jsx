@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Route, useNavigate } from "react-router-dom";
+import { Link, Route, useNavigate,useParams } from "react-router-dom";
 import { Typography, Grid, Card, Button, Container, CssBaseline, Box, FormControl} from "@mui/material";
 import 'react-tippy/dist/tippy.css';
  
@@ -24,9 +24,8 @@ const inputStyles = {
 };
 
 
-export default function UserRoleSelector() {
+export default function UserRoleSelector(props) {
     const [selected, setSelected] = useState('farmer');
-
     const handleChange=(e)=>{
         setSelected( e.target.value);
      }
@@ -36,19 +35,19 @@ export default function UserRoleSelector() {
     const redirect = () => {
         switch(selected) {
             case 'farmer':
-                return navigate('/register/farmer');    
+                return navigate('/register/farmer/'+props.id);    
             case 'gardener':
-                return navigate('/register/gardener');   
+                return navigate('/register/gardener/'+props.id);   
             case 'stockbuyer':
-                return navigate('/register/stockbuyer');
+                return navigate('/register/stockbuyer/'+props.id);
             case 'groceryseller':
-                return navigate('/register/groceryseller');    
+                return navigate('/register/groceryseller/'+props.id);    
             case 'customer':
-                return navigate('/register/customer');
+                return navigate('/register/customer'/+props.id);
             case 'wastagerecyclecenter':
-                return navigate('/register/wastagerecyclecenter'); 
+                return navigate('/register/wastagerecyclecenter/'+props.id); 
             case 'transporter':
-                return navigate('/register/transporter');               
+                return navigate('/register/transporter/'+props.id);               
             default: return "Unknown Step";
         }
     } 

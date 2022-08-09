@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import background from "../../assets/images/bg4.jpg"
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
-import { setApiPath } from '../../services/utils/api';
 
 
 
@@ -20,8 +19,10 @@ export default function HomePage(props) {
   const { loginWithRedirect} = useAuth0();
   if(isLoading) console.log('Loading...');
   if (isAuthenticated && !isLoading) {
+    console.table(user);
     const email = user.email;
     axios.get('/api/users/role/'+ email).then(res =>{
+        console.log(res.data);
         console.log("user role is authenticated",res.data.data[0].user_type);
         let userRole = res.data.data[0].user_type;
         let id = res.data.data[0].id;

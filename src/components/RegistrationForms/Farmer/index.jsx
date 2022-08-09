@@ -24,12 +24,9 @@ export default function FarmerRegistrationForm() {
    
     
     
-    const handleSubmitComponent1 = (pay) => {
-       let ob = {
-        userRole : "",
-        paymentPlan : pay,
-       }
-       axios('/api/farmer/registration/paymentPlan',ob).then(res => {
+    const handleSubmitComponent1 = (ob) => {
+        
+        axios.post('/api/farmer/registration/paymentPlan',ob).then(res => {
             if(res){
                 setStepState((prev) => {
                     return [
@@ -37,32 +34,38 @@ export default function FarmerRegistrationForm() {
                         ...prev.slice(1, prev.length - 1),
                     ]
                    });
+                console.log("successfully updateDatabase")
             }
        });
     };
 
     
    const handleSubmitComponent2 = (ob) => {
-    setStepState((prev) => {
-         return [
-           prev[0],
-           true,
-           prev[2],
-        ]
-       });
+    axios.post('/api/farmer/registration/cardDetails',ob).then((res)=>{
+        setStepState((prev) => {
+            return [
+              prev[0],
+              true,
+              prev[2],
+           ]
+          });
+    });
+    
        
        
     }
     ;
 
     const handleSubmitComponent3 = (ob) => {
-        setStepState((prev) => {
-        return [
-           prev[0],
-           prev[1],
-           true,
-        ]
-    });
+        axios.post('/api/farmer/registration/personDetails',ob).then((res)=>{
+            setStepState((prev) => {
+                return [
+                   prev[0],
+                   prev[1],
+                   true,
+                ]
+            });
+        });       
 }
    
        

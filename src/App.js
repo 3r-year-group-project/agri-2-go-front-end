@@ -1,3 +1,4 @@
+import React from 'react';
 import Router from "./routes";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './services/utils/theme';

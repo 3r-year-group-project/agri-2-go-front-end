@@ -20,10 +20,11 @@ export default function HomePage(props) {
   const { loginWithRedirect} = useAuth0();
   if(isLoading) console.log('Loading...');
   if (isAuthenticated && !isLoading) {
-    console.log(user);
-    axios.get('/api/users/role/'+user.email).then(res =>{
+    const email = user.email;
+    axios.get('/api/users/role/'+ email).then(res =>{
         console.log("user role is authenticated",res.data.data[0].user_type);
         let userRole = res.data.data[0].user_type;
+        let id = res.data.data[0].id;
         // admin=1
         // customer=2
         // farmer=3
@@ -35,7 +36,7 @@ export default function HomePage(props) {
         console.log("user role: " + userRole);
     switch (userRole) {
       case 0:
-        navigate('/continueregistration');
+        navigate('/continueregistration/'+id);
         break;
       case 1:
         navigate('/admin/dash/dashboard');

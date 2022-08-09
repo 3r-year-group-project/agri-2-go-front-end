@@ -47,7 +47,7 @@ export default function Router() {
         <Route path="/register/transporter" element={<TransporterRegistrationForm/>}/>
         
         
-        <Route path="/continueregistration" element={<ContinueRegistration/>}/>
+        <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>

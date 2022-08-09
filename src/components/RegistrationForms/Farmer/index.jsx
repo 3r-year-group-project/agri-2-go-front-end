@@ -12,6 +12,7 @@ import StepThree from "./stepThree";
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 export default function FarmerRegistrationForm() {
@@ -21,23 +22,23 @@ export default function FarmerRegistrationForm() {
     //form states
     const [stepState,setStepState] = useState([false,false,false]);
    
-    //form Data
-    var fData = {
-        paymentPlan : "",
-        cardNumber : "",
-        holder: "",
-        expiryDate: "",
-        cvv : ""
-    };
+    
     
     const handleSubmitComponent1 = (pay) => {
-       setStepState((prev) => {
-        return [
-            true,
-            ...prev.slice(1, prev.length - 1),
-        ]
+       let ob = {
+        userRole : "",
+        paymentPlan : pay,
+       }
+       axios('/api/farmer/registration/paymentPlan',ob).then(res => {
+            if(res){
+                setStepState((prev) => {
+                    return [
+                        true,
+                        ...prev.slice(1, prev.length - 1),
+                    ]
+                   });
+            }
        });
-       fData.paymentPlan = pay; 
     };
 
     
@@ -49,11 +50,7 @@ export default function FarmerRegistrationForm() {
            prev[2],
         ]
        });
-       fData.cvv = ob.cvv;
-       fData.holder = ob.holder;
-       fData.expiry = ob.expiry;
-       fData.cardNumber = ob.cardNumber;
-       console.log("form data" , fData);
+       
        
     }
     ;

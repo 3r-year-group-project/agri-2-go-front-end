@@ -21,7 +21,7 @@ import PageNotFound from "../pages/PageNotFound";
 export default function Router() {
 
   const isAuthenticated='1';
-  const userRole='2';
+  const userRole='1';
 
   // admin=1
   // customer=2

@@ -34,18 +34,18 @@ export default function AdminListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.ORDERS)}>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.USERS)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Orders" />
+        <ListItemText primary="Users" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.CART)}>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Cart" />
+        <ListItemText primary="Subscriptions" />
       </ListItemButton>
       <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
@@ -53,11 +53,11 @@ export default function AdminListItems() {
         Operations
       </ListSubheader> */}
 
-      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.TRANSACTIONS)}>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SCAMREPORTS)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Transactions" />
+        <ListItemText primary="Scam Reports" />
       </ListItemButton>
     </React.Fragment>
   );

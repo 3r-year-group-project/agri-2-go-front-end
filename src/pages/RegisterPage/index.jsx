@@ -16,6 +16,7 @@ export default function RegisterPage() {
             {/* <NavBar/> */}
             {/* <Container component="main" maxWidth="xs" > */}
             <RegistrationForm/>
+            
             {/* </Container> */}
             {/* <Footer/> */}
             </Fragment>

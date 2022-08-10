@@ -3,15 +3,14 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useLocation } from 'react-router-dom';
-
-
 import AdminListItems from './adminListItem';
-
-import LoginPage from '../../pages/LoginPage';
-
-
 import { ADMIN_SECTIONS } from '../../constants';
 import SidePanel from '../../components/SidePanel';
+import DashBoard from '../../pages/Admin/Dashboard';
+import Users from '../../pages/Admin/Users';
+import Subscription from '../../pages/Admin/Subscriptions';
+import ScamReports from '../../pages/Admin/ScamReports';
+
 
 
 export default function AdminLayout() {
@@ -28,13 +27,18 @@ export default function AdminLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case ADMIN_SECTIONS.DASHBOARD:
-          setOpenPane(<LoginPage/>);
+          setOpenPane(<DashBoard/>);
           break;
-        case ADMIN_SECTIONS.ORDERS:
-          setOpenPane(<LoginPage/>);
+        case ADMIN_SECTIONS.USERS:
+          setOpenPane(<Users/>);
           break;
-
-       
+        case ADMIN_SECTIONS.SUUBSCRIPTIONS:
+          setOpenPane(<Subscription/>);
+          break;
+        case ADMIN_SECTIONS.SCAMREPORTS:
+          setOpenPane(<ScamReports/>);
+          break;
+         
         default:
           break;
       }

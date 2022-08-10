@@ -86,7 +86,9 @@ export default function StepTwo(props) {
                         <img src={pic} width="150px" height="35px"/>
                         {/* </Grid> */}
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                    
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
+                         
                             required
                             fullWidth
                             label="Card Number"
@@ -96,7 +98,7 @@ export default function StepTwo(props) {
                             onChange={checkCardNum}        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                             sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Card Holder Name"
@@ -107,7 +109,7 @@ export default function StepTwo(props) {
                     />
                     <TextField
                             onChange={expiryDate}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Expiry Date"
@@ -121,7 +123,7 @@ export default function StepTwo(props) {
                     />
                     <TextField
                             onChange={cvv}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="CVV/CVC"

@@ -31,7 +31,7 @@ export default function AdminListItems() {
         <ListItemIcon>
           <DashboardIcon color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary="Dashboard"/>
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.USERS)}>

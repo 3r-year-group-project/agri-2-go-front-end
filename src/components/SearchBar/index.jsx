@@ -10,7 +10,7 @@ export default function SearchBar() {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'100%' ,bgcolor:'white',color:'black' }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'60%' ,bgcolor:'white',color:'black' }}
     >
       
       <InputBase

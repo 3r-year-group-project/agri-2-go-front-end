@@ -115,7 +115,7 @@ export default function StepThree(props) {
                     <Grid item xs={10} >
                     <TextField
                             onChange={changeFirstName}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="First Name"
@@ -125,7 +125,7 @@ export default function StepThree(props) {
                     />
                     <TextField
                             onChange={changeLastName}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Last Name"
@@ -135,7 +135,7 @@ export default function StepThree(props) {
                     />
                     <TextField
                             onChange={changeAddress1}
-                            sx={{margin: '1rem 0'}}
+                            ssx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Address Line 1"
@@ -145,7 +145,7 @@ export default function StepThree(props) {
                     />
                     <TextField
                             onChange={changeAddress2}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             fullWidth
                             label="Address Line 2 (Optional)"
                             id="addressline-2"
@@ -154,7 +154,7 @@ export default function StepThree(props) {
                     />
                     <TextField
                             onChange={changeCity}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="City"

@@ -18,7 +18,7 @@ export default function StepThree() {
                 <Grid container spacing={2} justifyContent = "center" alignItems = "center">
                     <Grid item xs={10} >
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="First Name"
@@ -27,7 +27,7 @@ export default function StepThree() {
                             autoComplete="firstname"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Last Name"
@@ -36,7 +36,7 @@ export default function StepThree() {
                             autoComplete="lastname"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Address Line 1"
@@ -45,7 +45,7 @@ export default function StepThree() {
                             autoComplete="addressline-1"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             fullWidth
                             label="Address Line 2 (Optional)"
                             id="addressline-2"
@@ -53,7 +53,7 @@ export default function StepThree() {
                             autoComplete="addressline-2"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="City"

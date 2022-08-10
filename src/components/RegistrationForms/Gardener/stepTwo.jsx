@@ -1,68 +1,63 @@
 import React from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
-import { styled } from "@mui/material";
+import pic from '../../../assets/images/creditcards.png';
 
 
-
-
-export default function StepFour() {
+export default function StepTwo() {
     return(
         <div>
             <Container>
                 <br />
             <Typography variant="h6" align="center" sx={{color: '#128C7E'}}>
-                Enter Personal Details
+                Enter Card Details
             </Typography>
             <br />
             <form>
                 <Grid container spacing={2} justifyContent = "center" alignItems = "center">
                     <Grid item xs={10} >
+                        {/* <Grid item md={12} xs={6}> */}
+                        <img src={pic} width="150px" height="35px"/>
+                        {/* </Grid> */}
                     <TextField
                             sx={{margin: '1rem 0'}}
                             required
                             fullWidth
-                            label="First Name"
-                            id="firstname"
-                            name="firstname"
-                            autoComplete="firstname"        
-                    />
-                    <TextField
-                            sx={{margin: '1rem 0'}}
-                            required
-                            fullWidth
-                            label="Last Name"
-                            id="lastname"
-                            name="lastname"
-                            autoComplete="lastname"        
+                            label="Card Number"
+                            id="cardnumber"
+                            name="cardnumber"
+                            autoComplete="cardnumber"        
                     />
                     <TextField
                             sx={{margin: '1rem 0'}}
                             required
                             fullWidth
-                            label="Address Line 1"
-                            id="addressline-1"
-                            name="addressline-1"
-                            autoComplete="addressline-1"        
-                    />
-                    <TextField
-                            sx={{margin: '1rem 0'}}
-                            fullWidth
-                            label="Address Line 2 (Optional)"
-                            id="addressline-2"
-                            name="addressline-2"
-                            autoComplete="addressline-2"        
+                            label="Card Holder Name"
+                            id="cardholdername"
+                            name="cardholdername"
+                            autoComplete="cardholdername"        
                     />
                     <TextField
                             sx={{margin: '1rem 0'}}
                             required
                             fullWidth
-                            label="City"
-                            id="city"
-                            name="city"
-                            autoComplete="city"        
+                            label="Expiry Date"
+                            id="expirydate"
+                            name="expirydate"
+                            autoComplete="expirydate" 
+                            type="date"
+                            InputLabelProps={{
+                                shrink: true,
+                }}       
                     />
-                   
-                
+                    <TextField
+                            sx={{margin: '1rem 0'}}
+                            required
+                            fullWidth
+                            label="CVV/CVC"
+                            id="cvv"
+                            name="cvv"
+                            autoComplete="cvv"        
+                    />
               
                     </Grid>
                 </Grid>

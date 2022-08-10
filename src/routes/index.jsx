@@ -20,7 +20,7 @@ import ContinueRegistration from "../pages/ContinueRegistration";
 export default function Router() {
 
   const isAuthenticated='1';
-  const userRole='2';
+  const userRole='6';
 
   // admin=1
   // customer=2

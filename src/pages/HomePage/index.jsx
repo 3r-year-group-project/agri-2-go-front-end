@@ -14,18 +14,23 @@ import axios from 'axios';
 
 export default function HomePage(props) {
 
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading,loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
-  const { loginWithRedirect} = useAuth0();
-  if(isLoading) console.log('Loading...');
-  if (isAuthenticated && !isLoading) {
-    console.table(user);
-    const email = user.email;
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      loginWithRedirect({
+         appState: {
+           targetUrl: window.location.href,
+         },
+       });
+     }
+    if (!isLoading && isAuthenticated) {
+      const email = user.email;
     axios.get('/api/users/role/'+ email).then(res =>{
-        console.log(res.data);
-        console.log("user role is authenticated",res.data.data[0].user_type);
         let userRole = res.data.data[0].user_type;
         let id = res.data.data[0].id;
+        console.log("hello world");
+        console.log({userRole,id});
         // admin=1
         // customer=2
         // farmer=3
@@ -70,10 +75,10 @@ export default function HomePage(props) {
   }).catch(err => {
     console.log(err);
   });
-  
-}
-else if(!isAuthenticated && !isLoading){
-  console.log("not authenticated");
+    }
+  }, [isLoading, isAuthenticated]);
+
+    
   return(
     <React.Fragment>
             <NavBar/>
@@ -142,4 +147,3 @@ else if(!isAuthenticated && !isLoading){
 }
 
    
-}

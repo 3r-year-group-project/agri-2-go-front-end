@@ -71,6 +71,12 @@ export default function GrocerySellerListItems() {
         </ListItemIcon>
         <ListItemText primary="My Profit" />
       </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.FINDVEGETABLES)}>
+        <ListItemIcon>
+          <PaidIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Find Vegetables" />
+      </ListItemButton>
     </React.Fragment>
   );
 }

@@ -43,9 +43,11 @@ export const CUSTOMER_SECTIONS = {
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',
+  FINDVEGETABLES : 'findvegetables',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
  CHAT:'chat',
+
 
 };
 

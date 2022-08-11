@@ -45,8 +45,7 @@ export default function Router() {
         <Route path="/register/customer/:id" element={<CustomerRegistrationForm/>}/>
         <Route path="/register/wastagerecyclecenter/:id" element={<WastageRecycleCenterRegistrationForm/>}/>
         <Route path="/register/transporter/:id" element={<TransporterRegistrationForm/>}/>
-        
-        
+                
         <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}

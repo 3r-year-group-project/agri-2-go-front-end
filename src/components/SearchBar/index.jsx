@@ -9,8 +9,9 @@ import SearchIcon from '@mui/icons-material/Search';
 export default function SearchBar() {
   return (
     <Paper
+    
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'60%' ,bgcolor:'white',color:'black' }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'70%' ,bgcolor:'white',color:'black',marginLeft:'6%' }}
     >
       
       <InputBase

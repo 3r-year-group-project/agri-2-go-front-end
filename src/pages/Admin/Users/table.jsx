@@ -13,15 +13,13 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import { Button } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import SearchBar from '../../../components/SearchBar';
+import Filter from '../../../components/FilterBar'
 
 function createData(name, type, block, view) {
   return {
@@ -34,12 +32,13 @@ function createData(name, type, block, view) {
 
 const rows = [
   createData('Sethni Disanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('same', 'Type', 'BLOCK', 'VIEW PROFILE'),
-  createData('iame', 'Type', 'BLOCK', 'VIEW PROFILE'),
-  createData('Name', 'Type', 'BLOCK', 'VIEW PROFILE'),
-  createData('bame', 'Type', 'BLOCK', 'VIEW PROFILE'),
-  createData('ame', 'Type', 'BLOCK', 'VIEW PROFILE'),
-  createData('mame', 'Type', 'BLOCK', 'VIEW PROFILE'),
+  createData('Saman Perera', 'Farmer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Kamal Perera', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Lihini Disanayaka', 'Gardener', 'BLOCK', 'VIEW PROFILE'),
+  createData('Nimal De Silva', 'Stock Buyer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Amara Dasanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('S.D.Upul', 'Grocery Seller', 'BLOCK', 'VIEW PROFILE'),
+  
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -58,19 +57,7 @@ function getComparator(order, orderBy) {
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// This method is created for cross-browser compatibility, if you don't
-// need to support IE11, you can use Array.prototype.sort() directly
-// function stableSort(array, comparator) {
-//   const stabilizedThis = array.map((el, index) => [el, index]);
-//   stabilizedThis.sort((a, b) => {
-//     const order = comparator(a[0], b[0]);
-//     if (order !== 0) {
-//       return order;
-//     }
-//     return a[1] - b[1];
-//   });
-//   return stabilizedThis.map((el) => el[0]);
-// }
+
 Array.prototype.sort()
 
 const headCells = [
@@ -173,14 +160,16 @@ const EnhancedTableToolbar = (props) => {
         Users
         </Typography>
       )}
+     
+      {<SearchBar/>}
 
-      { (
+      {/* { (
         <Tooltip title="Filter list">
           <IconButton>
-            <FilterListIcon />
+            <FilterListIcon color="secondary"/>
           </IconButton>
         </Tooltip>
-      )}
+      )} */}
     </Toolbar>
   );
 };
@@ -226,12 +215,12 @@ export default function OrderTable() {
     <Box sx={{ width: '100%',}}>
       <Paper sx={{ width: '100%', mb: 2,  }}>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer >
+        <TableContainer  >
           <Table
-       
+       fontSize="24"
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
+            size={ 'large'}
           >
             <EnhancedTableHead
                
@@ -266,12 +255,12 @@ export default function OrderTable() {
                       </TableCell>
                       <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left"><Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E"}}>
+                         width: 'auto',fontSize: 16, backgroundColor: "#f57a38",color:'white'}}>
                             {row.block}
                         </Button></TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{
-                         width: 200,fontSize: 16, backgroundColor: "#128C7E"}}>
+                         width: 200,fontSize: 16, backgroundColor: "green",color:'white'}}>
                             {row.view}
                         </Button>
                     </TableCell>

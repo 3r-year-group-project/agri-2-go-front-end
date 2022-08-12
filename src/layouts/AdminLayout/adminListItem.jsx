@@ -4,12 +4,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import GroupIcon from '@mui/icons-material/Group';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
-import PaidIcon from '@mui/icons-material/Paid';
+import ReportIcon from '@mui/icons-material/Report';
 import { ADMIN_SECTIONS } from '../../constants';
 
 
@@ -36,14 +36,14 @@ export default function AdminListItems() {
       <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.USERS)}>
         <ListItemIcon>
-          <AssignmentIcon  color="secondary" />
+          <GroupIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Users" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>
         <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
+          <SubscriptionsIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Subscriptions" />
       </ListItemButton>
@@ -55,7 +55,7 @@ export default function AdminListItems() {
 
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SCAMREPORTS)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ReportIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Scam Reports" />
       </ListItemButton>

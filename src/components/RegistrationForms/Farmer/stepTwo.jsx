@@ -4,6 +4,7 @@ import pic from '../../../assets/images/creditcards.png';
 import inputState from "../../FormInputState/index";
 import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
 import { useParams } from "react-router-dom";
+import Error from "../../Error";
 
 export default function StepTwo(props) {
     var err = [false,false,false,false];
@@ -97,6 +98,7 @@ export default function StepTwo(props) {
                             autoComplete="cardnumber"
                             onChange={checkCardNum}        
                     />
+                     
                     <TextField
                              sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required

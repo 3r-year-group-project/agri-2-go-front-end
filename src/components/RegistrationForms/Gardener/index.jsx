@@ -27,6 +27,7 @@ export default function GardenerRegistrationForm() {
     }
 
     const handleSubmitComponent1 = (ob) => {
+        console.log("handleSubmitComponent1 called");
         axios.post('/api/farmer/registration/paymentPlan',ob).then(res => {
             if(res){
                 setStepState((prev) => {
@@ -40,6 +41,7 @@ export default function GardenerRegistrationForm() {
        });
     };
     const handleSubmitComponent2 = (ob) => {
+        console.log("handleSubmitComponent2 called");
         axios.post('/api/gardener/registration/cardDetails',ob).then((res)=>{
             setStepState((prev) => {
                 return [
@@ -51,6 +53,7 @@ export default function GardenerRegistrationForm() {
         });  
     };
     const handleSubmitComponent3 = (ob) => {
+        console.log("handleSubmitComponent3 called");
         axios.post('/api/gardener/registration/personDetails',ob).then((res)=>{
             setStepState((prev) => {
                 return [

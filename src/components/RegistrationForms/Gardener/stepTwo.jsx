@@ -111,7 +111,7 @@ export default function StepTwo(props) {
                             id="expirydate"
                             name="expirydate"
                             autoComplete="expirydate" 
-                            type="date"
+                            type="month"
                             InputLabelProps={{
                                 shrink: true,
                 }}       

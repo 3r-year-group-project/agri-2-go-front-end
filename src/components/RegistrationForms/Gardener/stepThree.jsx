@@ -11,7 +11,7 @@ export default function StepThree(props) {
     var {id} = useParams();
     var err = [false,false,false,true,false];
     var data = {
-        userType : 3,
+        userType : 4,
         firstName : "",
         lastName : "",
         address1 : "",

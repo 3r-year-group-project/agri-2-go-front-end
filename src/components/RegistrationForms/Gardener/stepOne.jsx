@@ -38,7 +38,7 @@ export default function StepOne(props) {
                         },
                     }}
                     >   
-                        <input type="radio" name="subscription" value="free" onchangeRadioButton/>
+                        <input type="radio" name="subscription" value="free" onChange={onchangeRadioButton}/>
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Free</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$0</Typography>
                         {/* <Grid container direction="row" alignItems="center">
@@ -82,7 +82,7 @@ export default function StepOne(props) {
                                 top: '-10px'},
                         }}
                         >   
-                        <input type="radio" name="subscription" value="basic" onchangeRadioButton/>                
+                        <input type="radio" name="subscription" value="basic" onChange={onchangeRadioButton}/>                
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Basic</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$19
                         <Typography variant="body1" sx={{display: 'inline-block'}} >/month</Typography>
@@ -125,7 +125,7 @@ export default function StepOne(props) {
                                 top: '-10px'},
                         }}
                         >
-                        <input type="radio" name="subscription" value="professional" onchangeRadioButton/>                    
+                        <input type="radio" name="subscription" value="professional" onChange={onchangeRadioButton}/>                    
                         <Typography variant="body2" align="center" sx={{color: '#000000'}}>Professional</Typography>
                         <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$99
                         <Typography variant="body1" sx={{display: 'inline-block'}} >/year</Typography>

@@ -8,8 +8,10 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UserProfileIcon(Props) {
+  const { logout } = useAuth0();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -79,7 +81,7 @@ export default function UserProfileIcon(Props) {
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <Logout fontSize="small" color="secondary"/>
+            <Logout fontSize="small" color="secondary" onClick={() => logout({ returnTo: window.location.origin })}/>
           </ListItemIcon>
         <Typography>{Props.item2}</Typography>
         </MenuItem>

@@ -16,6 +16,7 @@ export default function HomePage(props) {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
+
   const { loginWithRedirect} = useAuth0();
   if(isLoading) console.log('Loading...');
   if (isAuthenticated && !isLoading) {
@@ -64,6 +65,7 @@ export default function HomePage(props) {
         navigate('/wastagerecyclecenter/dash/dashboard');
         break;
       default:
+
       break;
   }
       

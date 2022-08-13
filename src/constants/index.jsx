@@ -7,9 +7,9 @@ export const CUSTOMER_SECTIONS = {
  };
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
-    ORDERS: 'orders',
-   CART:'cart',
-   TRANSACTIONS:'transactions',
+    USERS: 'users',
+   SUUBSCRIPTIONS:'subscriptions',
+   SCAMREPORTS:'scamreports',
  };
  export const FARMER_SECTIONS = {
     DASHBOARD: 'dashboard',

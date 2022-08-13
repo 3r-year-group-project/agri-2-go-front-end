@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { GROCERY_SELLER_SECTIONS } from '../../constants';
 import GrocerySellerListItems from './grocerySellerListItem';
 import SidePanel from '../../components/SidePanel';
+import LoginPage from '../../pages/LoginPage'
+import FindVeges from '../../pages/GrocerySellerFindVeges';
 
 export default function GrocerySellerLayout() {
   
@@ -20,12 +22,14 @@ export default function GrocerySellerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case GROCERY_SELLER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<LoginPage/>);
           break;
         case GROCERY_SELLER_SECTIONS.REVIEWS:
           setOpenPane();
           break;
-
+        case GROCERY_SELLER_SECTIONS.FINDVEGETABLES:
+          setOpenPane(<FindVeges/>);
+          break;  
        
         default:
           break;

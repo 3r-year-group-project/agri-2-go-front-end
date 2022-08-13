@@ -29,8 +29,6 @@ import TransporterRegistrationForm from "../components/RegistrationForms/Transpo
 export default function Router() {
 
 
-  
-  
       return(
        
         <BrowserRouter>

@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import NavBar from "../../components/Navbar";
 import { CssBaseline} from '@mui/material';
 import { Button, Stack } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import background from "../../assets/images/bg4.jpg"
 import { CenterFocusStrong } from "@mui/icons-material";
 
@@ -12,8 +12,9 @@ import { CenterFocusStrong } from "@mui/icons-material";
 
 
 
-export default function ContinueRegistration(params) {
+export default function ContinueRegistration(props) {
   const navigate = useNavigate();
+  const {id} = useParams();
 
   return(
     <React.Fragment>
@@ -62,7 +63,7 @@ export default function ContinueRegistration(params) {
             <Button
               color="secondary"
               variant="contained"
-              onClick={() => navigate('/register')}
+              onClick={() => navigate('/register/'+id)}
               sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
             >
              <b> CONTINUE</b> 

@@ -1,58 +1,81 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/Navbar";
 import { CssBaseline} from '@mui/material';
 import { Button, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import background from "../../assets/images/bg4.jpg"
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
 
 
 
 
+export default function HomePage(props) {
 
-export default function HomePage(params) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
 
+  const { loginWithRedirect} = useAuth0();
+  if(isLoading) console.log('Loading...');
+  if (isAuthenticated && !isLoading) {
+    console.table(user);
+    const email = user.email;
+    axios.get('/api/users/role/'+ email).then(res =>{
+        console.log(res.data);
+        console.log("user role is authenticated",res.data.data[0].user_type);
+        let userRole = res.data.data[0].user_type;
+        let id = res.data.data[0].id;
+        // admin=1
+        // customer=2
+        // farmer=3
+        // gardener=4
+        // stock=5
+        // grocery=6
+        // trans=7
+        // wastage=8
+        console.log("user role: " + userRole);
+    switch (userRole) {
+      case 0:
+        navigate('/continueregistration/'+id);
+        break;
+      case 1:
+        navigate('/admin/dash/dashboard');
+        break;
+      case 2:
+        navigate('/customer/category');
+        break;
+      case 3:
+        navigate('/farmer/category');
+        break;
+      case 4:
+        navigate('/gardener/category');
+        break;
+      case 5:
+        navigate('/stockbuyer/dash/dashboard');
+        break;
+      case 6:
+        navigate('/groceryseller/dash/dashboard');
+        break;
+      case 7:
+        navigate('/transporter/dash/dashboard');
+        break;
+      case 8:
+        navigate('/wastagerecyclecenter/dash/dashboard');
+        break;
+      default:
 
-  const isAuthenticated='1';
-  const userRole='2';
-
-
-if (isAuthenticated==1) {
-  switch (userRole) {
-    case '0':
-      navigate('/continueregistration');
-      break;
-    case '1':
-      navigate('/admin/dash/dashboard');
-      break;
-    case '2':
-      navigate('/customer/category');
-      break;
-    case '3':
-      navigate('/farmer/category');
-      break;
-    case '4':
-      navigate('/gardener/category');
-      break;
-    case '5':
-      navigate('/stockbuyer/dash/dashboard');
-      break;
-    case '6':
-      navigate('/groceryseller/dash/dashboard');
-      break;
-    case '7':
-      navigate('/transporter/dash/dashboard');
-      break;
-    case '8':
-      navigate('/wastagerecyclecenter/dash/dashboard');
-      break;
-    default:
       break;
   }
+      
+  }).catch(err => {
+    console.log(err);
+  });
+  
 }
-else{
+else if(!isAuthenticated && !isLoading){
+  console.log("not authenticated");
   return(
     <React.Fragment>
             <NavBar/>
@@ -99,6 +122,7 @@ else{
               variant="contained"
               
               sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
+              onClick={() => loginWithRedirect()}
             >
              <b> TRY FOR FREE</b> 
             </Button>
@@ -107,6 +131,7 @@ else{
               variant="contained"
               
               sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
+              onClick={() => loginWithRedirect()}
             >
              <b> LOGIN</b> 
             </Button>

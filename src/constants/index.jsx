@@ -40,6 +40,7 @@ export const CUSTOMER_SECTIONS = {
 
  export const GROCERY_SELLER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  MYSCHEDULE: 'myschedule',
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',

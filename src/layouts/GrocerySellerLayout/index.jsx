@@ -7,6 +7,7 @@ import GrocerySellerListItems from './grocerySellerListItem';
 import SidePanel from '../../components/SidePanel';
 import LoginPage from '../../pages/LoginPage'
 import FindVeges from '../../pages/GrocerySellerFindVeges';
+import Calendar from '../../components/Calendar';
 
 export default function GrocerySellerLayout() {
   
@@ -24,6 +25,9 @@ export default function GrocerySellerLayout() {
         case GROCERY_SELLER_SECTIONS.DASHBOARD:
           setOpenPane(<LoginPage/>);
           break;
+        case GROCERY_SELLER_SECTIONS.MYSCHEDULE:
+          setOpenPane(<Calendar/>);
+          break;  
         case GROCERY_SELLER_SECTIONS.REVIEWS:
           setOpenPane();
           break;

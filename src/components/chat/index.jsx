@@ -1,3 +1,6 @@
+import Box from '@mui/material/Box';
+import FormLabel from '@mui/material/FormLabel';
+
 /* Imports PubNub JavaScript and React SDKs to create and access PubNub instance accross your app. */
 /* Imports the required PubNub Chat Components to easily create chat apps with PubNub. */
 import React from "react";
@@ -8,8 +11,8 @@ import { Chat, MessageList, MessageInput, MemberList } from "@pubnub/react-chat-
 /* Creates and configures your PubNub instance. Be sure to replace "myPublishKey" and "mySubscribeKey"
 with your own keyset. If you wish, modify the default "myFirstUser" uuid value for the chat user. */
 const pubnub = new PubNub({
-  publishKey: "pub-c-dd7b2574-8a58-47ef-952f-c34a5a34a295",
-  subscribeKey: "sub-c-fa9eff3a-5684-4555-9e33-bc44b4d9c991",
+  publishKey: "pub-c-304f3462-f896-482f-82a8-a039dd7d88ad",
+  subscribeKey: "sub-c-723667ff-95ff-48ac-9702-76288989cc0a",
   uuid: "myFirstUser",
 });
 const currentChannel = "Default";
@@ -17,6 +20,10 @@ const theme = "light";
 
 export default function ChatApp() {
   return (
+    <div>
+    <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
+                <center><FormLabel id="title"><font size="18"><b>Chats</b></font></FormLabel></center>
+            </Box>
     <PubNubProvider client={pubnub}>
       {/* PubNubProvider is a part of the PubNub React SDK and allows you to access PubNub instance
       in components down the tree. */}
@@ -33,7 +40,7 @@ export default function ChatApp() {
         onSignal={function noRefCheck(){}}
         onStatus={function noRefCheck(){}}
         onUser={function noRefCheck(){}}
-        theme="dark"
+        theme="light"
       >
         <MemberList
           members={[
@@ -44,8 +51,8 @@ export default function ChatApp() {
               eTag: 'AYGyoY3gre71eA',
               email: null,
               externalId: null,
-              id: 'user_63ea15931d8541a3bd35e5b1f09087dc',
-              name: 'Pushpe',
+              id: 'user_63ea15931d8541a3bd35e5b1f0987dc',
+              name: 'Sunil',
               profileUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
               updated: '2020-09-23T09:23:34.598494Z'
             },
@@ -56,9 +63,57 @@ export default function ChatApp() {
               eTag: 'AZDyqJ7andTHlAE',
               email: null,
               externalId: null,
-              id: 'user_3c4400761cba4b65b77b6cae55fc21eb',
-              name: 'Sumanlatha',
+              id: 'user_3c440071cba4b65b77b6cae55fc21eb',
+              name: 'Nimala',
               profileUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+              updated: '2020-09-23T09:23:33.598365Z'
+            },
+            {
+              custom: {
+                title: 'Farmer'
+              },
+              eTag: 'AYGyoY3gre71eA',
+              email: null,
+              externalId: null,
+              id: 'user_63ea1591d8541a3bd35e5b1f09087dc',
+              name: 'Yasas',
+              profileUrl: 'https://randomuser.me/api/portraits/men/2.jpg',
+              updated: '2020-09-23T09:23:34.598494Z'
+            },
+            {
+              custom: {
+                title: 'Customer'
+              },
+              eTag: 'AZDyqJ7andTHlAE',
+              email: null,
+              externalId: null,
+              id: 'user_3c4400761cba4b65b77b6cae55c21eb',
+              name: 'Sumanlatha',
+              profileUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
+              updated: '2020-09-23T09:23:33.598365Z'
+            },
+            {
+              custom: {
+                title: 'Farmer'
+              },
+              eTag: 'AYGyoY3gre71eA',
+              email: null,
+              externalId: null,
+              id: 'user_63ea15931d8541a3bd3e5b1f09087dc',
+              name: 'Ravindu',
+              profileUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
+              updated: '2020-09-23T09:23:34.598494Z'
+            },
+            {
+              custom: {
+                title: 'Customer'
+              },
+              eTag: 'AZDyqJ7andTHlAE',
+              email: null,
+              externalId: null,
+              id: 'user_3c4400761cba4b65b77b6cae55fc21e',
+              name: 'Kamala',
+              profileUrl: 'https://randomuser.me/api/portraits/women/3.jpg',
               updated: '2020-09-23T09:23:33.598365Z'
             }
           ]}
@@ -66,19 +121,19 @@ export default function ChatApp() {
         />
         {/* Chat is an obligatory state provider. It allows you to configure some common component
         options, like the current channel and the general theme for the app. */}
-        <MessageList />
-        <MessageInput
+        {/* <MessageList /> */}
+        {/* <MessageInput
           draftMessage=""
           emojiPicker={{}}
           fileUpload="image"
           onBeforeSend={function noRefCheck(){}}
-          onChange={function noRefCheck(){}}
           onSend={function noRefCheck(){}}
           placeholder="Message"
           senderInfo
           typingIndicator
-        />
+        /> */}
       </Chat>
     </PubNubProvider>
+    </div>
   );
 }

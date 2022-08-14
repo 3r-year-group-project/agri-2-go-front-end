@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
-import pic from '../../assets/images/creditcards.png';
+import pic from '../../../assets/images/creditcards.png';
 
 
-export default function StepThree() {
+export default function StepTwo() {
     return(
         <div>
             <Container>
@@ -19,7 +19,7 @@ export default function StepThree() {
                         <img src={pic} width="150px" height="35px"/>
                         {/* </Grid> */}
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Card Number"
@@ -28,7 +28,7 @@ export default function StepThree() {
                             autoComplete="cardnumber"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Card Holder Name"
@@ -37,7 +37,7 @@ export default function StepThree() {
                             autoComplete="cardholdername"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Expiry Date"
@@ -50,7 +50,7 @@ export default function StepThree() {
                 }}       
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="CVV/CVC"

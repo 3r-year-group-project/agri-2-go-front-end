@@ -11,6 +11,10 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
 import { GROCERY_SELLER_SECTIONS } from '../../constants';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import ChatIcon from '@mui/icons-material/Chat';
+import EuroIcon from '@mui/icons-material/Euro';
 
 
 
@@ -53,27 +57,27 @@ export default function GrocerySellerListItems() {
       <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ReviewsIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.CHAT)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ChatIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.MYPROFIT)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <EuroIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Profit" />
       </ListItemButton>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.FINDVEGETABLES)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ManageSearchIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Find Vegetables" />
       </ListItemButton>

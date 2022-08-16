@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import TransactionTable from "../../../components/Transactions";

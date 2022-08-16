@@ -8,6 +8,7 @@ import { Box, CssBaseline, Typography } from "@mui/material";
 import StepOne from "./stepOne";
 import StepTwo from "./stepTwo";
 import StepThree from "./stepThree";
+import StepFour from "./stepFour";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
@@ -41,6 +42,8 @@ export default function StockBuyerRegistrationForm() {
                 return <StepTwo/>;
             case 2:
                 return <StepThree/>;
+            case 3:
+                return <StepFour/>;
             default: return "Unknown Step";
         }
     } 

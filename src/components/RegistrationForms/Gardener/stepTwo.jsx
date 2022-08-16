@@ -1,114 +1,127 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
 import pic from '../../../assets/images/creditcards.png';
-import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
+import {checkWord, checkWordExactLen,isFirstDateGreaterThanSecondDate} from "../../../services/utils/FormValidation"; 
 import { useParams } from "react-router-dom";
+import { formatDate } from "../../../services/utils/date/data";
+
+
+import "date-fns";
+import DateFnsUtils from "@date-io/date-fns";
+import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 
 export default function StepTwo(props) {
-    var err = [false,false,false,false];
-    var [errorText, setErrorText] = useState(["","","",""]);
-    var {id} = useParams();
-    var data = {
-        id: id,
-        cardNumber: "",
-        holder : "",
-        expiry : "",
-        cvv : "",
-    }
+    const [errorText, setErrorText] = useState({cardNumber:"",holder:"",expiry:"",cvv:""});
+    const [date, setDate] = useState(new Date());
+    const {id} = useParams();
+    const [data,setData] = useState({cardNumber:"",holder:"",expiry:"",cvv:"", id: id});
+    
+    useEffect(() => {
+        console.log("data",data);
+        if(!Object.values(data).includes("")){
+            console.log("i am true");
+            props.handleSubmitComponent2(data);
+            
+        }
+        
+    },[data]);
+
     const checkCardNum = (e) => {
-        let v = e.target.value;
+        let v = e.target.value;     
         let ob = checkWord(v,5,20);
         if(ob.state){
-            err[0] = true;
             setErrorText(
                 (prev) => {
-                    return(["",...prev.slice(1)]);
+                    return({...prev, cardNumber : ""});
                 }
             );
-            data.cardNumber = v;
-            if(!err.includes(false))
-                props.handleSubmitComponent2(data);
+            setData((prev) => {
+                return({...prev, cardNumber : v});
+            });
         }else{
-            err[0] = false;
             console.log(ob);
             setErrorText(
                 (prev) => {
-                    return([ob.err,...prev.slice(1)]);
+                    return({...prev, cardNumber : ob.errors});
                 }
             );
+            setData((prev) => {
+                return({...prev, cardNumber : ""});
+            });
         }
+        
     }
 
     const cardHolderName = (e) => {
         let v = e.target.value;
         let ob = checkWord(v,5,50);
         if(ob.state){
-            err[1] = true;
-            data.holder = v;
             setErrorText(
                 (prev) => {
-                    return([prev[0],"",...prev.slice(2)]);
+                    return({...prev, holder : ""});
                 }
             );
-            if(!err.includes(false))
-                props.handleSubmitComponent2(data);
+            setData((prev) => {
+                return({...prev, holder : v});
+            });
         }else{
-            err[1] = false;
             setErrorText(
                 (prev) => {
-                    return([prev[0],ob.err,...prev.slice(1)]);
+                    return({...prev, holder : ob.errors});
                 }
             );
+            setData((prev) => {
+                return({...prev, holder : ""});
+            });
         }
-        console.log("name",ob);
     }
 
-    const expiryDate = (e) => {
-        let v = e.target.value;
-        let ob = checkWord(v,5,20);
+    const expiryDate = (v) => {
+        let ob = isFirstDateGreaterThanSecondDate(v, new Date())
         if(ob.state){
             setErrorText(
                 (prev) => {
-                    return([...prev.slice(0,2),"",...prev[3]]);
+                    return({...prev, expiry : ""});
                 }
             );
-            err[2] = true;
-            data.expiry = v;
-            if(!err.includes(false))
-                props.handleSubmitComponent2(data);
+            setData((prev) => {
+                return({...prev, expiry : formatDate(v)});
+            });
         }else{
-            err[2] = false;
             setErrorText(
                 (prev) => {
-                    return([...prev.slice(0,2),ob.err,...prev[3]]);
+                    return({...prev, expiry : ob.errors});
                 }
             );
+            setData((prev) => {
+                return({...prev, expiry : ""});
+            });
         }
-        console.log("ex Date",ob);
     }
 
     const cvv = (e) => {
         let v = e.target.value;
         let ob = checkWordExactLen(v,3);
         if(ob.state){
-            err[3] = true;
             setErrorText(
                 (prev) => {
-                    return([...prev.slice(0,3),""]);
+                    return({...prev, cvv : ""});
                 }
             );
-            data.cvv = v;
-            if(!err.includes(false))
-                props.handleSubmitComponent2(data);
+            setData((prev) => {
+                return({...prev, cvv : v});
+            });
         }else{
-            err[3] = false;
             setErrorText(
                 (prev) => {
-                    return([...prev.slice(0,3),ob.err]);
+                    return({...prev, cvv : ob.errors});
                 }
             );
+            setData((prev) => {
+                return({...prev, cvv : ""});
+            });
         }
-        console.log("cvv",ob);
+        
     };
     return(
         <div>
@@ -125,8 +138,8 @@ export default function StepTwo(props) {
                         <img src={pic} width="150px" height="35px"/>
                         {/* </Grid> */}
                     <TextField
-                            error={errorText[0]}
-                            helperText={errorText[0]}
+                            error={errorText.cardNumber}
+                            helperText={errorText.cardNumber}
                             onChange={checkCardNum}
                             sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
@@ -137,8 +150,8 @@ export default function StepTwo(props) {
                             autoComplete="cardnumber"        
                     />
                     <TextField
-                            error={errorText[1]}
-                            helperText={errorText[1]}
+                            error={errorText.holder}
+                            helperText={errorText.holder}
                             onChange={cardHolderName}
                             sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
@@ -148,25 +161,25 @@ export default function StepTwo(props) {
                             name="cardholdername"
                             autoComplete="cardholdername"        
                     />
-                    <TextField
-                            error={errorText[2]}
-                            helperText={errorText[2]}
-                            onChange={expiryDate}
-                            sx={{margin: '1rem 0',input: { color: 'black' }}}
-                            required
-                            fullWidth
+                    <br />
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid container justify="space-around">
+                            <DatePicker
+                            variant="inline"
+                            openTo="year"
+                            views={["year", "month"]}
                             label="Expiry Date"
-                            id="expirydate"
-                            name="expirydate"
-                            autoComplete="expirydate" 
-                            type="month"
-                            InputLabelProps={{
-                                shrink: true,
-                }}       
-                    />
+                            helperText={errorText.expiry}
+                            error={errorText.expiry}
+                            onChange={(d) => {setDate(d);expiryDate(d)}}
+                            value={date}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+                    <br />
                     <TextField
-                            error={errorText[3]}
-                            helperText={errorText[3]}
+                            error={errorText.cvv}
+                            helperText={errorText.cvv}
                             onChange={cvv}
                             sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required

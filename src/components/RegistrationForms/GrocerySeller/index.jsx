@@ -8,6 +8,7 @@ import { Box, CssBaseline, Typography } from "@mui/material";
 import StepOne from "./stepOne";
 import StepTwo from "./stepTwo";
 import StepThree from "./stepThree";
+import StepFour from "./stepFour";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
@@ -19,8 +20,8 @@ export default function GrocerySellerRegistrationForm() {
     const [activeStep, setActiveStep] = useState(0);
 
     function getSteps() {
-        return ["", "", ""];
-        // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
+        return ["", "", "", ""];
+        // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS", "SHOP DETAILS"];
     }
 
     const handleNext = () => {
@@ -41,6 +42,8 @@ export default function GrocerySellerRegistrationForm() {
                 return <StepTwo/>;
             case 2:
                 return <StepThree/>;
+            case 3:
+                return <StepFour/>;
             default: return "Unknown Step";
         }
     } 

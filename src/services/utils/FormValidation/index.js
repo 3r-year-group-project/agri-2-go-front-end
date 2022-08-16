@@ -11,14 +11,13 @@ export const checkWord=(word,min,max) => {
     let errors = [];
     let state = true;
     if(word.length === 0){
-        erros.push("field is empty");
-        erros.push(<br/>)
+        errors.push("field is empty");
         state = false;
     }
     else if(word.length < min){
         state = false;
         errors.push(`should consist of more than ${min} characters`);
-        errors.push(<br/>)
+        
         
     }
     else if(word.length > max){
@@ -29,7 +28,7 @@ export const checkWord=(word,min,max) => {
     if(state)
         return {state:state, errors:""};
     else
-        return {state:state, errors:err};
+        return {state:state, errors:errors};
 }
 
 /**
@@ -48,24 +47,50 @@ export const checkWordExactLen=(word,len)=>{
 
 }
 
+/**
+ * check if the word is valid email
+ * 
+ * @param {string} word => word is validate whether a email or not
+ * @returns {object} {state:{false => error },errors:{list of errors}}
+ */
 export const checkEmail=(word)=>{
     let errors = [];
     let state = true;
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(word.length == 0){
-        errors.push(<div>field is empty<br/></div>);
+        errors.push("field is empty");
         state = false;
     }
     else if(!word.match(validRegex)){
-        errors.push(<div>not a valid email address</div>);
+        errors.push("not a valid email address");
         state = false;
     }
 
     if(state)
         return {state:state, errors:""};
     else
-        return {state:state, errors:err};
+        return {state:state, errors:errors};
 
 }
 
+/**
+ * check if first date is greater than the second date
+ * 
+ * @param {string} firstDate => first date for the comparison
+ * @param {string} secondDate => second date for the comparison
+ * @return {object} => {state:false , errors:list of errors} => if the first date is less than the second date
+ * @return {object} => {state:true , errors:null} => if the first date is greater than the second date
+*/
+export const isFirstDateGreaterThanSecondDate=(firstDate,secondDate)=>{
+    let errors = [];
+    if(firstDate.getTime() < secondDate.getTime()){
+        errors.push("your date is expired");
+        return {state:false, errors: errors};
+    }else if(firstDate.getTime() > secondDate.getTime()){
+        return {state:true, errors: errors};
+    }else{
+        errors.push("your date is not valid");
+        return {state:false, errors: errors};
+    }
+}
 

@@ -1,52 +1,86 @@
-import React from "react";
+import React,{ useState, useEffect} from "react";
 import { Typography, Grid, Container, TextField} from "@mui/material";
 import { styled } from "@mui/material";
 import { useParams } from "react-router-dom";
 import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
+import FormHelperText from '../../../../node_modules/@mui/material/FormHelperText/FormHelperText';
 
 
 
 
 export default function StepThree(props) {
     var {id} = useParams();
-    var err = [false,false,false,true,false];
-    var data = {
-        userType : 4,
-        firstName : "",
-        lastName : "",
-        address1 : "",
-        address2 : "",
-        city : "",
-        id: id
-    };
+    const [errorText, setErrorText] = useState(
+        {
+            firstName: '',
+            lastName: '',
+            address1: '',
+            address2: '',
+            city: '',
+        }
+    );
+    const [data,setData] = useState(
+        {
+            userType : 4,
+            firstName : "",
+            lastName : "",
+            address1 : "",
+            address2 : "empty",
+            city : "",
+            id: id 
+        }
+    );
+    
+    useEffect(() => {
+        console.log("data",data);
+        if(!Object.values(data).includes("")){
+            props.handleSubmitComponent3(data);
+            
+        }
+        
+    },[data]);
 
     const changeFirstName = (e) => {
         console.log("i find first name");
         let v = e.target.value;
         let ob = checkWord(v,5,20);
         if(ob.state == true){
-            err[0] = true;
-            data.firstName = v;
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData ((prev) => {
+                return({...prev, firstName : v});
+            });
+            setErrorText((prev) => {
+                return({...prev, firstName : ""});
+            });
+            
         }else{
-            err[0] = false;
+            setErrorText((prev) => {
+                return({...prev, firstName : ob.errors});
+            });
+            setData ((prev) => {
+                return({...prev, firstName : ""});
+            });
+            
         }
     };
 
     const changeLastName = (e) => {
-        console.log("i find last name");
         let v = e.target.value;
         let ob = checkWord(v,5,20);
         if(ob.state === true){
-            err[1] = true;
-            data.lastName = v;
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData((prev) => {
+                return({...prev, lastName : v});
+            });
+            setErrorText((prev) => {
+                return({...prev, lastName : ""});;
+            });
+            
         }else{
-            err[1] = false;
+            setData((prev) => {
+                return({...prev, lastName : ""});
+            });
+            setErrorText((prev) => {
+                return({...prev, lastName : ob.errors});;
+            });
         }
     };
 
@@ -55,13 +89,20 @@ export default function StepThree(props) {
         let v = e.target.value;
         let ob = checkWord(v,5,20);
         if(ob.state === true){
-            err[2] = true;
-            data.address1 = v;
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData((prev) => {
+                return({...prev, address1 : v});
+            });
+            setErrorText((prev) => {
+                return({...prev, address1 : ""});;
+            });
+            
         }else{
-            err[2] = false;
+            setData((prev) => {
+                return({...prev, address1 : ""});
+            });
+            setErrorText((prev) => {
+                return({...prev, address1 : ob.errors});;
+            });
         }
     };
 
@@ -70,20 +111,29 @@ export default function StepThree(props) {
         let v = e.target.value;
         let ob = checkWord(v,5,20);
         if(ob.state === true){
-            err[3] = true;
-            data.address2 = v;
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData((prev) => {
+                return({...prev, address2 : v});
+            });
+            setErrorText((prev) => {
+                return({...prev, address2 : ""});;
+            });
+            
         }else if(v.length === 0){
-            err[3] = true;
-            data.address2 = "";
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData((prev) => {
+                return({...prev, address2 : "empty"});
+            });
+            setErrorText((prev) => {
+                return({...prev, address2 : ""});;
+            });
+            
         }
         else{
-            err[3] = false;
+            setData((prev) => {
+                return({...prev, address2 : ""});
+            });
+            setErrorText((prev) => {
+                return({...prev, address2 : ob.errors});;
+            });
         }
     };
 
@@ -92,13 +142,20 @@ export default function StepThree(props) {
         let v = e.target.value;
         let ob = checkWord(v,5,20);
         if(ob.state === true){
-            err[4] = true;
-            data.city = v;
-            if(!err.includes(false)){
-                props.handleSubmitComponent3(data);
-            }
+            setData((prev)=>{
+                return({...prev, city:v});
+            })
+            setErrorText((prev) => {
+                return({...prev, city : ""});;
+            });
+            
         }else{
-            err[4] = false;
+            setData((prev)=>{
+                return({...prev, city:""});
+            })
+            setErrorText((prev) => {
+                return({...prev, city : ob.errors});;
+            });
         }
     };
 
@@ -114,7 +171,9 @@ export default function StepThree(props) {
                 <Grid container spacing={2} justifyContent = "center" alignItems = "center">
                     <Grid item xs={10} >
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            error={errorText.firstName}
+                            helperText={errorText.firstName}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="First Name"
@@ -124,7 +183,9 @@ export default function StepThree(props) {
                             onChange={changeFirstName}        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            error={errorText.lastName}
+                            helperText={errorText.lastName}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Last Name"
@@ -134,8 +195,10 @@ export default function StepThree(props) {
                             onChange={changeLastName}     
                     />
                     <TextField
+                            error={errorText.address1}
+                            helperText={errorText.address1}
                             onChange={changeAddress1}
-                            sx={{margin: '1rem 0'}}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="Address Line 1"
@@ -144,7 +207,9 @@ export default function StepThree(props) {
                             autoComplete="addressline-1"        
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            error={errorText.address2}
+                            helperText={errorText.address2}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             fullWidth
                             label="Address Line 2 (Optional)"
                             id="addressline-2"
@@ -153,7 +218,9 @@ export default function StepThree(props) {
                             onChange={changeAddress2}       
                     />
                     <TextField
-                            sx={{margin: '1rem 0'}}
+                            error={errorText.city}
+                            helperText={errorText.city}
+                            sx={{margin: '1rem 0',input: { color: 'black' }}}
                             required
                             fullWidth
                             label="City"

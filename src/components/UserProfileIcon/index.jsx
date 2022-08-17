@@ -91,7 +91,7 @@ export default function UserProfileIcon(Props) {
           </ListItemIcon>
         <Typography>Dashboard</Typography>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>
           <ListItemIcon>
             <Logout fontSize="small" color="secondary" />
           </ListItemIcon>

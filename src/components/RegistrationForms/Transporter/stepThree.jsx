@@ -21,7 +21,7 @@ export default function StepThree(props) {
     );
     const [data,setData] = useState(
         {
-            userType : 4,
+            userType : 7,
             firstName : "",
             lastName : "",
             address1 : "",

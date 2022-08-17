@@ -22,7 +22,7 @@ import WastageRecycleCenterRegistrationForm from "../components/RegistrationForm
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
 
 
-
+import StepFour from '../components/RegistrationForms/GrocerySeller/stepFour';
 
 
 export default function Router() {
@@ -57,6 +57,7 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
+        <Route path="/test" element={<StepFour />}/>    
         </Routes>
         </BrowserRouter>
    

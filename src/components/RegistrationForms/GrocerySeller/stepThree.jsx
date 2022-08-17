@@ -3,7 +3,6 @@ import { Typography, Grid, Container, TextField} from "@mui/material";
 import { styled } from "@mui/material";
 import { useParams } from "react-router-dom";
 import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
-import FormHelperText from '../../../../node_modules/@mui/material/FormHelperText/FormHelperText';
 
 
 
@@ -21,7 +20,7 @@ export default function StepThree(props) {
     );
     const [data,setData] = useState(
         {
-            userType : 6,
+            userType : 0,
             firstName : "",
             lastName : "",
             address1 : "",

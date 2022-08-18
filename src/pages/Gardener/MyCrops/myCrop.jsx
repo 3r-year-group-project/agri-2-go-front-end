@@ -76,7 +76,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -144,7 +144,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -212,7 +212,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -281,7 +281,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -350,7 +350,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -420,7 +420,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -489,7 +489,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -559,7 +559,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -628,7 +628,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -697,7 +697,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -766,7 +766,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -835,7 +835,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -905,7 +905,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
                             Delete
                         </Button> 
                         </ButtonGroup>

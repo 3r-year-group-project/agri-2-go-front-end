@@ -73,7 +73,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -141,7 +141,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -209,7 +209,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -278,7 +278,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -347,7 +347,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -417,7 +417,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -486,7 +486,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -556,7 +556,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -625,7 +625,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -694,7 +694,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -763,7 +763,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -832,7 +832,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
@@ -902,7 +902,7 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
                             Edit 
                         </Button>
                         <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>

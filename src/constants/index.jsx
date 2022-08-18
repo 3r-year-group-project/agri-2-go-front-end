@@ -35,6 +35,7 @@ export const CUSTOMER_SECTIONS = {
    CHAT:'chat',
    MYCROP:'mycrop',
     ADDCROP:'addcrop',
+    EDITCROP:'editcrop',
     DELETECROP:'deletecrop'
   
    

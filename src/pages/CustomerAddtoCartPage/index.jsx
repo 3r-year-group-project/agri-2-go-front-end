@@ -121,7 +121,7 @@ export default function ShowItemDetails(){
     
             </Box>
 
-            <Box  paddingX={1} style={{marginTop:"30px", marginBottom:"10px"}}>
+            {/* <Box  paddingX={1} style={{marginTop:"30px", marginBottom:"10px"}}>
 
             <TextField label="Address" color="secondary" placeholder="Enter the Delivery Address" focused fullWidth required />
 
@@ -132,7 +132,7 @@ export default function ShowItemDetails(){
             <TextField label="Mobile Number" color="secondary" placeholder="Enter the Mobile Number" focused fullWidth required />
 
     
-            </Box>
+            </Box> */}
             
             <hr/>
 

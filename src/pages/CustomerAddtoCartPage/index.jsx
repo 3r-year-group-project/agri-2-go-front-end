@@ -25,25 +25,9 @@ import Input from '../../components/Input/input';
 
 import Footer from "../../components/Footer";
 import NavBar from '../../components/Navbar';
-import Logo from '../../components/Logo/logo';
-import VegDetails from '../../components/VegetableCard';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import ButtonGroup from "@mui/material/ButtonGroup";
-import Paper from '@mui/material/Paper';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { SelectChangeEvent } from "@mui/material/Select";
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import { fontWeight } from "@mui/system";
+import Paper from '@mui/material/Paper';
+
 import Rating from "@mui/material/Rating";
 import TextField from "@mui/material/TextField";
 import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
@@ -60,6 +44,12 @@ const useStyles = makeStyles({
 
 export default function ShowItemDetails(){
 
+    let navigate = useNavigate(); 
+    const routeChangeCheckout = () =>{ 
+    let path = `/customer/checkout`; 
+    navigate(path);
+  }
+
     const classes = useStyles();
 
     return(
@@ -67,7 +57,7 @@ export default function ShowItemDetails(){
     <NavBar/>
 
     <Container maxWidth="90%">
-    <Grid  container spacing={2} >
+    <Grid  container spacing={5} >
 
 
     <Grid item md={6} style={{marginTop:"150px" }} fixed>
@@ -165,7 +155,7 @@ export default function ShowItemDetails(){
             </Box>
             <Box sx={{margin: "10px"}}>
 
-                <Button fullWidth variant="contained" color="info" style={{marginBottom:"10px" , height:"50px" , fontSize:"15px"}}>
+                <Button onClick={routeChangeCheckout} fullWidth variant="contained" color="info" style={{marginBottom:"10px" , height:"50px" , fontSize:"15px"}}>
                     Checkout <ShoppingCartCheckoutOutlinedIcon/>
                 </Button>
 

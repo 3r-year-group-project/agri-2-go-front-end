@@ -8,6 +8,7 @@ import SidePanel from '../../components/SidePanel';
 import ChatApp from '../../components/chat';
 import MyCrop from '../../pages/Gardener/MyCrops/myCrop';
 import AddCrop from '../../pages/Gardener/MyCrops/addCrop';
+import EditCrop from '../../pages/Gardener/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Gardener/MyCrops/deleteCrop';
 import Sellers from '../../pages/Gardener/FindSellers/sellers';
 import GardenerTransactions from '../../pages/Gardener/Transactions';
@@ -39,6 +40,9 @@ export default function GardenerLayout() {
           break;
         case GARDENER_SECTIONS.ADDCROP:
           setOpenPane(<AddCrop/>);
+          break;
+        case GARDENER_SECTIONS.EDITCROP:
+          setOpenPane(<EditCrop/>);
           break;
         case GARDENER_SECTIONS.DELETECROP:
           setOpenPane(<DeleteCrop/>);

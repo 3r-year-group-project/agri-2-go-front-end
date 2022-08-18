@@ -7,18 +7,23 @@ import React from "react";
 import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
 import { Chat, MessageList, MessageInput, MemberList } from "@pubnub/react-chat-components";
+import {useNavigate} from "react-router-dom";
+
 
 /* Creates and configures your PubNub instance. Be sure to replace "myPublishKey" and "mySubscribeKey"
 with your own keyset. If you wish, modify the default "myFirstUser" uuid value for the chat user. */
 const pubnub = new PubNub({
   publishKey: "pub-c-304f3462-f896-482f-82a8-a039dd7d88ad",
   subscribeKey: "sub-c-723667ff-95ff-48ac-9702-76288989cc0a",
-  uuid: "myFirstUser",
+  uuid: "myFirstUser"
 });
 const currentChannel = "Default";
 const theme = "light";
 
-export default function ChatApp() {
+export default function ChatMemberList() {
+  
+  const navigate = useNavigate();
+
   return (
     <div>
     <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
@@ -117,7 +122,7 @@ export default function ChatApp() {
               updated: '2020-09-23T09:23:33.598365Z'
             }
           ]}
-          onMemberClicked={function noRefCheck(){}}
+          onMemberClicked={()=>navigate("/gardener/dash/chatpage")}
         />
         {/* Chat is an obligatory state provider. It allows you to configure some common component
         options, like the current channel and the general theme for the app. */}

@@ -10,7 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import InputAdornment from '@mui/material/InputAdornment';
-import Input from '../../../components/Input/input';
+import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import 'react-tippy/dist/tippy.css';
@@ -41,6 +41,7 @@ export default function AddCrop() {
   };
 
   return (
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
       <Box
         sx={{
           paddingTop: 5,
@@ -50,10 +51,9 @@ export default function AddCrop() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'left',
-          backgroundColor: '#DCDCDC'
         }}
         >
-        <FormLabel id="title">Add Crop Details</FormLabel>
+        <center><FormLabel id="title"><font size="18"><b>Add Crop Details</b></font></FormLabel></center>
 
         <Container component="main" maxWidth="md">
       
@@ -62,19 +62,20 @@ export default function AddCrop() {
 
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3,mb:15}} >
               <Grid container spacing={3}>
-                <Grid item xs={10} >
-                  <Input
+                <Grid item xs={15} >
+                  <TextField
                     required
                     fullWidth
                     id="crop"
                     label="The Product"
                     name="crop"
                     autoComplete="The Product"
+                    sx={{ input: { color: 'black' } }}
                     />
                 </Grid>
           
-                <Grid item xs={10}>
-                  <Input
+                <Grid item xs={15}>
+                  <TextField
                     required
                     fullWidth
                     name="quantity"
@@ -82,40 +83,33 @@ export default function AddCrop() {
                     type="number"
                     id="quantity"
                     autoComplete="Quantity"
+                    sx={{ input: { color: 'black' } }}
                     />
                 </Grid>
 
                 <Grid item xs={5} >
                   <InputLabel htmlFor="startingdate">Starting Date</InputLabel>
-                  <Input
+                  <TextField
                     required
                     fullWidth
                     id="startingdate"
                     name="startingdate"
                     type="date"
+                    sx={{ input: { color: 'black' } }}
                     />
                 </Grid>
                 <Grid item xs={5} >
                   <InputLabel htmlFor="expectedenddate">Expected End Date</InputLabel>
-                  <Input
+                  <TextField
                     required
                     fullWidth
                     id="expectedenddate"
                     name="expectedenddate"
                     type="date"
+                    sx={{ input: { color: 'black' } }}
                     />
                 </Grid>
           
-                <Grid item xs={5}>
-                  <InputLabel htmlFor="totalcost">Total Cost</InputLabel>
-                  <OutlinedInput
-                    id="totalcost"
-                    value={values.amount}
-                    onChange={handleChange('totalcost')}
-                    startAdornment={<InputAdornment position="start">Rs.</InputAdornment>}
-                    />
-                </Grid>
-
                 <Grid item xs={5}>
                   <InputLabel htmlFor="sellingprice">Selling Price</InputLabel>
                   <OutlinedInput
@@ -123,11 +117,23 @@ export default function AddCrop() {
                     value={values.amount}
                     onChange={handleChange('sellingprice')}
                     startAdornment={<InputAdornment position="start">Rs.</InputAdornment>}
+                    sx={{ input: { color: 'black' } }}
+                    />
+                </Grid>
+
+                <Grid item xs={5}>
+                  <InputLabel htmlFor="totalcost">Total Cost</InputLabel>
+                  <OutlinedInput
+                    id="totalcost"
+                    value={values.amount}
+                    onChange={handleChange('totalcost')}
+                    startAdornment={<InputAdornment position="start">Rs.</InputAdornment>}
+                    sx={{ input: { color: 'black' } }}
                     />
                 </Grid>
 
 
-                <Grid item xs={12} >
+                <Grid item xs={15} >
                   <FormLabel id="advertisement">Add a Advertisement</FormLabel>
                   <RadioGroup
                     row
@@ -135,8 +141,8 @@ export default function AddCrop() {
                     defaultValue="yes"
                     name="advertisement"
                     >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" color='black' />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black' }}/>
+                    <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black' }}/>
                   </RadioGroup>
                   <FormHelperText>Do you want to advertise this crop?</FormHelperText>
                 </Grid>
@@ -170,6 +176,7 @@ export default function AddCrop() {
       </Container>
      
       </Box>
+    </div>
     
   );
   

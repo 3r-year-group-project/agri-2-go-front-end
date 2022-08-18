@@ -12,19 +12,26 @@ import StepThree from "./stepThree";
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 export default function CustomerRegistrationForm() {
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
+    //form states
+    const [stepState,setStepState] = useState([false,false,false]);
+
     function getSteps() {
         return ["", "", ""];
         // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
     }
 
-    const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1)
+    const handleNext = (prevActiveStep) => {
+        if(stepState[activeStep])
+            setActiveStep(prevActiveStep => prevActiveStep + 1)
+        else
+            alert("finish the form first");
     }
 
     const handleBack = () => {
@@ -33,14 +40,59 @@ export default function CustomerRegistrationForm() {
 
     const steps = getSteps();
 
+    const handleSubmitComponent1 = (ob) => {
+        
+        axios.post('/api/customer/registration/paymentPlan',ob).then(res => {
+            if(res){
+                setStepState((prev) => {
+                    return [
+                        true,
+                        ...prev.slice(1, prev.length - 1),
+                    ]
+                   });
+                console.log("successfully updateDatabase")
+            }
+       });
+    };
+
+    
+   const handleSubmitComponent2 = (ob) => {
+    
+    axios.post('/api/customer/registration/cardDetails',ob).then((res)=>{
+        setStepState((prev) => {
+            return [
+              prev[0],
+              true,
+              prev[2],
+           ]
+          });
+    });
+    
+       
+       
+    }
+    ;
+
+    const handleSubmitComponent3 = (ob) => {
+        axios.post('/api/customer/registration/personDetails',ob).then((res)=>{
+            setStepState((prev) => {
+                return [
+                   prev[0],
+                   prev[1],
+                   true,
+                ]
+            });
+        });       
+}
+
     function getStepsContent(stepIndex) {
         switch(stepIndex) {
             case 0:
-                return <StepOne/>;
+                return <StepOne handleSubmitComponent1={handleSubmitComponent1}/>;
             case 1:
-                return <StepTwo/>;
+                return <StepTwo handleSubmitComponent2={handleSubmitComponent2}/>;
             case 2:
-                return <StepThree/>;
+                return <StepThree handleSubmitComponent3={handleSubmitComponent3}/>;
             default: return "Unknown Step";
         }
     } 

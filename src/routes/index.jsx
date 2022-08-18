@@ -23,7 +23,7 @@ import WastageRecycleCenterRegistrationForm from "../components/RegistrationForm
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
 
 
-
+import Cart from '../components/cart';
 
 
 export default function Router() {
@@ -44,9 +44,7 @@ export default function Router() {
         <Route path="/register/customer/:id" element={<CustomerRegistrationForm/>}/>
         <Route path="/register/wastagerecyclecenter/:id" element={<WastageRecycleCenterRegistrationForm/>}/>
         <Route path="/register/transporter/:id" element={<TransporterRegistrationForm/>}/>
-
-        
-        
+                
         <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
 
@@ -62,8 +60,7 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="*" element={<PageNotFound/>}/>
-
+        <Route path="/test" element={<Cart />}/>    
         </Routes>
         </BrowserRouter>
    

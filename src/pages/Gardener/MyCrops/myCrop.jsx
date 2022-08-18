@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Typography, Grid, Card, Toolbar, Paper } from "@mui/material";
 import Box from '@mui/material/Box';
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 import Button from '@mui/material/Button';
 import AddCrop from './addCrop';
 import SearchBar from '../../../components/SearchBar';

@@ -93,7 +93,7 @@ export default function GardenerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <Tooltip title="Chats">
         <ChatIcon color="secondary" />

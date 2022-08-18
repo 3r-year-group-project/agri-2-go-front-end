@@ -32,9 +32,11 @@ export const CUSTOMER_SECTIONS = {
     CART:'addcart',
     TRANSACTIONS:'transactions',
    REVIEWS:'reviews',
-   CHAT:'chat',
+   CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
    MYCROP:'mycrop',
     ADDCROP:'addcrop',
+    EDITCROP:'editcrop',
     DELETECROP:'deletecrop'
   
    

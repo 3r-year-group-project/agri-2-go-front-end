@@ -53,11 +53,11 @@ const headCells = [
     label: 'Description',
   },
   {
-    id: 'amount',
+    id: 'status',
     numeric: false,
   
     disablePadding: false,
-    label: 'Amount',
+    label: 'Status',
   },
   {
     id: 'contact',
@@ -136,7 +136,7 @@ const EnhancedTableToolbar = (props) => {
           component="div"
         
         >
-        Transactions
+        Orders
         </Typography>
       )}
      
@@ -157,7 +157,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function TransactionTable(props) {
+export default function OrderTable(props) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -233,7 +233,7 @@ export default function TransactionTable(props) {
                       </TableCell>
                       <TableCell align="left">{row.description}</TableCell>
                       <TableCell align="left">
-                          {row.amount}
+                          {row.status}
                       </TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{

@@ -1,123 +1,178 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableFooter from '@mui/material/TableFooter';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
-import { styled } from '@mui/material/styles';
+import { Button } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { visuallyHidden } from '@mui/utils';
+import SearchBar from '../SearchBar';
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-      fontSize: 20
-    },
-    
-  }));
+function descendingComparator(a, b, orderBy) {
+  if (b[orderBy] < a[orderBy]) {
+    return -1;
+  }
+  if (b[orderBy] > a[orderBy]) {
+    return 1;
+  }
+  return 0;
+}
+
+function getComparator(order, orderBy) {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
+
+Array.prototype.sort()
+
+const headCells = [
+  {
+    id: 'date',
+    numeric: false,
+    disablePadding: false,
+    label: 'Date',
+  },
+  {
+    id: 'description',
+    numeric: false,
+    disablePadding: false,
+    label: 'Description',
+  },
+  {
+    id: 'amount',
+    numeric: false,
   
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-      border: 0,
-    },
-  }));
+    disablePadding: false,
+    label: 'Amount',
+  },
+  {
+    id: 'contact',
+    numeric: false,
+  
+    disablePadding: false,
+    label: 'Contact Buyer/Seller',
+  },
+];
 
-function TablePaginationActions(props) {
-  const theme = useTheme();
-  const { count, page, rowsPerPage, onPageChange } = props;
-
-  const handleFirstPageButtonClick = (event) => {
-    onPageChange(event, 0);
-  };
-
-  const handleBackButtonClick = (event) => {
-    onPageChange(event, page - 1);
-  };
-
-  const handleNextButtonClick = (event) => {
-    onPageChange(event, page + 1);
-  };
-
-  const handleLastPageButtonClick = (event) => {
-    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+function EnhancedTableHead(props) {
+  const {  order, orderBy,  onRequestSort } =
+    props;
+  const createSortHandler = (property) => (event) => {
+    onRequestSort(event, property);
   };
 
   return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-      <IconButton
-        onClick={handleFirstPageButtonClick}
-        disabled={page === 0}
-        aria-label="first page"
-      >
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
-      </IconButton>
-      <IconButton
-        onClick={handleBackButtonClick}
-        disabled={page === 0}
-        aria-label="previous page"
-      >
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-      </IconButton>
-      <IconButton
-        onClick={handleNextButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="next page"
-      >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-      </IconButton>
-      <IconButton
-        onClick={handleLastPageButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="last page"
-      >
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
-      </IconButton>
-    </Box>
+    <TableHead>
+      <TableRow>
+        
+        {headCells.map((headCell) => (
+          <TableCell
+            key={headCell.id}
+            align={headCell.numeric ? 'right' : 'left'}
+            padding={headCell.disablePadding ? 'none' : 'normal'}
+            sortDirection={orderBy === headCell.id ? order : false}
+          >
+            <TableSortLabel
+              active={orderBy === headCell.id}
+              direction={orderBy === headCell.id ? order : 'asc'}
+              onClick={createSortHandler(headCell.id)}
+            >
+              {headCell.label}
+              {orderBy === headCell.id ? (
+                <Box component="span" sx={visuallyHidden}>
+                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                </Box>
+              ) : null}
+            </TableSortLabel>
+          </TableCell>
+        ))}
+      </TableRow>
+    </TableHead>
   );
 }
 
-TablePaginationActions.propTypes = {
-  count: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired,
+EnhancedTableHead.propTypes = {
+  numSelected: PropTypes.number.isRequired,
+  onRequestSort: PropTypes.func.isRequired,
+  onSelectAllClick: PropTypes.func.isRequired,
+  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  orderBy: PropTypes.string.isRequired,
+  rowCount: PropTypes.number.isRequired,
 };
 
-/**
- * Filter takes props 1 prop.
- * 
- * @prop {Array} rows - Array of objects with 'date', 'description' and 'amount' properties
- * example: rows = [
-    *          {date: "2022.08.25", description: "Description1", amount: "Amount1"},
-    *          {date: "2022.08.26", description: "Description2", amount: "Amount2"},
-    *          {date: "2022.08.27", description: "Description3", amount: "Amount3"}
-    *          ...
- *          ]
- */
+const EnhancedTableToolbar = (props) => {
+  const { numSelected } = props;
+
+  return (
+    <Toolbar
+      sx={{
+        pl: { sm: 2 },
+        pr: { xs: 1, sm: 1 },
+        ...(numSelected > 0 && {
+          bgcolor: (theme) =>
+            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity), 
+        }),
+      }}
+    >
+      { (
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h5"
+          id="tableTitle"
+          component="div"
+        
+        >
+        Transactions
+        </Typography>
+      )}
+     
+      {<SearchBar/>}
+
+      {/* { (
+        <Tooltip title="Filter list">
+          <IconButton>
+            <FilterListIcon color="secondary"/>
+          </IconButton>
+        </Tooltip>
+      )} */}
+    </Toolbar>
+  );
+};
+
+EnhancedTableToolbar.propTypes = {
+  numSelected: PropTypes.number.isRequired,
+};
 
 export default function TransactionTable(props) {
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('calories');
+  const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
+  const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.rows.length) : 0;
+  const rows = props.rows
 
+  const handleRequestSort = (event, property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+  
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -127,61 +182,84 @@ export default function TransactionTable(props) {
     setPage(0);
   };
 
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
-        <TableHead>
-            <TableRow>
-                <StyledTableCell><b>Date</b></StyledTableCell>
-                <StyledTableCell align="left"><b>Description</b></StyledTableCell>
-                <StyledTableCell align="right"><b>Amount</b>&nbsp;(Rs.)</StyledTableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-          {(rowsPerPage > 0
-            ? props.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : props.rows
-          ).map((row) => (
-            <TableRow key={row.date}>
-              <TableCell component="th" scope="row">
-                <font size="4">{row.date}</font>
-              </TableCell>
-              <TableCell style={{ width: "auto" }} align="left">
-                <font size="4">{row.description}</font>
-              </TableCell>
-              <TableCell style={{ width: "auto" }} align="right">
-                <font size="4">{row.amount}</font>
-              </TableCell>
-            </TableRow>
-          ))}
 
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
-              count={props.rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
+  const isSelected = (name) => selected.indexOf(name) !== -1;
+
+  // Avoid a layout jump when reaching the last page with empty rows.
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+  return (
+    <Box sx={{ width: '100%',}}>
+      <Paper sx={{ width: '100%', mb: 2,  }}>
+        <EnhancedTableToolbar numSelected={selected.length} />
+        <TableContainer  >
+          <Table
+       fontSize="24"
+            sx={{ minWidth: 750 }}
+            aria-labelledby="tableTitle"
+            size={ 'large'}
+          >
+            <EnhancedTableHead
+               
+              numSelected={selected.length}
+              order={order}
+              orderBy={orderBy}
+            //   onSelectAllClick={handleSelectAllClick}
+              onRequestSort={handleRequestSort}
+              rowCount={rows.length}
             />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
+            <TableBody >
+              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
+                 rows.slice().sort(getComparator(order, orderBy)) */}
+              {rows.slice().sort(getComparator(order, orderBy)) 
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  const isItemSelected = isSelected(row.date);
+                  const labelId = `enhanced-table-checkbox-${index}`;
+
+                  return (
+                    <TableRow>
+                      
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="50px"
+                        align='left'
+                        
+                      >
+                        {row.date}
+                      </TableCell>
+                      <TableCell align="left">{row.description}</TableCell>
+                      <TableCell align="left">
+                          {row.amount}
+                      </TableCell>
+                      <TableCell align="left">
+                        <Button color="secondary" variant="contained" sx={{
+                         width: 200,fontSize: 16, backgroundColor: "green",color:'white'}}>
+                            {row.contact}
+                        </Button>
+                    </TableCell>
+                      
+                    </TableRow>
+                  );
+                })}
+              
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+      
+    </Box>
   );
 }

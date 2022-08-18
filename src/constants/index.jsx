@@ -20,7 +20,7 @@ export const CUSTOMER_SECTIONS = {
    CHAT:'chat',
    MYPROFIT:'myprofit',
    FINDSELLER:'findseller',
-   ADDCART:'addcart',
+   CART:'addcart',
    MYCROP:'mycrop'
    
  };
@@ -29,7 +29,7 @@ export const CUSTOMER_SECTIONS = {
     FINDSELLER:'findseller',
     ORDERS: 'orders',
     SALES:'sales',
-    ADDCART:'addcart',
+    CART:'addcart',
     TRANSACTIONS:'transactions',
    REVIEWS:'reviews',
    CHAT:'chat',

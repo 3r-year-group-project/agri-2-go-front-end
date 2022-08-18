@@ -65,7 +65,6 @@ export default function HomePage(props) {
         navigate('/wastagerecyclecenter/dash/dashboard');
         break;
       default:
-
       break;
   }
       

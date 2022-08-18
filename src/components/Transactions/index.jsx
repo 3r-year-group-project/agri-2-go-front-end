@@ -22,10 +22,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
+      fontSize: 20
     },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
+    
   }));
   
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -133,9 +132,9 @@ export default function TransactionTable(props) {
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>
             <TableRow>
-                <StyledTableCell>Date</StyledTableCell>
-                <StyledTableCell align="left">Description</StyledTableCell>
-                <StyledTableCell align="right">Amount&nbsp;(Rs.)</StyledTableCell>
+                <StyledTableCell><b>Date</b></StyledTableCell>
+                <StyledTableCell align="left"><b>Description</b></StyledTableCell>
+                <StyledTableCell align="right"><b>Amount</b>&nbsp;(Rs.)</StyledTableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -145,13 +144,13 @@ export default function TransactionTable(props) {
           ).map((row) => (
             <TableRow key={row.date}>
               <TableCell component="th" scope="row">
-                {row.date}
+                <font size="4">{row.date}</font>
               </TableCell>
               <TableCell style={{ width: "auto" }} align="left">
-                {row.description}
+                <font size="4">{row.description}</font>
               </TableCell>
               <TableCell style={{ width: "auto" }} align="right">
-                {row.amount}
+                <font size="4">{row.amount}</font>
               </TableCell>
             </TableRow>
           ))}

@@ -18,7 +18,28 @@ import { Button } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-import SearchBar from '../SearchBar';
+import SearchBar from '../../../components/SearchBar';
+import Filter from '../../../components/FilterBar'
+
+function createData(name, type, block, view) {
+  return {
+    name,
+    type,
+    block, 
+    view
+  };
+}
+
+const rows = [
+  createData('Sethni Disanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Saman Perera', 'Farmer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Kamal Perera', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Lihini Disanayaka', 'Gardener', 'BLOCK', 'VIEW PROFILE'),
+  createData('Nimal De Silva', 'Stock Buyer', 'BLOCK', 'VIEW PROFILE'),
+  createData('Amara Dasanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('S.D.Upul', 'Grocery Seller', 'BLOCK', 'VIEW PROFILE'),
+  
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -41,30 +62,30 @@ Array.prototype.sort()
 
 const headCells = [
   {
-    id: 'date',
+    id: 'name',
     numeric: false,
     disablePadding: false,
-    label: 'Date',
+    label: 'Name of the User',
   },
   {
-    id: 'description',
+    id: 'type',
     numeric: false,
     disablePadding: false,
-    label: 'Description',
+    label: 'User Type',
   },
   {
-    id: 'amount',
+    id: 'block',
     numeric: false,
   
     disablePadding: false,
-    label: 'Amount',
+    label: 'Block',
   },
   {
-    id: 'contact',
+    id: 'view',
     numeric: false,
   
     disablePadding: false,
-    label: 'Contact Buyer/Seller',
+    label: 'View',
   },
 ];
 
@@ -136,7 +157,7 @@ const EnhancedTableToolbar = (props) => {
           component="div"
         
         >
-        Transactions
+        Users
         </Typography>
       )}
      
@@ -157,7 +178,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function TransactionTable(props) {
+export default function OrderTable() {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -165,13 +186,14 @@ export default function TransactionTable(props) {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const rows = props.rows
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
+
+  
+
   
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -215,7 +237,7 @@ export default function TransactionTable(props) {
               {rows.slice().sort(getComparator(order, orderBy)) 
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.date);
+                  const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -229,16 +251,17 @@ export default function TransactionTable(props) {
                         align='left'
                         
                       >
-                        {row.date}
+                        {row.name}
                       </TableCell>
-                      <TableCell align="left">{row.description}</TableCell>
-                      <TableCell align="left">
-                          {row.amount}
-                      </TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
+                      <TableCell align="left"><Button color="secondary" variant="contained" sx={{
+                         width: 'auto',fontSize: 16, backgroundColor: "#f57a38",color:'white'}}>
+                            {row.block}
+                        </Button></TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{
                          width: 200,fontSize: 16, backgroundColor: "green",color:'white'}}>
-                            {row.contact}
+                            {row.view}
                         </Button>
                     </TableCell>
                       

@@ -182,6 +182,7 @@ export default function StepThree(props) {
                             autoComplete="firstname"
                             onChange={changeFirstName}        
                     />
+                  
                     <TextField
                             error={errorText.lastName}
                             helperText={errorText.lastName}

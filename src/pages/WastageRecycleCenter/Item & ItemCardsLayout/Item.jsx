@@ -19,7 +19,7 @@ export default function Items() {
 
     <ItemCard
       image="https://images.unsplash.com/photo-1633362811339-713febc7146b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
-      title="Pumkin"
+      title="Pumpkin"
       quality="About to rot"
       location="Kandy"
       weight="150"
@@ -27,7 +27,7 @@ export default function Items() {
     </div>
     <div className='item-row-two'>
       <ItemCard
-        image="https://ak.picdn.net/shutterstock/videos/30701650/thumb/1.jpg?ip=x480"
+        image="https://st4.depositphotos.com/15795830/22193/i/600/depositphotos_221935962-stock-photo-rotten-spoiled-eggplant-vegetables-lie.jpg"
         title="Eggplant"
         quality="Rotten"
         location="Badulla"

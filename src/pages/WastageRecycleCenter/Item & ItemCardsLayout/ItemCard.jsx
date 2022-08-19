@@ -44,7 +44,7 @@ export default function ItemCard(props) {
           </Typography>
 
           <CardActions style={{width:'160px',justifyContent:'center',alignItems:'center',}}>
-            <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} href='/wastageRecycleCenter/dash/wishlist'>Veiw Details</Button>
+            <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} href='/wastageRecycleCenter/dash/wishlist'>View Details</Button>
           </CardActions>
         </CardContent>
         </div>

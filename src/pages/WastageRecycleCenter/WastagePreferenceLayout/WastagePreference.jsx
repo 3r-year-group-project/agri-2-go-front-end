@@ -44,11 +44,11 @@ export default function WastagePreference(props) {
         width="90vw"
         maxWidth="xl"
         >
-          <Card style={{height:'auto', margin:'10px  80px',borderRadius:'5px',backgroundColor:'#075e54',color:'#fff',}}>
+          <Card style={{height:'auto', margin:'10px 30px',borderRadius:'5px',backgroundColor:'#075e54',color:'#fff',}}>
             
             <div className="topic-preference">
             <CardContent>
-              <h2 style={{fontSize:'35px',fontWeight: '500'}}>Wastage Preference</h2>
+              <h2 style={{fontSize:'28px',fontWeight: '500'}}>Wastage Preferences</h2>
             </CardContent>
             </div>
         <Divider color='#9df58c'/>
@@ -59,8 +59,8 @@ export default function WastagePreference(props) {
               
                 <ListItem>
                   <div className="listitem-data-row">
-                    <ListItemText style={{textAlign: 'left',}}>Preference Category</ListItemText>
-                    <ListItemText style={{textAlign: 'right',}}>Pumkin</ListItemText>
+                    <ListItemText style={{textAlign: 'left',}}>Preferred Category</ListItemText>
+                    <ListItemText style={{textAlign: 'right',}}>Pumpkin</ListItemText>
                   </div>
                 </ListItem>
                 <Divider color='#9df58c'/>
@@ -75,7 +75,7 @@ export default function WastagePreference(props) {
 
                 <ListItem>
                 <div className="listitem-data-row">
-                  <ListItemText style={{textAlign: 'left',}}>Preference Location</ListItemText>
+                  <ListItemText style={{textAlign: 'left',}}>Preferred Location</ListItemText>
                   <ListItemText style={{textAlign: 'right',}}>Kandy</ListItemText>
                 </div>
                 </ListItem>

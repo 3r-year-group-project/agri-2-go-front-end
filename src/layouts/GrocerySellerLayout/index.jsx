@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { GROCERY_SELLER_SECTIONS } from '../../constants';
 import GrocerySellerListItems from './grocerySellerListItem';
 import SidePanel from '../../components/SidePanel';
+import LoginPage from '../../pages/LoginPage'
+import FindVeges from '../../pages/GrocerySellerFindVeges';
 
 export default function GrocerySellerLayout() {
   
@@ -16,16 +18,18 @@ export default function GrocerySellerLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
-    if (params.length === 3) {
-      const subComponent = params[2];
+    if (params.length === 4) {
+      const subComponent = params[3];
       switch (subComponent) {
         case GROCERY_SELLER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<LoginPage/>);
           break;
         case GROCERY_SELLER_SECTIONS.REVIEWS:
           setOpenPane();
           break;
-
+        case GROCERY_SELLER_SECTIONS.FINDVEGETABLES:
+          setOpenPane(<FindVeges/>);
+          break;  
        
         default:
           break;
@@ -35,6 +39,6 @@ export default function GrocerySellerLayout() {
 
  
   return (
-    <SidePanel list={<GrocerySellerListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<GrocerySellerListItems/>} item2="Categories"  page={openPane}/>
   );
 }

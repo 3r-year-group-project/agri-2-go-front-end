@@ -36,6 +36,6 @@ export default function WastageRecyclecenterLayout() {
 
  
   return (
-    <SidePanel list={<WastageRecycleCenterListItems/>} item2="Categories" item3="Dashboard"/>
+    <SidePanel list={<WastageRecycleCenterListItems/>} item2="Categories" page={openPane}/>
   );
 }

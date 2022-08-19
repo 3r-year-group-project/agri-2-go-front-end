@@ -1,22 +1,88 @@
-import React from "react";
 import { Typography } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import React,{useEffect,useState} from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/Navbar";
 import { CssBaseline} from '@mui/material';
 import { Button, Stack } from '@mui/material';
-
+import { useNavigate } from 'react-router-dom';
 import background from "../../assets/images/bg4.jpg"
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
 
 
 
 
+export default function HomePage(props) {
+  const { user, isAuthenticated, isLoading,loginWithRedirect } = useAuth0();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      // loginWithRedirect({
+      //    appState: {
+      //      targetUrl: window.location.href,
+      //    },
+      //  });
+     }
+    
+  }, [isLoading, isAuthenticated]);
 
-export default function HomePage(params) {
-
-    const navigate = useNavigate();
-    const isAuthenticated='0';
-    return(
+  if (!isLoading && isAuthenticated) {
+    const email = user.email;
+  axios.get('/api/users/role/'+ email).then(res =>{
+      let userRole = res.data.data[0].user_type;
+      let id = res.data.data[0].id;
+      console.log("hello world");
+      console.log({userRole,id});
+      // admin=1
+      // customer=2
+      // farmer=3
+      // gardener=4
+      // stock=5
+      // grocery=6
+      // trans=7
+      // wastage=8
+      console.log("user role: " + userRole);
+  switch (userRole) {
+    case 0:
+      navigate('/continueregistration/'+id);
+      break;
+    case 1:
+      navigate('/admin/dash/dashboard');
+      break;
+    case 2:
+      navigate('/customer/category');
+      break;
+    case 3:
+      navigate('/farmer/category');
+      break;
+    case 4:
+      navigate('/gardener/category');
+      break;
+    case 5:
+      navigate('/stockbuyer/dash/dashboard');
+      break;
+    case 6:
+      navigate('/groceryseller/dash/dashboard');
+      break;
+    case 7:
+      navigate('/transporter/dash/dashboard');
+      break;
+    case 8:
+      navigate('/wastagerecyclecenter/dash/dashboard');
+      break;
+    default:
+    break;
+}
+    
+}).catch(err => {
+  console.log(err);
+});
+  }
+  else if(isLoading){
+    return <div>Loading...</div>;
+  }
+  else{  
+  return(
     <React.Fragment>
             <NavBar/>
             
@@ -55,38 +121,32 @@ export default function HomePage(params) {
                 Welcome to 'Agri2Go'. We are...
             </Typography>
             </div>
-            {isAuthenticated==='1' && <div><Button
-                  color="secondary"
-                  variant="contained"
-                  
-                  sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
-                >
-                 <b> LOGOUT</b> 
-                </Button></div> }
-            {
-                isAuthenticated==='0' && <div>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={() => navigate('/signup')}
-                  sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
-                >
-                 <b> TRY FOR FREE</b> 
-                </Button>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={() => navigate('/login')}
-                  sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
-                >
-                 <b> LOGIN</b> 
-                </Button>
-                </div>
-            }
             
+            <div>
+            <Button
+              color="secondary"
+              variant="contained"
+              
+              sx={{ width: 250, padding: 1, marginTop: 7 ,fontSize: 20, marginRight:4}}
+              onClick={() => loginWithRedirect()}
+            >
+             <b> TRY FOR FREE</b> 
+            </Button>
+            <Button
+              color="secondary"
+              variant="contained"
+              
+              sx={{ width: 200, padding: 1, marginTop: 7 ,fontSize: 20, backgroundColor: "#128C7E"}}
+              onClick={() => loginWithRedirect()}
+            >
+             <b> LOGIN</b> 
+            </Button>
+            </div>
             </div>
         </div>
         <Footer/>
         </React.Fragment>
     );
 }
+}
+   

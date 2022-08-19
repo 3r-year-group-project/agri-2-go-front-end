@@ -2,7 +2,7 @@ import React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import { Divider } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -28,13 +28,14 @@ export default function GrocerySellerListItems() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Schedule" />
       </ListItemButton>
-
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
@@ -42,30 +43,39 @@ export default function GrocerySellerListItems() {
         <ListItemText primary="Orders" />
       </ListItemButton>
       
-
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.TRANSACTIONS)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Transactions" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.CHAT)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.MYPROFIT)}>
         <ListItemIcon>
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Profit" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.FINDVEGETABLES)}>
+        <ListItemIcon>
+          <PaidIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Find Vegetables" />
       </ListItemButton>
     </React.Fragment>
   );

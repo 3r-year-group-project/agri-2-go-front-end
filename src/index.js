@@ -1,9 +1,14 @@
 import React from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import './index.css';
 import App from './App'
 import reportWebVitals from './reportWebVitals';
+
 import { Auth0Provider } from "@auth0/auth0-react";
+import axios from 'axios';
+// my API url
+axios.defaults.baseURL = "http://localhost:3002";
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'; // for all requests
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +19,7 @@ root.render(
   >
   <React.StrictMode>
     <App />
+
   </React.StrictMode>
   </Auth0Provider>
 );

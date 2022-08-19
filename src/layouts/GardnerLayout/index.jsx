@@ -6,6 +6,8 @@ import { GARDENER_SECTIONS } from '../../constants';
 import GardenerListItems from './gardenerListItem';
 import SidePanel from '../../components/SidePanel';
 import ChatApp from '../../components/chat';
+import Cart from '../../components/cart';
+import Review from '../../components/Review';
 
 export default function GardenerLayout() {
 
@@ -28,6 +30,11 @@ export default function GardenerLayout() {
           break;
         case GARDENER_SECTIONS.CHAT:
           setOpenPane(<ChatApp/>);
+        case GARDENER_SECTIONS.ADDCART:
+          setOpenPane(<Cart/>);
+          break;
+        case GARDENER_SECTIONS.REVIEWS:
+          setOpenPane(<Review/>);
           break;
 
         

@@ -66,7 +66,7 @@ export default function CategoryPage(params) {
   }
 
     return(
-        <div>
+        <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
             <NavBar/>
            
             <>

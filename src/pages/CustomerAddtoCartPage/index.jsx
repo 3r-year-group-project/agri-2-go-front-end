@@ -54,13 +54,15 @@ export default function ShowItemDetails(){
 
     return(
     <>
+    <Box style={{width:"100%" , height:"100%", background: 'rgba(37, 211, 102, 0.2)'}}>
     <NavBar/>
+    
 
-    <Container maxWidth="90%">
+    <Container maxWidth="100%">
     <Grid  container spacing={5} >
 
 
-    <Grid item md={6} style={{marginTop:"150px" }} fixed>
+    <Grid item md={6} style={{marginTop:"170px" }} fixed>
         
             <img
             className="img"
@@ -70,13 +72,13 @@ export default function ShowItemDetails(){
                         
             />        
 
-        <Box id="AddCartButtonBox" sx={{margin: "10px"}}>
+        {/* <Box id="AddCartButtonBox" sx={{margin: "10px"}}>
 
         <Button variant="contained" color="secondary" fullWidth style={{marginBottom:"10px" , height:"50px" , fontSize:"15px" , fontWeight:"bold"}}>
             View Cart<ShoppingCartIcon/>
         </Button>
 
-        </Box>
+        </Box> */}
         
         </Grid>
 
@@ -111,7 +113,7 @@ export default function ShowItemDetails(){
     
             </Box>
 
-            {/* <Box  paddingX={1} style={{marginTop:"30px", marginBottom:"10px"}}>
+            <Box  paddingX={1} style={{marginTop:"30px", marginBottom:"10px"}}>
 
             <TextField label="Address" color="secondary" placeholder="Enter the Delivery Address" focused fullWidth required />
 
@@ -122,7 +124,7 @@ export default function ShowItemDetails(){
             <TextField label="Mobile Number" color="secondary" placeholder="Enter the Mobile Number" focused fullWidth required />
 
     
-            </Box> */}
+            </Box>
             
             <hr/>
 
@@ -166,6 +168,7 @@ export default function ShowItemDetails(){
         </Grid>
     </Container>
         
+        </Box>
     </>
     );
 }

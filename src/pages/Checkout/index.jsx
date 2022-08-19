@@ -20,7 +20,7 @@ import TableRow from '@mui/material/TableRow';
 
 export default function loadFunction(){
   return(
-    <>
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)',minHeight:'100%'}} >
     <NavBar/>
     
 
@@ -28,7 +28,7 @@ export default function loadFunction(){
     <Box>
         <FormLabel id="title" sx={{marginLeft:"48%" , display:"flex", alignItems:"center" , fontSize:"35px" , fontWeight:"bold"}}>Checkout</FormLabel>
         
-          <Grid container spacing={1} sx={{marginTop:"6%"}}>
+          <Grid container spacing={1} sx={{marginTop:"6%" , paddingBottom:"11.2%"}}>
               <Grid item md={7} style={{ marginTop:"40px"}}>
                 <Paper>
                 <Box component={"form"} style={{paddingTop:"10px",paddingBottom:"10px"}}>
@@ -130,6 +130,6 @@ export default function loadFunction(){
       </Box>
     </Container> 
 
-    </>
+    </div>
   );
 }

@@ -5,13 +5,18 @@ import { useLocation } from 'react-router-dom';
 import { GARDENER_SECTIONS } from '../../constants';
 import GardenerListItems from './gardenerListItem';
 import SidePanel from '../../components/SidePanel';
-import ChatApp from '../../components/chat';
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
 import MyCrop from '../../pages/Gardener/MyCrops/myCrop';
 import AddCrop from '../../pages/Gardener/MyCrops/addCrop';
 import EditCrop from '../../pages/Gardener/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Gardener/MyCrops/deleteCrop';
 import Sellers from '../../pages/Gardener/FindSellers/sellers';
 import GardenerTransactions from '../../pages/Gardener/Transactions';
+import GardenerOrders from '../../pages/Gardener/Orders';
+import GardenerSales from '../../pages/Gardener/Sales';
+import Cart from '../../components/cart';
+import Review from '../../components/Review';
 
 export default function GardenerLayout() {
 
@@ -33,7 +38,7 @@ export default function GardenerLayout() {
           setOpenPane(<Sellers/>);
           break;
         case GARDENER_SECTIONS.CART:
-          setOpenPane();
+          setOpenPane(<Cart/>);
           break;
         case GARDENER_SECTIONS.MYCROP:
           setOpenPane(<MyCrop/>);
@@ -48,19 +53,22 @@ export default function GardenerLayout() {
           setOpenPane(<DeleteCrop/>);
           break;
         case GARDENER_SECTIONS.SALES:
-          setOpenPane();
+          setOpenPane(<GardenerSales/>);
           break;
         case GARDENER_SECTIONS.ORDERS:
-          setOpenPane();
+          setOpenPane(<GardenerOrders/>);
           break;
         case GARDENER_SECTIONS.TRANSACTIONS:
           setOpenPane(<GardenerTransactions/>);
           break;
-        case GARDENER_SECTIONS.CHAT:
-          setOpenPane(<ChatApp/>);
+        case GARDENER_SECTIONS.CHATMEMBERSLIST:
+          setOpenPane(<ChatMemberList/>);
+          break;
+        case GARDENER_SECTIONS.CHATPAGE:
+          setOpenPane(<ChatPage/>);
           break;
         case GARDENER_SECTIONS.REVIEWS:
-          setOpenPane();
+          setOpenPane(<Review/>);
           break;
 
         

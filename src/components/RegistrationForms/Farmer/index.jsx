@@ -41,6 +41,7 @@ export default function FarmerRegistrationForm() {
 
     
    const handleSubmitComponent2 = (ob) => {
+    
     axios.post('/api/farmer/registration/cardDetails',ob).then((res)=>{
         setStepState((prev) => {
             return [
@@ -71,9 +72,7 @@ export default function FarmerRegistrationForm() {
        
   
 
-    const updateDatabase = () => {
-        //send user update query to the database
-    }
+    
 
     function getSteps() {
         return ["", "", ""];

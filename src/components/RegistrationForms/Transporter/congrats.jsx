@@ -16,7 +16,7 @@ export default function CongratsMessage(){
             <Box>
             <img src={check} height="80" width="80"/>
             </Box>
-            <Button sx={{mt:4, width: 400}} variant="contained" fullWidth component={Link} to={'/login'}>FINISH</Button>  
+            <Button sx={{mt:4, width: 400}} variant="contained" fullWidth component={Link} to={'/'}>FINISH</Button>  
         </Grid>     
         </Container>
         

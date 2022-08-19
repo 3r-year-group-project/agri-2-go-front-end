@@ -33,7 +33,7 @@ export const CUSTOMER_SECTIONS = {
     FINDSELLER:'findseller',
     ORDERS: 'orders',
     SALES:'sales',
-    CART:'addcart',
+    ADDCART:'cart',
     TRANSACTIONS:'transactions',
     REVIEWS:'reviews',
     CHATMEMBERSLIST:'chat',

@@ -79,7 +79,10 @@ export const TRANSPORTER_SECTIONS = {
 };
 export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  FINDWASTAGE: 'findwastage',
+  ORDERS: 'orders',
   MYSCHEDULE:'myshedule',
+  WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
  CHAT:'chat',
 

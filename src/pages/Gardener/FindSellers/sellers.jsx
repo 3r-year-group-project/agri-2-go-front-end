@@ -91,6 +91,17 @@ export default function MyCrop() {
     <Grid container spacing={2}>
     `;
 
+    const filterSellerOptions = [
+        {title: "Farmers"}, 
+        {title: "Grocery Sellers"},
+        {title: "Stock Buyers"}
+    ];
+
+    const sortDistanceOptions = [
+        {title: "Asc"}, 
+        {title: "Desc"}
+    ];
+
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
     <Box
@@ -100,8 +111,11 @@ export default function MyCrop() {
     justifyContent="space-between"
     alignItems="center"
     >
-    <SearchBar/> 
-    <Filter id="filter-sellers" label="Filter" options={[{title: "By Distance"}, {title: "By Crop"}]}/>
+    <SearchBar/>
+    <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <Filter id="filter-sellers" label="Categories" options={filterSellerOptions} width={200}/>
+        <Filter id="sort-sellers" label="Distance" options={sortDistanceOptions} width={150}/>
+    </ButtonGroup> 
     </Box>
     <Container>
 
@@ -136,11 +150,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 
@@ -204,11 +216,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 
@@ -272,11 +282,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 
@@ -340,11 +348,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 
@@ -408,11 +414,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 
@@ -476,11 +480,9 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Profile 
                         </Button>
+                        
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            Crops 
-                        </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
-                            Hide
+                            Chat
                         </Button> 
                         </ButtonGroup>
 

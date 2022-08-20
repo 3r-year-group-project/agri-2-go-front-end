@@ -16,7 +16,7 @@ import im from '../../assets/images/bg1.jpg';
 
 
 
-export default function CustomizedTables() {
+export default function Cart() {
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {

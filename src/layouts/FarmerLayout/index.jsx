@@ -15,6 +15,8 @@ import Sellers from '../../pages/Farmer/FindSellers/sellers';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
 import FarmerSales from '../../pages/Farmer/Sales';
 import FarmerOrders from '../../pages/Farmer/Orders/index';
+import { FarmerCart } from '../../pages/Farmer/Cart';
+import { FarmerReviews } from '../../pages/Farmer/Reviews';
 
 const drawerWidth = 240;
 
@@ -38,7 +40,7 @@ export default function FarmerLayout() {
           setOpenPane(<Sellers/>);
           break;
         case FARMER_SECTIONS.CART:
-          setOpenPane();
+          setOpenPane(<FarmerCart/>);
           break;
         case FARMER_SECTIONS.MYCROP:
           setOpenPane(<MyCrop/>);
@@ -68,7 +70,7 @@ export default function FarmerLayout() {
           setOpenPane(<ChatPage/>);
           break;
         case FARMER_SECTIONS.REVIEWS:
-          setOpenPane();
+          setOpenPane(<FarmerReviews/>);
           break;
         default:
           

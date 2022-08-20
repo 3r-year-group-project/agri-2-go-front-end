@@ -55,7 +55,8 @@ export const CUSTOMER_SECTIONS = {
   FINDVEGETABLES : 'findvegetables',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
 
 
 };
@@ -68,7 +69,8 @@ export const STOCK_BUYER_SECTIONS = {
   SALES:'sales',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
  WASTAGEORDERS: 'wastageorders',
  DEMANDING: 'demanding',
  STOCKS: 'stocks',

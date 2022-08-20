@@ -9,7 +9,8 @@ import StockBuyerListItems from './stockBuyerListItem';
 import SidePanel from '../../components/SidePanel';
 import Calendar from '../../components/Calendar';
 import LoginPage from '../../pages/LoginPage';
-import Chat from '../../components/chat';
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
 import FindVeges from '../../pages/GrocerySellerFindVeges';
 
 
@@ -41,8 +42,11 @@ export default function StockBuyerLayout() {
         case STOCK_BUYER_SECTIONS.TRANSACTIONS:
           setOpenPane();
           break;
-        case STOCK_BUYER_SECTIONS.CHAT:
-          setOpenPane(<Chat/>);
+        case STOCK_BUYER_SECTIONS.CHATMEMBERSLIST:
+          setOpenPane(<ChatMemberList/>);
+          break;
+        case STOCK_BUYER_SECTIONS.CHATPAGE:
+          setOpenPane(<ChatPage/>);
           break;
         case STOCK_BUYER_SECTIONS.WASTAGEORDERS:
           setOpenPane();

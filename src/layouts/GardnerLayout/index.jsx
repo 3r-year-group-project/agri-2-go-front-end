@@ -15,10 +15,8 @@ import Sellers from '../../pages/Gardener/FindSellers/sellers';
 import GardenerTransactions from '../../pages/Gardener/Transactions';
 import GardenerOrders from '../../pages/Gardener/Orders';
 import GardenerSales from '../../pages/Gardener/Sales';
-import CartPage from '../../pages/Gardener/cart/gardnercart';
-import GardenerReview from '../../pages/Gardener/Review/gardenerReview';
-
-
+import { GardenerCart } from '../../pages/Gardener/Cart';
+import { GardenerReviews } from '../../pages/Gardener/Reviews';
 
 export default function GardenerLayout() {
 
@@ -40,7 +38,7 @@ export default function GardenerLayout() {
           setOpenPane(<Sellers/>);
           break;
         case GARDENER_SECTIONS.CART:
-          setOpenPane(<CartPage/>);
+          setOpenPane(<GardenerCart/>);
           break;
         case GARDENER_SECTIONS.MYCROP:
           setOpenPane(<MyCrop/>);
@@ -70,7 +68,7 @@ export default function GardenerLayout() {
           setOpenPane(<ChatPage/>);
           break;
         case GARDENER_SECTIONS.REVIEWS:
-          setOpenPane(<GardenerReview/>);
+          setOpenPane(<GardenerReviews/>);
           break;
 
         

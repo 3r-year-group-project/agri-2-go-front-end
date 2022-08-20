@@ -39,6 +39,7 @@ export default function FindVeges() {
 
 return (
     <>
+    <Box sx={{background: 'rgba(37, 211, 102, 0.2)'}}>
        
     <Button variant="contained" color="success" sx={{marginTop:"20px" , marginLeft: "20px" ,marginBottom : "20px", width:"20%" , height: "6%" , fontWeight:"bold"}}>
         Add a New Vegetable 
@@ -952,6 +953,7 @@ return (
         </Grid>
 
       </Container>
+      </Box>
 
       </>
     

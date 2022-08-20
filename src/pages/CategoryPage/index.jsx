@@ -45,6 +45,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { fontWeight } from "@mui/system";
 import Rating from "@mui/material/Rating";
+import LoginPage from '../../pages/LoginPage';
 
 
 
@@ -58,8 +59,14 @@ export default function CategoryPage(params) {
         setFilter(event.target.value);
   };
 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/customer/addtocart`; 
+    navigate(path);
+  }
+
     return(
-        <div>
+        <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
             <NavBar/>
            
             <>
@@ -118,6 +125,7 @@ export default function CategoryPage(params) {
            <Grid  container spacing={5} >
                {/* <VegDetails/> */}
                <Grid item md={3}>
+                <div onClick={routeChange}>
                 <Paper elevation={3} style={{marginTop:"10px"}}>
                        <img
                        className="img"
@@ -168,6 +176,7 @@ export default function CategoryPage(params) {
    
                        </Box>
                    </Paper>
+                   </div>
                </Grid>
 
 

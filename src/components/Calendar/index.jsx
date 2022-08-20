@@ -9,7 +9,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import React,{useState} from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-
+import Box from "@mui/material/Box";
 
 const locales = {
     "en-US" : require("date-fns/locale/en-US")
@@ -25,18 +25,18 @@ const localizer = dateFnsLocalizer({
 
   const events = [
     {
-        title: "Big Meeting",
+        title: "Carrot Stock from Nuwara Eliya",
         allDay: true,
         start: new Date(2022,8,2),
         end : new Date(2022,8,2)
     },
     {
-      title: "Welcome",
+      title: "Tomato stock from Pattipola",
       allDay: true,
       start: new Date(2022,8,2),
       end : new Date(2022,8,3)
   },{
-    title: "Big Meeting President",
+    title: "Potato stock from Ella",
     allDay: true,
     start: new Date(2022,8,3),
     end : new Date(2022,8,3)
@@ -57,6 +57,9 @@ export default function CalendarScedule(){
     return(
 
       <>
+      <Box>
+
+      
       {/* <Typography variant='h1' style={{color:"black"}}>Calendar</Typography> 
       <h2 style={{color:"black"}}>Add New Event</h2>
       <div>
@@ -78,9 +81,10 @@ export default function CalendarScedule(){
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 800, margin: "50px" }}>
+        style={{ height: 800, margin: "50px" , color:"black" , background: 'rgba(37, 211, 102, 0.2)' }}>
 
       </Calendar>
+      </Box>
       </>
     );
   }

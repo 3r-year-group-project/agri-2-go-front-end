@@ -12,6 +12,8 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
+import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
+import Checkout from "../pages/Checkout"
 
 import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
 import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
@@ -20,6 +22,8 @@ import GrocerySellerRegistrationForm from "../components/RegistrationForms/Groce
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+import LoginPage from "../pages/LoginPage";
+
 
 
 
@@ -27,7 +31,24 @@ import TransporterRegistrationForm from "../components/RegistrationForms/Transpo
 
 export default function Router() {
 
-     
+
+  const isAuthenticated='1';
+  const userRole='2';
+
+  // admin=1
+  // customer=2
+  // farmer=3
+  // gardener=4
+  // stock=5
+  // grocery=6
+  // trans=7
+  // wastage=8
+
+  
+
+  
+
+  
       return(
        
         <BrowserRouter>
@@ -49,6 +70,8 @@ export default function Router() {
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>
         <Route path="/customer/dash/:page" element={<CustomerLayout/>}/>
+        <Route path="/customer/addtocart" element={<CustomerAddToCart/>}/>
+        <Route path="/customer/checkout" element={<Checkout/>}/>
         <Route path="/customer/category" element={<CategoryPage/>}/>
         <Route path="/gardener/category" element={<CategoryPage/>}/>
         <Route path="/farmer/category" element={<CategoryPage/>}/>

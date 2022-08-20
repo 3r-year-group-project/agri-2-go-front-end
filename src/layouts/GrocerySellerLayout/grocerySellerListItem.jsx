@@ -63,7 +63,7 @@ export default function GrocerySellerListItems() {
         <ListItemText primary="Reviews" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(GROCERY_SELLER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <ChatIcon  color="secondary" />
         </ListItemIcon>

@@ -8,7 +8,8 @@ import SidePanel from '../../components/SidePanel';
 import LoginPage from '../../pages/LoginPage'
 import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Calendar from '../../components/Calendar';
-import Chat from '../../components/chat';
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
 
 export default function GrocerySellerLayout() {
   
@@ -35,8 +36,11 @@ export default function GrocerySellerLayout() {
         case GROCERY_SELLER_SECTIONS.FINDVEGETABLES:
           setOpenPane(<FindVeges/>);
           break;  
-        case GROCERY_SELLER_SECTIONS.CHAT:
-          setOpenPane(<Chat/>);
+        case GROCERY_SELLER_SECTIONS.CHATMEMBERSLIST:
+          setOpenPane(<ChatMemberList/>);
+          break;    
+        case GROCERY_SELLER_SECTIONS.CHATPAGE:
+          setOpenPane(<ChatPage/>);
           break;    
        
         default:

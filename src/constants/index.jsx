@@ -51,6 +51,7 @@ export const CUSTOMER_SECTIONS = {
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
  CHAT:'chat',
+ MYSCHEDULE:'myschedule'
 
 
 };

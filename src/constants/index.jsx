@@ -48,6 +48,7 @@ export const CUSTOMER_SECTIONS = {
 
  export const GROCERY_SELLER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  MYSCHEDULE: 'myschedule',
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',
@@ -61,12 +62,17 @@ export const CUSTOMER_SECTIONS = {
 
 export const STOCK_BUYER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  MYSCHEDULE: 'myschedule',
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
  CHAT:'chat',
+ WASTAGEORDERS: 'wastageorders',
+ DEMANDING: 'demanding',
+ STOCKS: 'stocks',
+ FINDVEGETABLES:'findvegetables',
 
  
 };

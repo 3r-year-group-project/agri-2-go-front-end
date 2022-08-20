@@ -13,6 +13,8 @@ import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
 import PageNotFound from "../pages/PageNotFound";
+import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
+import Checkout from "../pages/Checkout"
 
 import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
 import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
@@ -21,6 +23,8 @@ import GrocerySellerRegistrationForm from "../components/RegistrationForms/Groce
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+import LoginPage from "../pages/LoginPage";
+
 
 
 import Review from '../components/Review';
@@ -51,6 +55,8 @@ export default function Router() {
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>
         <Route path="/customer/dash/:page" element={<CustomerLayout/>}/>
+        <Route path="/customer/addtocart" element={<CustomerAddToCart/>}/>
+        <Route path="/customer/checkout" element={<Checkout/>}/>
         <Route path="/customer/category" element={<CategoryPage/>}/>
         <Route path="/gardener/category" element={<CategoryPage/>}/>
         <Route path="/farmer/category" element={<CategoryPage/>}/>

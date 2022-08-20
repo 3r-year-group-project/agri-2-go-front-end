@@ -98,7 +98,7 @@ export default function TransporterRegistrationForm() {
         }
     } 
     return (
-        <div>
+        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'0.5%',minHeight:'100%'}} >
             <CssBaseline  />
             <Box
             sx={{
@@ -108,6 +108,8 @@ export default function TransporterRegistrationForm() {
                 p: 2,
                 boxShadow: 3,
                 borderRadius: 2,
+                background: '#fff'
+                
             }}
             >
             <Box

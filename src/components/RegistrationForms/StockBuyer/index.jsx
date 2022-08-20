@@ -115,18 +115,20 @@ export default function StockBuyerRegistrationForm() {
         }
     } 
     return (
-        <div>
-            <CssBaseline  />
-            <Box
-            sx={{
-                width: '50%',
-                m: '6rem auto',
-                border: '1px solid #FFFFFF',
-                p: 2,
-                boxShadow: 3,
-                borderRadius: 2,
-            }}
-            >
+        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'0.5%',minHeight:'100%'}} >
+        <CssBaseline  />
+        <Box
+        sx={{
+            width: '50%',
+            m: '6rem auto',
+            border: '1px solid #FFFFFF',
+            p: 2,
+            boxShadow: 3,
+            borderRadius: 2,
+            background: '#fff'
+            
+        }}
+        >
             <Box
                 sx={{
                 mt: 2,

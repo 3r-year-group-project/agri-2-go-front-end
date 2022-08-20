@@ -8,6 +8,7 @@ import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
 import { Chat, MessageList, MessageInput, MemberList } from "@pubnub/react-chat-components";
 import {useNavigate} from "react-router-dom";
+import "../../assets/styles/Chat/index.css";
 
 
 /* Creates and configures your PubNub instance. Be sure to replace "myPublishKey" and "mySubscribeKey"
@@ -18,14 +19,14 @@ const pubnub = new PubNub({
   uuid: "myFirstUser"
 });
 const currentChannel = "Default";
-const theme = "light";
 
 export default function ChatMemberList() {
   
   const navigate = useNavigate();
+  const theme = "light";
 
   return (
-    <div>
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
     <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
                 <center><FormLabel id="title"><font size="18"><b>Chats</b></font></FormLabel></center>
             </Box>
@@ -45,7 +46,7 @@ export default function ChatMemberList() {
         onSignal={function noRefCheck(){}}
         onStatus={function noRefCheck(){}}
         onUser={function noRefCheck(){}}
-        theme="light"
+        theme={theme}
       >
         <MemberList
           members={[

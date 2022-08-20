@@ -8,7 +8,7 @@ import SidePanel from '../../components/SidePanel';
 import LoginPage from '../../pages/LoginPage'
 import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Calendar from '../../components/Calendar';
-import Chat from '../../components/chat';
+// import Chat from '../../components/chat';
 
 export default function GrocerySellerLayout() {
   
@@ -36,7 +36,7 @@ export default function GrocerySellerLayout() {
           setOpenPane(<FindVeges/>);
           break;  
         case GROCERY_SELLER_SECTIONS.CHAT:
-          setOpenPane(<Chat/>);
+          setOpenPane();
           break;    
        
         default:

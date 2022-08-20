@@ -21,10 +21,8 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
 import Input from '../../components/Input/input';
-
-
 import Footer from "../../components/Footer";
-import NavBar from '../../components/Navbar';
+
 import Logo from '../../components/Logo/logo';
 import VegDetails from '../../components/VegetableCard';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -46,6 +44,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { fontWeight } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import LoginPage from '../../pages/LoginPage';
+import NavBar from "../../components/Navbar";
+import { Logout } from '@mui/icons-material/Logout';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -65,9 +66,13 @@ export default function CategoryPage(params) {
     navigate(path);
   }
 
+
+    const { logout } = useAuth0();
+
     return(
         <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
             <NavBar/>
+
            
             <>
        <Container>
@@ -672,9 +677,15 @@ export default function CategoryPage(params) {
          </Container>
    
          </>
+
+           <Typography color='black'>
+           category
+           <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>
+     </Typography>
+
         
             
-           
+       
         
         </div>
     )

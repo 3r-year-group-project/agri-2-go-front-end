@@ -12,8 +12,12 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
+
 import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
 import Checkout from "../pages/Checkout"
+
+import PageNotFound from "../pages/PageNotFound";
+
 
 import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
 import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
@@ -26,7 +30,7 @@ import LoginPage from "../pages/LoginPage";
 
 
 
-
+import Review from '../components/Review';
 
 
 export default function Router() {
@@ -49,10 +53,12 @@ export default function Router() {
   
 
   
+
       return(
        
         <BrowserRouter>
         <Routes>
+
         <Route path="/" element={<HomePage />}/>
        
         <Route path="/register/:id" element={<RegisterPage/>}/>
@@ -63,10 +69,10 @@ export default function Router() {
         <Route path="/register/customer/:id" element={<CustomerRegistrationForm/>}/>
         <Route path="/register/wastagerecyclecenter/:id" element={<WastageRecycleCenterRegistrationForm/>}/>
         <Route path="/register/transporter/:id" element={<TransporterRegistrationForm/>}/>
-        
-        
+                
         <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
+
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>
         <Route path="/customer/dash/:page" element={<CustomerLayout/>}/>
@@ -81,6 +87,7 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
+        <Route path="/test" element={<Review />}/>    
         </Routes>
         </BrowserRouter>
    

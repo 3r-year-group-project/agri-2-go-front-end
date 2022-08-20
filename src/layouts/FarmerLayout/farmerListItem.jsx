@@ -10,7 +10,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
-import { FARMER_SECTIONS, GARDENER_SECTIONS } from '../../constants';
+import { FARMER_SECTIONS } from '../../constants';
 import ChatIcon from '@mui/icons-material/Chat';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import RateReview from '@mui/icons-material/RateReview';
@@ -20,7 +20,7 @@ import Tooltip from '@mui/material/Tooltip';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-export default function GardenerListItems() {
+export default function FarmerListItems() {
   const navigate = useNavigate();
 
   function routeToPage(page) {
@@ -94,7 +94,7 @@ export default function GardenerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <Tooltip title="Chats">
         <ChatIcon color="secondary" />

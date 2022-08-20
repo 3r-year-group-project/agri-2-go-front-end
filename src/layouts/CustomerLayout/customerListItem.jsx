@@ -58,7 +58,7 @@ export default function CustomerListItems() {
       {/* <ListSubheader component="div" inset>
         Operations
       </ListSubheader> */}
-      <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(CUSTOMER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <Tooltip title="Chat">
           <ChatIcon  color="secondary" />

@@ -7,8 +7,18 @@ import { Box,Button, CardActionArea, CardActions } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { color } from '@mui/system';
 import './item.css';
+import {useNavigate } from 'react-router-dom';
+import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
 
 export default function ItemCard(props) {
+  const navigate = useNavigate();
+  function routeToPage(page) {
+    navigate(`/wastageRecycleCenter/dash/${page}`);
+  }
+  // const navigateToDetails = () => {
+  //   navigate('/wastageRecycleCenter/dash/findwastage/viewdetails');
+  // };
+
   const color_icon = '#cf1204'
   const marg = '5px'
   const back_color='green'
@@ -44,7 +54,7 @@ export default function ItemCard(props) {
           </Typography>
 
           <CardActions style={{width:'160px',justifyContent:'center',alignItems:'center',}}>
-            <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} href='/wastageRecycleCenter/dash/wishlist'>View Details</Button>
+            <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION)}>View Details</Button>
           </CardActions>
         </CardContent>
         </div>

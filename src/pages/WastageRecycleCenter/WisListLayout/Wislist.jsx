@@ -18,7 +18,7 @@ export default function Wislist() {
             <CardContent>
               <h2 style={{fontSize: '28px',fontWeight: '500',margin:'0 0 0 20px',}}>Wishlist</h2>
             </CardContent>
-            {<SearchBar/>}
+            {/* {<SearchBar/>} */}
             </div>
             
           

@@ -100,8 +100,8 @@ export default function OrderComponent(props) {
                 
             </DialogContent>
             <DialogActions>
-                <Button onclick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-                <Button onclick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
+                <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
+                <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
             </DialogActions>    
 
         </Dialog>
@@ -161,7 +161,7 @@ export default function OrderComponent(props) {
                 </List>
             </DialogContent>
             <DialogActions>
-                <Button onclick={handleClose2} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
+                <Button onClick={handleClose2} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
             </DialogActions> 
         </Dialog>
     

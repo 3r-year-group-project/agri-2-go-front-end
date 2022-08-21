@@ -239,8 +239,8 @@ export default function WastagePreference(props) {
 
             </List>
             <DialogActions>
-              <Button onclick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-              <Button onclick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
+              <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
+              <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
             </DialogActions>
 
           </DialogContent>

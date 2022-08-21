@@ -4,9 +4,16 @@ import StarIcon from '@mui/icons-material/Star';
 import Divider from '@mui/material/Divider';
 import './itemDetails.css';
 import MyButton from './MyButton';
+import {useNavigate } from 'react-router-dom';
+import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
 
 
 export default function ItemDetails(props) {
+    const navigate = useNavigate();
+    function routeToPage(page) {
+      navigate(`/wastageRecycleCenter/dash/${page}`);
+    }
+
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
     <Box width='70vw' margin="auto">
@@ -38,7 +45,7 @@ export default function ItemDetails(props) {
                 </CardContent>
                 <div className='wishlist-button'>
                         <CardActions>
-                        <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#008000',color:'#fff'}}>Add Seller to Wishlist</Button>
+                        <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}}>Add Seller to Wishlist</Button>
                         </CardActions>
                     </div>
                 </div>
@@ -103,13 +110,13 @@ export default function ItemDetails(props) {
                 <div className='btn-colum'>
                     <div className='btn-col-1'>
                         <CardActions>
-                        <Button variant='outlined' sx={{color: '#fff'}}>Cancel</Button>
+                        <Button variant='outlined' sx={{color: '#fff'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.FINDWASTAGE)}>Cancel</Button>
                         </CardActions>
                     </div>
 
                     <div className='btn-col-2'>
                         <CardActions>
-                        <MyButton name="Contact Seller"/>
+                        <MyButton name="Add to Order Table"/>
                         </CardActions>
                     </div>
 

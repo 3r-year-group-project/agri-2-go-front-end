@@ -86,6 +86,7 @@ export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
  CHAT:'chat',
+ ITEMDESCRIPTION: 'itemdescription',
 
  
 };

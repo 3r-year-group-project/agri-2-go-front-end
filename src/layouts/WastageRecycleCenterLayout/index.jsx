@@ -9,6 +9,7 @@ import ItemDescription from '../../pages/WastageRecycleCenter/ItemDescriptionLay
 import OrderPage from '../../pages/WastageRecycleCenter/OderLayout/OrderPage';
 import Wislist from '../../pages/WastageRecycleCenter/WisListLayout/Wislist';
 import WastagePreference from '../../pages/WastageRecycleCenter/WastagePreferenceLayout/WastagePreference';
+import Dashboard from '../../pages/WastageRecycleCenter/Dashboard';
 
 export default function WastageRecyclecenterLayout() {
   
@@ -24,7 +25,7 @@ export default function WastageRecyclecenterLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case WASTAGE_RECYCLE_CENTER_SECTIONS.DASHBOARD:
-          setOpenPane(<Item/>);
+          setOpenPane(<Dashboard/>);
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.FINDWASTAGE:
           setOpenPane(<Item/>);
@@ -33,16 +34,19 @@ export default function WastageRecyclecenterLayout() {
           setOpenPane(<OrderPage/>);
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.MYSCHEDULE:
-          setOpenPane(<ItemDescription/>);
+          setOpenPane();
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.WASTAGEPREFERENCES:
           setOpenPane(<WastagePreference/>);
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.CHAT:
-          setOpenPane(<ItemDescription/>);
+          setOpenPane();
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST:
           setOpenPane(<Wislist/>);
+          break;
+        case WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION:
+          setOpenPane(<ItemDescription/>);
           break;
 
         

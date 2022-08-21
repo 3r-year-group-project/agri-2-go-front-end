@@ -27,25 +27,28 @@ import SearchBar from '../../../components/SearchBar';
 import Filter from '../../../components/FilterBar'
 import SearchB from '../../../components/SearchBar';
 
-function createData(name, type, block, view) {
+function createData(id,name, type, block, view) {
   return {
+    id,
     name,
     type,
-    block, 
+    block,
+  
     view
   };
 }
 
 const rows = [
-  createData('Sethni Disanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('Saman Perera', 'Farmer', 'BLOCK', 'VIEW PROFILE'),
-  createData('Kamal Perera', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('Lihini Disanayaka', 'Gardener', 'BLOCK', 'VIEW PROFILE'),
-  createData('Nimal De Silva', 'Stock Buyer', 'BLOCK', 'VIEW PROFILE'),
-  createData('Amara Dasanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('S.D.Upul', 'Grocery Seller', 'BLOCK', 'VIEW PROFILE'),
+  createData('1','Sethni Disanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('2','Saman Perera', 'Farmer', 'BLOCK', 'VIEW PROFILE'),
+  createData('3','Kamal Perera', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('4','Lihini Disanayaka', 'Gardener', 'BLOCK', 'VIEW PROFILE'),
+  createData('5','Nimal De Silva', 'Stock Buyer', 'BLOCK', 'VIEW PROFILE'),
+  createData('6','Amara Dasanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
+  createData('7','S.D.Upul', 'Grocery Seller', 'BLOCK', 'VIEW PROFILE'),
   
 ];
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -187,14 +190,15 @@ export default function OrderTable() {
   const navigate = useNavigate();
 
   const navigateToProfile = () => {
-    // 👇️ navigate to /contacts
+    //  navigate to profile
     navigate('/admin/dash/dashboard');
   };
+ 
   // the value of the search field 
   const [name, setName] = useState('');
 
   // the search result
-  const [foundUsers, setFoundUsers] = useState(rows);
+  const [users, setFoundUsers] = useState(rows);
 
   const filter = (e) => {
     const keyword = e.target.value;
@@ -212,6 +216,22 @@ export default function OrderTable() {
 
     setName(keyword);
   };
+
+  const[blockedUser,setBlockedUser]=useState(users)
+
+ const blockUser=(id)=>{
+  users.forEach(element => {
+    const temp=[]
+    if (element.id==id) {
+      element.unblock.disabled=false;
+     }
+    else{
+      temp.push(element)
+    }
+    
+  });
+
+ }
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -230,7 +250,10 @@ export default function OrderTable() {
     setPage(0);
   };
 
-
+const handleBlock=(e)=>{
+console.log("seth",e);
+}
+  
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
@@ -287,7 +310,7 @@ export default function OrderTable() {
               {/* if you don't need to support IE11, you can replace the `stableSort` call with:
                  rows.slice().sort(getComparator(order, orderBy)) */}
                  
-              {foundUsers.slice().sort(getComparator(order, orderBy)) 
+              {users.slice().sort(getComparator(order, orderBy)) 
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
@@ -310,8 +333,12 @@ export default function OrderTable() {
                       <Typography fontSize='24'  color='white'>{row.type}</Typography>
                       </TableCell>
                       <TableCell align="left"><Button id="myButton1" color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#f57a38",color:'white'}} >
+                         width: 'auto',fontSize: 16, backgroundColor: "#f57a38",color:'white'}} onClick={()=>{console.log("sumeela",row.id)}}>
                             {row.block}
+                        </Button >
+                        <Button id="myButton2" color="secondary" variant="contained" sx={{
+                         width: 'auto',fontSize: 16, backgroundColor: "green",color:'white',marginLeft:'5px'}} disabled='true'  >
+                            {row.unblock}
                         </Button ></TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{

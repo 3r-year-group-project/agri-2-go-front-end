@@ -11,7 +11,11 @@ import Button from '@mui/material/Button';
 
  export default function FormPropsTextFields() {
   const [name, setName] = useState("");
-
+  const data = [
+   { id:'1',name:'Basic Plan', duration:'1 Month', price:'$29.00', discounts:'$0.00',discription:'This Plan includes...'},
+   { id:'2',name:'Standard Plan', duration:'1 Year', price:'$99.00', discounts:'$0.00',discription:'This Plan includes...'},
+    
+  ];
   return (
     
     <Box

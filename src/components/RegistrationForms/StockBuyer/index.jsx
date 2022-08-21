@@ -12,11 +12,12 @@ import StepFour from "./stepFour";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
-import { Link } from "react-router-dom";
+import { Link, useParams  } from "react-router-dom";
 import axios from "axios";
 
 
 export default function StockBuyerRegistrationForm() {
+    const {id} = useParams();
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
@@ -59,7 +60,7 @@ export default function StockBuyerRegistrationForm() {
     
    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/groceryseller/stockbuyer/cardDetails',ob).then((res)=>{
+    axios.post('/api/groceryseller/stockbuyer/cardDetails',{...ob,id:id}).then((res)=>{
         setStepState((prev) => {
             return [
               prev[0],

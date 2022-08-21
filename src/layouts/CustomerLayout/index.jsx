@@ -24,6 +24,7 @@ export default function CustomerLayout() {
   const [open, setOpen] = React.useState(true);
   const [openPane, setOpenPane] = React.useState();
   const location = useLocation();
+  
 
   React.useEffect(() => {
     const params = location.pathname.split('/');

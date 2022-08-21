@@ -11,6 +11,7 @@ import Calendar from '../../components/Calendar';
 import LoginPage from '../../pages/LoginPage';
 // import Chat from '../../components/chat';
 import FindVeges from '../../pages/GrocerySellerFindVeges';
+import Demanding from '../../pages/StockBuyerDemanding';
 
 
 export default function StockBuyerLayout() {
@@ -48,7 +49,7 @@ export default function StockBuyerLayout() {
           setOpenPane();
           break; 
         case STOCK_BUYER_SECTIONS.DEMANDING:
-          setOpenPane();
+          setOpenPane(<Demanding/>);
           break; 
         case STOCK_BUYER_SECTIONS.STOCKS:
           setOpenPane();

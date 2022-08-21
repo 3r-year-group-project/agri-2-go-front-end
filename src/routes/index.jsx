@@ -13,8 +13,11 @@ import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
 
+
 import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
 import Checkout from "../pages/Checkout"
+
+
 
 import PageNotFound from "../pages/PageNotFound";
 
@@ -53,6 +56,7 @@ export default function Router() {
   
 
   
+
 
       return(
        

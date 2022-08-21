@@ -71,10 +71,11 @@ export const TRANSPORTER_SECTIONS = {
   DASHBOARD: 'dashboard',
   TRIPSCHEDULE:'tripshedule',
   ORDERS: 'orders',
- 
+  TRANSPORTREQUESTS: 'transportrequests',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
  CHAT:'chat',
+ MYVEHICLES: 'myvehicles',
 
  
 };

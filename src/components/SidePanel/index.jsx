@@ -27,6 +27,8 @@ import UserProfileIcon from '../UserProfileIcon';
 import {Stack } from '@mui/material';
 import { FARMER_SECTIONS } from '../../constants';
 
+import NotificationIcon from '../NotificationIcon';
+
 
 const drawerWidth = 240;
 
@@ -142,7 +144,8 @@ export default function SidePanel(Props) {
           color="inherit"
         >
           <Badge badgeContent={17} color="secondary">
-            <NotificationsIcon />
+          <NotificationIcon/>
+            {/* <NotificationsIcon /> */}
           </Badge>
         </IconButton>
             {/* </Button> */}

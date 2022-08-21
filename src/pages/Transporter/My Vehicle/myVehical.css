@@ -1,0 +1,38 @@
+.main_container
+{
+    display: flex;
+}
+
+.vehicle-card-list
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 80%;
+}
+
+/* .add_button_container
+{
+    display: flex;
+    align-items: flex-start;
+    flex-basis: 10%;
+    height: 100vh;
+} */
+
+
+.image_upload input[type='file']
+{
+    display: none;
+    height: 50px;
+}
+
+/* .lable-container 
+{
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    background-color: blue;
+    border-radius: 2px;
+} */

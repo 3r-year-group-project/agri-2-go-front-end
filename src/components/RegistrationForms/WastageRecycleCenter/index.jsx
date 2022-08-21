@@ -11,11 +11,13 @@ import StepThree from "./stepThree";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
-import { Link } from "react-router-dom";
+import { Link, useParams  } from "react-router-dom";
 import axios from 'axios';
 
 
+
 export default function WastageRecycleCenterRegistrationForm() {
+    const {id} = useParams();
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
@@ -58,7 +60,7 @@ export default function WastageRecycleCenterRegistrationForm() {
     
    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/wrc/registration/cardDetails',ob).then((res)=>{
+    axios.post('/api/wrc/registration/cardDetails',{...ob,id:id}).then((res)=>{
         setStepState((prev) => {
             return [
               prev[0],

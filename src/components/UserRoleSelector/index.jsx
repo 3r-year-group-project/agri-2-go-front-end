@@ -44,7 +44,7 @@ export default function UserRoleSelector(props) {
             case 'groceryseller':
                 return navigate('/register/groceryseller/'+props.id);    
             case 'customer':
-                return navigate('/register/customer'/+props.id);
+                return navigate('/register/customer/'+props.id);
             case 'wastagerecyclecenter':
                 return navigate('/register/wastagerecyclecenter/'+props.id); 
             case 'transporter':

@@ -20,11 +20,11 @@ export default function CustomerRegistrationForm() {
     const [activeStep, setActiveStep] = useState(0);
 
     //form states
-    const [stepState,setStepState] = useState([false,false,false]);
+    const [stepState,setStepState] = useState([false]);
 
     function getSteps() {
-        return ["", "", ""];
-        // return ["CHOOSE PLAN", "PAYMENT DETAILS", "PERSONAL DETAILS"];
+        return [""];
+        // return [ "PERSONAL DETAILS"];
     }
 
     const handleNext = (prevActiveStep) => {
@@ -40,46 +40,45 @@ export default function CustomerRegistrationForm() {
 
     const steps = getSteps();
 
-    const handleSubmitComponent1 = (ob) => {
+//     const handleSubmitComponent1 = (ob) => {
         
-        axios.post('/api/customer/registration/paymentPlan',ob).then(res => {
-            if(res){
-                setStepState((prev) => {
-                    return [
-                        true,
-                        ...prev.slice(1, prev.length - 1),
-                    ]
-                   });
-                console.log("successfully updateDatabase")
-            }
-       });
-    };
+//         axios.post('/api/customer/registration/paymentPlan',ob).then(res => {
+//             if(res){
+//                 setStepState((prev) => {
+//                     return [
+//                         true,
+//                         ...prev.slice(1, prev.length - 1),
+//                     ]
+//                    });
+//                 console.log("successfully updateDatabase")
+//             }
+//        });
+//     };
 
     
-   const handleSubmitComponent2 = (ob) => {
+//    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/customer/registration/cardDetails',ob).then((res)=>{
-        setStepState((prev) => {
-            return [
-              prev[0],
-              true,
-              prev[2],
-           ]
-          });
-    });
+//     axios.post('/api/customer/registration/cardDetails',ob).then((res)=>{
+//         setStepState((prev) => {
+//             return [
+//               prev[0],
+//               true,
+//               prev[2],
+//            ]
+//           });
+//     });
     
        
        
-    }
-    ;
+//     }
+//     ;
 
     const handleSubmitComponent3 = (ob) => {
+        console.log("i am called");
         axios.post('/api/customer/registration/personDetails',ob).then((res)=>{
             setStepState((prev) => {
                 return [
-                   prev[0],
-                   prev[1],
-                   true,
+                   true
                 ]
             });
         });       
@@ -88,10 +87,6 @@ export default function CustomerRegistrationForm() {
     function getStepsContent(stepIndex) {
         switch(stepIndex) {
             case 0:
-                return <StepOne handleSubmitComponent1={handleSubmitComponent1}/>;
-            case 1:
-                return <StepTwo handleSubmitComponent2={handleSubmitComponent2}/>;
-            case 2:
                 return <StepThree handleSubmitComponent3={handleSubmitComponent3}/>;
             default: return "Unknown Step";
         }

@@ -213,18 +213,13 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 export default function loadWastageStocks() {
+    let navigate = useNavigate(); 
+    const routeChangeSellWastageStocks = () =>{ 
+    let path = `/stockbuyer/sellwastagestocks`; 
+    navigate(path);
+  }
 
-  const navigate = useNavigate();
-  const [searchItem, setSearchItem] = useState("");
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
+ 
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -308,7 +303,7 @@ return (
                     <TableCell align="left">{row.quality}</TableCell>
                     <TableCell align="left">
                     <Button color="secondary" variant="contained" sx={{
-                         width: 180,fontSize: 11, backgroundColor: "orange",color:'white'}} >
+                         width: 180,fontSize: 11, backgroundColor: "orange",color:'white'}} onClick={routeChangeSellWastageStocks} >
                             {row.availabilityButton}
                         </Button>
                     </TableCell>

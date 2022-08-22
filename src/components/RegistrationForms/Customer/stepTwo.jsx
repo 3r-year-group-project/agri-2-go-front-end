@@ -13,11 +13,10 @@ import {
   formatExpirationDate,
   formatFormData
 } from "../card/utils";
-import styles from "../card/styles.css";
 
 import "react-credit-cards/es/styles-compiled.css";
 
-
+import '../card/styles.css';
 
 export default class StepTwo extends React.Component {
   

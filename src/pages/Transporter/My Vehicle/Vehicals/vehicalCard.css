@@ -1,0 +1,93 @@
+.main_container
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: auto;
+    margin: 20px 0;
+}
+.image_container
+{
+    flex-basis: 40%;
+}
+
+.details_container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-basis: 60%;
+    height: auto;
+   
+}
+
+.button_row 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.button_row .MuiCardContent-root
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.description_row
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width:100%;
+}
+
+.description_row .MuiCardContent-root
+{
+    padding: 0 0;
+ 
+}
+
+.description_row .MuiCardContent-root:last-child
+{
+    padding: 0;
+}
+.description_row .MuiListItem-root
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 10%;
+    width: 100%;
+   
+} 
+.description_row .MuiListItemText-root
+{
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+} 
+
+.lable-container 
+{
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    background-color: #999;
+    border-radius: 3px;
+}
+
+.item-space .MuiDialogContent-root
+{
+    padding: 10px 0;
+}

@@ -1,0 +1,19 @@
+.table-pre
+{
+    margin: 20px 50px 0 50px;
+    width: 70vw;
+    background-color: #075e54;
+    display: block;
+    float: left;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* .table-pre h2{
+    text-align: Left;
+    margin: 10px 0 50px 20px;
+    font-size: 35px;
+    font-weight: 500;
+} */
+

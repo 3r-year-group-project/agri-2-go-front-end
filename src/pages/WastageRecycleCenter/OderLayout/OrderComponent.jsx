@@ -47,7 +47,7 @@ export default function OrderComponent(props) {
                 </ListItemText>
                 
                 <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText>
-                <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add</Button></ListItemText>
+                <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add Details</Button></ListItemText>
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
                 <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Remove</Button></ListItemText>
             </ListItem>
@@ -65,7 +65,7 @@ export default function OrderComponent(props) {
 
             <DialogContent style={{borderColor:'green',}}>
                 <DialogContentText>
-                    Enter Your Order details here!
+                    Enter Your Order Details Here!
                 </DialogContentText>
 
                 <TextField 
@@ -82,7 +82,7 @@ export default function OrderComponent(props) {
                 autoFocus
                 margin="dense"
                 id="price"
-                label="Price"
+                label="Price (Rs)"
                 type="text"
                 placeholder='Price here'
                 fullWidth
@@ -93,8 +93,8 @@ export default function OrderComponent(props) {
                 margin="dense"
                 id="date"
                 type="date"
-                label="Shedule Date"
-                placeholder='Shedule Date'
+                label="Schedule Date"
+                // placeholder='Schedule Date'
                 fullWidth
                 variant="outlined"
                 />

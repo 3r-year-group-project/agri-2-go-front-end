@@ -13,6 +13,7 @@ import LoginPage from '../../pages/LoginPage';
 import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Demanding from '../../pages/StockBuyerDemanding';
 import Stocks from '../../pages/StockBuyerStocks';
+import WastageOrders from '../../pages/StockBuyerWastageOrders';
 
 
 export default function StockBuyerLayout() {
@@ -47,7 +48,7 @@ export default function StockBuyerLayout() {
           setOpenPane();
           break;
         case STOCK_BUYER_SECTIONS.WASTAGEORDERS:
-          setOpenPane();
+          setOpenPane(<WastageOrders/>);
           break; 
         case STOCK_BUYER_SECTIONS.DEMANDING:
           setOpenPane(<Demanding/>);

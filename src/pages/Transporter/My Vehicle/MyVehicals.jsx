@@ -72,7 +72,7 @@ export default function MyVehicals() {
 
     React.useEffect(() => {
         axios.post('/api/transporter/vehicle/getall',{email:user.email})
-            .then(res => {console.log(res.data.data);
+            .then(res => {
                 setVehi(res.data.data);});
     },[insert]);
 
@@ -90,12 +90,12 @@ export default function MyVehicals() {
           // on reader load somthing...
           reader.onload = () => {
             // Make a fileInfo Object
-            console.log("Called", reader);
+            
             baseURL = reader.result;
-            console.log(baseURL);
+            
             resolve(baseURL);
           };
-          console.log(fileInfo);
+          
         });
       };
 
@@ -198,7 +198,7 @@ export default function MyVehicals() {
             
       })
       .catch(err => {
-        console.log(err);
+        
       });
         
         
@@ -236,7 +236,7 @@ export default function MyVehicals() {
 
                 {vehi.map((element) => {
                     let vehicle = '';
-                    console.log(element.type);
+                    
                     switch(element.type){
                         case 1:
                             vehicle = 'motorcycle';
@@ -326,8 +326,8 @@ export default function MyVehicals() {
                 </Typography>
 
                 <TextField
-                error={errorText.vehiclenumber}
-                helperText={errorText.vehiclenumber}
+                error={errorText.vehicleNumber}
+                helperText={errorText.vehicleNumber}
                 onChange={checkVehicleNumber}
                 autoFocus
                 margin="dense"
@@ -346,8 +346,8 @@ export default function MyVehicals() {
                 </Typography>
 
                 <TextField
-                error={errorText.drivername}
-                helperText={errorText.drivername}
+                error={errorText.driverName}
+                helperText={errorText.driverName}
                 autoFocus
                 margin="dense"
                 id="Driver Name"
@@ -366,12 +366,12 @@ export default function MyVehicals() {
                 </Typography>
 
                 <TextField
-                error={errorText.vehiclecapacity}
-                helperText={errorText.vehiclecapacity}
+                error={errorText.vehicleCapacity}
+                helperText={errorText.vehicleCapacity}
                 autoFocus
                 margin="dense"
                 id="vehicleCapacity"
-                label="vehicle capacity"
+                label="vehicle capacity (L)"
                 type="text"
                 fullWidth
                 variant="outlined"

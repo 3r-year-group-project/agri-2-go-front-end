@@ -12,6 +12,7 @@ import LoginPage from '../../pages/LoginPage';
 // import Chat from '../../components/chat';
 import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Demanding from '../../pages/StockBuyerDemanding';
+import Stocks from '../../pages/StockBuyerStocks';
 
 
 export default function StockBuyerLayout() {
@@ -52,7 +53,7 @@ export default function StockBuyerLayout() {
           setOpenPane(<Demanding/>);
           break; 
         case STOCK_BUYER_SECTIONS.STOCKS:
-          setOpenPane();
+          setOpenPane(<Stocks/>);
           break; 
         case STOCK_BUYER_SECTIONS.FINDVEGETABLES:
           setOpenPane(<FindVeges/>);

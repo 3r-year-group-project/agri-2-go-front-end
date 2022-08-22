@@ -12,6 +12,7 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
+import AddToWastage from "../pages/StockBuyerAddToWastage";
 
 
 import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
@@ -64,6 +65,7 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
+        <Route path="/stockbuyer/addtowastage" element={<AddToWastage/>}/>  
        
         <Route path="/register/:id" element={<RegisterPage/>}/>
         <Route path="/register/farmer/:id" element={<FarmerRegistrationForm/>}/>
@@ -91,7 +93,9 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="/test" element={<Review />}/>    
+        <Route path="/test" element={<Review />}/>  
+        
+        
         </Routes>
         </BrowserRouter>
    

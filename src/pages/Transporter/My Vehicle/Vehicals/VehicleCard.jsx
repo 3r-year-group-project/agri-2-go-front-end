@@ -46,6 +46,11 @@ export default function VehicleCard(props) {
                                 </ListItem>
 
                                 <ListItem>
+                                    <ListItemText>capacity : </ListItemText>
+                                    <ListItemText>{props.capacity} &nbsp;L</ListItemText>
+                                </ListItem>
+
+                                <ListItem>
                                     <ListItemText>Vehicle No : </ListItemText>
                                     <ListItemText>{props.vehicleno}</ListItemText>
                                 </ListItem>

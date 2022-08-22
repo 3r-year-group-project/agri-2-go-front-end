@@ -22,26 +22,28 @@ import Tooltip from '@mui/material/Tooltip';
 import { visuallyHidden } from '@mui/utils';
 import { useNavigate } from 'react-router-dom';
 
-function createData(productName,sellingPricePer1kg ,quantity, soldQuantity, wastedQuantity,availableQuantity,wastageEligibilityButton) {
+function createData(productName,buyerName,buyingPricePer1kg ,quantity, soldQuantity, wastedQuantity,availableQuantity,wastageEligibilityButton,sellStock) {
   return {
     productName,
-    sellingPricePer1kg,
+    buyerName,
+    buyingPricePer1kg,
     quantity,
     soldQuantity, 
     wastedQuantity,
     availableQuantity,
-    wastageEligibilityButton
+    wastageEligibilityButton,
+    sellStock
   };
 }
 
 const rows = [
-  createData('Carrot', '200LKR', '200kg', '120kg','10kg','70kg','Add to Wastage'),
-  createData('Tomatoes', '400LKR', '400kg', '320kg','10kg','50kg','Add to Wastage'),
-  createData('Cabbage', '2700LKR', '250kg', '110kg','10kg','130kg','Add to Wastage'),
-  createData('Beetroot', '1200LKR', '600kg', '225kg','10kg','365kg','Add to Wastage'),
-  createData('Leeks', '1410LKR', '420kg', '120kg','10kg','290kg','Add to Wastage'),
-  createData('Potatoes', '1120LKR', '300kg', '100kg','10kg','190kg','Add to Wastage'),
-  createData('Green Chillies', '890LKR', '1200kg', '200kg','10kg','990kg','Add to Wastage'),
+  createData('Carrot','Nimal', '200LKR', '200kg', '120kg','10kg','70kg','Add to Wastage','Sell Stock'),
+  createData('Tomatoes','Kamal', '400LKR', '400kg', '320kg','10kg','50kg','Add to Wastage','Sell Stock'),
+  createData('Cabbage', 'Sunil', '2700LKR', '250kg', '110kg','10kg','130kg','Add to Wastage','Sell Stock'),
+  createData('Beetroot', 'Wimal', '1200LKR', '600kg', '225kg','10kg','365kg','Add to Wastage','Sell Stock'),
+  createData('Leeks', 'Kapila','1410LKR', '420kg', '120kg','10kg','290kg','Add to Wastage','Sell Stock'),
+  createData('Potatoes', 'Namal', '1120LKR', '300kg', '100kg','10kg','190kg','Add to Wastage','Sell Stock'),
+  createData('Green Chillies', 'Sarath', '890LKR', '1200kg', '200kg','10kg','990kg','Add to Wastage','Sell Stock'),
   
 ];
 
@@ -72,9 +74,15 @@ const headCells = [
     label: 'Name of the Product',
   },
   {
-    id: 'sellingPricePer1kg',
+    id: 'buyerName',
+    numeric: false,
     disablePadding: false,
-    label: 'Selling Price(1 kg)',
+    label: 'Name of the Buyer',
+  },
+  {
+    id: 'buyingPricePer1kg',
+    disablePadding: false,
+    label: 'Buying Price(1 kg)',
   },
   {
     id: 'quantity',
@@ -101,6 +109,11 @@ const headCells = [
     id: 'wastageEligibilityButton',
     disablePadding: false,
     label: 'Add to Wastage?',
+  },
+  {
+    id: 'sellStock',
+    disablePadding: false,
+    label: 'Sell the Stock?',
   },
   
 ];
@@ -208,6 +221,11 @@ export default function loadStocks(){
     navigate(path);
   }
 
+  const routeChangeSellStocks = () =>{ 
+    let path = `/stockbuyer/sellstock`; 
+    navigate(path);
+  }
+
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -287,7 +305,8 @@ export default function loadStocks(){
                       >
                         {row.productName}
                       </TableCell>
-                      <TableCell align="left">{row.sellingPricePer1kg}</TableCell>
+                      <TableCell align="left">{row.buyerName}</TableCell>
+                      <TableCell align="left">{row.buyingPricePer1kg}</TableCell>
                       <TableCell align="left">{row.quantity}</TableCell>
                       <TableCell align="left">
                       {row.soldQuantity}
@@ -310,6 +329,13 @@ export default function loadStocks(){
                             {row.wastageEligibilityButton}
                         </Button>
                     </TableCell>
+                    <TableCell align="left">
+                    <Button color="secondary" variant="contained" sx={{
+                         width: 150,fontSize: 12, backgroundColor: "green",color:'white'}} onClick={routeChangeSellStocks}>
+                            {row.sellStock}
+                        </Button>
+                    </TableCell>
+                    
                       
                     </TableRow>
                   );

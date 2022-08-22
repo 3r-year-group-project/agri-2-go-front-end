@@ -13,6 +13,7 @@ import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
 import AddToWastage from "../pages/StockBuyerAddToWastage";
+import StockBuyerSellStocks from "../pages/StockBuyerSellStocks";
 
 
 import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
@@ -66,6 +67,7 @@ export default function Router() {
 
         <Route path="/" element={<HomePage />}/>
         <Route path="/stockbuyer/addtowastage" element={<AddToWastage/>}/>  
+        <Route path="/stockbuyer/sellstock" element={<StockBuyerSellStocks/>}/>  
        
         <Route path="/register/:id" element={<RegisterPage/>}/>
         <Route path="/register/farmer/:id" element={<FarmerRegistrationForm/>}/>

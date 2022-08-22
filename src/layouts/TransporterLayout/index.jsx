@@ -8,7 +8,10 @@ import { TRANSPORTER_SECTIONS } from '../../constants';
 import TransporterListItems from './transporterListItem';
 import SidePanel from '../../components/SidePanel';
 
+import Dashboard from '../../pages/Transporter/Dashboard';
 import MyVehicals from '../../pages/Transporter/My Vehicle/MyVehicals';
+import TransactionTable from '../../components/Transactions';
+import Review from '../../components/Review';
 
 
 export default function TransporterLayout() {
@@ -25,7 +28,7 @@ export default function TransporterLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case TRANSPORTER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<Dashboard/>);
           break;
         case TRANSPORTER_SECTIONS.TRANSPORTREQUESTS:
           setOpenPane();

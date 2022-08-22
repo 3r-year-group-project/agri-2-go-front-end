@@ -39,7 +39,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Pending Orders" value="5" date="on 11 August, 2022" linkname="View orders" link=""/>
+                  <Cards title="Transport Requests" value="5" date="on 11 August, 2022" linkname="View requests" link=""/>
                 </Paper>
               </Grid>
 
@@ -52,7 +52,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Completed Orders" value="12" date="on 11 August, 2022" linkname="View orders" link=""/>
+                  <Cards title="My Vehicles" value="3" date="on 11 August, 2022" linkname="View vehicles" link=""/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -64,7 +64,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="My Wishlist" value="4" date="on 11 August, 2022" linkname="View wishlist" link=""/>
+                  <Cards title="Scheduled Trips" value="4" date="on 11 August, 2022" linkname="View my schedule" link=""/>
                 </Paper>
               </Grid>
               {/* <Grid item xs={12} md={4} lg={3}>
@@ -91,7 +91,7 @@ export default function DashboardContent() {
                     width:520,
                   }}
                 >
-                  <Chart title="Buying Statistics" date="11 August, 2022" yAxis="Orders" data=""/>
+                  <Chart title="Monthly Statistics" date="11 August, 2022" yAxis="Orders" data=""/>
                 </Paper>
                 
               </Grid>

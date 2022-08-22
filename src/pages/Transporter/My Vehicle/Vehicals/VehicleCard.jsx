@@ -66,7 +66,7 @@ export default function VehicleCard(props) {
                     <div className="button_row">
                         <CardContent>
                             <Button variant='contained' onClick={handleClickOpen} style={{backgroundColor:'#3333ff',marginLeft:'0px'}}>Edit</Button>
-                            <Button variant='contained' style={{backgroundColor:'#f57a38',marginLeft:'0px'}}>Delete</Button>
+                            <Button variant='contained' style={{backgroundColor:'red',marginLeft:'0px'}}>Delete</Button>
                         </CardContent>
                     </div>
                 </div>
@@ -96,9 +96,12 @@ export default function VehicleCard(props) {
                 onChange={handleChange}
                 style={{width:'250px',}}
                 >
-                <MenuItem value={1}>Car</MenuItem>
-                <MenuItem value={2}>Van</MenuItem>
-                <MenuItem value={3}>Lorry</MenuItem>
+                <MenuItem value={1}>Motorcycle</MenuItem>
+                <MenuItem value={2}>Three Wheeler</MenuItem>
+                <MenuItem value={3}>Car</MenuItem>
+                <MenuItem value={4}>Van</MenuItem>
+                <MenuItem value={5}>Lorry</MenuItem>
+                <MenuItem value={6}>Other</MenuItem>
                 </Select>
             </FormControl>
         </DialogContent>

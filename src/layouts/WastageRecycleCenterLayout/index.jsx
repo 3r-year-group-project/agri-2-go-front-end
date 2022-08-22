@@ -10,6 +10,7 @@ import OrderPage from '../../pages/WastageRecycleCenter/OderLayout/OrderPage';
 import Wislist from '../../pages/WastageRecycleCenter/WisListLayout/Wislist';
 import WastagePreference from '../../pages/WastageRecycleCenter/WastagePreferenceLayout/WastagePreference';
 import Dashboard from '../../pages/WastageRecycleCenter/Dashboard';
+import ChatPage from '../../components/chat/chatPage';
 
 export default function WastageRecyclecenterLayout() {
   
@@ -40,7 +41,7 @@ export default function WastageRecyclecenterLayout() {
           setOpenPane(<WastagePreference/>);
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.CHAT:
-          setOpenPane();
+          setOpenPane(<ChatPage/>);
           break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST:
           setOpenPane(<Wislist/>);

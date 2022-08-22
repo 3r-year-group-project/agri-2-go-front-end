@@ -50,15 +50,15 @@ export default function MyVehicals() {
          <div className="main_container">
             <div className="vehicle-card-list">
                 <VehicleCard 
-                image='https://img.freepik.com/free-photo/white-offroader-jeep-parking_114579-4007.jpg?w=740&t=st=1660934794~exp=1660935394~hmac=964f2c0d2a9c5d36e3d323cdb9715e0b1b8bd8b3a241bdc9b8309bff1682745f'
-                vehicletype='Car'
+                image='https://www.methmamovers.com/wp-content/uploads/2018/08/lorry-2.jpg'
+                vehicletype='Lorry'
                 vehicleno='BHE 4512'
                 drivername='E.S Ajith'
                 vehiclenumber='077 2515486'
                 />
                 <VehicleCard 
-                image='https://img.freepik.com/free-photo/white-offroader-jeep-parking_114579-4007.jpg?w=740&t=st=1660934794~exp=1660935394~hmac=964f2c0d2a9c5d36e3d323cdb9715e0b1b8bd8b3a241bdc9b8309bff1682745f'
-                vehicletype='Car'
+                image='https://www.researchgate.net/profile/Waruna-Maddumage/publication/337274631/figure/fig1/AS:825376922157056@1573796601056/BAJAJ-RE-205cc-motorized-three-wheeler-17.png'
+                vehicletype='Three Wheeler'
                 vehicleno='BHE 4512'
                 drivername='E.S Ajith'
                 vehiclenumber='077 2515486'
@@ -89,9 +89,12 @@ export default function MyVehicals() {
                     style={{width:'250px',}}
                     
                     >
-                    <MenuItem value={1}>Car</MenuItem>
-                    <MenuItem value={2}>Van</MenuItem>
-                    <MenuItem value={3}>Lorry</MenuItem>
+                    <MenuItem value={1}>Motorcycle</MenuItem>
+                    <MenuItem value={2}>Three Wheeler</MenuItem>
+                    <MenuItem value={3}>Car</MenuItem>
+                    <MenuItem value={4}>Van</MenuItem>
+                    <MenuItem value={5}>Lorry</MenuItem>
+                    <MenuItem value={6}>Other</MenuItem>
                     </Select>
                 </FormControl>
             </DialogContent>

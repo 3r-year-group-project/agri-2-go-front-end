@@ -132,6 +132,8 @@ body {
     box-sizing: border-box;
     display: block;
     margin : 0 auto; 
+    border: 1px #999 solid;
   }
+
 
    

@@ -99,7 +99,7 @@ export default function TransporterRegistrationForm() {
         }
     } 
     return (
-        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'0.5%',minHeight:'100%'}} >
+        <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
             <CssBaseline  />
             <Box
             sx={{

@@ -11,7 +11,7 @@ import MyCrop from '../../pages/Farmer/MyCrops/myCrop';
 import AddCrop from '../../pages/Farmer/MyCrops/addCrop';
 import EditCrop from '../../pages/Farmer/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Farmer/MyCrops/deleteCrop';
-import Sellers from '../../pages/Farmer/FindSellers/sellers';
+import Buyers from '../../pages/Farmer/FindBuyers/buyers';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
 import FarmerSales from '../../pages/Farmer/Sales';
 import FarmerOrders from '../../pages/Farmer/Orders/index';
@@ -37,7 +37,7 @@ export default function FarmerLayout() {
           setOpenPane();
           break;
         case FARMER_SECTIONS.FINDSELLER:
-          setOpenPane(<Sellers/>);
+          setOpenPane(<Buyers/>);
           break;
         case FARMER_SECTIONS.CART:
           setOpenPane(<FarmerCart/>);

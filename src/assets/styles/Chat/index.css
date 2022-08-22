@@ -1,0 +1,10 @@
+:root {
+    --msg-list__background: rgba(37, 211, 102, 0.2);
+    --msg-list__height: 60%;
+    
+    --msg-input__padding: 0;
+    --msg-input__background: rgba(37, 211, 102, 0.2);
+    --msg-input__send__color: rgb(0, 97, 21);
+    --msg-input__send--active__color: rgba(211, 37, 37, 0.863);
+    --msg-input__textarea__background: rgba(255, 255, 255, 0.788);
+}

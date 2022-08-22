@@ -14,6 +14,11 @@ import SidePanel from '../../components/SidePanel';
 import {Stack } from '@mui/material';
 import CalendarScedule from '../../components/Calendar';
 
+import CustomerOrders from '../../pages/Customer/Orders';
+import CustomerTransactions from '../../pages/Customer/Transactions';
+import ChatMemberList from '../../components/chat/memberList';
+import { CustomerCart } from '../../pages/Customer/Cart';
+
 const drawerWidth = 240;
 
 
@@ -36,14 +41,16 @@ export default function CustomerLayout() {
           setOpenPane(<CalendarScedule/>);
           break;
         case CUSTOMER_SECTIONS.ORDERS:
-          setOpenPane();
+          setOpenPane(<CustomerOrders/>);
           break;
-
+        case CUSTOMER_SECTIONS.CHATMEMBERSLIST:
+          setOpenPane(<ChatMemberList/>);
+          break;
         case CUSTOMER_SECTIONS.CART:
-          setOpenPane();
+          setOpenPane(<CustomerCart/>);
           break;
         case CUSTOMER_SECTIONS.TRANSACTIONS:
-          setOpenPane();
+          setOpenPane(<CustomerTransactions/>);
           break;
         default:
           break;

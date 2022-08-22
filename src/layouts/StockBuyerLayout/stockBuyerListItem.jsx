@@ -11,6 +11,12 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useNavigate } from 'react-router-dom';
 import PaidIcon from '@mui/icons-material/Paid';
 import { STOCK_BUYER_SECTIONS } from '../../constants';
+import ChatIcon from '@mui/icons-material/Chat';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
 
 
@@ -57,14 +63,14 @@ export default function StockBuyerListItems() {
       <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ReviewsIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ChatIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
@@ -74,6 +80,34 @@ export default function StockBuyerListItems() {
           <PaidIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Profit" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>
+        <ListItemIcon>
+          <ManageSearchIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Find Vegetables" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.WASTAGEORDERS)}>
+        <ListItemIcon>
+          <AutoDeleteIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Wastage Orders" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.DEMANDING)}>
+        <ListItemIcon>
+          <TrendingUpIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Demanding" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.STOCKS)}>
+        <ListItemIcon>
+          <InventoryIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Stocks" />
       </ListItemButton>
     </React.Fragment>
   );

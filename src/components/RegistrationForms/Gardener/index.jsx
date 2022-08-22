@@ -11,11 +11,12 @@ import StepThree from "./stepThree";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
-import { Link } from "react-router-dom";
+import { Link, useParams  } from "react-router-dom";
 
 import axios from 'axios';
 
 export default function GardenerRegistrationForm() {
+    const {id} = useParams();
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
@@ -42,7 +43,7 @@ export default function GardenerRegistrationForm() {
     };
     const handleSubmitComponent2 = (ob) => {
         console.log("handleSubmitComponent2 called");
-        axios.post('/api/gardener/registration/cardDetails',ob).then((res)=>{
+        axios.post('/api/gardener/registration/cardDetails',{...ob,id:id}).then((res)=>{
             setStepState((prev) => {
                 return [
                   prev[0],

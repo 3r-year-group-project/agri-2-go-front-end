@@ -28,8 +28,8 @@ export default function Filter(props) {
       options={props.options}
       getOptionLabel={(option) => option.title}
       filterOptions={filterOptions}
-      sx={{ color: 'white', width: 300 }}
-      renderInput={(params) => <TextField {...params} label={props.label} sx={{ input: { color: 'black' } }} />}
+      sx={{ color: 'white', width: props.width }}
+      renderInput={(params) => <TextField {...params} label={props.label} variant="filled" sx={{ input: { color: 'black' } }} />}
     />
   );
 }

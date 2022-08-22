@@ -16,6 +16,7 @@ import {
 import styles from "../card/styles.css";
 
 import "react-credit-cards/es/styles-compiled.css";
+import '../card/styles.css';
 
 
 

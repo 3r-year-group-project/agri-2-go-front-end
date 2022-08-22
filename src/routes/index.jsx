@@ -24,6 +24,7 @@ import TransporterRegistrationForm from "../components/RegistrationForms/Transpo
 
 
 import Review from '../components/Review';
+// import ItemDescription from "../pages/WastageRecycleCenter/ItemDescriptionLayout/ItemDescription";
 
 
 export default function Router() {
@@ -60,7 +61,8 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="/test" element={<Review />}/>    
+        <Route path="/test" element={<Review />}/> 
+        {/* <Route path="/wastageRecycleCenter/dash/findwastage/viewdetails" element={<ItemDescription/>}/>    */}
         </Routes>
         </BrowserRouter>
    

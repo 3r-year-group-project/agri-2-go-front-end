@@ -72,18 +72,23 @@ export const TRANSPORTER_SECTIONS = {
   DASHBOARD: 'dashboard',
   TRIPSCHEDULE:'tripshedule',
   ORDERS: 'orders',
- 
+  TRANSPORTREQUESTS: 'transportrequests',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
  CHAT:'chat',
+ MYVEHICLES: 'myvehicles',
 
  
 };
 export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  FINDWASTAGE: 'findwastage',
+  ORDERS: 'orders',
   MYSCHEDULE:'myshedule',
+  WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
  CHAT:'chat',
+ ITEMDESCRIPTION: 'itemdescription',
 
  
 };

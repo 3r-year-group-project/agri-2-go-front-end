@@ -1,0 +1,84 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.background-preference
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+.topic-preference
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.preference-data-row
+{
+    text-align: center;
+    margin:20px 80px;
+}
+
+.button-pref
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.listitem-data-row
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+@media only  screen and (max-width: 850px)
+{
+    .listitem-data-row
+    {
+       width: 100%;
+    }
+}
+
+.listitem-data-row .MuiListItemText-root
+{
+    text-align: center;
+}
+
+.MuiCardContent-root .MuiListItem-root 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MuiDialog-container  .MuiPaper-root  .MuiDialogContent-root .MuiList-root .MuiListItem-root
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+   
+}
+
+.MuiDialog-container  .MuiPaper-root  .MuiDialogContent-root .MuiList-root .MuiListItem-root .MuiListItemText-root
+{
+    width: 360px;
+}
+
+.MuiDialogContent-root .MuiList-root .MuiListItem-root .MuiFormControl-root 
+{
+    width: 310px;
+}
+
+.MuiDialogActions-root .MuiButtonBase-root 
+{
+    margin: 0 40px;
+}

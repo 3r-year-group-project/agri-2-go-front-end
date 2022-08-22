@@ -92,7 +92,7 @@ export default function CustomerRegistrationForm() {
         }
     } 
     return (
-        <div>
+         <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
             <CssBaseline  />
             <Box
             sx={{
@@ -102,6 +102,8 @@ export default function CustomerRegistrationForm() {
                 p: 2,
                 boxShadow: 3,
                 borderRadius: 2,
+                background: '#fff'
+                
             }}
             >
             <Box

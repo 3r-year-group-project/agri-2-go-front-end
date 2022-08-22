@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Route, useNavigate,useParams } from "react-router-dom";
 import { Typography, Grid, Card, Button, Container, CssBaseline, Box, FormControl} from "@mui/material";
 import 'react-tippy/dist/tippy.css';
+import Logo from "../Logo/logo";
  
 import farmer from '../../assets/images/farmer.png';
 import gardener from '../../assets/images/gardener.png';
@@ -53,19 +54,31 @@ export default function UserRoleSelector(props) {
     } 
 
            return (
-            <div>
-                <CssBaseline/>                
+            <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
+            <CssBaseline  />
+            <Box
+            sx={{
+                width: '50%',
+                m: '6rem auto',
+                border: '1px solid #FFFFFF',
+                p: 2,
+                boxShadow: 3,
+                borderRadius: 2,
+                background: '#fff'
+                
+            }}
+            >
                 <Box
-                    sx={{
-                        width: '50%',
-                        m: '6rem auto',
-                        border: '1px solid #FFFFFF',
-                        p: 2,
-                        boxShadow: 3,
-                        borderRadius: 2,
-                    }}
-                >    
-                <br /> 
+                sx={{
+                mt: 2,
+                mb: 5,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                }}
+                > 
+                <Logo />
+                </Box>
                     <Typography variant="h6" align="center" sx={{color: '#128C7E'}}>
                         Select User Role
                     </Typography>

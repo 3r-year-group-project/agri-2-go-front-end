@@ -57,6 +57,12 @@ export default function OrderPage() {
           </Typography>
         </ListItemText>
 
+        <ListItemText>
+          <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
+              Remove
+          </Typography>
+        </ListItemText>
+
       </ListItem>
       <Divider color='#9df58c'/>
       </List>

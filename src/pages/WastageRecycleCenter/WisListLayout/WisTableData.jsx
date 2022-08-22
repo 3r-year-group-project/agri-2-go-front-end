@@ -11,7 +11,7 @@ export default function WisTableData(props) {
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.SellerName}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.SellerLocation}</Typography></ListItemText>
                 <ListItemText><SwitchWislis/></ListItemText>
-                <ListItemText><Button variant="contained" sx={{color:'#fff',backgroundColor:'#f57a38',}}>Remove</Button></ListItemText>
+                <ListItemText><Button variant="contained" sx={{color:'#fff',backgroundColor:'red',}}>Remove</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
         </List>

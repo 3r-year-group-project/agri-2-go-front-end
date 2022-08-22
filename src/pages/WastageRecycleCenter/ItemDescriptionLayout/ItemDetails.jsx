@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Card, CardActions, CardContent, CardMedia, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, List, ListItem, ListItemText, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star';
 import Divider from '@mui/material/Divider';
 import './itemDetails.css';
@@ -45,7 +45,7 @@ export default function ItemDetails(props) {
                 </CardContent>
                 <div className='wishlist-button'>
                         <CardActions>
-                        <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}}>Add Seller to Wishlist</Button>
+                        <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}} onClick={() => <Alert severity="success">This is a success alert — check it out!</Alert>}>Add Seller to Wishlist</Button>
                         </CardActions>
                     </div>
                 </div>
@@ -116,7 +116,8 @@ export default function ItemDetails(props) {
 
                     <div className='btn-col-2'>
                         <CardActions>
-                        <MyButton name="Add to Order Table"/>
+                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}>Add to Order List</Button>
+                        {/* <MyButton name="Add to Order Table" onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}/> */}
                         </CardActions>
                     </div>
 

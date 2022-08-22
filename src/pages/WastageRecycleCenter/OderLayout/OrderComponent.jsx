@@ -49,6 +49,7 @@ export default function OrderComponent(props) {
                 <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText>
                 <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add</Button></ListItemText>
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Remove</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
 

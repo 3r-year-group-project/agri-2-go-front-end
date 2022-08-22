@@ -39,13 +39,13 @@ function createData(id,name, type, block, view) {
 }
 
 const rows = [
-  createData('1','Sethni Disanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('2','Saman Perera', 'Farmer', 'BLOCK', 'VIEW PROFILE'),
-  createData('3','Kamal Perera', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('4','Lihini Disanayaka', 'Gardener', 'BLOCK', 'VIEW PROFILE'),
-  createData('5','Nimal De Silva', 'Stock Buyer', 'BLOCK', 'VIEW PROFILE'),
-  createData('6','Amara Dasanayaka', 'Customer', 'BLOCK', 'VIEW PROFILE'),
-  createData('7','S.D.Upul', 'Grocery Seller', 'BLOCK', 'VIEW PROFILE'),
+  createData('1','Sethni Disanayaka', 'Customer', true, 'VIEW PROFILE'),
+  createData('2','Saman Perera', 'Farmer', false, 'VIEW PROFILE'),
+  createData('3','Kamal Perera', 'Customer', false, 'VIEW PROFILE'),
+  createData('4','Lihini Disanayaka', 'Gardener', true, 'VIEW PROFILE'),
+  createData('5','Nimal De Silva', 'Stock Buyer', false, 'VIEW PROFILE'),
+  createData('6','Amara Dasanayaka', 'Customer', false, 'VIEW PROFILE'),
+  createData('7','S.D.Upul', 'Grocery Seller', false, 'VIEW PROFILE'),
   
 ];
 
@@ -220,16 +220,16 @@ export default function OrderTable() {
   const[blockedUser,setBlockedUser]=useState(users)
 
  const blockUser=(id)=>{
-  users.forEach(element => {
-    const temp=[]
-    if (element.id==id) {
-      element.unblock.disabled=false;
-     }
-    else{
-      temp.push(element)
-    }
+ console.log("sethni",id);
+    // const temp=users.filter(ele=>{
+    //   return ele.id!=id
+    // })
     
-  });
+    // const temp1=users.filter(ele=>{
+    //   return ele.id==id
+    // })
+    // const temp2//to do
+  
 
  }
   const handleRequestSort = (event, property) => {
@@ -313,6 +313,7 @@ console.log("seth",e);
               {users.slice().sort(getComparator(order, orderBy)) 
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
+                  console.log(row);
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -332,14 +333,16 @@ console.log("seth",e);
                       <TableCell align="left">
                       <Typography fontSize='24'  color='white'>{row.type}</Typography>
                       </TableCell>
-                      <TableCell align="left"><Button id="myButton1" color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#f57a38",color:'white'}} onClick={()=>{console.log("sumeela",row.id)}}>
-                            {row.block}
-                        </Button >
-                        <Button id="myButton2" color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "green",color:'white',marginLeft:'5px'}} disabled='true'  >
-                            {row.unblock}
-                        </Button ></TableCell>
+                      <TableCell align="left">
+
+                       
+                            {!row.block &&  <Button id="myButton1" color="secondary" variant="contained" sx={{
+                         width: 120,fontSize: 16, backgroundColor: "#f57a38",color:'white'}} onClick={blockUser(row.id)}>BLOCK  </Button >} 
+                      
+                        
+                            {row.block && <Button id="myButton2" color="secondary" variant="contained" sx={{
+                         width: 120,fontSize: 16, backgroundColor: "green",color:'white'}}  onClick={blockUser(row.id)}  > UNBLOCK</Button >}
+                        </TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{
                          width: 200,fontSize: 16, backgroundColor: "green",color:'white'}} onClick={navigateToProfile}>

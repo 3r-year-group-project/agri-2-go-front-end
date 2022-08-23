@@ -158,15 +158,29 @@ export default function AddCrop() {
                 </Grid> */}
 
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+              <Box
+                component="span"
+                m={1}
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ width:"48%", mt: 3, mb: 2 }}
+                  >
+                  Submit
+                </Button>
+                <Button 
+                  variant="outlined" 
+                  color="error"
+                  type="submit"
+                  sx={{ width:"48%", mt: 3, mb: 2 }}
                 >
-                Submit
-              </Button>
-              
+                Cancel
+                </Button>
+              </Box>
             </Box>
             
             

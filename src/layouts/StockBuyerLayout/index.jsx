@@ -12,6 +12,9 @@ import LoginPage from '../../pages/LoginPage';
 import ChatMemberList from '../../components/chat/memberList';
 import ChatPage from '../../components/chat/chatPage';
 import FindVeges from '../../pages/GrocerySellerFindVeges';
+import Demanding from '../../pages/StockBuyerDemanding';
+import Stocks from '../../pages/StockBuyerStocks';
+import WastageOrders from '../../pages/StockBuyerWastageOrders';
 
 
 export default function StockBuyerLayout() {
@@ -49,13 +52,13 @@ export default function StockBuyerLayout() {
           setOpenPane(<ChatPage/>);
           break;
         case STOCK_BUYER_SECTIONS.WASTAGEORDERS:
-          setOpenPane();
+          setOpenPane(<WastageOrders/>);
           break; 
         case STOCK_BUYER_SECTIONS.DEMANDING:
-          setOpenPane();
+          setOpenPane(<Demanding/>);
           break; 
         case STOCK_BUYER_SECTIONS.STOCKS:
-          setOpenPane();
+          setOpenPane(<Stocks/>);
           break; 
         case STOCK_BUYER_SECTIONS.FINDVEGETABLES:
           setOpenPane(<FindVeges/>);

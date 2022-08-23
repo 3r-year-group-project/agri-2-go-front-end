@@ -39,7 +39,7 @@ export default function FarmerListItems() {
       <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
-        <Tooltip title="Find Sellers">
+        <Tooltip title="Find Buyers">
         <SearchIcon color="secondary" />
       </Tooltip>
         </ListItemIcon>

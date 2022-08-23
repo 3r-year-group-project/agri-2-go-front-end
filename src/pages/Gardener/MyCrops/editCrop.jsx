@@ -160,14 +160,28 @@ export default function EditCrop() {
                 </Grid> */}
 
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+              <Box
+                component="span"
+                m={1}
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Button
+                  variant="contained"
+                  sx={{ width:"48%", mt: 3, mb: 2 }}
+                  >
+                  Edit
+                </Button>
+                <Button 
+                  variant="outlined" 
+                  color="error"
+                  type="submit"
+                  sx={{ width:"48%", mt: 3, mb: 2 }}
                 >
-                Edit
-              </Button>
+                  Cancel
+                </Button>
+              </Box>
               
             </Box>
             

@@ -1,0 +1,22 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table-container
+{
+    padding: 0 0 0 0;
+}
+
+.table-container .MuiCardContent-root .MuiList-root  .MuiListItemText-root
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    padding: 10px 0;
+}
+
+

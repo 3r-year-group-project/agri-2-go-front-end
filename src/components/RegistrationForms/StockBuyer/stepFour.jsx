@@ -112,7 +112,7 @@ export default function StepFour(props) {
             <br />
             <form>
                 <Grid container spacing={2} justifyContent = "center" alignItems = "center">
-                    <Grid item xs={3} >
+                    <Grid item xs={10} >
                     <TextField
                             onChange={changeShopName}
                             error={errorText.shopName !== ""}

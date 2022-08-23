@@ -25,6 +25,7 @@ export default function DashboardContent() {
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
+        
         <CssBaseline />
         <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4,ml:0,mr:0 }}>

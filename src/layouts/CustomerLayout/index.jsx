@@ -29,6 +29,7 @@ export default function CustomerLayout() {
   const [open, setOpen] = React.useState(true);
   const [openPane, setOpenPane] = React.useState();
   const location = useLocation();
+  
 
   React.useEffect(() => {
     const params = location.pathname.split('/');
@@ -37,7 +38,7 @@ export default function CustomerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
-          setOpenPane(<CalendarScedule/>);
+          setOpenPane();
           break;
         case CUSTOMER_SECTIONS.ORDERS:
           setOpenPane(<CustomerOrders/>);

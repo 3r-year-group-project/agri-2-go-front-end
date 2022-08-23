@@ -8,6 +8,18 @@ import { TRANSPORTER_SECTIONS } from '../../constants';
 import TransporterListItems from './transporterListItem';
 import SidePanel from '../../components/SidePanel';
 
+import Dashboard from '../../pages/Transporter/Dashboard';
+import MyVehicals from '../../pages/Transporter/My Vehicle/MyVehicals';
+import TransportationRequest from '../../pages/Transporter/Request'
+import TransactionTable from '../../components/Transactions';
+import Review from '../../components/Review';
+
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
+
+import TransporterTransactions from '../../pages/Transporter/Transactions';
+import CalendarScedule from '../../components/Calendar';
+
 
 export default function TransporterLayout() {
   
@@ -23,11 +35,29 @@ export default function TransporterLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case TRANSPORTER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<Dashboard/>);
           break;
-        case TRANSPORTER_SECTIONS.REVIEWS:
-          setOpenPane();
+        case TRANSPORTER_SECTIONS.TRANSPORTREQUESTS:
+          setOpenPane(<TransportationRequest/>);
           break;
+        case TRANSPORTER_SECTIONS.MYVEHICLES:
+            setOpenPane(<MyVehicals/>);
+            break;
+        case TRANSPORTER_SECTIONS.TRIPSCHEDULE:
+          setOpenPane(<CalendarScedule/>);
+          break;
+        case TRANSPORTER_SECTIONS.CHATMEMBERSLIST:
+            setOpenPane(<ChatMemberList/>);
+            break;
+        case TRANSPORTER_SECTIONS.CHATPAGE:
+            setOpenPane(<ChatPage/>);
+            break;
+        case TRANSPORTER_SECTIONS.TRANSACTIONS:
+          setOpenPane(<TransporterTransactions/>);
+          break;
+        // case TRANSPORTER_SECTIONS.REVIEWS:
+        //   setOpenPane();
+        //   break;
 
         
         default:

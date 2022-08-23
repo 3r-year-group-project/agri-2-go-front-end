@@ -9,8 +9,13 @@ import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function UserProfileIcon(Props) {
+  const currentuser = useLocation().pathname.split('/')[1];
+  const navigate = useNavigate();
   const { logout } = useAuth0();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -20,6 +25,8 @@ export default function UserProfileIcon(Props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+  
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -79,13 +86,13 @@ export default function UserProfileIcon(Props) {
           </ListItemIcon>
         <Typography>Profile</Typography>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>{navigate(`/${currentuser}/category`);}}>
           <ListItemIcon>
-            <Logout fontSize="small" color="secondary" onClick={() => logout({ returnTo: window.location.origin })}/>
+            <Logout fontSize="small" color="secondary" />
           </ListItemIcon>
         <Typography>{Props.item2}</Typography>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>{navigate(`/${currentuser}/dash/dashboard`);}}>
           <ListItemIcon>
             <Logout fontSize="small" color="secondary" />
           </ListItemIcon>

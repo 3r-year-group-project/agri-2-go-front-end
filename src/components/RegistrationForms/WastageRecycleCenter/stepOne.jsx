@@ -45,8 +45,10 @@ export default function StepOne(props) {
                     }}
                     >   
                         <input type="radio" name="subscription" value="free" onChange={onchangeRadioButton}/>
-                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>Free</Typography>
-                        <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$0</Typography>
+                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>FREE</Typography><br />
+                        <Typography variant="h4" align="center" sx={{color: '#128C7E'}}>0
+                        <Typography variant="body1" sx={{display: 'inline-block'}} >LKR</Typography>
+                        </Typography>
                         {/* <Grid container direction="row" alignItems="center">
                             <CheckRoundedIcon/> Free Hosting
                         </Grid> */}
@@ -59,7 +61,8 @@ export default function StepOne(props) {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 p: 1,
-                                m: 2
+                                m: 2,
+                                mt: 5
                             }}     
                         >
                         <Typography variant="button">START FREE</Typography>
@@ -89,9 +92,9 @@ export default function StepOne(props) {
                         }}
                         >   
                         <input onChange={onchangeRadioButton} type="radio" name="subscription" value="basic"/>                
-                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>Basic</Typography>
-                        <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$19
-                        <Typography variant="body1" sx={{display: 'inline-block'}} >/month</Typography>
+                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>MONTHLY</Typography><br/>
+                        <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>500
+                        <Typography variant="body1" sx={{display: 'inline-block'}} >LKR</Typography>
                         </Typography>
                         <Box 
                             sx={{
@@ -102,7 +105,8 @@ export default function StepOne(props) {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 p: 1,
-                                m: 2
+                                m: 2,
+                                mt: 5
                             }}     
                         >
                             <Typography variant="button">CHOOSE PLAN</Typography>
@@ -132,9 +136,9 @@ export default function StepOne(props) {
                         }}
                         >
                         <input onChange={onchangeRadioButton} type="radio" name="subscription" value="professional"/>                    
-                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>Professional</Typography>
-                        <Typography variant="h3" align="center" sx={{color: '#128C7E'}}>$99
-                        <Typography variant="body1" sx={{display: 'inline-block'}} >/year</Typography>
+                        <Typography variant="body2" align="center" sx={{color: '#000000'}}>ANNUAL</Typography><br />
+                        <Typography variant="h4" align="center" sx={{color: '#128C7E', fontWeight: 'medium'}}>7000
+                        <Typography variant="body1" sx={{display: 'inline-block'}} >LKR</Typography>
                         </Typography>
                         <Box 
                             sx={{
@@ -145,7 +149,8 @@ export default function StepOne(props) {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 p: 1,
-                                m: 2
+                                m: 2,
+                                mt: 5
                             }}     
                         >
                         <Typography variant="button">CHOOSE PLAN</Typography>

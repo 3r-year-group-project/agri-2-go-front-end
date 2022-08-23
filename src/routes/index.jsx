@@ -12,9 +12,18 @@ import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
 import RegisterPage from "../pages/RegisterPage";
 import ContinueRegistration from "../pages/ContinueRegistration";
-import PageNotFound from "../pages/PageNotFound";
+import AddToWastage from "../pages/StockBuyerAddToWastage";
+import StockBuyerSellStocks from "../pages/StockBuyerSellStocks";
+import StockBuyerSellWastageStocksDetails from '../pages/StckBuyerWastageStockSellDetails';
+
+
 import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
 import Checkout from "../pages/Checkout"
+
+
+
+import PageNotFound from "../pages/PageNotFound";
+
 
 import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
 import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
@@ -28,9 +37,29 @@ import LoginPage from "../pages/LoginPage";
 
 
 import Review from '../components/Review';
+// import ItemDescription from "../pages/WastageRecycleCenter/ItemDescriptionLayout/ItemDescription";
 
 
 export default function Router() {
+
+
+  const isAuthenticated='1';
+  const userRole='2';
+
+  // admin=1
+  // customer=2
+  // farmer=3
+  // gardener=4
+  // stock=5
+  // grocery=6
+  // trans=7
+  // wastage=8
+
+  
+
+  
+
+  
 
 
       return(
@@ -39,6 +68,9 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
+        <Route path="/stockbuyer/addtowastage" element={<AddToWastage/>}/>  
+        <Route path="/stockbuyer/sellstock" element={<StockBuyerSellStocks/>}/>  
+        <Route path="/stockbuyer/sellwastagestocks" element={<StockBuyerSellWastageStocksDetails/>}/> 
        
         <Route path="/register/:id" element={<RegisterPage/>}/>
         <Route path="/register/farmer/:id" element={<FarmerRegistrationForm/>}/>
@@ -51,7 +83,6 @@ export default function Router() {
                 
         <Route path="/continueregistration/:id" element={<ContinueRegistration/>}/>
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
-
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>
         <Route path="/customer/dash/:page" element={<CustomerLayout/>}/>
@@ -66,7 +97,8 @@ export default function Router() {
         <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="/test" element={<Review />}/>    
+        <Route path="/test" element={<Review />}/> 
+        {/* <Route path="/wastageRecycleCenter/dash/findwastage/viewdetails" element={<ItemDescription/>}/>    */}
         </Routes>
         </BrowserRouter>
    

@@ -11,11 +11,12 @@ import StepThree from "./stepThree";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
-import { Link } from "react-router-dom";
+import { Link, useParams  } from "react-router-dom";
 import axios from "axios";
 
 
 export default function FarmerRegistrationForm() {
+    const {id} = useParams();
        //REACT HOOKS
     const [activeStep, setActiveStep] = useState(0);
 
@@ -42,7 +43,7 @@ export default function FarmerRegistrationForm() {
     
    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/farmer/registration/cardDetails',ob).then((res)=>{
+    axios.post('/api/farmer/registration/cardDetails',{...ob,id:id}).then((res)=>{
         setStepState((prev) => {
             return [
               prev[0],
@@ -105,7 +106,7 @@ export default function FarmerRegistrationForm() {
         }
     } 
     return (
-        <div>
+         <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
             <CssBaseline  />
             <Box
             sx={{
@@ -115,6 +116,8 @@ export default function FarmerRegistrationForm() {
                 p: 2,
                 boxShadow: 3,
                 borderRadius: 2,
+                background: '#fff'
+                
             }}
             >
             <Box

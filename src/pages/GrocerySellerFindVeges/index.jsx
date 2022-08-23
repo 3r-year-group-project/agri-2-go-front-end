@@ -96,7 +96,7 @@ return (
                         
                     </Box>
                     <Box id="detailsList">
-                    {!show && <p style={{fontSize:"12px" , marginLeft:"12px"}}>Show and Hide this Div</p>}  
+                    {!show && <p style={{fontSize:"12px" , marginLeft:"12px"}}>Freshly plucked from the local farmers. Clean and fresh vegetables assured!</p>}  
                     </Box>
                     
                     {/* <Box>

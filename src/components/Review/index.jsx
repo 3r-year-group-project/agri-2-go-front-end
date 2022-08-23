@@ -7,11 +7,11 @@ import Rating from '@mui/material/Rating';
 import im from '../../assets/images/bg2.jpg';
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#35BD79',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'white',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: '#1A2027',
+    color: '#128C7E',
   }));
   
 
@@ -19,21 +19,21 @@ export default function Review(props) {
     return (
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} justifyContent = "center" alignItems = "center">
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Item>
-                <h4>Sarath Dassnayake</h4>
+                <h2>Sarath Dassnayake</h2>
                  <Grid container  justifyContent = "center" alignItems = "center">
                     <Grid item xs={3}>
                       <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>pumpkin</h6>
+                      <h4>Pumpkin</h4>
                     </Grid>
                     <Grid item xs={3}>
                       <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
+                      <h4>Carrot</h4>
                     </Grid>
                     <Grid item xs={3}>
-                      <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
                     </Grid>
                  </Grid>
                 
@@ -42,43 +42,66 @@ export default function Review(props) {
                 <p> This is a good product</p>
               </Item>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Item>
-                <h4>Sarath Dassnayake</h4>
-                <Grid container  justifyContent = "center" alignItems = "center">
-                <Grid item xs={3}>
-                      <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
+                <h2>Sarath Dassnayake</h2>
+                 <Grid container  justifyContent = "center" alignItems = "center">
+                    <Grid item xs={3}>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Pumpkin</h4>
                     </Grid>
                     <Grid item xs={3}>
-                      <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
+                    </Grid>
+                    <Grid item xs={3}>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
                     </Grid>
                  </Grid>
+                
+                <br/>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
                 <p> This is a good product</p>
               </Item>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Item>
-                <h4>Sarath Dassnayake</h4>
-                <Grid container spacing={2} justifyContent = "center" alignItems = "center">
-                <Grid item xs={3}>
-                      <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
-                    </Grid>
-                 </Grid>
-                <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                <p> This is a good product</p>
-              </Item>
-            </Grid>
-            <Grid item xs={8}>
-            <Item>
-                <h4>Sarath Dassnayake</h4>
+                <h2>Sarath Dassnayake</h2>
                 <Grid container  justifyContent = "center" alignItems = "center">
                 <Grid item xs={3}>
-                      <img src={im} alt="Carat" style={{width:'80%',height:'80%'}}/>
-                      <h6>Carat</h6>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
+                    </Grid>
+                    <Grid item xs={3}>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
+                    </Grid>
+                 </Grid>
+                <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                <p> This is a good product</p>
+              </Item>
+            </Grid>
+            <Grid item xs={6}>
+              <Item>
+                <h2>Sarath Dassnayake</h2>
+                <Grid container spacing={2} justifyContent = "center" alignItems = "center">
+                <Grid item xs={3}>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
+                    </Grid>
+                 </Grid>
+                <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                <p> This is a good product</p>
+              </Item>
+            </Grid>
+            <Grid item xs={6}>
+            <Item>
+                <h2>Sarath Dassnayake</h2>
+                <Grid container  justifyContent = "center" alignItems = "center">
+                <Grid item xs={3}>
+                      <img src={im} alt="Carrot" style={{width:'80%',height:'80%'}}/>
+                      <h4>Carrot</h4>
                     </Grid>
                  </Grid>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />

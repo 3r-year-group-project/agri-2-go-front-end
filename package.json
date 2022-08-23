@@ -31,6 +31,7 @@
     "date-fns": "^2.29.1",
     "material-table": "^2.0.3",
     "material-ui-search-bar": "^1.0.0",
+    "moment": "^2.29.4",
     "nstall": "^0.2.0",
     "payment": "^2.4.6",
     "pubnub": "^7.2.0",
@@ -77,5 +78,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10"
   }
 }

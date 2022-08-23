@@ -45,7 +45,7 @@ export default function GardenerListItems() {
         <ListItemText primary="Find Sellers" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.ADDCART)}>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CART)}>
         <ListItemIcon>
         <Tooltip title="Cart">
         <ShoppingCartIcon color="secondary" />
@@ -93,7 +93,7 @@ export default function GardenerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(GARDENER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <Tooltip title="Chats">
         <ChatIcon color="secondary" />

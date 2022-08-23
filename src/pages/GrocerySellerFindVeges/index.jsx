@@ -35,8 +35,11 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 
 export default function FindVeges() {
 
+    const[show,setShow] = useState(true);
+
 return (
     <>
+    <Box sx={{background: 'rgba(37, 211, 102, 0.2)'}}>
        
     <Button variant="contained" color="success" sx={{marginTop:"20px" , marginLeft: "20px" ,marginBottom : "20px", width:"20%" , height: "6%" , fontWeight:"bold"}}>
         Add a New Vegetable 
@@ -73,8 +76,10 @@ return (
                         </Button> */}
 
                         <ButtonGroup variant="text" aria-label="text button group" sx={{marginLeft: "17px" , marginTop:"5px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            View 
+                          
+                        <Button onClick={() => setShow(!show)} variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                            {show === true ? 'View' : 'Hide'}
+                            
                         </Button>
                         <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
@@ -83,6 +88,7 @@ return (
                             Delete
                         </Button> 
                         </ButtonGroup>
+                        
 
                         {/* <Typography variant="body2" component="p" style={{color:"white"}}>
                             Quantity: 
@@ -90,7 +96,7 @@ return (
                         
                     </Box>
                     <Box id="detailsList">
-
+                    {!show && <p style={{fontSize:"12px" , marginLeft:"12px"}}>Show and Hide this Div</p>}  
                     </Box>
                     
                     {/* <Box>
@@ -947,6 +953,7 @@ return (
         </Grid>
 
       </Container>
+      </Box>
 
       </>
     

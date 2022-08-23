@@ -3,13 +3,13 @@ import { Fragment } from 'react';
 import { Calendar,dateFnsLocalizer } from 'react-big-calendar';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import startOfWeek from 'date-fns/startofWeek';
+// import startOfWeek from 'date-fns/startofWeek';
 import getDay from 'date-fns/getDay';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import React,{useState} from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-
+import Box from "@mui/material/Box";
 
 const locales = {
     "en-US" : require("date-fns/locale/en-US")
@@ -18,25 +18,25 @@ const locales = {
 const localizer = dateFnsLocalizer({
     format,
     parse,
-    startOfWeek,
+    // startOfWeek,
     getDay,
     locales
   })
 
   const events = [
     {
-        title: "Big Meeting",
+        title: "Carrot Stock from Nuwara Eliya",
         allDay: true,
         start: new Date(2022,8,2),
         end : new Date(2022,8,2)
     },
     {
-      title: "Welcome",
+      title: "Tomato stock from Pattipola",
       allDay: true,
       start: new Date(2022,8,2),
       end : new Date(2022,8,3)
   },{
-    title: "Big Meeting President",
+    title: "Potato stock from Ella",
     allDay: true,
     start: new Date(2022,8,3),
     end : new Date(2022,8,3)
@@ -57,7 +57,10 @@ export default function CalendarScedule(){
     return(
 
       <>
-      <Typography variant='h1' style={{color:"black"}}>Calendar</Typography> 
+      <Box>
+
+      
+      {/* <Typography variant='h1' style={{color:"black"}}>Calendar</Typography> 
       <h2 style={{color:"black"}}>Add New Event</h2>
       <div>
         <TextField variant="outlined" sx={{ input: { color: 'black' } , margin: '10px' , width:'20%'}} type="text" placeholder='Add Title'
@@ -73,14 +76,15 @@ export default function CalendarScedule(){
         />
 
         <Button variant="contained" style={{margin: "10px"}} onClick={handleEvent}>Add Event</Button>
-      </div>
+      </div> */}
       <Calendar localizer={localizer}
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: "50px" }}>
+        style={{ height: 800, margin: "50px" , color:"black" , background: 'rgba(37, 211, 102, 0.2)' }}>
 
       </Calendar>
+      </Box>
       </>
     );
   }

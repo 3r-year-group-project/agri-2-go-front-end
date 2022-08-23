@@ -13,69 +13,75 @@ import axios from 'axios';
 
 
 export default function HomePage(props) {
-
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading,loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      // loginWithRedirect({
+      //    appState: {
+      //      targetUrl: window.location.href,
+      //    },
+      //  });
+     }
+    
+  }, [isLoading, isAuthenticated]);
 
-  const { loginWithRedirect} = useAuth0();
-  if(isLoading) console.log('Loading...');
-  if (isAuthenticated && !isLoading) {
-    console.table(user);
+  if (!isLoading && isAuthenticated) {
     const email = user.email;
-    axios.get('/api/users/role/'+ email).then(res =>{
-        console.log(res.data);
-        console.log("user role is authenticated",res.data.data[0].user_type);
-        let userRole = res.data.data[0].user_type;
-        let id = res.data.data[0].id;
-        // admin=1
-        // customer=2
-        // farmer=3
-        // gardener=4
-        // stock=5
-        // grocery=6
-        // trans=7
-        // wastage=8
-        console.log("user role: " + userRole);
-    switch (userRole) {
-      case 0:
-        navigate('/continueregistration/'+id);
-        break;
-      case 1:
-        navigate('/admin/dash/dashboard');
-        break;
-      case 2:
-        navigate('/customer/category');
-        break;
-      case 3:
-        navigate('/farmer/category');
-        break;
-      case 4:
-        navigate('/gardener/category');
-        break;
-      case 5:
-        navigate('/stockbuyer/dash/dashboard');
-        break;
-      case 6:
-        navigate('/groceryseller/dash/dashboard');
-        break;
-      case 7:
-        navigate('/transporter/dash/dashboard');
-        break;
-      case 8:
-        navigate('/wastagerecyclecenter/dash/dashboard');
-        break;
-      default:
-
+  axios.get('/api/users/role/'+ email).then(res =>{
+      let userRole = res.data.data[0].user_type;
+      let id = res.data.data[0].id;
+      console.log("hello world");
+      console.log({userRole,id});
+      // admin=1
+      // customer=2
+      // farmer=3
+      // gardener=4
+      // stock=5
+      // grocery=6
+      // trans=7
+      // wastage=8
+      console.log("user role: " + userRole);
+  switch (userRole) {
+    case 0:
+      navigate('/continueregistration/'+id);
       break;
-  }
-      
-  }).catch(err => {
-    console.log(err);
-  });
-  
+    case 1:
+      navigate('/admin/dash/dashboard');
+      break;
+    case 2:
+      navigate('/customer/category');
+      break;
+    case 3:
+      navigate('/farmer/category');
+      break;
+    case 4:
+      navigate('/gardener/category');
+      break;
+    case 5:
+      navigate('/stockbuyer/dash/dashboard');
+      break;
+    case 6:
+      navigate('/groceryseller/dash/dashboard');
+      break;
+    case 7:
+      navigate('/transporter/dash/dashboard');
+      break;
+    case 8:
+      navigate('/wastagerecyclecenter/dash/dashboard');
+      break;
+    default:
+    break;
 }
-else if(!isAuthenticated && !isLoading){
-  console.log("not authenticated");
+    
+}).catch(err => {
+  console.log(err);
+});
+  }
+  else if(isLoading){
+    return <div>Loading...</div>;
+  }
+  else{  
   return(
     <React.Fragment>
             <NavBar/>
@@ -142,6 +148,5 @@ else if(!isAuthenticated && !isLoading){
         </React.Fragment>
     );
 }
-
-   
 }
+   

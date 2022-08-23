@@ -5,6 +5,8 @@ import PubNub from "pubnub";
 import { PubNubProvider } from "pubnub-react";
 import { Chat, MessageList, MessageInput } from "@pubnub/react-chat-components";
 
+import "../../assets/styles/Chat/index.css";
+
 /* Creates and configures your PubNub instance. Be sure to replace "myPublishKey" and "mySubscribeKey"
   with your own keyset. If you wish, modify the default "myFirstUser" uuid value for the chat user. */
 const pubnub = new PubNub({
@@ -13,19 +15,18 @@ const pubnub = new PubNub({
     uuid: "myFirstUser"
 });
 const currentChannel = "Default";
-const theme = "support";
 
 export default function ChatPage() {
   return (
     <PubNubProvider client={pubnub}>
       {/* PubNubProvider is a part of the PubNub React SDK and allows you to access PubNub instance
         in components down the tree. */}
-      <Chat {...{ currentChannel, theme:"support" }}>
+        <Chat {...{ currentChannel }}>
         {/* Chat is an obligatory state provider. It allows you to configure some common component
           options, like the current channel and the general theme for the app. */}
-        <MessageList background='rgba(37, 211, 102, 0.2)'/>
-        <MessageInput />
-      </Chat>
+            <MessageList />
+            <MessageInput />
+        </Chat>
     </PubNubProvider>
   );
 }

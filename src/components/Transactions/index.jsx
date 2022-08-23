@@ -64,7 +64,7 @@ const headCells = [
     numeric: false,
   
     disablePadding: false,
-    label: 'Contact Buyer/Seller',
+    label: 'Contact',
   },
 ];
 

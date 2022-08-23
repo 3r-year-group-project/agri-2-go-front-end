@@ -47,23 +47,24 @@ import { visuallyHidden } from '@mui/utils';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import AddIcon from '@mui/icons-material/Add';
 
-    function createData(productName,quantity,quality,availabilityButton) {
+    function createData(productName,quantity,quality,availabilityButton,throwButton) {
     return {
       productName,
       quantity,
       quality,
       availabilityButton,
+      throwButton,
     };
   }
   
   const rows = [
-    createData('Carrot', '200LKR','Animal Fodder','Sell Wastage Stock'),
-    createData('Tomatoes', '400LKR','Slurries','Sell Wastage Stock'),
-    createData('Cabbage', '2700LKR','Peels','Sell Wastage Stock'),
-    createData('Beetroot', '1200LKR','About to Rot','Sell Wastage Stock'),
-    createData('Leeks','1410LKR','Peels','Sell Wastage Stock'),
-    createData('Potatoes', '1120LKR', 'Rotten','Sell Wastage Stock'),
-    createData('Green Chillies','890LKR','Rotten','Sell Wastage Stock'),
+    createData('Carrot', '200LKR','Animal Fodder','Sell Wastage Stock','Throw'),
+    createData('Tomatoes', '400LKR','Slurries','Sell Wastage Stock','Throw'),
+    createData('Cabbage', '2700LKR','Peels','Sell Wastage Stock','Throw'),
+    createData('Beetroot', '1200LKR','About to Rot','Sell Wastage Stock','Throw'),
+    createData('Leeks','1410LKR','Peels','Sell Wastage Stock','Throw'),
+    createData('Potatoes', '1120LKR', 'Rotten','Sell Wastage Stock','Throw'),
+    createData('Green Chillies','890LKR','Rotten','Sell Wastage Stock','Throw'),
     
   ];
   
@@ -109,7 +110,7 @@ import AddIcon from '@mui/icons-material/Add';
     {
       id: 'availabilityButton',
       disablePadding: false,
-      label: 'Sell the Stock?',
+      label: 'Sell or Throw?',
     },
     
     
@@ -302,9 +303,13 @@ return (
                       <TableCell align="left">{row.quantity}</TableCell>
                     <TableCell align="left">{row.quality}</TableCell>
                     <TableCell align="left">
-                    <Button color="secondary" variant="contained" sx={{
-                         width: 180,fontSize: 11, backgroundColor: "orange",color:'white'}} onClick={routeChangeSellWastageStocks} >
+                      <Button color="secondary" variant="contained" sx={{
+                        width: 180,fontSize: 11, backgroundColor: "orange",color:'white' , marginRight:"10px"}} onClick={routeChangeSellWastageStocks} >
                             {row.availabilityButton}
+                      </Button>
+                        <Button color="error" variant="contained" sx={{
+                         width: 180,fontSize: 11, backgroundColor: "green",color:'white'}}>
+                            {row.throwButton}
                         </Button>
                     </TableCell>
                     

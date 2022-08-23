@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const placeholder = props.placeholder ? props.placeholder : "Search Here";
   return (
     <Paper
     
@@ -17,7 +18,7 @@ export default function SearchBar() {
       <InputBase
     
         sx={{ ml: 1, flex: 1,color:'black' }}
-        placeholder="Search Here"
+        placeholder={placeholder}
         inputProps={{ 'aria-label': 'search google maps' }}
         
       />

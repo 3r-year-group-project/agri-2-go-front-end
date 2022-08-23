@@ -7,6 +7,11 @@ import { STOCK_BUYER_SECTIONS } from '../../constants';
 
 import StockBuyerListItems from './stockBuyerListItem';
 import SidePanel from '../../components/SidePanel';
+import Calendar from '../../components/Calendar';
+import LoginPage from '../../pages/LoginPage';
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
+import FindVeges from '../../pages/GrocerySellerFindVeges';
 
 
 export default function StockBuyerLayout() {
@@ -23,11 +28,38 @@ export default function StockBuyerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case STOCK_BUYER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<LoginPage/>);
           break;
+        case STOCK_BUYER_SECTIONS.MYSCHEDULE:
+          setOpenPane(<Calendar/>);
+          break;  
         case STOCK_BUYER_SECTIONS.REVIEWS:
           setOpenPane();
           break;
+        case STOCK_BUYER_SECTIONS.ORDERS:
+          setOpenPane();
+          break;
+        case STOCK_BUYER_SECTIONS.TRANSACTIONS:
+          setOpenPane();
+          break;
+        case STOCK_BUYER_SECTIONS.CHATMEMBERSLIST:
+          setOpenPane(<ChatMemberList/>);
+          break;
+        case STOCK_BUYER_SECTIONS.CHATPAGE:
+          setOpenPane(<ChatPage/>);
+          break;
+        case STOCK_BUYER_SECTIONS.WASTAGEORDERS:
+          setOpenPane();
+          break; 
+        case STOCK_BUYER_SECTIONS.DEMANDING:
+          setOpenPane();
+          break; 
+        case STOCK_BUYER_SECTIONS.STOCKS:
+          setOpenPane();
+          break; 
+        case STOCK_BUYER_SECTIONS.FINDVEGETABLES:
+          setOpenPane(<FindVeges/>);
+          break;  
 
        
         default:

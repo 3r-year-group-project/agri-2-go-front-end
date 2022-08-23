@@ -1,9 +1,10 @@
 export const CUSTOMER_SECTIONS = {
     DASHBOARD: 'dashboard',
     ORDERS: 'orders',
-   CART:'cart',
-   TRANSACTIONS:'transactions',
-   CHAT:'chat'
+    CART:'cart',
+    TRANSACTIONS:'transactions',
+    CHATMEMBERSLIST:'chat',
+      CHATPAGE:'chatpage',
  };
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
@@ -12,16 +13,19 @@ export const CUSTOMER_SECTIONS = {
    SCAMREPORTS:'scamreports',
  };
  export const FARMER_SECTIONS = {
-    DASHBOARD: 'dashboard',
-    MYSCHEDULE:'myshedule',
-    ORDERS: 'orders',
-    TRANSACTIONS:'transactions',
-   REVIEWS:'reviews',
-   CHAT:'chat',
-   MYPROFIT:'myprofit',
-   FINDSELLER:'findseller',
-   ADDCART:'addcart',
-   MYCROP:'mycrop'
+  DASHBOARD: 'dashboard',
+  FINDSELLER:'findseller',
+  ORDERS: 'orders',
+  SALES:'sales',
+  CART:'addcart',
+  TRANSACTIONS:'transactions',
+  REVIEWS:'reviews',
+  CHATMEMBERSLIST:'chat',
+    CHATPAGE:'chatpage',
+  MYCROP:'mycrop',
+    ADDCROP:'addcrop',
+    EDITCROP:'editcrop',
+    DELETECROP:'deletecrop'
    
  };
  export const GARDENER_SECTIONS = {
@@ -29,36 +33,48 @@ export const CUSTOMER_SECTIONS = {
     FINDSELLER:'findseller',
     ORDERS: 'orders',
     SALES:'sales',
-    ADDCART:'addcart',
+    CART:'cart',
     TRANSACTIONS:'transactions',
-   REVIEWS:'reviews',
-   CHAT:'chat',
-   MYCROP:'mycrop'
+    REVIEWS:'reviews',
+    CHATMEMBERSLIST:'chat',
+      CHATPAGE:'chatpage',
+    MYCROP:'mycrop',
+      ADDCROP:'addcrop',
+      EDITCROP:'editcrop',
+      DELETECROP:'deletecrop'
   
    
  };
 
  export const GROCERY_SELLER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  MYSCHEDULE: 'myschedule',
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',
   FINDVEGETABLES : 'findvegetables',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
 
 
 };
 
 export const STOCK_BUYER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  MYSCHEDULE: 'myschedule',
   ADDCROP:'addcrop',
   ORDERS: 'orders',
   SALES:'sales',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
+ WASTAGEORDERS: 'wastageorders',
+ DEMANDING: 'demanding',
+ STOCKS: 'stocks',
+ FINDVEGETABLES:'findvegetables',
 
  
 };

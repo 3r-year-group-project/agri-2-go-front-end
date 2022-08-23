@@ -21,6 +21,7 @@ import GrocerySellerRegistrationForm from "../components/RegistrationForms/Groce
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+import TransportationRequest from "../pages/Admin/Subscriptions/transportationRequest";
 
 
 

@@ -10,7 +10,7 @@ import Filter from '../../../components/FilterBar';
 import Container from '@mui/material/Container';
 import ButtonGroup from "@mui/material/ButtonGroup";
 
-export default function MyCrop() {
+export default function FindBuyers() {
     const navigate = useNavigate();
     const [crops, setcrops] = React.useState(30);
 
@@ -23,12 +23,16 @@ export default function MyCrop() {
     `;
 
     const filterSellerOptions = [
-        {title: "Gardeners"}, 
-        {title: "Grocery Sellers"},
-        {title: "Stock Buyers"}
+        {title: "Grocery Seller"}, 
+        {title: "Stock Buyer"}
     ];
 
-    const sortDistanceOptions = [
+    const sortByOptions = [
+        {title: "Price"}, 
+        {title: "Distance"}
+    ];
+
+    const sortOptions = [
         {title: "Asc"}, 
         {title: "Desc"}
     ];
@@ -42,10 +46,11 @@ export default function MyCrop() {
     justifyContent="space-between"
     alignItems="center"
     >
-    <SearchBar/>
+    <SearchBar placeholder="Search by Crop Name"/>
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
         <Filter id="filter-sellers" label="Categories" options={filterSellerOptions} width={200}/>
-        <Filter id="sort-sellers" label="Distance" options={sortDistanceOptions} width={150}/>
+        <Filter id="sort-sellers" label="Sort By" options={sortByOptions} width={150}/>
+        <Filter id="sort-sellers" label="Order" options={sortOptions} width={150}/>
     </ButtonGroup> 
     </Box>
     <Container>
@@ -62,6 +67,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Gaamini</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -82,11 +88,10 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>
-
                         {/* <Typography variant="body2" component="p" style={{color:"white"}}>
                             Quantity: 
                         </Typography> */}
@@ -128,6 +133,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Sumanasiri</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -148,7 +154,7 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>
@@ -194,6 +200,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Gunapala</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -214,7 +221,7 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>
@@ -260,6 +267,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Sunil</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -280,7 +288,7 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>
@@ -326,6 +334,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Yasas</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -346,7 +355,7 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>
@@ -392,6 +401,7 @@ export default function MyCrop() {
                     />
                     <Box paddingX={1}>
                     <Typography variant="subtitles2" component="h4">Ravindu</Typography>
+                    <Typography variant="subtitles2" component="h4">Rs. 300 Per kg</Typography>
                     <Box
                         sx={{display: "flex",
                              alignItems: "center"
@@ -412,7 +422,7 @@ export default function MyCrop() {
                             Profile 
                         </Button>
                         
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>{navigate("/farmer/dash/chatpage")}}>
                             Chat
                         </Button> 
                         </ButtonGroup>

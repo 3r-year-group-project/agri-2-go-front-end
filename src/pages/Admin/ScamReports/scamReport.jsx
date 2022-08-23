@@ -18,7 +18,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
 
-export default function ScamReport() {
+export default function UserApeal() {
   return (
     <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
       <StyledPaper
@@ -37,8 +37,8 @@ export default function ScamReport() {
           </Grid>
           <Grid item >
           <Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E"}}>
-                            VIEW PROFILE
+                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
+                            VIEW SCAMMER PROFILE
                         </Button>
           </Grid>
         </Grid>
@@ -59,8 +59,8 @@ export default function ScamReport() {
           </Grid>
           <Grid item >
           <Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E"}}>
-                            VIEW PROFILE
+                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
+                             VIEW SCAMMER PROFILE
                         </Button>
           </Grid>
         </Grid>
@@ -81,8 +81,8 @@ export default function ScamReport() {
           </Grid>
           <Grid item >
           <Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E"}}>
-                            VIEW PROFILE
+                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
+                              VIEW SCAMMER PROFILE
                         </Button>
           </Grid>
         </Grid>

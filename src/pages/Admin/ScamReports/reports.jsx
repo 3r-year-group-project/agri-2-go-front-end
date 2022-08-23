@@ -5,6 +5,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import ScamReport from './scamReport';
+import UserApeal from './userAppeals';
 
 export default function ReportTabs() {
   const [value, setValue] = React.useState('1');
@@ -24,7 +25,7 @@ export default function ReportTabs() {
           </TabList>
         </Box>
         <TabPanel value="1"><ScamReport/></TabPanel>
-        <TabPanel value="2"><ScamReport/></TabPanel>
+        <TabPanel value="2"><UserApeal/></TabPanel>
         
       </TabContext>
     </Box>

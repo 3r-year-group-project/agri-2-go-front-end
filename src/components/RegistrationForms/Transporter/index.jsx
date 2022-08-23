@@ -12,12 +12,13 @@ import StepThree from "./stepThree";
 
 import Logo from "../../Logo/logo";
 import CongratsMessage from "./congrats";
-import { Link } from "react-router-dom";
+import { Link, useParams  } from "react-router-dom";
 import axios from 'axios';
 
 
 export default function TransporterRegistrationForm() {
        //REACT HOOKS
+    const {id} = useParams();
     const [activeStep, setActiveStep] = useState(0);
 
         //form states
@@ -59,7 +60,7 @@ export default function TransporterRegistrationForm() {
     
    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/transporter/registration/cardDetails',ob).then((res)=>{
+    axios.post('/api/transporter/registration/cardDetails',{...ob,id:id}).then((res)=>{
         setStepState((prev) => {
             return [
               prev[0],
@@ -98,7 +99,7 @@ export default function TransporterRegistrationForm() {
         }
     } 
     return (
-        <div>
+        <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
             <CssBaseline  />
             <Box
             sx={{
@@ -108,6 +109,8 @@ export default function TransporterRegistrationForm() {
                 p: 2,
                 boxShadow: 3,
                 borderRadius: 2,
+                background: '#fff'
+                
             }}
             >
             <Box

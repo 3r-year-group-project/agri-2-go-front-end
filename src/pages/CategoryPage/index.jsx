@@ -21,8 +21,6 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
 import Input from '../../components/Input/input';
-
-
 import Footer from "../../components/Footer";
 import NavBar from '../../components/Navbar';
 import Logo from '../../components/Logo/logo';
@@ -47,6 +45,10 @@ import { fontWeight } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import LoginPage from '../../pages/LoginPage';
 
+import CategoryNavBar from '../../components/CategoryNavbar'
+
+
+
 
 
 
@@ -55,9 +57,9 @@ export default function CategoryPage(params) {
 
     const [filterBy, setFilter] = React.useState('');
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setFilter(event.target.value);
-  };
+//     const handleChange = (event: SelectChangeEvent) => {
+//         setFilter(event.target.value);
+//   };
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
@@ -65,10 +67,12 @@ export default function CategoryPage(params) {
     navigate(path);
   }
 
+
     return(
         <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
-            <NavBar/>
-           
+
+          <CategoryNavBar/>
+
             <>
        <Container>
 
@@ -98,7 +102,7 @@ export default function CategoryPage(params) {
                 id="demo-select-small"
                 value={filterBy}
                 label="Filter By"
-                onChange={handleChange}>
+                >
                 <MenuItem value="">
                 <em>None</em>
                 </MenuItem>
@@ -672,8 +676,14 @@ export default function CategoryPage(params) {
          </Container>
    
          </>
-        
-            
+
+
+           <Typography color='black'>
+           category
+           
+     </Typography>
+
+
            
         
         </div>

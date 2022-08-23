@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { Typography } from '@mui/material'
-import React from 'react'
 import UserTabs from './userTabs'
+
 
 export default function Subscription() {
   return (

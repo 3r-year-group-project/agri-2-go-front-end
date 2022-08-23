@@ -5,6 +5,10 @@ import ListItemText from '@mui/material/ListItemText';
 import { Divider } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import ChatIcon from '@mui/icons-material/Chat';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
@@ -29,6 +33,20 @@ export default function TransporterListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.TRANSPORTREQUESTS)}>
+        <ListItemIcon>
+          <EmergencyShareIcon color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Transport Requests" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.MYVEHICLES)}>
+        <ListItemIcon>
+          <LocalShippingIcon color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="My Vehicles" />
+      </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.TRIPSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
@@ -37,9 +55,9 @@ export default function TransporterListItems() {
       </ListItemButton>
       <Divider/>
 
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
-          <ShoppingCartIcon color="secondary" />
+          <ChatIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
       </ListItemButton>
@@ -56,12 +74,13 @@ export default function TransporterListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.REVIEWS)}>
+      {/* <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
-          <PaidIcon  color="secondary" />
+          <ReviewsIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
+      <Divider/> */}
       
       
     </React.Fragment>

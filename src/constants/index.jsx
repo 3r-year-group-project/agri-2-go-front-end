@@ -84,18 +84,25 @@ export const TRANSPORTER_SECTIONS = {
   DASHBOARD: 'dashboard',
   TRIPSCHEDULE:'tripshedule',
   ORDERS: 'orders',
- 
+  TRANSPORTREQUESTS: 'transportrequests',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
+ MYVEHICLES: 'myvehicles',
 
  
 };
 export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   DASHBOARD: 'dashboard',
+  FINDWASTAGE: 'findwastage',
+  ORDERS: 'orders',
   MYSCHEDULE:'myshedule',
+  WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
+ ITEMDESCRIPTION: 'itemdescription',
 
  
 };

@@ -10,8 +10,15 @@ import SidePanel from '../../components/SidePanel';
 
 import Dashboard from '../../pages/Transporter/Dashboard';
 import MyVehicals from '../../pages/Transporter/My Vehicle/MyVehicals';
+import TransportationRequest from '../../pages/Transporter/Request'
 import TransactionTable from '../../components/Transactions';
 import Review from '../../components/Review';
+
+import ChatMemberList from '../../components/chat/memberList';
+import ChatPage from '../../components/chat/chatPage';
+
+import TransporterTransactions from '../../pages/Transporter/Transactions';
+import CalendarScedule from '../../components/Calendar';
 
 
 export default function TransporterLayout() {
@@ -31,23 +38,26 @@ export default function TransporterLayout() {
           setOpenPane(<Dashboard/>);
           break;
         case TRANSPORTER_SECTIONS.TRANSPORTREQUESTS:
-          setOpenPane();
+          setOpenPane(<TransportationRequest/>);
           break;
         case TRANSPORTER_SECTIONS.MYVEHICLES:
             setOpenPane(<MyVehicals/>);
             break;
         case TRANSPORTER_SECTIONS.TRIPSCHEDULE:
-          setOpenPane();
+          setOpenPane(<CalendarScedule/>);
           break;
-        case TRANSPORTER_SECTIONS.CHAT:
-            setOpenPane();
+        case TRANSPORTER_SECTIONS.CHATMEMBERSLIST:
+            setOpenPane(<ChatMemberList/>);
+            break;
+        case TRANSPORTER_SECTIONS.CHATPAGE:
+            setOpenPane(<ChatPage/>);
             break;
         case TRANSPORTER_SECTIONS.TRANSACTIONS:
-          setOpenPane();
+          setOpenPane(<TransporterTransactions/>);
           break;
-        case TRANSPORTER_SECTIONS.REVIEWS:
-          setOpenPane();
-          break;
+        // case TRANSPORTER_SECTIONS.REVIEWS:
+        //   setOpenPane();
+        //   break;
 
         
         default:

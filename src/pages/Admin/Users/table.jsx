@@ -27,6 +27,7 @@ import SearchBar from '../../../components/SearchBar';
 import Filter from '../../../components/FilterBar'
 import SearchB from '../../../components/SearchBar';
 
+
 function createData(id,name, type, block, view) {
   return {
     id,
@@ -289,8 +290,9 @@ console.log("seth",e);
       <SearchIcon />
     </IconButton>
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-    
+    <Filter id="order-filter-status" label="User Type" width="30%" options={[{title:"Customer"}, {title:"Farmer"},{title:"Farmer"},{title:"Gardener"},{title:"Wastage"},{title:"Grocery Seller"},{title:"Stock Buyer"}]}/>
   </Paper>
+ 
           <Table
        fontSize="24"
             sx={{ minWidth: 750 }}

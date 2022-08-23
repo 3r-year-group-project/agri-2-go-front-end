@@ -86,7 +86,8 @@ export const TRANSPORTER_SECTIONS = {
   TRANSPORTREQUESTS: 'transportrequests',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
  MYVEHICLES: 'myvehicles',
 
  
@@ -98,7 +99,8 @@ export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   MYSCHEDULE:'myshedule',
   WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
- CHAT:'chat',
+ CHATMEMBERSLIST:'chat',
+   CHATPAGE:'chatpage',
  ITEMDESCRIPTION: 'itemdescription',
 
  

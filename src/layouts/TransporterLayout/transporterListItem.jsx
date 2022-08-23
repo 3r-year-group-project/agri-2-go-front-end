@@ -55,7 +55,7 @@ export default function TransporterListItems() {
       </ListItemButton>
       <Divider/>
 
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <ChatIcon color="secondary" />
         </ListItemIcon>
@@ -74,13 +74,13 @@ export default function TransporterListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.REVIEWS)}>
+      {/* <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <ReviewsIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       
       
     </React.Fragment>

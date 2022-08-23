@@ -61,7 +61,7 @@ export default function WastageRecycleCenterListItems() {
         <ListItemText primary="Wastage Preferences" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.CHAT)}>
+      <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <ChatIcon  color="secondary" />
         </ListItemIcon>

@@ -19,6 +19,7 @@ import Tooltip from '@mui/material/Tooltip';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import SearchBar from '../SearchBar';
+import Filter from '../FilterBar';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -128,20 +129,8 @@ const EnhancedTableToolbar = (props) => {
         }),
       }}
     >
-      { (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h5"
-          id="tableTitle"
-          component="div"
-        
-        >
-        Orders
-        </Typography>
-      )}
-     
-      {<SearchBar/>}
-
+      <SearchBar/>
+      <Filter id="order-filter-status" label="Status" width="30%" options={[{title:"Pending"}, {title:"Completed"}]}/>
       {/* { (
         <Tooltip title="Filter list">
           <IconButton>

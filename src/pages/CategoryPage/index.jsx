@@ -46,6 +46,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { fontWeight } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import LoginPage from '../../pages/LoginPage';
+import CategoryNavBar from '../../components/CategoryNavbar'
 
 
 
@@ -67,7 +68,7 @@ export default function CategoryPage(params) {
 
     return(
         <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
-            <NavBar/>
+          <CategoryNavBar/>
            
             <>
        <Container>

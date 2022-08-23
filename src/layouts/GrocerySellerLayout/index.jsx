@@ -13,6 +13,7 @@ import ChatPage from '../../components/chat/chatPage';
 import Orders from '../../pages/GrocerySellerOrders';
 import GrocerySellerTransactions from '../../pages/GrocerySellerTransactions';
 import GrocerySellerDashboard from '../../pages/GrocerySellerDashboard';
+import GrocerySellerReviews from '../../components/Review';
 
 export default function GrocerySellerLayout() {
   
@@ -34,7 +35,7 @@ export default function GrocerySellerLayout() {
           setOpenPane(<Calendar/>);
           break;  
         case GROCERY_SELLER_SECTIONS.REVIEWS:
-          setOpenPane();
+          setOpenPane(<GrocerySellerReviews/>);
           break;
         case GROCERY_SELLER_SECTIONS.TRANSACTIONS:
           setOpenPane(<GrocerySellerTransactions/>);

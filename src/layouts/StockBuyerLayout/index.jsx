@@ -18,6 +18,7 @@ import WastageOrders from '../../pages/StockBuyerWastageOrders';
 import Orders from '../../pages/StockBuyerOrders';
 import Transactions from '../../pages/StockBuyerTransactions';
 import Dashboard from '../../pages/StockBuyerDashboard';
+import StockBuyerReviews from '../../components/Review';
 
  
 
@@ -41,7 +42,7 @@ export default function StockBuyerLayout() {
           setOpenPane(<Calendar/>);
           break;  
         case STOCK_BUYER_SECTIONS.REVIEWS:
-          setOpenPane();
+          setOpenPane(<StockBuyerReviews/>);
           break;
         case STOCK_BUYER_SECTIONS.ORDERS:
           setOpenPane(<Orders/>);

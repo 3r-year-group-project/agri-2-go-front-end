@@ -38,55 +38,12 @@ export default function UserApeal() {
           <Grid item >
           <Button color="secondary" variant="contained" sx={{
                          width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
-                            VIEW SCAMMER PROFILE
+                            VIEW PROFILE
                         </Button>
           </Grid>
         </Grid>
       </StyledPaper>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: 'auto',
-          p: 2,
-        }}
-      >
-        <Grid container  spacing={2}>
-          <Grid item>
-            <Avatar>W</Avatar>
-          </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography  color='black'>Truncation should be conditionally applicable <br/>name</Typography>
-          </Grid>
-          <Grid item >
-          <Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
-                             VIEW SCAMMER PROFILE
-                        </Button>
-          </Grid>
-        </Grid>
-      </StyledPaper>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: 'auto',
-          p: 2,
-        }}
-      >
-        <Grid container  spacing={2}>
-          <Grid item>
-            <Avatar>W</Avatar>
-          </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography  color='black'>{message}</Typography>
-          </Grid>
-          <Grid item >
-          <Button color="secondary" variant="contained" sx={{
-                         width: 'auto',fontSize: 16, backgroundColor: "#128C7E",color:"white"}}>
-                              VIEW SCAMMER PROFILE
-                        </Button>
-          </Grid>
-        </Grid>
-      </StyledPaper>
+      
     </Box>
   );
 }

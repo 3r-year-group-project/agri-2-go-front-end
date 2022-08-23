@@ -75,13 +75,6 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Chat" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYPROFIT)}>
-        <ListItemIcon>
-          <PaidIcon  color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="My Profit" />
-      </ListItemButton>
-      <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>
         <ListItemIcon>
           <ManageSearchIcon  color="secondary" />

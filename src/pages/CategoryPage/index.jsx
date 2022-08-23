@@ -44,8 +44,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import { fontWeight } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import LoginPage from '../../pages/LoginPage';
-import { Logout } from '@mui/icons-material/Logout';
-import { useAuth0 } from "@auth0/auth0-react";
+
+import CategoryNavBar from '../../components/CategoryNavbar'
+
+
 
 
 
@@ -66,14 +68,10 @@ export default function CategoryPage(params) {
   }
 
 
-    const { logout } = useAuth0();
-
-   
-
-
     return(
         <div style={{background: 'rgba(37, 211, 102, 0.2)'}}>
-            <NavBar/>
+
+          <CategoryNavBar/>
 
             <>
        <Container>
@@ -682,7 +680,7 @@ export default function CategoryPage(params) {
 
            <Typography color='black'>
            category
-           <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>
+           
      </Typography>
 
 

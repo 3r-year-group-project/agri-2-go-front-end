@@ -38,7 +38,7 @@ export default function CustomerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
-          setOpenPane(<CalendarScedule/>);
+          setOpenPane();
           break;
         case CUSTOMER_SECTIONS.ORDERS:
           setOpenPane(<CustomerOrders/>);

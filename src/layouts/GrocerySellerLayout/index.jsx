@@ -10,6 +10,10 @@ import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Calendar from '../../components/Calendar';
 import ChatMemberList from '../../components/chat/memberList';
 import ChatPage from '../../components/chat/chatPage';
+import Orders from '../../pages/GrocerySellerOrders';
+import GrocerySellerTransactions from '../../pages/GrocerySellerTransactions';
+import GrocerySellerDashboard from '../../pages/GrocerySellerDashboard';
+import GrocerySellerReviews from '../../components/Review';
 
 export default function GrocerySellerLayout() {
   
@@ -25,13 +29,19 @@ export default function GrocerySellerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case GROCERY_SELLER_SECTIONS.DASHBOARD:
-          setOpenPane(<LoginPage/>);
+          setOpenPane(<GrocerySellerDashboard/>);
           break;
         case GROCERY_SELLER_SECTIONS.MYSCHEDULE:
           setOpenPane(<Calendar/>);
           break;  
         case GROCERY_SELLER_SECTIONS.REVIEWS:
-          setOpenPane();
+          setOpenPane(<GrocerySellerReviews/>);
+          break;
+        case GROCERY_SELLER_SECTIONS.TRANSACTIONS:
+          setOpenPane(<GrocerySellerTransactions/>);
+          break;
+        case GROCERY_SELLER_SECTIONS.ORDERS:
+          setOpenPane(<Orders/>);
           break;
         case GROCERY_SELLER_SECTIONS.FINDVEGETABLES:
           setOpenPane(<FindVeges/>);

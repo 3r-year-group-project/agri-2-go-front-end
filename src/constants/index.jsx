@@ -15,6 +15,7 @@ export const CUSTOMER_SECTIONS = {
  export const FARMER_SECTIONS = {
   DASHBOARD: 'dashboard',
   FINDSELLER:'findseller',
+  FINDTRANSPORTER:'findtransporter',
   ORDERS: 'orders',
   SALES:'sales',
   CART:'addcart',

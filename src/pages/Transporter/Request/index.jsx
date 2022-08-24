@@ -101,16 +101,7 @@ export default function TransportationRequest() {
         </TimelineContent>
       </TimelineItem>
       
-      
-      
-      
-    </Timeline>
-
-
-
-        
-       
-       
+    </Timeline>  
         <br/>
         
      <Stack spacing={2} direction="row" marginLeft='40%'>
@@ -125,11 +116,12 @@ export default function TransportationRequest() {
 
       </Box>
     </Container>
-    <Container maxWidth="md" id='1' marginLeft='40%'>
-      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px', marginTop:'25px'}} >
+    <br/>
+    <Container maxWidth="md" id='1' sx={{mt:'50px'}}>
+      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px' }} >
         <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0' }}>
-        <Typography  variant="h6" >Sandali Perera</Typography>
-        <Stack spacing={2} direction="row" >
+        <Typography  variant="h6" >Sethni Disanayaka</Typography>
+        <Stack spacing={2} direction="row">
         <Typography   >Tomato</Typography>
         <Typography   >80 kg</Typography>
         
@@ -138,20 +130,60 @@ export default function TransportationRequest() {
         </Box>
 
         <Box sx={{ bgcolor: '#d4fade',  padding:'10px 20px 20px 20px',height: 'auto', color:'black', borderRadius:'0 0 10px 10px',border:'2px' }}>
-        
         <Stack spacing={8} direction="row">
         <Typography  >Date</Typography>
-        <Typography  >23 Feb 2022</Typography>
+        <Typography  >23 May 2022</Typography>
         </Stack>
-       
-        <Stack spacing={8} direction="row" >
-        <Typography  >Start</Typography>
-        <Typography  >23/4,Temple Road, Nugegoda</Typography>
-        </Stack>
-        <Stack spacing={2} direction="row">
-        <Typography  >Destination</Typography>
-        <Typography  >23/4,Silver Street, Maharagama</Typography>
-        </Stack>
+        
+        <Timeline position="right" >
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          Start
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot>
+            <MyLocationIcon/>
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+          23/4,Temple Road, Nugegoda
+          </Typography>
+          
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          Destination
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color='primary'>
+            <LocationOnIcon/>
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+          23/4,Silver Street, Maharagama
+          </Typography>
+          
+        </TimelineContent>
+      </TimelineItem>
+      
+    </Timeline>  
         <br/>
         
      <Stack spacing={2} direction="row" marginLeft='40%'>
@@ -166,36 +198,77 @@ export default function TransportationRequest() {
 
       </Box>
     </Container>
-    <Container maxWidth="md" id='1'>
-      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px', marginTop:'25px'}} >
+    <br/>
+    <Container maxWidth="md" id='1' sx={{mt:'50px'}}>
+      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px' }} >
         <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0' }}>
-        <Typography  variant="h6" >Kamal Perera</Typography>
+        <Typography  variant="h6" >Sethni Disanayaka</Typography>
         <Stack spacing={2} direction="row">
-        <Typography >Carrot , Pumpkin, Onion</Typography>
-        <Typography >120 kg</Typography>
+        <Typography   >Beans</Typography>
+        <Typography   >60 kg</Typography>
         
       </Stack>
     
         </Box>
 
         <Box sx={{ bgcolor: '#d4fade',  padding:'10px 20px 20px 20px',height: 'auto', color:'black', borderRadius:'0 0 10px 10px',border:'2px' }}>
-        
         <Stack spacing={8} direction="row">
         <Typography  >Date</Typography>
-        <Typography  >23 Jan 2022</Typography>
+        <Typography  >23 May 2022</Typography>
         </Stack>
-       
-        <Stack spacing={8} direction="row">
-        <Typography  >Start</Typography>
-        <Typography  >23/4,Temple Road, Nugegoda</Typography>
-        </Stack>
-        <Stack spacing={2} direction="row">
-        <Typography  >Destination</Typography>
-        <Typography  >23/4,Silver Street, Maharagama</Typography>
-        </Stack>
+        
+        <Timeline position="right" >
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          Start
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot>
+            <MyLocationIcon/>
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+          23/4,Temple Road, Nugegoda
+          </Typography>
+          
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          Destination
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color='primary'>
+            <LocationOnIcon/>
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+          23/4,Silver Street, Maharagama
+          </Typography>
+          
+        </TimelineContent>
+      </TimelineItem>
+      
+    </Timeline>  
         <br/>
         
-     <Stack spacing={2} direction="row"marginLeft='40%'>
+     <Stack spacing={2} direction="row" marginLeft='40%'>
         <Button variant="contained" color="info" startIcon={<ChatIcon /> }>
         Contact Seller
       </Button>
@@ -207,6 +280,7 @@ export default function TransportationRequest() {
 
       </Box>
     </Container>
+    
   </React.Fragment>
 
   );

@@ -17,6 +17,7 @@ import GardenerOrders from '../../pages/Gardener/Orders';
 import GardenerSales from '../../pages/Gardener/Sales';
 import { GardenerCart } from '../../pages/Gardener/Cart';
 import { GardenerReviews } from '../../pages/Gardener/Reviews';
+import Dashboard from '../../pages/Gardener/Dashboard';
 
 export default function GardenerLayout() {
 
@@ -32,7 +33,7 @@ export default function GardenerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case GARDENER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<Dashboard/>);
           break;
         case GARDENER_SECTIONS.FINDSELLER:
           setOpenPane(<Sellers/>);

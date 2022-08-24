@@ -95,18 +95,7 @@ export default function HomePage(props) {
     {/* backgroundSize:'150vh', backgroundPosition:'right', */}
   <div style={{ width:'47%',   minHeight:630,   background: 'rgba(255, 255, 255, 0.6)', paddingLeft:100, paddingTop:150,
   }} >
-      <Typography variant="h2" sx={{
-              fontWeight:600,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: "'Poppins', sans-serif",
-              color: "#075E54", 
-              
-            // color: "primary", 
-           
-              
-            }}style={{ lineHeight: "70px" }} >Agri2GO for<br/> Real transactions of<br/> Vegetable crops  <br/> 
-            </Typography>
-            <div style={{ paddingTop:20,
+    <div style={{ paddingTop:18, paddingLeft:5,
   }}>
             <Typography  sx={{
               fontSize:22,
@@ -118,9 +107,21 @@ export default function HomePage(props) {
             
               
             }} >
-                Welcome to 'Agri2Go'. We are...
+                Welcome to 'Agri2Go'. 
             </Typography>
             </div>
+      <Typography variant="h2" sx={{
+              fontWeight:600,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: "'Poppins', sans-serif",
+              color: "#075E54", 
+              
+            // color: "primary", 
+           
+              
+            }}style={{ lineHeight: "70px" }} >Agri2GO for<br/> Real Transactions of<br/> Vegetable crops  <br/> 
+            </Typography>
+            
             
             <div>
             <Button

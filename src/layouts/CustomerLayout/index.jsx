@@ -18,6 +18,7 @@ import CustomerOrders from '../../pages/Customer/Orders';
 import CustomerTransactions from '../../pages/Customer/Transactions';
 import ChatMemberList from '../../components/chat/memberList';
 import { CustomerCart } from '../../pages/Customer/Cart';
+import Dashboard from '../../pages/Customer/Dashboard';
 
 const drawerWidth = 240;
 
@@ -38,7 +39,7 @@ export default function CustomerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case CUSTOMER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<Dashboard/>);
           break;
         case CUSTOMER_SECTIONS.ORDERS:
           setOpenPane(<CustomerOrders/>);

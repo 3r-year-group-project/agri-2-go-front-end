@@ -38,7 +38,7 @@ export default function ContinueRegistration(props) {
             // color: "primary", 
            
               
-            }}style={{ lineHeight: "70px" }} >Agri2GO for Real transactions of Vegetable crops  <br/> 
+            }}style={{ lineHeight: "70px" }} >Agri2GO for Real transactions of Vegetable Crops  <br/> 
             </Typography>
             <div style={{ paddingTop:20, 
   }}>
@@ -54,7 +54,7 @@ export default function ContinueRegistration(props) {
               
             }} >
                 Welcome to 'Agri2Go'. <br/>
-                Click Continue to Coutinue Your Registration Process.<br/>
+                Click Continue to Continue Your Registration Process.<br/>
 
             </Typography>
             </div>

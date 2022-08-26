@@ -1,11 +1,3 @@
-export const CUSTOMER_SECTIONS = {
-    DASHBOARD: 'dashboard',
-    ORDERS: 'orders',
-    CART:'cart',
-    TRANSACTIONS:'transactions',
-    CHATMEMBERSLIST:'chat',
-      CHATPAGE:'chatpage',
- };
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
     USERS: 'users',
@@ -27,23 +19,6 @@ export const CUSTOMER_SECTIONS = {
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
     DELETECROP:'deletecrop'
-   
- };
- export const GARDENER_SECTIONS = {
-    DASHBOARD: 'dashboard',
-    FINDSELLER:'findseller',
-    ORDERS: 'orders',
-    SALES:'sales',
-    CART:'cart',
-    TRANSACTIONS:'transactions',
-    REVIEWS:'reviews',
-    CHATMEMBERSLIST:'chat',
-      CHATPAGE:'chatpage',
-    MYCROP:'mycrop',
-      ADDCROP:'addcrop',
-      EDITCROP:'editcrop',
-      DELETECROP:'deletecrop'
-  
    
  };
 

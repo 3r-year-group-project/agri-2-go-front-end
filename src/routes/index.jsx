@@ -2,9 +2,7 @@ import React from "react";
 import {Routes,Route,Navigate,BrowserRouter} from 'react-router-dom';
 import HomePage from "../pages/HomePage";
 import AdminLayout from "../layouts/AdminLayout";
-import CustomerLayout from "../layouts/CustomerLayout";
 import FarmerLayout from "../layouts/FarmerLayout";
-import GardenerLayout from "../layouts/GardnerLayout";
 import StockBuyerLayout from "../layouts/StockBuyerLayout";
 import TransporterLayout from "../layouts/TransporterLayout";
 import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
@@ -16,7 +14,6 @@ import StockBuyerSellStocks from "../pages/StockBuyerSellStocks";
 import StockBuyerSellWastageStocksDetails from '../pages/StckBuyerWastageStockSellDetails';
 
 
-import CustomerAddToCart from "../pages/CustomerAddtoCartPage";
 import Checkout from "../pages/Checkout"
 
 
@@ -84,14 +81,8 @@ export default function Router() {
         {/* <Route path="/signup" element={isAuthenticated==='0'?<SignupPage/>:<HomePage/>}/>
         <Route path="/login" element={isAuthenticated==='0'?<LoginPage/>:<HomePage/>}/>  */}
         <Route path="/admin/dash/:page" element={<AdminLayout/>}/>
-        <Route path="/customer/dash/:page" element={<CustomerLayout/>}/>
-        <Route path="/customer/addtocart" element={<CustomerAddToCart/>}/>
-        <Route path="/customer/checkout" element={<Checkout/>}/>
-        <Route path="/customer/category" element={<CategoryPage/>}/>
-        <Route path="/gardener/category" element={<CategoryPage/>}/>
         <Route path="/farmer/category" element={<CategoryPage/>}/>
         <Route path="/farmer/dash/:page" element={<FarmerLayout/>}/>
-        <Route path="/gardener/dash/:page" element={<GardenerLayout/>}/>
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>

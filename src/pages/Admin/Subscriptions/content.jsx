@@ -44,7 +44,7 @@ import Button from '@mui/material/Button';
             sx={{margin: '1rem 0',input: { color: 'black' }}}
           id="standard-required"
           
-          defaultValue="Basic Plan"
+          defaultValue="Monthly Plan"
           variant="standard"
         />
       </div>
@@ -174,7 +174,7 @@ import Button from '@mui/material/Button';
               sx={{margin: '1rem 0',input: { color: 'black' }}}
             id="standard-required"
             
-            value="Standard Plan"
+            defaultValue="Yearly Plan"
             variant="standard"
           />
         </div>

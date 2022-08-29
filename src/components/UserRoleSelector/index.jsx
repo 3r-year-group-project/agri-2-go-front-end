@@ -87,10 +87,10 @@ export default function UserRoleSelector(props) {
                     <Grid item container pr={5} pl={5} spacing={4} direction="row" alignItems="center" justifyContent="center" display="flex">        
                    
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card
                                         sx={{
@@ -108,14 +108,14 @@ export default function UserRoleSelector(props) {
                                             <img src={farmer} alt="farmer" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card
                                         sx={{
@@ -133,14 +133,14 @@ export default function UserRoleSelector(props) {
                                             <img src={gardener} alt="gardener" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card  
                                         sx={{
@@ -158,14 +158,14 @@ export default function UserRoleSelector(props) {
                                             <img src={stockbuyer} alt="stockbuyer" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card  
                                         sx={{
@@ -183,14 +183,14 @@ export default function UserRoleSelector(props) {
                                             <img src={groceryseller} alt="groceryseller" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                            <Tooltip
+                            {/* <Tooltip
                                 title="My name is chikki"
                                 theme="light"
-                            >
+                            > */}
                                 <label>
                                     <Card  
                                     sx={{
@@ -208,14 +208,14 @@ export default function UserRoleSelector(props) {
                                         <img src={customer} alt="customer" width="100" height="100"/>
                                     </Card>
                                 </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card  
                                         sx={{
@@ -233,14 +233,14 @@ export default function UserRoleSelector(props) {
                                             <img src={wastagerecyclecenter} alt="wastagerecyclecenter" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <Tooltip
+                                {/* <Tooltip
                                     title="My name is chikki"
                                     theme="light"
-                                >
+                                > */}
                                     <label>
                                         <Card  
                                         sx={{
@@ -258,7 +258,7 @@ export default function UserRoleSelector(props) {
                                             <img src={transporter} alt="transporter" width="100" height="100"/>
                                         </Card>
                                     </label>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </Grid>    
                         </Grid>
                         {/* <p>You role is {selected}</p> */}

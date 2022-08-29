@@ -44,9 +44,10 @@ export default function Sub() {
       <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px' }} >
         <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0' }}>
         <Stack spacing={2} direction="row">
-         <Typography  variant="h5" >Basic</Typography><Button variant="contained" color="error" startIcon={<DeleteIcon /> }>
+         <Typography  variant="h5" >Monthly</Typography>
+         {/* <Button variant="contained" color="error" startIcon={<DeleteIcon /> }>
         Delete
-      </Button>
+      </Button> */}
       </Stack>
         </Box>
         <Box sx={{ bgcolor: 'white',  padding:'10px 20px 20px 10%',height: 'auto', color:'black', borderRadius:'0 0 10px 10px' }}>
@@ -59,9 +60,10 @@ export default function Sub() {
       <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px', marginTop:"10px" }} >
         <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0' }}>
         <Stack spacing={2} direction="row">
-         <Typography  variant="h5" >Basic</Typography><Button variant="contained" color="error" startIcon={<DeleteIcon /> }>
+         <Typography  variant="h5" >Yearly</Typography>
+         {/* <Button variant="contained" color="error" startIcon={<DeleteIcon /> }>
         Delete
-      </Button>
+      </Button> */}
       </Stack>
         </Box>
         <Box sx={{ bgcolor: 'white',  padding:'10px 20px 20px 10%',height: 'auto', color:'black', borderRadius:'0 0 10px 10px' }}>

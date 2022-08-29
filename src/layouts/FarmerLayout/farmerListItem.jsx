@@ -43,7 +43,16 @@ export default function FarmerListItems() {
         <SearchIcon color="secondary" />
       </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="Find Sellers" />
+        <ListItemText primary="Find Buyers" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDTRANSPORTER)}>
+        <ListItemIcon>
+        <Tooltip title="Find Transporters">
+        <SearchIcon color="secondary" />
+      </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Find Transporters" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CART)}>

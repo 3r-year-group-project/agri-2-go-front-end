@@ -3,17 +3,31 @@ import React from 'react'
 import OrderComponent from './OrderComponent'
 import './orderpage.css';
 import SearchBar from '../../../components/SearchBar';
+import Filter from '../../../components/FilterBar';
 
 
 export default function OrderPage() {
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
+       <Typography
+          sx={{ flex: '1 1 100%' }}
+        //   variant="h5"
+          id="tableTitle"
+          component="div"
+          color='#075E54'
+          fontWeight='700'
+          fontSize='28px'
+
+        >
+        Order List
+        </Typography>
     <div className='table-pre'>
       <div className="topic-preference">
-          <CardContent>
+          {/* <CardContent>
             <h2 style={{fontSize: '28px',fontWeight: '500',margin:'0 0 0 20px',}}>Order List</h2>
-          </CardContent>
+          </CardContent> */}
             {<SearchBar/>}
+            <Filter id="order-filter-status" label="Status" width="30%" options={[{title:"Pending"}, {title:"Completed"}]}/>
       </div>
       <br />
          {/* <h2>Order List</h2>

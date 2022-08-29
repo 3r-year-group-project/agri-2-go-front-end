@@ -11,7 +11,7 @@ import MyCrop from '../../pages/Farmer/MyCrops/myCrop';
 import AddCrop from '../../pages/Farmer/MyCrops/addCrop';
 import EditCrop from '../../pages/Farmer/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Farmer/MyCrops/deleteCrop';
-import Buyers from '../../pages/Farmer/FindBuyers/buyers';
+import MyRequests from '../../pages/Farmer/FindBuyers/requests';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
 import FindTransporter from '../../pages/Farmer/Transporter';
 import FarmerSales from '../../pages/Farmer/Sales';
@@ -39,7 +39,7 @@ export default function FarmerLayout() {
           setOpenPane(<Dashboard/>);
           break;
         case FARMER_SECTIONS.FINDSELLER:
-          setOpenPane(<Buyers/>);
+          setOpenPane(<MyRequests/>);
           break;
         case FARMER_SECTIONS.FINDTRANSPORTER:
           setOpenPane(<FindTransporter/>);

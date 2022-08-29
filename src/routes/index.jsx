@@ -4,7 +4,6 @@ import HomePage from "../pages/HomePage";
 import AdminLayout from "../layouts/AdminLayout";
 import FarmerLayout from "../layouts/FarmerLayout";
 import StockBuyerLayout from "../layouts/StockBuyerLayout";
-import GrocerySellerLayout from "../layouts/GrocerySellerLayout";
 import TransporterLayout from "../layouts/TransporterLayout";
 import WastageRecyclecenterLayout from "../layouts/WastageRecycleCenterLayout";
 import CategoryPage from "../pages/CategoryPage";
@@ -25,7 +24,6 @@ import PageNotFound from "../pages/PageNotFound";
 import FarmerRegistrationForm from "../components/RegistrationForms/Farmer";
 import GardenerRegistrationForm from "../components/RegistrationForms/Gardener";
 import StockBuyerRegistrationForm from "../components/RegistrationForms/StockBuyer";
-import GrocerySellerRegistrationForm from "../components/RegistrationForms/GrocerySeller";
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
@@ -75,7 +73,6 @@ export default function Router() {
         <Route path="/register/farmer/:id" element={<FarmerRegistrationForm/>}/>
         <Route path="/register/gardener/:id" element={<GardenerRegistrationForm/>}/>
         <Route path="/register/stockbuyer/:id" element={<StockBuyerRegistrationForm/>}/>
-        <Route path="/register/groceryseller/:id" element={<GrocerySellerRegistrationForm/>}/>
         <Route path="/register/customer/:id" element={<CustomerRegistrationForm/>}/>
         <Route path="/register/wastagerecyclecenter/:id" element={<WastageRecycleCenterRegistrationForm/>}/>
         <Route path="/register/transporter/:id" element={<TransporterRegistrationForm/>}/>
@@ -87,7 +84,6 @@ export default function Router() {
         <Route path="/farmer/category" element={<CategoryPage/>}/>
         <Route path="/farmer/dash/:page" element={<FarmerLayout/>}/>
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
-        <Route path="/groceryseller/dash/:page" element={<GrocerySellerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
         <Route path="/test" element={<Review />}/> 

@@ -11,7 +11,6 @@ import Calendar from '../../components/Calendar';
 import LoginPage from '../../pages/LoginPage';
 import ChatMemberList from '../../components/chat/memberList';
 import ChatPage from '../../components/chat/chatPage';
-import FindVeges from '../../pages/GrocerySellerFindVeges';
 import Demanding from '../../pages/StockBuyerDemanding';
 import Stocks from '../../pages/StockBuyerStocks';
 import WastageOrders from '../../pages/StockBuyerWastageOrders';
@@ -19,6 +18,7 @@ import Orders from '../../pages/StockBuyerOrders';
 import Transactions from '../../pages/StockBuyerTransactions';
 import Dashboard from '../../pages/StockBuyerDashboard';
 import StockBuyerReviews from '../../components/Review';
+import FindVeges from '../../pages/StockBuyerFindVeges';
 
  
 

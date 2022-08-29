@@ -104,13 +104,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -172,13 +170,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -240,13 +236,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -309,13 +303,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -378,13 +370,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -448,13 +438,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -517,13 +505,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -587,13 +573,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -656,13 +640,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -725,13 +707,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -794,13 +774,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -863,13 +841,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -933,13 +909,11 @@ return (
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 

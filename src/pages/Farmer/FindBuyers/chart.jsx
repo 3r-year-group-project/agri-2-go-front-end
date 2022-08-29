@@ -1,59 +1,89 @@
-import * as React from 'react';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import React from "react";
+// import {
+//   Chart,
+//   PieSeries,
+//   Legend,
+//   Tooltip,
+// } from '@devexpress/dx-react-chart-material-ui';
+import { EventTracker } from '@devexpress/dx-react-chart';
 import Title from './title';
-import theme from '../../../services/utils/theme'
-import { Typography } from '@mui/material';
 
-export default function Chart(props) {
- 
+import PieChart, {
+  Legend,
+  Export,
+  Series,
+  Label,
+  Size,
+  Connector,
+} from 'devextreme-react/pie-chart';
+
+function customizeText(arg) {
+  return `${arg.valueText} (${arg.percentText})`;
+}
+  
+export default function Chart(props){
+  console.log(props);
+  // Sample data
+  const data = [
+    {argument: "Declines", value: props.declines/10},
+    {argument: "Remaining", value: (props.limit - props.declines)/10},
+  ];
 
   return (
-    <React.Fragment>
-      <Title >{props.title}</Title>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-        {props.date}
-      </Typography>
-      <br/>
-      <ResponsiveContainer>
-        <LineChart
-          data={props.data}
-          margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24,
-          }}
+      // <>
+      //   <Chart
+      //     data={data}
+      //   >
+      //     <Legend />
+      //     <PieSeries
+      //       valueField="value"
+      //       argumentField="argument"
+      //       innerRadius={0.6}
+      //     />
+      //     <EventTracker />
+      //     <Tooltip />
+      //   </Chart>
+      //   <Title>Decline Rate</Title>
+      // </>
+
+      // <PieChart id="pie"
+      //   palette="Bright"
+      //   dataSource={data}
+      //   title="Decline Rate"
+      // >
+      //   <Legend
+      //     orientation="horizontal"
+      //     itemTextPosition="right"
+      //     horizontalAlignment="center"
+      //     verticalAlignment="right" />
+      //   <Series argumentField="argument" valueField="value">
+      //     <Label
+      //       visible={true}
+      //       position="rows"
+      //       customizeText={customizeText}>
+      //       <Font size={16} />
+      //       <Connector visible={true} width={0.5} />
+      //     </Label>
+      //   </Series>
+      // </PieChart>
+
+      <PieChart
+        id="pie"
+        dataSource={data}
+        palette="Carmine"
+        paletteExtensionMode="Extrapolate"
+        title="Decline Rate"
+      >
+        <Series
+          argumentField="argument"
+          valueField="value"
         >
-          <XAxis
-            dataKey="date"
-            stroke='black'
-            style={theme.typography.body2}
-          />
-          <YAxis
-            stroke='black'
-            style={theme.typography.body2}
-          >
-            <Label
-              angle={270}
-              position="left"
-              style={{
-                textAnchor: 'middle',
-                fill: 'black',
-                ...theme.typography.body1,
-              }}
-            >
-              {props.yAxis}
-            </Label>
-          </YAxis>
-          <Line
-            isAnimationActive={false}
-            type="monotone"
-            dataKey="amount"
-            stroke={theme.palette.primary.main}
-            dot={false}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </React.Fragment>
+          <Label visible position="inside" format="percent" backgroundColor="transparent"/>
+        </Series>
+      </PieChart>
+    
   );
 }
+
+
+

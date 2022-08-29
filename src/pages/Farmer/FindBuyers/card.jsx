@@ -14,19 +14,22 @@ export default function Card(props) {
             }}>
                 <Paper elevation={0} sx={{
                     display: 'flex',
-                    flexDirection: 'column',
-                    width:500
+                    flexDirection: 'row',
+                    width:400,
+                    paddingBottom:2
                 }}>
-                    <Chart title="Decline Rate" yAxis="Declines" data={props.chartData}/>
+                    <Chart declines={props.declines} limit={props.limit}/>
                 </Paper>
                 <Paper elevation={0} sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    width:500,
+                    width:600,
                     paddingBottom:1,
                     paddingLeft:1
                 }}>
-                    <CropDetails title="Details" 
+                    <CropDetails
+                    marketName={props.marketName}
+                    marketDistance={props.marketDistance}
                     cropName={props.cropName}
                     quantity={props.quantity}
                     price={props.price}

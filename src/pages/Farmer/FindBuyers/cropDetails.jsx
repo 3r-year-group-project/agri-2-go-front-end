@@ -11,13 +11,18 @@ function preventDefault(event) {
 export default function CropDetails(props) {
   return (
     <React.Fragment>
-      <Title>{props.title}</Title>
+      <Title>
+        {props.marketName}
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {props.marketDistance}
+        </Typography>
+      </Title>
       <br/>
       <Paper elevation={0} sx={{
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        paddingBottom:4
+        paddingBottom:2
       }}>
         <Typography component="p" variant="h4">
           {props.cropName}

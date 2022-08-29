@@ -5,25 +5,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from './card';
-import Chart from './chart'
-import CropDetails from './cropDetails';
 
 const mdTheme = createTheme();
-
-function chartData(date, amount) {
-    return { date, amount };
-}
-  
-const data = [
-    chartData('04 Aug', 1),
-    chartData('05 Aug', 2),
-    chartData('06 Aug', 3),
-    chartData('07 Aug', 4),
-    chartData('08 Aug', 5),
-    chartData('09 Aug', 6),
-    chartData('10 Aug', 7),
-    chartData('11 Aug', 8),
-];
 
 export default function CenteredGrid() {
 
@@ -46,10 +29,13 @@ export default function CenteredGrid() {
                 justifyContent="center"
                 alignItems="center"
                 >
-                <Card chartData={data} cropName="Carrot" quantity="100kg" price="Rs.100"/>
-                <Card/>
-                <Card/>
-                <Card/>
+                <Card declines={7} limit={10} marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
+                <Card declines={6} limit={10} marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
+                <Card declines={4} limit={10} marketDistance="15km" marketName="Narahenpita" cropName="Leeks" quantity="100kg" price="Rs.100"/>
+                <Card declines={3} limit={10} marketDistance="19km" marketName="Ratmalana" cropName="Tomato" quantity="100kg" price="Rs.100"/>
+                <Card declines={1} limit={10} marketDistance="24km" marketName="Bokundara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+                <Card declines={1} limit={10} marketDistance="23km" marketName="Veyangoda" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+                <Card declines={1} limit={10} marketDistance="30km" marketName="Welisara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
             </Grid>
         </Box>
     </div>

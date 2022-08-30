@@ -120,7 +120,15 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
-      
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.VIEWPRICES)}>
+        <ListItemIcon>
+          <Tooltip title="View Prices">
+          <RateReview  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="View Prices" />
+      </ListItemButton>
     </React.Fragment>
   );
 }

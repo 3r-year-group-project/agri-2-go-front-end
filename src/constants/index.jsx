@@ -26,7 +26,8 @@ export const CUSTOMER_SECTIONS = {
   MYCROP:'mycrop',
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
-    DELETECROP:'deletecrop'
+    DELETECROP:'deletecrop',
+    VIEWPRICES:'viewprices'
    
  };
  export const GARDENER_SECTIONS = {
@@ -47,20 +48,6 @@ export const CUSTOMER_SECTIONS = {
    
  };
 
- export const GROCERY_SELLER_SECTIONS = {
-  DASHBOARD: 'dashboard',
-  MYSCHEDULE: 'myschedule',
-  ADDCROP:'addcrop',
-  ORDERS: 'orders',
-  SALES:'sales',
-  FINDVEGETABLES : 'findvegetables',
-  TRANSACTIONS:'transactions',
- REVIEWS:'reviews',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
-
-
-};
 
 export const STOCK_BUYER_SECTIONS = {
   DASHBOARD: 'dashboard',

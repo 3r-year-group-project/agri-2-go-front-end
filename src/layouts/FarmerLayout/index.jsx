@@ -19,6 +19,7 @@ import FarmerOrders from '../../pages/Farmer/Orders/index';
 import { FarmerCart } from '../../pages/Farmer/Cart';
 import { FarmerReviews } from '../../pages/Farmer/Reviews';
 import Dashboard from '../../pages/Farmer/Dashboard';
+import SendRequests from '../../pages/Farmer/SendRequests';
 
 const drawerWidth = 240;
 
@@ -77,6 +78,9 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.REVIEWS:
           setOpenPane(<FarmerReviews/>);
           break;
+        case FARMER_SECTIONS.SENDREQUESTS:
+          setOpenPane(<SendRequests/>);
+            break;
         default:
           
       }

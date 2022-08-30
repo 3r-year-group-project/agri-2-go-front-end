@@ -18,7 +18,8 @@
   MYCROP:'mycrop',
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
-    DELETECROP:'deletecrop'
+    DELETECROP:'deletecrop',
+    SENDREQUESTS: 'sendrequests',
    
  };
 

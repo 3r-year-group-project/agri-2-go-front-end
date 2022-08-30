@@ -38,9 +38,6 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.DASHBOARD:
           setOpenPane(<Dashboard/>);
           break;
-        case FARMER_SECTIONS.FINDSELLER:
-          setOpenPane(<MyRequests/>);
-          break;
         case FARMER_SECTIONS.FINDTRANSPORTER:
           setOpenPane(<FindTransporter/>);
           break;
@@ -68,11 +65,8 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.TRANSACTIONS:
           setOpenPane(<FarmerTransactions/>);
           break;
-        case FARMER_SECTIONS.CHATMEMBERSLIST:
-          setOpenPane(<ChatMemberList/>);
-          break;
-        case FARMER_SECTIONS.CHATPAGE:
-          setOpenPane(<ChatPage/>);
+        case FARMER_SECTIONS.MYREQUESTS:
+          setOpenPane(<MyRequests/>);
           break;
         case FARMER_SECTIONS.REVIEWS:
           setOpenPane(<FarmerReviews/>);

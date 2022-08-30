@@ -103,13 +103,13 @@ export default function FarmerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CHATMEMBERSLIST)}>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYREQUESTS)}>
         <ListItemIcon>
-          <Tooltip title="Chats">
+          <Tooltip title="My Requests">
         <ChatIcon color="secondary" />
           </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="Chat" />
+        <ListItemText primary="My Requests" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>

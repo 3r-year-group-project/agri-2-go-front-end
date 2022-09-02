@@ -53,11 +53,11 @@ export default function OrderPage() {
           </Typography>
         </ListItemText>
 
-        <ListItemText>
+        {/* <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
               Contact Seller
           </Typography>
-        </ListItemText>
+        </ListItemText> */}
 
         <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>

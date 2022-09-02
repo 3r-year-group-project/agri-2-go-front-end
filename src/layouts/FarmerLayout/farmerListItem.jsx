@@ -130,6 +130,15 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="Send Requests" />
       </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.TRANSPORTERS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Transporters" />
+      </ListItemButton>
       
     </React.Fragment>
   );

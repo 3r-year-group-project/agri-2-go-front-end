@@ -47,7 +47,7 @@ export default function VehicleCard(props) {
 
                                 <ListItem>
                                     <ListItemText>capacity : </ListItemText>
-                                    <ListItemText>{props.capacity} &nbsp;L</ListItemText>
+                                    <ListItemText>{props.capacity} &nbsp;Kg</ListItemText>
                                 </ListItem>
 
                                 <ListItem>
@@ -71,7 +71,7 @@ export default function VehicleCard(props) {
                     <div className="button_row">
                         <CardContent>
                             <Button variant='contained' onClick={handleClickOpen} style={{backgroundColor:'#3333ff',marginLeft:'0px'}}>Edit</Button>
-                            <Button variant='contained' style={{backgroundColor:'red',marginLeft:'0px'}}>Delete</Button>
+                            {/* <Button variant='contained' style={{backgroundColor:'red',marginLeft:'0px'}}>Delete</Button> */}
                         </CardContent>
                     </div>
                 </div>

@@ -5,6 +5,15 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import ButtonForAdd from '../OderLayout/ButtonForAdd';
 
+import Checkbox from '@mui/material/Checkbox';
+// import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
 export default function WastagePreference(props) {
 
     
@@ -95,7 +104,7 @@ export default function WastagePreference(props) {
       
             <div className="button-pref">
             <CardActions>
-              <ButtonForAdd name="Edit" action={handleClickOpen}/>
+              <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/>
             </CardActions>
             </div>
           </Card>
@@ -123,8 +132,31 @@ export default function WastagePreference(props) {
 
                   <ListItemText>
                     <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">Preferred Category</InputLabel>
-                      <Select
+                      {/* <InputLabel id="demo-simple-select-label">Preferred Category</InputLabel> */}
+                      <Autocomplete
+                        multiple
+                        id="checkboxes-tags-demo"
+                        options={top20Vegetables}
+                        disableCloseOnSelect
+                        getOptionLabel={(option) => option.title}
+                        renderOption={(props, option, { selected }) => (
+                          <li {...props}>
+                            <Checkbox
+                              icon={icon}
+                              checkedIcon={checkedIcon}
+                              style={{ marginRight: 8, color: '#fff' }}
+                              checked={selected}
+                            />
+                            {option.title}
+                          </li>
+                        )}
+                        style={{ width: 500, color: '#fff' }}
+                        renderInput={(params) => (
+                          <TextField {...params} label="Preferred Category" placeholder="Preferred Category" />
+                        )}
+                      />
+
+                      {/* <Select
                         id="prference-category"
                         label="Preference Category"
                         value={category}
@@ -136,7 +168,7 @@ export default function WastagePreference(props) {
                           <MenuItem value="1">Carrot</MenuItem>
                           <MenuItem value="2">Tomato</MenuItem>
                           <MenuItem value="3">Pumkin</MenuItem>
-                        </Select>
+                        </Select> */}
                       </FormControl>
                   </ListItemText>
                 </ListItem>
@@ -150,7 +182,29 @@ export default function WastagePreference(props) {
 
                   <ListItemText>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Expected Quality Level</InputLabel>
+                    <Autocomplete
+                        multiple
+                        id="checkboxes-tags-demo"
+                        options={qualityLevels}
+                        disableCloseOnSelect
+                        getOptionLabel={(option) => option.title}
+                        renderOption={(props, option, { selected }) => (
+                          <li {...props}>
+                            <Checkbox
+                              icon={icon}
+                              checkedIcon={checkedIcon}
+                              style={{ marginRight: 8, color: '#fff' }}
+                              checked={selected}
+                            />
+                            {option.title}
+                          </li>
+                        )}
+                        style={{ width: 500, color: '#fff' }}
+                        renderInput={(params) => (
+                          <TextField {...params} label="Expected Quality Level" placeholder="Expected Quality Level" />
+                        )}
+                      />
+                        {/* <InputLabel id="demo-simple-select-label">Expected Quality Level</InputLabel>
                         <Select
                         id='expected-quality-level'
                         label='Expected Quality Level'
@@ -165,7 +219,7 @@ export default function WastagePreference(props) {
                           <MenuItem value="slurries">Slurries</MenuItem>
                           <MenuItem value="animal-fodder"> Animal fodder</MenuItem>
                           <MenuItem value="slurries">Peels</MenuItem>
-                        </Select>
+                        </Select> */}
                     </FormControl> 
                   </ListItemText>
                 </ListItem>
@@ -179,7 +233,29 @@ export default function WastagePreference(props) {
 
                   <ListItemText>
                   <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">Preferred Locations</InputLabel>
+                  <Autocomplete
+                        multiple
+                        id="checkboxes-tags-demo"
+                        options={locationsList}
+                        disableCloseOnSelect
+                        getOptionLabel={(option) => option.title}
+                        renderOption={(props, option, { selected }) => (
+                          <li {...props}>
+                            <Checkbox
+                              icon={icon}
+                              checkedIcon={checkedIcon}
+                              style={{ marginRight: 8, color: '#fff' }}
+                              checked={selected}
+                            />
+                            {option.title}
+                          </li>
+                        )}
+                        style={{ width: 500, color: '#fff' }}
+                        renderInput={(params) => (
+                          <TextField {...params} label="Preferred Locations" placeholder="Preferred Locations" />
+                        )}
+                      />
+                      {/* <InputLabel id="demo-simple-select-label">Preferred Locations</InputLabel>
                       <Select
                         id="preference-location"
                         label="Preference Location"
@@ -211,7 +287,7 @@ export default function WastagePreference(props) {
                           <MenuItem value="Trincomalee">Trincomalee</MenuItem>
                           <MenuItem value="Ampara">Ampara</MenuItem>
                           <MenuItem value="Batticaloa">Batticaloa</MenuItem>
-                        </Select>
+                        </Select> */}
                   </FormControl>      
                   </ListItemText>
                 </ListItem>
@@ -249,3 +325,35 @@ export default function WastagePreference(props) {
     </div>
   )
 }
+
+const top20Vegetables = [
+  { title: 'Carrots' },
+  { title: 'Eggplant'},
+  { title: 'Cabbage'},
+  { title: 'Cauliflower'},
+ 
+  
+ 
+];
+
+const qualityLevels = [
+  { title: 'Rotten' },
+  { title: 'About to rot'},
+  { title: 'Slurries'},
+  { title: 'Animal fodder'},
+  { title: 'Peels'},
+ 
+  
+ 
+];
+
+const locationsList = [
+  { title: 'Colombo' },
+  { title: 'Gampaha'},
+  { title: 'Kalutara'},
+  { title: 'Kandy'},
+  { title: 'Matale'},
+ 
+  
+ 
+];

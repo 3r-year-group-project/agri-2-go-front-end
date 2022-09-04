@@ -18,7 +18,9 @@
   MYCROP:'mycrop',
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
-    DELETECROP:'deletecrop'
+    DELETECROP:'deletecrop',
+    SENDREQUESTS: 'sendrequests',
+    TRANSPORTERS: 'transporters',
    
  };
 
@@ -75,8 +77,6 @@ export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   MYSCHEDULE:'myshedule',
   WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
  ITEMDESCRIPTION: 'itemdescription',
 
  

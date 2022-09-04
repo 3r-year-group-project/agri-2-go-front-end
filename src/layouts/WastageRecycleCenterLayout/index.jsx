@@ -42,12 +42,12 @@ export default function WastageRecyclecenterLayout() {
         case WASTAGE_RECYCLE_CENTER_SECTIONS.WASTAGEPREFERENCES:
           setOpenPane(<WastagePreference/>);
           break;
-        case WASTAGE_RECYCLE_CENTER_SECTIONS.CHATMEMBERSLIST:
-          setOpenPane(<ChatMemberList/>);
-          break;
-        case WASTAGE_RECYCLE_CENTER_SECTIONS.CHATPAGE:
-          setOpenPane(<ChatPage/>);
-          break;
+        // case WASTAGE_RECYCLE_CENTER_SECTIONS.CHATMEMBERSLIST:
+        //   setOpenPane(<ChatMemberList/>);
+        //   break;
+        // case WASTAGE_RECYCLE_CENTER_SECTIONS.CHATPAGE:
+        //   setOpenPane(<ChatPage/>);
+        //   break;
         case WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST:
           setOpenPane(<Wislist/>);
           break;

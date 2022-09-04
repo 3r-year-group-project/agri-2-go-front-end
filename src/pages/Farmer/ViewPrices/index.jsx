@@ -143,7 +143,18 @@ export default function loadStocks(){
         
         <Container  component="main" maxWidth="100%">
             <Grid container spacing={1}>
-                <Grid item xs={6} sx={{marginTop:"30px"}}>
+                <Grid item xs={4} sx={{marginTop:"30px"}}>
+                    <Autocomplete
+                        disablePortal
+                        id="combo-box-demo"
+                        options={availableVegetables}
+                        fullWidth
+                        renderInput={(params) => <TextField {...params} label="The Market" />}
+                        sx={{input:{color:'#483838'}}}
+                    
+                    />
+                </Grid>
+                <Grid item xs={4} sx={{marginTop:"30px"}}>
                     <Autocomplete
                         disablePortal
                         id="combo-box-demo"
@@ -154,7 +165,7 @@ export default function loadStocks(){
                     
                     />
                 </Grid>
-                <Grid item xs={6} sx={{marginTop:"30px"}}>
+                <Grid item xs={4} sx={{marginTop:"30px"}}>
                     <TextField
                         id="vegetableQuantity"
                         label="Quantity"

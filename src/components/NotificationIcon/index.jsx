@@ -15,9 +15,10 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import StoreIcon from '@mui/icons-material/Store';
 import { blue, red, green } from '@mui/material/colors';
+import axios from 'axios';
 
 export default function NotificationIcon(Props) {
-  // const { logout } = useAuth0();
+  const {user, isAuthenticated, isLoading} = useAuth0();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -26,6 +27,11 @@ export default function NotificationIcon(Props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  React.useEffect(() => {
+    axios.get('/api/users//notifications/'+ user.email).then(res => {});
+  }, [isAuthenticated, isLoading]);
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>

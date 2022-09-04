@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { Calendar,dateFnsLocalizer } from 'react-big-calendar';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import startOfWeek from 'date-fns/startofWeek';
+// import startOfWeek from 'date-fns/startofWeek';
 import getDay from 'date-fns/getDay';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import React,{useState} from 'react';
@@ -18,7 +18,7 @@ const locales = {
 const localizer = dateFnsLocalizer({
     format,
     parse,
-    startOfWeek,
+    // startOfWeek,
     getDay,
     locales
   })
@@ -60,23 +60,7 @@ export default function CalendarScedule(){
       <Box>
 
       
-      {/* <Typography variant='h1' style={{color:"black"}}>Calendar</Typography> 
-      <h2 style={{color:"black"}}>Add New Event</h2>
-      <div>
-        <TextField variant="outlined" sx={{ input: { color: 'black' } , margin: '10px' , width:'20%'}} type="text" placeholder='Add Title'
-        value = {newEvent.title} onChange = {(e) => setNewEvent({...newEvent,title:e.target.value})}
-        />
-
-        <DatePicker placeholderText='Start Date' 
-        selected = {newEvent.start} onChange = {(start) => setNewEvent({...newEvent,start})}
-        />
-
-        <DatePicker placeholderText='End Date' 
-        selected = {newEvent.end} onChange = {(end) => setNewEvent({...newEvent,end})}
-        />
-
-        <Button variant="contained" style={{margin: "10px"}} onClick={handleEvent}>Add Event</Button>
-      </div> */}
+      
       <Calendar localizer={localizer}
         events={allEvents}
         startAccessor="start"

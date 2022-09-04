@@ -213,7 +213,7 @@ EnhancedTableToolbar.propTypes = {
 };
 
 
-export default function loadStocks(){
+export default function LoadStocks(){
 
   let navigate = useNavigate(); 
     const routeChangeWastageAdd = () =>{ 

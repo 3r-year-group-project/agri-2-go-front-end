@@ -7,36 +7,23 @@
  };
  export const FARMER_SECTIONS = {
   DASHBOARD: 'dashboard',
-  FINDSELLER:'findseller',
+  MYREQUESTS:'myrequests',
   FINDTRANSPORTER:'findtransporter',
   ORDERS: 'orders',
   SALES:'sales',
   CART:'addcart',
   TRANSACTIONS:'transactions',
   REVIEWS:'reviews',
-  CHATMEMBERSLIST:'chat',
-    CHATPAGE:'chatpage',
   MYCROP:'mycrop',
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
-    DELETECROP:'deletecrop'
+    DELETECROP:'deletecrop',
+    VIEWPRICES:'viewprices',
+    SENDREQUESTS: 'sendrequests',
+    TRANSPORTERS: 'transporters',
    
  };
 
- export const GROCERY_SELLER_SECTIONS = {
-  DASHBOARD: 'dashboard',
-  MYSCHEDULE: 'myschedule',
-  ADDCROP:'addcrop',
-  ORDERS: 'orders',
-  SALES:'sales',
-  FINDVEGETABLES : 'findvegetables',
-  TRANSACTIONS:'transactions',
- REVIEWS:'reviews',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
-
-
-};
 
 export const STOCK_BUYER_SECTIONS = {
   DASHBOARD: 'dashboard',
@@ -46,8 +33,7 @@ export const STOCK_BUYER_SECTIONS = {
   SALES:'sales',
   TRANSACTIONS:'transactions',
  REVIEWS:'reviews',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
+ FARMERREQUESTS: 'farmerrequests',
  WASTAGEORDERS: 'wastageorders',
  DEMANDING: 'demanding',
  STOCKS: 'stocks',
@@ -76,8 +62,6 @@ export const WASTAGE_RECYCLE_CENTER_SECTIONS = {
   MYSCHEDULE:'myshedule',
   WASTAGEPREFERENCES: 'wastagepreferences',
  WISHLIST:'wishlist',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
  ITEMDESCRIPTION: 'itemdescription',
 
  

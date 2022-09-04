@@ -18,6 +18,7 @@ import ReceiptIcon from '@mui/icons-material/Receipt';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import Tooltip from '@mui/material/Tooltip';
 import SearchIcon from '@mui/icons-material/Search';
+import SendIcon from '@mui/icons-material/Send';
 
 
 export default function FarmerListItems() {
@@ -120,7 +121,33 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
-      
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SENDREQUESTS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Send Requests" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.TRANSPORTERS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Transporters" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.VIEWPRICES)}>
+        <ListItemIcon>
+          <Tooltip title="View Prices">
+          <RateReview  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="View Prices" />
+      </ListItemButton>
     </React.Fragment>
   );
 }

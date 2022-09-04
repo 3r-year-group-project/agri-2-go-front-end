@@ -19,6 +19,7 @@ import FarmerOrders from '../../pages/Farmer/Orders/index';
 import { FarmerCart } from '../../pages/Farmer/Cart';
 import { FarmerReviews } from '../../pages/Farmer/Reviews';
 import Dashboard from '../../pages/Farmer/Dashboard';
+import ViewPrices from '../../pages/Farmer/ViewPrices';
 import SendRequests from '../../pages/Farmer/SendRequests';
 import Transporters from '../../pages/Farmer/Transporters';
 
@@ -78,6 +79,9 @@ export default function FarmerLayout() {
           break;
         case FARMER_SECTIONS.REVIEWS:
           setOpenPane(<FarmerReviews/>);
+          break;
+        case FARMER_SECTIONS.VIEWPRICES:
+          setOpenPane(<ViewPrices/>);
           break;
         case FARMER_SECTIONS.SENDREQUESTS:
           setOpenPane(<SendRequests/>);

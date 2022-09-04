@@ -19,25 +19,12 @@
     ADDCROP:'addcrop',
     EDITCROP:'editcrop',
     DELETECROP:'deletecrop',
+    VIEWPRICES:'viewprices',
     SENDREQUESTS: 'sendrequests',
     TRANSPORTERS: 'transporters',
    
  };
 
- export const GROCERY_SELLER_SECTIONS = {
-  DASHBOARD: 'dashboard',
-  MYSCHEDULE: 'myschedule',
-  ADDCROP:'addcrop',
-  ORDERS: 'orders',
-  SALES:'sales',
-  FINDVEGETABLES : 'findvegetables',
-  TRANSACTIONS:'transactions',
- REVIEWS:'reviews',
- CHATMEMBERSLIST:'chat',
-   CHATPAGE:'chatpage',
-
-
-};
 
 export const STOCK_BUYER_SECTIONS = {
   DASHBOARD: 'dashboard',

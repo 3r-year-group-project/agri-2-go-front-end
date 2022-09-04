@@ -46,7 +46,7 @@ export default function OrderComponent(props) {
                     <SelectBox/>
                 </ListItemText>
                 
-                <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText>
+                {/* <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText> */}
                 <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add Details</Button></ListItemText>
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
                 <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Remove</Button></ListItemText>

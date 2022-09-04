@@ -237,6 +237,7 @@ export default function MyVehicals() {
                 {vehi.map((element) => {
                     let vehicle = '';
                     
+                    // eslint-disable-next-line default-case
                     switch(element.type){
                         case 1:
                             vehicle = 'motorcycle';

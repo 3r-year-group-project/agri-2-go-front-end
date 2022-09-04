@@ -13,10 +13,14 @@ import EditCrop from '../../pages/Farmer/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Farmer/MyCrops/deleteCrop';
 import Buyers from '../../pages/Farmer/FindBuyers/buyers';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
+import FindTransporter from '../../pages/Farmer/Transporter';
 import FarmerSales from '../../pages/Farmer/Sales';
 import FarmerOrders from '../../pages/Farmer/Orders/index';
 import { FarmerCart } from '../../pages/Farmer/Cart';
 import { FarmerReviews } from '../../pages/Farmer/Reviews';
+import Dashboard from '../../pages/Farmer/Dashboard';
+import SendRequests from '../../pages/Farmer/SendRequests';
+import Transporters from '../../pages/Farmer/Transporters';
 
 const drawerWidth = 240;
 
@@ -34,10 +38,13 @@ export default function FarmerLayout() {
       const subComponent = params[3];
       switch (subComponent) {
         case FARMER_SECTIONS.DASHBOARD:
-          setOpenPane();
+          setOpenPane(<Dashboard/>);
           break;
         case FARMER_SECTIONS.FINDSELLER:
           setOpenPane(<Buyers/>);
+          break;
+        case FARMER_SECTIONS.FINDTRANSPORTER:
+          setOpenPane(<FindTransporter/>);
           break;
         case FARMER_SECTIONS.CART:
           setOpenPane(<FarmerCart/>);
@@ -72,6 +79,12 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.REVIEWS:
           setOpenPane(<FarmerReviews/>);
           break;
+        case FARMER_SECTIONS.SENDREQUESTS:
+          setOpenPane(<SendRequests/>);
+            break;
+        case FARMER_SECTIONS.TRANSPORTERS:
+          setOpenPane(<Transporters/>);
+            break;
         default:
           
       }

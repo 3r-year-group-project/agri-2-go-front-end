@@ -18,6 +18,7 @@ import ReceiptIcon from '@mui/icons-material/Receipt';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import Tooltip from '@mui/material/Tooltip';
 import SearchIcon from '@mui/icons-material/Search';
+import SendIcon from '@mui/icons-material/Send';
 
 
 export default function FarmerListItems() {
@@ -43,7 +44,16 @@ export default function FarmerListItems() {
         <SearchIcon color="secondary" />
       </Tooltip>
         </ListItemIcon>
-        <ListItemText primary="Find Sellers" />
+        <ListItemText primary="Find Buyers" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDTRANSPORTER)}>
+        <ListItemIcon>
+        <Tooltip title="Find Transporters">
+        <SearchIcon color="secondary" />
+      </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Find Transporters" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CART)}>
@@ -110,6 +120,24 @@ export default function FarmerListItems() {
           </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Reviews" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SENDREQUESTS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Send Requests" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.TRANSPORTERS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Transporters" />
       </ListItemButton>
       
     </React.Fragment>

@@ -25,13 +25,60 @@ export default function DashboardContent() {
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
-        
         <CssBaseline />
         <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4,ml:0,mr:0 }}>
             <Grid container spacing={3}>
                {/* Recent Cards */}
-               
+               <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Cards title="Total Users" value="3049" date="on 11 August, 2022" linkname="View users" link=""/>
+                </Paper>
+              </Grid>
+
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Cards title="Total Sells" value="949" date="on 11 August, 2022" linkname="View sells" link=""/>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Cards title="New Users" value="49" date="on 11 August, 2022" linkname="View users" link=""/>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Cards title="Total Users" value="3049" date="on 11 August, 2022" linkname="View users" link=""/>
+                </Paper>
+              </Grid>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={6}>
 
@@ -44,7 +91,7 @@ export default function DashboardContent() {
                     width:520,
                   }}
                 >
-                  <Chart title="Daily Sales" date="24 August, 2022" yAxis="Sales" data=""/>
+                  <Chart title="Daily Sells" date="11 August, 2022" yAxis="Sales" data=""/>
                 </Paper>
                 
               </Grid>
@@ -63,7 +110,7 @@ export default function DashboardContent() {
                     width:520,
                   }}
                 >
-                  <PieChart title="Vegetables Sales"/>
+                  <PieChart title="Users"/>
                 </Paper>
               </Grid>
               

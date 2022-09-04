@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './title';
-import theme from '../../services/utils/theme'
+import theme from '../../../services/utils/theme'
 import { color } from '@mui/system';
 import { Typography } from '@mui/material';
 
@@ -13,14 +13,14 @@ function createData(date, amount) {
 
 const data = [
 
-  createData('17 Aug', 300),
-  createData('18 Aug', 600),
-  createData('19 Aug', 300),
-  createData('20 Aug', 150),
-  createData('21 Aug', 200),
-  createData('22 Aug', 400),
-  createData('23 Aug', 400),
-  createData('24 Aug', 200),
+  createData('04 Aug', 300),
+  createData('05 Aug', 600),
+  createData('06 Aug', 300),
+  createData('07 Aug', 150),
+  createData('08 Aug', 200),
+  createData('09 Aug', 400),
+  createData('10 Aug', 400),
+  createData('11 Aug', 200),
 ];
 
 export default function Chart(props) {

@@ -13,13 +13,13 @@ export default function PieChart(props){
   
 // Sample data
 const data = [
-  { argument:'Carrot-47%', value:80 },
-  { argument:'Leeks-23%', value:50 },
-  { argument:'Cucumber-10%', value:10 },
-  { argument:'Green Chillies-15%', value:20 },
-  { argument:'Potatoes -8%', value:20 },
-  { argument:'Brinjal-12%', value:20 },
-  { argument:'Cabbage-13%', value:20 },
+  { argument:'Customers-47%', value:80 },
+  { argument:'Farmers-23%', value:50 },
+  { argument:'Grocery Sellers-10%', value:10 },
+  { argument:'Gardeners-15%', value:20 },
+  { argument:'Stock -8%', value:20 },
+  { argument:'Transpoters-12%', value:20 },
+  { argument:'Wastage Recycle Centers-13%', value:20 },
 ];
 
 return (

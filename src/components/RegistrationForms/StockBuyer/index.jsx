@@ -60,7 +60,7 @@ export default function StockBuyerRegistrationForm() {
     
    const handleSubmitComponent2 = (ob) => {
     
-    axios.post('/api/groceryseller/stockbuyer/cardDetails',{...ob,id:id}).then((res)=>{
+    axios.post('/api/stockbuyer/registration/cardDetails',{...ob,id:id}).then((res)=>{
         setStepState((prev) => {
             return [
               prev[0],
@@ -116,7 +116,7 @@ export default function StockBuyerRegistrationForm() {
         }
     } 
     return (
-        <div style={{ background: '#128C7E', padding:'0.5%',minHeight:'100%'}} >
+        <div style={{ background: '#128C7E', padding:'1%',minHeight:'100%'}} >
         <CssBaseline  />
         <Box
         sx={{

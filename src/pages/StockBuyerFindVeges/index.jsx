@@ -1,44 +1,50 @@
-import * as React from 'react';
-import { Typography, Grid, Card, Toolbar, Paper } from "@mui/material";
-import Box from '@mui/material/Box';
-import {useNavigate} from "react-router-dom";
 import Button from '@mui/material/Button';
-import AddCrop from './addCrop';
-import SearchBar from '../../../components/SearchBar';
 
+import React, { Fragment, useState } from 'react';
+
+
+import { useNavigate } from 'react-router-dom';
+
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+
+import { CssBaseline, Paper, Stack, Typography } from '@mui/material';
+
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 
 import Container from '@mui/material/Container';
+
+import Input from '../../components/Input/input';
+
+
+import Footer from "../../components/Footer";
+import NavBar from '../../components/Navbar';
+import Logo from '../../components/Logo/logo';
+import VegDetails from '../../components/VegetableCard';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ButtonGroup from "@mui/material/ButtonGroup";
 
-export default function MyCrop() {
-    const navigate = useNavigate();
-    const [crops, setcrops] = React.useState(30);
 
-    function range(start, end) {
-        return Array(end - start + 1).fill().map((_, idx) => start + idx)
-    }
 
-    const jsx = `
-    <Grid container spacing={2}>
-    `;
 
-  return (
-    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
-    <Box
-    component="span"
-    m={1}
-    display="flex"
-    justifyContent="space-between"
-    alignItems="center"
-    >
-    <SearchBar/>
-    
-    <Button variant="contained" color="success" sx={{marginTop:"20px" , marginLeft: "20px" ,marginBottom : "20px", width:"20%" , height: "6%" , fontWeight:"bold"}} onClick={()=>navigate("/gardener/dash/addcrop")} >
-        Add New Vegetable 
+
+export default function FindVeges() {
+
+    const[show,setShow] = useState(true);
+
+return (
+    <>
+    <Box sx={{background: 'rgba(37, 211, 102, 0.2)'}}>
+       
+    <Button variant="contained" color="success" sx={{marginTop:"20px" , marginLeft: "20px" ,marginBottom : "20px", width:"20%" , height: "6%" , fontWeight:"bold"}}>
+        Add a New Vegetable 
         <AddCircleIcon sx={{marginLeft: "10px"}}/>
     </Button>
-    </Box>
     <Container>
 
         <Grid  container spacing={5} >
@@ -70,16 +76,19 @@ export default function MyCrop() {
                         </Button> */}
 
                         <ButtonGroup variant="text" aria-label="text button group" sx={{marginLeft: "17px" , marginTop:"5px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
-                            View 
+                          
+                        <Button onClick={() => setShow(!show)} variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
+                            {show === true ? 'View' : 'Hide'}
+                            
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
+                        
 
                         {/* <Typography variant="body2" component="p" style={{color:"white"}}>
                             Quantity: 
@@ -87,7 +96,7 @@ export default function MyCrop() {
                         
                     </Box>
                     <Box id="detailsList">
-
+                    {!show && <p style={{fontSize:"12px" , marginLeft:"12px"}}>Freshly plucked from the local farmers. Clean and fresh vegetables assured!</p>}  
                     </Box>
                     
                     {/* <Box>
@@ -95,13 +104,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -141,10 +148,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -163,13 +170,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -209,10 +214,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -231,13 +236,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -278,10 +281,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -300,13 +303,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -347,10 +348,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -369,13 +370,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -417,10 +416,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -439,13 +438,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -486,10 +483,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -508,13 +505,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -556,10 +551,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -578,13 +573,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -625,10 +618,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -647,13 +640,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -694,10 +685,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -716,13 +707,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -763,10 +752,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -785,13 +774,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -832,10 +819,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -854,13 +841,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -902,10 +887,10 @@ export default function MyCrop() {
                         <Button variant="contained" color="success" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             View 
                         </Button>
-                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}} onClick={()=>navigate("/gardener/dash/editcrop")}>
+                        <Button variant="contained" color="info" sx={{marginRight:"10px" , fontSize:"10px"}}>
                             Edit 
                         </Button>
-                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }} onClick={()=>navigate("/gardener/dash/deletecrop")}>
+                        <Button variant="contained" color="error" sx={{ fontSize:"10px" }}>
                             Delete
                         </Button> 
                         </ButtonGroup>
@@ -924,13 +909,11 @@ export default function MyCrop() {
                             Minimum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Maximum Buying Price: 
                         </Typography>
                     </Box>
-
                     <Box>
                     <Typography variant="body2" component="p" style={{color:"white"}}>
                             Average Buying Price: 
@@ -944,7 +927,15 @@ export default function MyCrop() {
         </Grid>
 
       </Container>
+      </Box>
 
-      </div>
+      </>
+    
+
+     
+    
+    
   );
+  
+  
 }

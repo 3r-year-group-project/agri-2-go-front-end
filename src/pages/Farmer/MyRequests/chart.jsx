@@ -22,7 +22,6 @@ function customizeText(arg) {
 }
   
 export default function Chart(props){
-  console.log(props);
   // Sample data
   const data = [
     {argument: "Declines", value: props.declines/10},

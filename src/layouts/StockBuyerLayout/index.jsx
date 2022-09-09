@@ -9,7 +9,7 @@ import StockBuyerListItems from './stockBuyerListItem';
 import SidePanel from '../../components/SidePanel';
 import Calendar from '../../components/Calendar';
 import LoginPage from '../../pages/LoginPage';
-import ChatMemberList from '../../components/chat/memberList';
+import FarmerRequests from '../../pages/StockBuyerFarmerRequests/requests';
 import ChatPage from '../../components/chat/chatPage';
 import Demanding from '../../pages/StockBuyerDemanding';
 import Stocks from '../../pages/StockBuyerStocks';
@@ -50,11 +50,8 @@ export default function StockBuyerLayout() {
         case STOCK_BUYER_SECTIONS.TRANSACTIONS:
           setOpenPane(<Transactions/>);
           break;
-        case STOCK_BUYER_SECTIONS.CHATMEMBERSLIST:
-          setOpenPane(<ChatMemberList/>);
-          break;
-        case STOCK_BUYER_SECTIONS.CHATPAGE:
-          setOpenPane(<ChatPage/>);
+        case STOCK_BUYER_SECTIONS.FARMERREQUESTS:
+          setOpenPane(<FarmerRequests/>);
           break;
         case STOCK_BUYER_SECTIONS.WASTAGEORDERS:
           setOpenPane(<WastageOrders/>);

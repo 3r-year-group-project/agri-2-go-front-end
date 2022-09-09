@@ -11,7 +11,7 @@ import MyCrop from '../../pages/Farmer/MyCrops/myCrop';
 import AddCrop from '../../pages/Farmer/MyCrops/addCrop';
 import EditCrop from '../../pages/Farmer/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Farmer/MyCrops/deleteCrop';
-import Buyers from '../../pages/Farmer/FindBuyers/buyers';
+import MyRequests from '../../pages/Farmer/FindBuyers/requests';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
 import FindTransporter from '../../pages/Farmer/Transporter';
 import FarmerSales from '../../pages/Farmer/Sales';
@@ -19,6 +19,7 @@ import FarmerOrders from '../../pages/Farmer/Orders/index';
 import { FarmerCart } from '../../pages/Farmer/Cart';
 import { FarmerReviews } from '../../pages/Farmer/Reviews';
 import Dashboard from '../../pages/Farmer/Dashboard';
+import ViewPrices from '../../pages/Farmer/ViewPrices';
 import SendRequests from '../../pages/Farmer/SendRequests';
 import Transporters from '../../pages/Farmer/Transporters';
 
@@ -39,9 +40,6 @@ export default function FarmerLayout() {
       switch (subComponent) {
         case FARMER_SECTIONS.DASHBOARD:
           setOpenPane(<Dashboard/>);
-          break;
-        case FARMER_SECTIONS.FINDSELLER:
-          setOpenPane(<Buyers/>);
           break;
         case FARMER_SECTIONS.FINDTRANSPORTER:
           setOpenPane(<FindTransporter/>);
@@ -70,14 +68,14 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.TRANSACTIONS:
           setOpenPane(<FarmerTransactions/>);
           break;
-        case FARMER_SECTIONS.CHATMEMBERSLIST:
-          setOpenPane(<ChatMemberList/>);
-          break;
-        case FARMER_SECTIONS.CHATPAGE:
-          setOpenPane(<ChatPage/>);
+        case FARMER_SECTIONS.MYREQUESTS:
+          setOpenPane(<MyRequests/>);
           break;
         case FARMER_SECTIONS.REVIEWS:
           setOpenPane(<FarmerReviews/>);
+          break;
+        case FARMER_SECTIONS.VIEWPRICES:
+          setOpenPane(<ViewPrices/>);
           break;
         case FARMER_SECTIONS.SENDREQUESTS:
           setOpenPane(<SendRequests/>);

@@ -13,6 +13,9 @@ import AddToWastage from "../pages/StockBuyerAddToWastage";
 import StockBuyerSellStocks from "../pages/StockBuyerSellStocks";
 import StockBuyerSellWastageStocksDetails from '../pages/StckBuyerWastageStockSellDetails';
 
+//test
+import TransportationRequest from "../components/TransporterSchedule/transporterSchedule";
+
 
 import Checkout from "../pages/Checkout"
 
@@ -86,7 +89,7 @@ export default function Router() {
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="/test" element={<Review />}/> 
+        <Route path="/test" element={<TransportationRequest />}/> 
         {/* <Route path="/wastageRecycleCenter/dash/findwastage/viewdetails" element={<ItemDescription/>}/>    */}
         </Routes>
         </BrowserRouter>

@@ -68,7 +68,6 @@ export default function MyVehicals() {
 
     const [image, setImage] = React.useState({ preview: ''})
 
-   
 
     React.useEffect(() => {
         axios.post('/api/transporter/vehicle/getall',{email:user.email})
@@ -228,7 +227,7 @@ export default function MyVehicals() {
         </Typography>  
         <Divider color='#9df58c'/>  */}
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '150px', paddingTop: '25px'}}>
-        <Button variant='contained' color="success" onClick={handleClickOpen} endIcon={<AddCircleOutlineIcon/>} size="large">Add New Vehicle</Button>
+        <Button disabled={vehi.length === 0 ? false : true} variant='contained' color="success" onClick={handleClickOpen} endIcon={<AddCircleOutlineIcon/>} size="large">Add New Vehicle</Button>
         </div>
 
          <div className="main_container">
@@ -237,6 +236,7 @@ export default function MyVehicals() {
                 {vehi.map((element) => {
                     let vehicle = '';
                     
+                    // eslint-disable-next-line default-case
                     switch(element.type){
                         case 1:
                             vehicle = 'motorcycle';
@@ -268,7 +268,7 @@ export default function MyVehicals() {
                         />);
                 })}
 
-                <VehicleCard 
+                {/* <VehicleCard 
                 image='https://www.methmamovers.com/wp-content/uploads/2018/08/lorry-2.jpg'
                 vehicletype='Lorry'
                 vehicleno='BHE 4512'
@@ -283,7 +283,7 @@ export default function MyVehicals() {
                 drivername='E.S Ajith'
                 vehiclenumber='077 2515486'
                 capacity='5000'
-                />
+                /> */}
             </div>
 
             <Dialog 
@@ -371,7 +371,7 @@ export default function MyVehicals() {
                 autoFocus
                 margin="dense"
                 id="vehicleCapacity"
-                label="vehicle capacity (L)"
+                label="vehicle capacity (Kg)"
                 type="text"
                 fullWidth
                 variant="outlined"

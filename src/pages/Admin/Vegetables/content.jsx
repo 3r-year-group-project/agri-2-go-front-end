@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -16,7 +16,7 @@ import carrot from '../../../assets/images/carrot.jpg';
 import bean from '../../../assets/images/beans.jpg';
 import PopupForm from './editForm';
 import Modal from '@mui/material/Modal';
-
+import axios from 'axios';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -29,16 +29,32 @@ const style = {
   p: 4,
 };
 
- export default function FormPropsTextFields() {
+export default function FormPropsTextFields() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [name, setName] = useState("");
-  const data = [
-   { id:'1',name:'Carrot', discription:' The carrot is a root vegetable, typically orange in color', photo:'carrot'},
-   { id:'2',name:'Beans', discription:'A bean is the seed of one of several genera of the flowering plant family Fabaceae, which are used as vegetables for human or animal food.',photo:'bean'},
+  const [data,setData] = useState([]);
+
+
+  async function getAllVegDetails() {
+    axios.get('/api/admin/handlevegetable/getall',)
+        .then(res => {
+            setData(res.data.data);});
+
+  }
+  useEffect(() => {
+    getAllVegDetails()
+  },[])
+  const  handleDelete = async (id) =>{
+    await axios.get(`/api/admin/handlevegetable/delete/${id}`)
+        .then(res => {
+          getAllVegDetails();
+           });
     
-  ];
+
+  }
+  
   return (
     <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px',marginTop:'50px',marginLeft:'50px' }} >
         
@@ -53,14 +69,10 @@ const style = {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <PopupForm/>
+          <PopupForm closeHandle={handleClose} getVeg={getAllVegDetails}/>
           <div>
       
-      <Stack spacing={2} direction="row">
-      <Button variant="outlined" onClick={handleClose} >CANCEL</Button>
-      <Button variant="contained" type="submit" >ADD</Button>
-      
-    </Stack>
+  
   
       </div>
         </Box>
@@ -69,45 +81,43 @@ const style = {
      
        
 
-
+{data.map((d)=>
     <Card sx={{ display: 'flex', margin:'10px',width:'1000px', marginLeft:'100px' }}>
     <CardMedia
         component="img"
         sx={{ width: 200 }}
-        image={bean}
+        image={d.image}
         alt="Live from space album cover"
       />
       <Box sx={{ display: 'flex', flexDirection: 'column',}}>
       
         <CardContent sx={{ flex: '1 0 auto' ,backgroundColor:'white',color:'black', width:'100%'}}>
           <Typography component="div" variant="h5">
-            Beans
+           {d.name}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-          Legume dish
-          </Typography>
+
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1,backgroundColor:'white',color:'black', }}>
-        A bean is the seed of one of several genera of the flowering plant family Fabaceae, which are used as vegetables for human or animal food.
+       {d.description}
           
         </Box>
       </Box>
       <CardContent sx={{ flex: '1 0 auto' ,backgroundColor:'white',color:'black',}}>
     <Stack spacing={3} direction='column'>
-        <Button size="medium" variant='contained'>EDIT</Button>
+        {/* <Button size="medium" variant='contained'>EDIT</Button> */}
    
-        <Button size="medium" variant='outlined' color="error">DELETE</Button>
+        <Button size="medium" variant='contained' color="error" onClick={()=>{handleDelete(d.id)}}>DELETE</Button>
         </Stack>
         </CardContent>
       
     </Card>
-
+)}
 
       
 
       </Box>
     
-    
-  );}
+  
+  );
  
-
+}

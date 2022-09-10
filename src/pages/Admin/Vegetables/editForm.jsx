@@ -2,15 +2,94 @@ import * as React from 'react';
 import { useState } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { Input,FormControl,Stack,Button } from '@mui/material';
+import axios from 'axios';
+ export default function PopupForm({closeHandle,getVeg}) {
+  
+  const [data1,setData] = React.useState({
+    name:'',
+    description:'',
+    fileName:'',
+    base64URL:'',
 
-
- export default function PopupForm() {
-  const [name, setName] = useState("");
-  const data = [
+});
+const [image, setImage] = React.useState({ preview: ''})
+  const [data,setDataValues] = useState([
    { id:'1',name:'Basic Plan', duration:'1 Month', price:'$29.00', discounts:'$0.00',discription:'This Plan includes...'},
    { id:'2',name:'Standard Plan', duration:'1 Year', price:'$99.00', discounts:'$0.00',discription:'This Plan includes...'},
     
-  ];
+  ]);
+  const getBase64 = file => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        
+        baseURL = reader.result;
+        
+        resolve(baseURL);
+      };
+      
+    });
+  };
+
+  const handleChangeImage =(e)=>{
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      
+    }
+  setImage(img);
+  getBase64(e.target.files[0])
+  .then(result => {
+      setData ((prev) => {
+          return({...prev, 
+              fileName:e.target.files[0].name,
+              base64URL:result});
+      });
+      
+})
+.catch(err => {
+  
+});
+  
+  }
+  const handleName =(e)=>{
+    setData ((prev) => {
+      return({...prev, name : e.target.value});
+  });
+   
+  }
+  const handleSubmit =(e)=>{
+
+    console.log("sethni",data1);
+        if(!Object.values(data).includes("")){
+            axios.post('/api/admin/handlevegetable/add',{...data1})
+                .then(res => {
+                    setDataValues((pre)=>{
+                      return [...data,{name:data1.name,description:data1.description,base64URL:data1.base64URL,fileName:data1.fileName}]
+                    });
+
+                    getVeg();
+                });
+        }else{
+            // setErrorText((prev) => {
+            //     return({...prev, totalError : "Please fill all the fields"});
+            // });
+        }
+  }
+  const handleDescription =(e)=>{
+    setData ((prev) => {
+      return({...prev, description : e.target.value});
+  });
+  }
   return (
     
     <Box
@@ -22,84 +101,32 @@ import TextField from '@mui/material/TextField';
       autoComplete="off"
 
     >
-      <form >
+      <FormControl >
      
       <div>
       <TextField
           id="standard-read-only-input"
           sx={{margin: '1rem 0',input: { color: 'black' }}}
-          defaultValue="Subscription Plan Name"
+          defaultValue="Vegetable Name"
           InputProps={{
             readOnly: true,
             disableUnderline:true,
           }}
           variant="standard"
+
+         
         />
         <TextField
             sx={{margin: '1rem 0',input: { color: 'black' }}}
           id="standard-required"
           
-          defaultValue=""
+      
           variant="standard"
+          onChange={handleName}
         />
       </div>
-      <div>
-      <TextField
-          id="standard-read-only-input"
-          sx={{margin: '1rem 0',input: { color: 'black' }}}
-          defaultValue="Duration"
-          InputProps={{
-            readOnly: true,
-            disableUnderline:true,
-          }}
-          variant="standard"
-        />
-        <TextField
-            sx={{margin: '1rem 0',input: { color: 'black' }}}
-          id="standard-required"
-          
-          defaultValue=""
-          variant="standard"
-        />
-      </div>
-      <div>
-      <TextField
-          id="standard-read-only-input"
-          sx={{margin: '1rem 0',input: { color: 'black' }}}
-          defaultValue="Price"
-          InputProps={{
-            readOnly: true,
-            disableUnderline:true,
-          }}
-          variant="standard"
-        />
-        <TextField
-            sx={{margin: '1rem 0',input: { color: 'black' }}}
-          id="standard-required"
-          
-          defaultValue=""
-          variant="standard"
-        />
-      </div>
-      <div>
-      <TextField
-          id="standard-read-only-input"
-          sx={{margin: '1rem 0',input: { color: 'black' }}}
-          defaultValue="Discounts"
-          InputProps={{
-            readOnly: true,
-            disableUnderline:true,
-          }}
-          variant="standard"
-        />
-        <TextField
-            sx={{margin: '1rem 0',input: { color: 'black' }}}
-          id="standard-required"
-          
-          defaultValue=""
-          variant="standard"
-        />
-      </div>
+      
+     
       <div>
       <TextField
           id="standard-read-only-input"
@@ -114,16 +141,32 @@ import TextField from '@mui/material/TextField';
         <TextField
             sx={{margin: '1rem 0',input: { color: 'black' }}}
           id="standard-required"
-          value=""
+         
           
           
           variant="standard"
+          onChange={handleDescription}
         />
+        
+                <Input
+                      accept="image/*"
+                      id="contained-button-file"
+                      multiple
+                      type="file"
+                      name='file'
+                      onChange={handleChangeImage}
+                      disableUnderline='true'
+                    />
 
       </div>
-      <div/>
+
+      <Stack spacing={2} direction="row">
+      <Button variant="outlined" onClick={closeHandle} >CANCEL</Button>
+      <Button variant="contained" type="submit" onClick={()=>{handleSubmit();closeHandle();}} >ADD</Button>
       
-      </form>
+    </Stack>
+      <div/>
+      </FormControl>
     </Box>
    
   );}

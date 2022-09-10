@@ -10,21 +10,30 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const mdTheme = createTheme();
 
-function showCard(req){
-  console.log(req.price);
-  return (<Card declines={7} limit={10} marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity={req.quantity} price={req.price}/>);
-}
 
 export default function CenteredGrid() {
-
+  
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [requests,setRequests] = React.useState([]);
+  const [limit,setLimit] = React.useState([]);
   const [insert,setInsert] = React.useState(false);
+  
+  function limitCount(id){
+    return limit.find(({ eco_center_id }) => eco_center_id === id).shop_count;
+  }
 
   React.useEffect(() => {
     axios.post('/api/farmer/requests/sentrequests',{email:user.email})
     .then(res => {
-      setRequests(res.data.data);});
+      setRequests(res.data.data);
+    });
+  },[insert]);
+
+  React.useEffect(() => {
+    axios.post('/api/farmer/requests/declines_limit',{email:user.email})
+    .then(res => {
+      setLimit(res.data.data);
+    });
   },[insert]);
   
   return (
@@ -47,7 +56,7 @@ export default function CenteredGrid() {
                 alignItems="center"
                 >
                   {requests.map((element) => (
-                    <Card declines={7} limit={10} marketName={element.economic_center} cropName={element.vegetable} quantity={element.quantity + "kg"} price={"Rs." + element.price}/>
+                    <Card declines={element.declines} limit={limitCount(element.economic_center_id)} marketName={element.economic_center} cropName={element.vegetable} quantity={element.quantity + "kg"} price={"Rs." + element.price}/>
                   ))}
             </Grid>
         </Box>

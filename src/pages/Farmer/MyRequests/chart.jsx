@@ -24,48 +24,11 @@ function customizeText(arg) {
 export default function Chart(props){
   // Sample data
   const data = [
-    {argument: "Declines", value: props.declines/10},
-    {argument: "Remaining", value: (props.limit - props.declines)/10},
+    {argument: "Declines", value: props.declines},
+    {argument: "Remaining", value: (props.limit - props.declines)},
   ];
 
   return (
-      // <>
-      //   <Chart
-      //     data={data}
-      //   >
-      //     <Legend />
-      //     <PieSeries
-      //       valueField="value"
-      //       argumentField="argument"
-      //       innerRadius={0.6}
-      //     />
-      //     <EventTracker />
-      //     <Tooltip />
-      //   </Chart>
-      //   <Title>Decline Rate</Title>
-      // </>
-
-      // <PieChart id="pie"
-      //   palette="Bright"
-      //   dataSource={data}
-      //   title="Decline Rate"
-      // >
-      //   <Legend
-      //     orientation="horizontal"
-      //     itemTextPosition="right"
-      //     horizontalAlignment="center"
-      //     verticalAlignment="right" />
-      //   <Series argumentField="argument" valueField="value">
-      //     <Label
-      //       visible={true}
-      //       position="rows"
-      //       customizeText={customizeText}>
-      //       <Font size={16} />
-      //       <Connector visible={true} width={0.5} />
-      //     </Label>
-      //   </Series>
-      // </PieChart>
-
       <PieChart
         id="pie"
         dataSource={data}
@@ -77,10 +40,9 @@ export default function Chart(props){
           argumentField="argument"
           valueField="value"
         >
-          <Label visible position="inside" format="percent" backgroundColor="transparent"/>
+          <Label visible position="inside" backgroundColor="transparent"/>
         </Series>
       </PieChart>
-    
   );
 }
 

@@ -41,8 +41,8 @@ export default function Sub() {
     <React.Fragment>
     <CssBaseline />
     <Container maxWidth="md" id='1'>
-      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px' }} >
-        <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0' }}>
+      <Box sx={{ bgcolor: 'white', height: 'auto', color:'black', borderRadius:'10px 10px 10px 10px', }} >
+        <Box sx={{ bgcolor: '#075E54', height: 'auto', color:'white', padding:'15px', borderRadius:'10px 10px 0 0', }}>
         <Stack spacing={2} direction="row">
          <Typography  variant="h5" >Monthly</Typography>
          {/* <Button variant="contained" color="error" startIcon={<DeleteIcon /> }>

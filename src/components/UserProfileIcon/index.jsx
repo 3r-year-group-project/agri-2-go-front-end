@@ -80,7 +80,7 @@ export default function UserProfileIcon(Props) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         
-        <MenuItem>
+        <MenuItem onClick={()=>{navigate(`/${currentuser}/profile`);}}>
           <ListItemIcon>
             <AccountCircleIcon color="secondary"/>
           </ListItemIcon>

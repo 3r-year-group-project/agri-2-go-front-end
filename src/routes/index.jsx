@@ -13,6 +13,12 @@ import AddToWastage from "../pages/StockBuyerAddToWastage";
 import StockBuyerSellStocks from "../pages/StockBuyerSellStocks";
 import StockBuyerSellWastageStocksDetails from '../pages/StckBuyerWastageStockSellDetails';
 
+//test
+import TransportationRequest from "../components/TransporterSchedule/transporterSchedule";
+import MapContainer from "../pages/test/index";
+
+//test imports end here
+
 
 import Checkout from "../pages/Checkout"
 
@@ -35,6 +41,12 @@ import LoginPage from "../pages/LoginPage";
 
 import Review from '../components/Review';
 // import ItemDescription from "../pages/WastageRecycleCenter/ItemDescriptionLayout/ItemDescription";
+
+
+import FarmerProfilePage from "../components/Profiles/FarmerProfile";
+import TransporterProfilePage from "../components/Profiles/TransporterProfile";
+import StockBuyerProfilePage from "../components/Profiles/StockBuyerProfile";
+import WastageRecycleCenterProfilePage from "../components/Profiles/WastageRecycleCenterProfile";
 
 
 export default function Router() {
@@ -86,7 +98,17 @@ export default function Router() {
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
-        <Route path="/test" element={<Review />}/> 
+
+        //<Route path="/test" element={<TransportationRequest />}/> 
+
+
+        <Route path="/farmer/profile" element={<FarmerProfilePage/>}/>
+        <Route path="/transporter/profile" element={<TransporterProfilePage/>}/>
+        <Route path="/stockbuyer/profile" element={<StockBuyerProfilePage/>}/>
+        <Route path="/stockbuyer/profile" element={<WastageRecycleCenterProfilePage/>}/>
+
+        <Route path="/test" element={<MapContainer/>}/> 
+
         {/* <Route path="/wastageRecycleCenter/dash/findwastage/viewdetails" element={<ItemDescription/>}/>    */}
         </Routes>
         </BrowserRouter>

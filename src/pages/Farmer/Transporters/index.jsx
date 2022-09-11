@@ -89,9 +89,100 @@ return (
             </TableContainer>  
         </Box>       
       
-      <Typography variant="h5" sx={{color: '#075E54'}}>Suggested Transporters</Typography>
+      <Typography variant="h5" sx={{color: '#075E54'}}>Suggested Transportation Options</Typography>
+      <Grid  container spacing={4} sx={{mt: 1, mb: 4}} alignItems="stretch">
+        <Grid item xs={12} md={12} lg={12} sx={{display: 'flex'}}>
+            <Box>
+                  <Card sx={{ display: 'flex', height: 200, backgroundColor: '#fff', boxShadow: 2 }}>
+                  <CardMedia
+                      component="img"
+                      sx={{ width: 300, height: 200}}
+                      image="https://visor.ph/wp-content/uploads/2019/09/suzuki-carry-main1.jpg"
+                      alt="Lorry-Large"
+                    />
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <CardContent sx={{ flex: '2 0 auto' , pl: 10 , pt: 5 }}>
+                        <Typography component="div" variant="h5" color="primary">
+                          LORRY
+                        </Typography>
+                        <Typography variant="subtitle1" color="text.secondary" component="div">
+                          Large - Recomendded for quantities larger than 100kgs
+                        </Typography>
+                        <Typography component="div" variant="h6" sx={{color: 'red'}}>
+                          21000LKR
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', m: 5}}>
+                        <Stack direction="row" spacing={4}>
+                            <Button variant="contained" color="info" size="small" sx={{padding: 2}}>
+                                Details 
+                            </Button>
+                            
+                            <Button variant="contained" color="success" size="small" sx={{padding: 2}}>
+                                Send Request
+                            </Button> 
+                            </Stack>
+                      </Box>                    
+                  </Card>
+            </Box>                  
+        </Grid>
 
-      <Grid  container spacing={8} >
+        <Grid item xs={12} md={12} lg={12} sx={{display: 'flex'}}>
+            <Box>
+                  <Card sx={{ display: 'flex', height: 200, backgroundColor: '#fff', boxShadow: 2 }}>
+                  <CardMedia
+                      component="img"
+                      sx={{ width: 300, height: 200}}
+                      image="https://d1hv7ee95zft1i.cloudfront.net/custom/blog-post-photo/gallery/faw-multicarry-5f0d9e0988272.jpg"
+                      alt="Lorry-Large"
+                    />
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <CardContent sx={{ flex: '2 0 auto' , pl: 10 , pt: 5 }}>
+                        <Typography component="div" variant="h5" color="primary">
+                          LORRY
+                        </Typography>
+                        <Typography variant="subtitle1" color="text.secondary" component="div">
+                          Large - Recomendded for quantities larger than 100kgs
+                        </Typography>
+                        <Typography component="div" variant="h6" sx={{color: 'red'}}>
+                          21000LKR
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', m: 5}}>
+                        <Stack direction="row" spacing={4}>
+                            <Button variant="contained" color="info" size="small" sx={{padding: 2}}>
+                                Details 
+                            </Button>
+                            
+                            <Button variant="contained" color="success" size="small" sx={{padding: 2}}>
+                                Send Request
+                            </Button> 
+                            </Stack>
+                      </Box>                    
+                  </Card>
+            </Box>                  
+        </Grid>
+
+        
+
+
+                  
+                  
+                  
+
+               
+                
+      </Grid>
+              
+          
+              
+              
+              
+         
+
+      {/* <Grid  container spacing={8} >
         <Grid item md={3}>
             <Paper elevation={3} style={{marginTop:"25px"}}>
                     <img
@@ -279,7 +370,7 @@ return (
 
            
 
-        </Grid>
+        </Grid> */}
         </Container>
     
     

@@ -213,7 +213,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 
-export default function loadWastageStocks() {
+export default function LoadWastageStocks() {
     let navigate = useNavigate(); 
     const routeChangeSellWastageStocks = () =>{ 
     let path = `/stockbuyer/sellwastagestocks`; 

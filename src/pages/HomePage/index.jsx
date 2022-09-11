@@ -53,7 +53,7 @@ export default function HomePage(props) {
       navigate('/customer/category');
       break;
     case 3:
-      navigate('/farmer/category');
+      navigate('/farmer/dash/dashboard');
       break;
     case 4:
       navigate('/gardener/category');

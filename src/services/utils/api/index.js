@@ -5,6 +5,7 @@ import setApiEndPoint from './index';
  * @return {string} completed path to the routes
  *  
 */
+
 export function setApiPath(dest){
     return "localhost:3002/api" + dest;
 }

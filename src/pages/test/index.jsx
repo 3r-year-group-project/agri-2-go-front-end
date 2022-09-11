@@ -1,63 +1,36 @@
+import { GoogleComponent } from 'react-google-location' 
 import React, { Component } from 'react';
-import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-
-import CurrentLocation from './Map';
-
-
-CurrentLocation.defaultProps = {
-    zoom: 14,
-    initialCenter: {
-      lat: -1.2884,
-      lng: 36.8233
-    },
-    centerAroundCurrentLocation: false,
-    visible: true
-  };
-export class MapContainer extends Component {
-  state = {
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {}
-  };
-
-  onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-
-  onClose = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  };
-
-  
-  render() {
-    return (
-      <CurrentLocation
-        centerAroundCurrentLocation
-        google={this.props.google}
-      >
-        <Marker onClick={this.onMarkerClick} name={'Current Location'} />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
-        >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-          </div>
-        </InfoWindow>
-      </CurrentLocation>
-    );
+ 
+ 
+ 
+const API_KEY = 'AIzaSyA6lXWAGrCTGzGKdaIT_XwTrUms3TpoRsE';  // how to get key - step are below
+ 
+class MapSample extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      place: null,
+    };
   }
+ 
+  render() {
+    console.log("location",this.state.place);
+    return (
+      <div >
+         <GoogleComponent
+         
+          apiKey={API_KEY}
+          language={'en'}
+          // country={'country:in|country:us'}
+          coordinates={true}
+          locationBoxStyle={'custom-style'}
+          locationListStyle={'custom-style-list'}
+          onChange={(e) => { this.setState({ place: e }) }} />
+      </div>
+ 
+    )
+  } 
 }
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyA6lXWAGrCTGzGKdaIT_XwTrUms3TpoRsE'
-})(MapContainer);
+ 
+ 
+export default MapSample;

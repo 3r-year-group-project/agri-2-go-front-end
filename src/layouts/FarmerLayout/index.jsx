@@ -11,7 +11,7 @@ import MyCrop from '../../pages/Farmer/MyCrops/myCrop';
 import AddCrop from '../../pages/Farmer/MyCrops/addCrop';
 import EditCrop from '../../pages/Farmer/MyCrops/editCrop';
 import DeleteCrop from '../../pages/Farmer/MyCrops/deleteCrop';
-import MyRequests from '../../pages/Farmer/FindBuyers/requests';
+import MyRequests from '../../pages/Farmer/MyRequests/requests';
 import FarmerTransactions from '../../pages/Farmer/Transactions';
 import FindTransporter from '../../pages/Farmer/Transporter';
 import FarmerSales from '../../pages/Farmer/Sales';

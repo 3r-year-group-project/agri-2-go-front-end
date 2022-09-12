@@ -12,6 +12,22 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
+import SlideShow from './slideShow';
+import Modal from '@mui/material/Modal';
+import { Typography } from '@mui/material';
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
     
 // const itemData = [
 //   {
@@ -37,6 +53,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Card(props) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const { user, isAuthenticated, isLoading } = useAuth0();
   const handleDecline =async (id) => {
     axios.post('/api/stockbuyer/requesthandler/decline',{'id':id,'email':user.email})
@@ -47,6 +67,7 @@ export default function Card(props) {
   }
     return (
         <Grid item xs={12} md={12} lg={12}>
+           
             <Paper sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -57,7 +78,7 @@ export default function Card(props) {
       <ImageList sx={{ width: 400, height: 250 }} cols={1} rowHeight={400}>
       {props.itemData.map((item) => (
      
-        <ImageListItem key={item.id}>
+        <ImageListItem key={item.id} onClick={handleOpen} >
           <img
             src={`${item.image}?w=164&h=164&fit=crop&auto=format`}
             srcSet={`${item.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -67,6 +88,14 @@ export default function Card(props) {
         </ImageListItem>
       ))}
     </ImageList>
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <SlideShow/>
+      </Modal>
       
       
       <div>

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Card from './card';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Typography } from '@mui/material';
 const mdTheme = createTheme();
 
 export default function FarmerRequests() {
@@ -39,6 +40,7 @@ export default function FarmerRequests() {
     <ThemeProvider theme={mdTheme}>
 
     <div style={{  padding:'5%',minHeight:'100%'}} >
+    <Typography variant="h5" sx={{color: '#075E54',mb:2}}>Farmer Requests</Typography>
         <Box
         component="span"
         m={1}
@@ -46,6 +48,7 @@ export default function FarmerRequests() {
         justifyContent="space-between"
         alignItems="center"
         >
+           
             <CssBaseline />
             <Grid
                 container

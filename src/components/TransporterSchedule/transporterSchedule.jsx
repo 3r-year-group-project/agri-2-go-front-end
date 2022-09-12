@@ -29,7 +29,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 
-export default function TransportationRequest(props) {
+export default function TransportationSchedule(props) {
 
     const [openContact,setOpenContact] = useState(false);
     const [openConfirm,setOpenConfirm] = useState(false);

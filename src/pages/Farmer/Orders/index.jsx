@@ -1,61 +1,44 @@
 import * as React from 'react';
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
-import OrderTable from '../../../components/Orders';
+import Card from '../../../components/Orders/card';
 
-function createData(date, description, status, contact) {
-    return { date, description, status, contact };
-}
-  
-const rows = [
-    createData('2022.08.25', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.26', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.27', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.28', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.29', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.30', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.31', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.01', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.02', "Description  alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.03', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.04', "Description blablbabla lblalblalb ", "Completed", "Buyer Name"),
-    createData('2022.09.05', "Description blablbabla lblalblalb alblalba  lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.06', "Description  lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.07', "Description", "Pending", "Buyer Name"),
-    createData('2022.09.08', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.09', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.10', "Description", "Pending", "Buyer Name"),
-    createData('2022.09.11', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.12', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.13', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.14', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.15', "Description  alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.16', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.17', "Description blablbabla lblalblalb ", "Pending", "Buyer Name"),
-    createData('2022.09.18', "Description blablbabla lblalblalb alblalba  lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.19', "Description  lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.20', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.21', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.22', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.23', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.24', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.25', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.26', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.27', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.28', "Description  alblalba lblalblabla lbalblabla", "Completed.", "Buyer Name"),
-    createData('2022.09.29', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.30', "Description blablbabla lblalblalb ", "Pending", "Buyer Name")
-].sort((a, b) => (a.date < b.date ? -1 : 1));
+const mdTheme = createTheme();
 
-export default function FarmerOrders() {
-    return(
-        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
-            <Box m={2} sx={{paddingLeft: 3, paddingRight: 3}}>
-                <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
-                    <center><FormLabel id="title"><font size="18"><b>Order Details</b></font></FormLabel></center>
-                </Box>
-                <OrderTable rows={rows}/>
-            </Box>
-        </div>
-    );
+export default function CenteredGrid() {
+
+  return (
+    <ThemeProvider theme={mdTheme}>
+
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
+        <Box
+        component="span"
+        m={1}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        >
+            <CssBaseline />
+            <Grid
+                container
+                spacing={3}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                >
+                <Card orderCode="001" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="002" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="003" marketDistance="15km" marketName="Narahenpita" cropName="Leeks" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="004" marketDistance="19km" marketName="Ratmalana" cropName="Tomato" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="005" marketDistance="24km" marketName="Bokundara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="006" marketDistance="23km" marketName="Veyangoda" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+                <Card orderCode="007" marketDistance="30km" marketName="Welisara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+            </Grid>
+        </Box>
+    </div>
+    </ThemeProvider>
+  );
 }

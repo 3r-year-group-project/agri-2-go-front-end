@@ -1,6 +1,7 @@
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
     USERS: 'users',
+    VEGETABLES:'vegetables',
    SUUBSCRIPTIONS:'subscriptions',
    SCAMREPORTS:'scamreports',
  };

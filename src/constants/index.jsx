@@ -52,6 +52,7 @@ export const TRANSPORTER_SECTIONS = {
  CHATMEMBERSLIST:'chat',
    CHATPAGE:'chatpage',
  MYVEHICLES: 'myvehicles',
+ CHARGERS: 'chargers',
 
  
 };

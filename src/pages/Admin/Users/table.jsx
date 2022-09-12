@@ -1,5 +1,5 @@
-import * as React from 'react';
-import  { useState } from 'react'
+import  React,{ useEffect,useState} from 'react';
+
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -26,6 +26,8 @@ import { visuallyHidden } from '@mui/utils';
 import SearchBar from '../../../components/SearchBar';
 import Filter from '../../../components/FilterBar'
 import SearchB from '../../../components/SearchBar';
+import axios from 'axios';
+
 
 
 function createData(id,name, type, block, view) {
@@ -102,10 +104,14 @@ const headCells = [
 function EnhancedTableHead(props) {
   const {  order, orderBy,  onRequestSort } =
     props;
+
+  
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
+
+  
   return (
     <TableHead>
       <TableRow>
@@ -181,6 +187,7 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function OrderTable() {
+  const [userList,setUserList] = useState([]);
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -220,19 +227,8 @@ export default function OrderTable() {
 
   const[blockedUser,setBlockedUser]=useState(users)
 
- const blockUser=(id)=>{
- console.log("sethni",id);
-    // const temp=users.filter(ele=>{
-    //   return ele.id!=id
-    // })
-    
-    // const temp1=users.filter(ele=>{
-    //   return ele.id==id
-    // })
-    // const temp2//to do
-  
+ 
 
- }
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -251,9 +247,33 @@ export default function OrderTable() {
     setPage(0);
   };
 
-const handleBlock=(e)=>{
-console.log("seth",e);
+
+async function getUserList() {
+ await  axios.get('/api/admin/handluser/userlist').then((res)=>{
+    setUserList(res.data.data);
+    
+    });
 }
+async function handleblockUser(id) {
+  console.log('sethni',id)
+  await  axios.get(`/api/admin/handluser/blockuser/${id}`).then((res)=>{
+     getUserList();
+     
+     });
+ }
+ async function handleunblockUser(id) {
+  console.log('sethni',id)
+  await  axios.get(`/api/admin/handluser/unblockuser/${id}`).then((res)=>{
+     getUserList();
+     
+     });
+ }
+useEffect(()=>{
+       
+  getUserList();
+
+
+},[])
   
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
@@ -312,13 +332,29 @@ console.log("seth",e);
               {/* if you don't need to support IE11, you can replace the `stableSort` call with:
                  rows.slice().sort(getComparator(order, orderBy)) */}
                  
-              {users.slice().sort(getComparator(order, orderBy)) 
+              {userList.slice().sort(getComparator(order, orderBy)) 
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  console.log(row);
+              
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
-
+                  let userType='';
+                  switch (row.user_type) {
+                    case 2:
+                      userType='Customer';
+                      break;
+                    case 3:
+                      userType='Farmer';
+                      break;
+                    case 4:
+                      userType='Gardener';
+                      break;
+                    case 5:
+                      userType='Stock Buyer';
+                      break;
+                    default:
+                      break;
+                  }
                   return (
                     <TableRow>
                       
@@ -330,25 +366,23 @@ console.log("seth",e);
                         align='left'
                         
                       >
-                        <Typography fontSize='24'  color='white'> {row.name}</Typography>
+                        <Typography fontSize='24'  color='white'> {row.first_name}</Typography>
                       </TableCell>
                       <TableCell align="left">
-                      <Typography fontSize='24'  color='white'>{row.type}</Typography>
+                      <Typography fontSize='24'  color='white'>{userType}</Typography>
                       </TableCell>
                       <TableCell align="left">
-
-                       
-                            {!row.block &&  <Button id="myButton1" color="secondary" variant="contained" sx={{
-                         width: 120,fontSize: 16, backgroundColor: "#f57a38",color:'white'}} onClick={blockUser(row.id)}>BLOCK  </Button >} 
+                            {row.user_status=='UNBLOCKED' &&  <Button id="myButton1" color="secondary" variant="contained" sx={{
+                         width: 120,fontSize: 16, backgroundColor: "#f57a38",color:'white'}} onClick={()=>{handleblockUser(row.id)}}>BLOCK  </Button >} 
                       
                         
-                            {row.block && <Button id="myButton2" color="secondary" variant="contained" sx={{
-                         width: 120,fontSize: 16, backgroundColor: "green",color:'white'}}  onClick={blockUser(row.id)}  > UNBLOCK</Button >}
+                            {row.user_status=='BLOCKED' && <Button id="myButton2" color="secondary" variant="contained" sx={{
+                         width: 120,fontSize: 16, backgroundColor: "green",color:'white'}}  onClick={()=>{handleunblockUser(row.id)}}  > UNBLOCK</Button >}
                         </TableCell>
                       <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{
                          width: 200,fontSize: 16, backgroundColor: "green",color:'white'}} onClick={navigateToProfile}>
-                            {row.view}
+                            {'VIEW'}
                         </Button>
                     </TableCell>
                       

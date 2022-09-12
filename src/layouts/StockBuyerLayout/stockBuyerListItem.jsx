@@ -68,11 +68,11 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Reviews" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.CHATMEMBERSLIST)}>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FARMERREQUESTS)}>
         <ListItemIcon>
           <ChatIcon  color="secondary" />
         </ListItemIcon>
-        <ListItemText primary="Chat" />
+        <ListItemText primary="Farmer Requests" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>

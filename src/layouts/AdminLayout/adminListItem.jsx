@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-
+import InventoryIcon from '@mui/icons-material/Inventory';
 import GroupIcon from '@mui/icons-material/Group';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +39,12 @@ export default function AdminListItems() {
           <GroupIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Users" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.VEGETABLES)}>
+        <ListItemIcon>
+          <InventoryIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Vegetables" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>

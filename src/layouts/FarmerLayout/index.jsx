@@ -22,6 +22,7 @@ import Dashboard from '../../pages/Farmer/Dashboard';
 import ViewPrices from '../../pages/Farmer/ViewPrices';
 import SendRequests from '../../pages/Farmer/SendRequests';
 import Transporters from '../../pages/Farmer/Transporters';
+import TransporterDescription from '../../pages/Farmer/Transporters/TransporterDescription/TransporterDescription';
 
 const drawerWidth = 240;
 
@@ -80,9 +81,12 @@ export default function FarmerLayout() {
         case FARMER_SECTIONS.SENDREQUESTS:
           setOpenPane(<SendRequests/>);
             break;
-        case FARMER_SECTIONS.TRANSPORTERS:
+        case FARMER_SECTIONS.ADDTRANSPORTER:
           setOpenPane(<Transporters/>);
             break;
+        case FARMER_SECTIONS.VIEWTRANSPORTER:
+            setOpenPane(<TransporterDescription/>);
+              break;
         default:
           
       }

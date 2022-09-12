@@ -11,6 +11,7 @@ import Users from '../../pages/Admin/Users';
 import Subscription from '../../pages/Admin/Subscriptions';
 import ScamReports from '../../pages/Admin/ScamReports';
 import Vegetables from '../../pages/Admin/Vegetables';
+import Payments from '../../pages/Admin/Payments';
 
 
 
@@ -33,8 +34,11 @@ export default function AdminLayout() {
         case ADMIN_SECTIONS.USERS:
           setOpenPane(<Users/>);
           break;
-          case ADMIN_SECTIONS.VEGETABLES:
+        case ADMIN_SECTIONS.VEGETABLES:
           setOpenPane(<Vegetables/>);
+          break;
+        case ADMIN_SECTIONS.PAYMENTS:
+          setOpenPane(<Payments/>);
           break;
         case ADMIN_SECTIONS.SUUBSCRIPTIONS:
           setOpenPane(<Subscription/>);

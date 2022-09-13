@@ -16,6 +16,8 @@ import TextField from '@mui/material/TextField';
 import ImageUpload from '../../../components/ImageUpload';
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
+import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
+
 
 
 
@@ -33,6 +35,17 @@ export default function SendRequests() {
     quantity:'',
     ecocenter:'',
     vegetable:'',
+    fileName:'',
+    base64URL:'',
+  
+  });
+
+  const [errorText, setErrorText] = React.useState({
+    price:'',
+    quantity:'',
+    ecocenter:'',
+    vegetable:'',
+    totalError:'',
   
   });
   const [vegData,setVegData] = React.useState({
@@ -47,6 +60,8 @@ export default function SendRequests() {
   
   });
 
+  const [image, setImage] = React.useState({ preview: ''})
+
   
   
 
@@ -54,11 +69,58 @@ export default function SendRequests() {
   for(let i=0;i<vegData.length;i++){
     top20Vegetables.push(vegData[i].name)
   }
+  console.log(top20Vegetables)
 
   let top6EconomicCenters = [];
   for(let i=0;i<ecoCenterData.length;i++){
     top6EconomicCenters.push(ecoCenterData[i].name)
   }
+  console.log(top6EconomicCenters)
+
+  const getBase64 = file => {
+    return new Promise(resolve => {
+      let fileInfo;
+      let baseURL = "";
+      // Make new FileReader
+      let reader = new FileReader();
+
+      // Convert the file to base64 text
+      reader.readAsDataURL(file);
+
+      // on reader load somthing...
+      reader.onload = () => {
+        // Make a fileInfo Object
+        
+        baseURL = reader.result;
+        
+        resolve(baseURL);
+      };
+      
+    });
+  };
+
+  const checkImgFile = (e) => {
+
+    const img = {
+        preview: URL.createObjectURL(e.target.files[0]),
+        
+      }
+    setImage(img);
+    getBase64(e.target.files[0])
+    .then(result => {
+        setData ((prev) => {
+            return({...prev, 
+                fileName:e.target.files[0].name,
+                base64URL:result});
+        });
+        
+  })
+  .catch(err => {
+    
+  });
+    
+    
+}
     
   
 
@@ -69,11 +131,43 @@ export default function SendRequests() {
   // }, []);
   
   const handlePrice = (e) => {
-    setData({...data,price:e.target.value})
+    // setData({...data,price:e.target.value})
+    let ob = checkWord(e.target.value,1,10);
+        if(ob.state == true){
+            setData ((prev) => {
+                return({...prev, price : e.target.value});
+            });
+            setErrorText((prev) => {
+                return({...prev, price : ""});
+            });
+        }else{
+            setErrorText((prev) => {
+                return({...prev, price : ob.errors});
+            });
+            setData ((prev) => {
+                return({...prev, price : ""});
+            });
+        }
   }
   
   const handleQuantity = (e) => {
-    setData({...data,quantity:e.target.value})
+    // setData({...data,quantity:e.target.value})
+    let ob = checkWord(e.target.value,1,10);
+        if(ob.state == true){
+            setData ((prev) => {
+                return({...prev, quantity : e.target.value});
+            });
+            setErrorText((prev) => {
+                return({...prev, quantity : ""});
+            });
+        }else{
+            setErrorText((prev) => {
+                return({...prev, quantity : ob.errors});
+            });
+            setData ((prev) => {
+                return({...prev, quantity : ""});
+            });
+        }
   }
   
   const handleVegetable = (e) => {
@@ -84,14 +178,18 @@ export default function SendRequests() {
         setData({...data,ecocenter:e.target.value})
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     console.log("data gonna be uploads!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",data);
     if(!Object.values(data).includes("")){
         axios.post('/api/farmer/sellrequest/insert',{...data,email:user.email})
             .then(res => {
                 setInsert(true);
             });
-    }
+    }else{
+      setErrorText((prev) => {
+          return({...prev, totalError : "Please fill all the fields"});
+      });
+  }
     
   }
 
@@ -165,19 +263,39 @@ return (
               
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Selling Price (Rs)" color="secondary" onChange={handlePrice}  focused fullWidth required />
+                  <TextField label="Selling Price (Rs)" color="secondary" onChange={handlePrice}  focused fullWidth required error={errorText.price}
+                helperText={errorText.price} />
             </Box>
             </Grid>
 
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity}  focused fullWidth required />
+                  <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity}  focused fullWidth required error={errorText.quantity}
+                helperText={errorText.quantity} />
             </Box>
             </Grid>
 
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-             <ImageUpload/>
+            <Typography style={{width:'150px' , fontSize:"17px"}} gutterBottom variant='body1' color="text.primary">
+                    Upload Image
+                </Typography>
+                <div className='image_upload'>
+                    <input
+                    type='file'
+                    name='file'
+                    id='files'
+                    accept='image/*'
+                    onChange={checkImgFile}
+                    style={{width:'450px',}}
+                    />
+                    <div on className="lable-container" style={{width:"40%" , paddingTop:"10px",height:"45px" , backgroundColor:"green" , borderRadius:"10px" , fontWeight:"bold" }}>
+                    <label for='files'>
+                        Choose image
+                    </label>
+                    </div>
+                    
+                </div>
             </Box>
             </Grid>
             </Grid>

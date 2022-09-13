@@ -131,15 +131,6 @@ export default function FarmerListItems() {
         <ListItemText primary="Send Requests" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.TRANSPORTERS)}>
-        <ListItemIcon>
-          <Tooltip title="Send Requests">
-          <SendIcon  color="secondary" />
-          </Tooltip>
-        </ListItemIcon>
-        <ListItemText primary="Transporters" />
-      </ListItemButton>
-      <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.VIEWPRICES)}>
         <ListItemIcon>
           <Tooltip title="View Prices">

@@ -69,11 +69,13 @@ export default function SendRequests() {
   for(let i=0;i<vegData.length;i++){
     top20Vegetables.push(vegData[i].name)
   }
+  console.log(top20Vegetables)
 
   let top6EconomicCenters = [];
   for(let i=0;i<ecoCenterData.length;i++){
     top6EconomicCenters.push(ecoCenterData[i].name)
   }
+  console.log(top6EconomicCenters)
 
   const getBase64 = file => {
     return new Promise(resolve => {
@@ -176,7 +178,7 @@ export default function SendRequests() {
         setData({...data,ecocenter:e.target.value})
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     console.log("data gonna be uploads!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",data);
     if(!Object.values(data).includes("")){
         axios.post('/api/farmer/sellrequest/insert',{...data,email:user.email})

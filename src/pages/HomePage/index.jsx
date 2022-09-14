@@ -98,11 +98,13 @@ export default function HomePage(props) {
     <div style={{ paddingTop:18, paddingLeft:5,
   }}>
             <Typography  sx={{
-              fontSize:22,
-              fontWeight:500,
-              display: { xs: 'none', md: 'flex' },
+              
+              
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: "'Poppins', sans-serif",
               color: "#074C0E", 
+              fontSize: {xs: '24px', md: '22px'},
+              fontWeight: {xs: 600, md: 500}
            
             
               
@@ -115,6 +117,7 @@ export default function HomePage(props) {
               display: { xs: 'none', md: 'flex' },
               fontFamily: "'Poppins', sans-serif",
               color: "#075E54", 
+              
               
             // color: "primary", 
            

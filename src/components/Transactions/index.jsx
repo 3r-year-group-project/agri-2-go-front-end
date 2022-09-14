@@ -50,7 +50,7 @@ const headCells = [
     id: 'description',
     numeric: false,
     disablePadding: false,
-    label: 'Description',
+    label: 'Paid for / Paid by',
   },
   {
     id: 'amount',
@@ -60,11 +60,11 @@ const headCells = [
     label: 'Amount',
   },
   {
-    id: 'contact',
+    id: 'status',
     numeric: false,
   
     disablePadding: false,
-    label: 'Contact',
+    label: 'Status',
   },
 ];
 
@@ -235,11 +235,9 @@ export default function TransactionTable(props) {
                       <TableCell align="left">
                           {row.amount}
                       </TableCell>
-                      <TableCell align="left">
-                        <Button color="secondary" variant="contained" sx={{
-                         width: 200,fontSize: 16, backgroundColor: "green",color:'white'}}>
-                            {row.contact}
-                        </Button>
+                      <TableCell align="left" sx={{
+                         width: 150,fontSize: 16 ,color:'white'}}>
+                            {row.status}   
                     </TableCell>
                       
                     </TableRow>

@@ -17,6 +17,7 @@ import ImageUpload from '../../../components/ImageUpload';
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import {checkWord, checkWordExactLen} from "../../../services/utils/FormValidation"; 
+import { date } from 'joi';
 
 
 
@@ -37,6 +38,7 @@ export default function SendRequests() {
     vegetable:'',
     fileName:'',
     base64URL:'',
+    date:'',
   
   });
 
@@ -69,13 +71,13 @@ export default function SendRequests() {
   for(let i=0;i<vegData.length;i++){
     top20Vegetables.push(vegData[i].name)
   }
-  console.log(top20Vegetables)
+  // console.log(top20Vegetables)
 
   let top6EconomicCenters = [];
   for(let i=0;i<ecoCenterData.length;i++){
     top6EconomicCenters.push(ecoCenterData[i].name)
   }
-  console.log(top6EconomicCenters)
+  // console.log(top6EconomicCenters)
 
   const getBase64 = file => {
     return new Promise(resolve => {
@@ -173,10 +175,15 @@ export default function SendRequests() {
   const handleVegetable = (e) => {
     setData({...data,vegetable:e.target.value})
   }
+  const handleDate = (e) => {
+    setData({...data,date:e.target.value})
+  }
 
   const handleEcoCenter = (e) => {
         setData({...data,ecocenter:e.target.value})
   }
+
+  console.log(data)
 
   const handleSubmit = (e) => {
     console.log("data gonna be uploads!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",data);
@@ -272,6 +279,25 @@ return (
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
                   <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity}  focused fullWidth required error={errorText.quantity}
                 helperText={errorText.quantity} />
+            </Box>
+            </Grid>
+
+            <Grid item xs={12}>
+            <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
+            <TextField
+              id="date"
+              label="Selling Date"
+              type="date"
+              color="secondary"
+              focused
+              fullWidth
+              required
+              onChange={handleDate}
+              sx={{ width: 220 }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+      />
             </Box>
             </Grid>
 

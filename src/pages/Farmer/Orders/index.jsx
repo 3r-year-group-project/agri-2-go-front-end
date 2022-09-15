@@ -17,25 +17,34 @@ export default function CenteredGrid() {
         <Box
         component="span"
         m={1}
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
+        display="inline-block"
+      
         >
             <CssBaseline />
             <Grid
                 container
-                spacing={3}
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
+                spacing={2}
+                direction="column"
+               
                 >
-                <Card orderCode="001" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="002" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="003" marketDistance="15km" marketName="Narahenpita" cropName="Leeks" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="004" marketDistance="19km" marketName="Ratmalana" cropName="Tomato" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="005" marketDistance="24km" marketName="Bokundara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="006" marketDistance="23km" marketName="Veyangoda" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
-                <Card orderCode="007" marketDistance="30km" marketName="Welisara" cropName="Green Chillies" quantity="100kg" price="Rs.100"/>
+                  <Grid item xs={12} md={6}>
+                    <Card orderCode="001" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Card orderCode="002" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Card orderCode="003" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Card orderCode="004" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
+                  </Grid>
+                
+                
+                
             </Grid>
         </Box>
     </div>

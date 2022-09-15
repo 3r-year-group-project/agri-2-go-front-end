@@ -9,6 +9,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import ChatIcon from '@mui/icons-material/Chat';
+import PriceChangeIcon from '@mui/icons-material/PriceChange';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
@@ -52,6 +53,14 @@ export default function TransporterListItems() {
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Trip Schedule" />
+      </ListItemButton>
+      <Divider/>
+
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHARGERS)}>
+        <ListItemIcon>
+          <PriceChangeIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Chargers" />
       </ListItemButton>
       <Divider/>
 

@@ -3,11 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
 import { Autocomplete, ButtonGroup, CssBaseline, InputLabel, MenuItem, Select, Stack, styled, Typography } from '@mui/material';
-
-import FormControlLabel from '@mui/material/FormControlLabel';
-
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -27,8 +22,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
-function createData(date, ordernumber, product, stockbuyername, market, quantity, price) {
-    return { date, ordernumber, product, stockbuyername, market, quantity, price };
+import { FARMER_SECTIONS } from '../../../constants';
+
+function createData(date, orderCode, product, stockbuyername, market, quantity, price) {
+    return { date, orderCode, product, stockbuyername, market, quantity, price };
   }
 
 const rows = [
@@ -38,6 +35,9 @@ const rows = [
 
 
 export default function Transporters() {
+    const navigate = useNavigate();
+    function routeToPage(page) {
+      navigate(`/farmer/dash/${page}`);}
 
 return (
     <Fragment>
@@ -59,7 +59,7 @@ return (
                 <TableHead>
                 <TableRow>
                     <TableCell>Date</TableCell>
-                    <TableCell align="right">Order Number</TableCell>
+                    <TableCell align="right">Order Code</TableCell>
                     <TableCell align="right">Product</TableCell>
                     <TableCell align="right">Stock Buyer Name</TableCell>
                     <TableCell align="right">Market</TableCell>
@@ -76,7 +76,7 @@ return (
                     <TableCell component="th" scope="row">
                         {row.date}
                     </TableCell>
-                    <TableCell align="right">{row.ordernumber}</TableCell>
+                    <TableCell align="right">{row.orderCode}</TableCell>
                     <TableCell align="right">{row.product}</TableCell>
                     <TableCell align="right">{row.stockbuyername}</TableCell>
                     <TableCell align="right">{row.market}</TableCell>
@@ -115,7 +115,7 @@ return (
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', m: 5}}>
                         <Stack direction="row" spacing={4}>
-                            <Button variant="contained" color="info" size="small" sx={{padding: 2}}>
+                            <Button variant="contained" color="info" size="small" sx={{padding: 2}} onClick={() => routeToPage(FARMER_SECTIONS.VIEWTRANSPORTER)}>
                                 Details 
                             </Button>
                             
@@ -164,6 +164,7 @@ return (
                   </Card>
             </Box>                  
         </Grid>
+        <Button variant='outlined' size="large" sx={{ mt: 4}} onClick={() => routeToPage(FARMER_SECTIONS.ORDERS)}>Back</Button>
 
         
 
@@ -182,195 +183,7 @@ return (
               
          
 
-      {/* <Grid  container spacing={8} >
-        <Grid item md={3}>
-            <Paper elevation={3} style={{marginTop:"25px"}}>
-                    <img
-                    className="img"
-                    src="https://lal.lk/wp-content/uploads/2017/02/thump2.jpg"
-                    alt=""
-                    style={{width:"100%" , height:"10rem"}}
-                    
-                    />
-                    <Box paddingX={1}
-                    sx={{alignContent: 'center', alignItems: 'center'}}
-                    >
-                    <Typography variant="h6" align= "center" sx={{color: '#fff', }}>ECOMET 1212</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: '#999', }}>5660 cc</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: 'red', }}>100 per 1km</Typography>
-                    <Box
-                    component="span"
-                    m={1}
-                    display="flex"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    
-                    >
-                        <ButtonGroup variant="text" aria-label="text button group" sx={{marginTop:"10px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"45px" , fontSize:"10px"}}>
-                            Details 
-                        </Button>
-                        
-                        <Button variant="contained" color="info" sx={{fontSize:"10px"}}>
-                            Send Request
-                        </Button> 
-                        </ButtonGroup>
-                        </Box>
-                    </Box>                                    
-                </Paper>
-            </Grid>
-
-            <Grid item md={3}>
-            <Paper elevation={3} style={{marginTop:"25px"}}>
-                    <img
-                    className="img"
-                    src="https://lal.lk/wp-content/uploads/2017/02/thump2.jpg"
-                    alt=""
-                    style={{width:"100%" , height:"10rem"}}
-                    
-                    />
-                    <Box paddingX={1}
-                    sx={{alignContent: 'center', alignItems: 'center'}}
-                    >
-                    <Typography variant="h6" align= "center" sx={{color: '#fff', }}>ECOMET 1212</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: '#999', }}>5660 cc</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: 'red', }}>100 per 1km</Typography>
-                    <Box
-                    component="span"
-                    m={1}
-                    display="flex"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    
-                    >
-                        <ButtonGroup variant="text" aria-label="text button group" sx={{marginTop:"10px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"45px" , fontSize:"10px"}}>
-                            Details 
-                        </Button>
-                        
-                        <Button variant="contained" color="info" sx={{fontSize:"10px"}}>
-                            Send Request
-                        </Button> 
-                        </ButtonGroup>
-                        </Box>
-                    </Box>                                    
-                </Paper>
-            </Grid>
-
-            <Grid item md={3}>
-            <Paper elevation={3} style={{marginTop:"25px"}}>
-                    <img
-                    className="img"
-                    src="https://lal.lk/wp-content/uploads/2017/02/thump2.jpg"
-                    alt=""
-                    style={{width:"100%" , height:"10rem"}}
-                    
-                    />
-                    <Box paddingX={1}
-                    sx={{alignContent: 'center', alignItems: 'center'}}
-                    >
-                    <Typography variant="h6" align= "center" sx={{color: '#fff', }}>ECOMET 1212</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: '#999', }}>5660 cc</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: 'red', }}>100 per 1km</Typography>
-                    <Box
-                    component="span"
-                    m={1}
-                    display="flex"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    
-                    >
-                        <ButtonGroup variant="text" aria-label="text button group" sx={{marginTop:"10px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"45px" , fontSize:"10px"}}>
-                            Details 
-                        </Button>
-                        
-                        <Button variant="contained" color="info" sx={{fontSize:"10px"}}>
-                            Send Request
-                        </Button> 
-                        </ButtonGroup>
-                        </Box>
-                    </Box>                                    
-                </Paper>
-            </Grid>
-
-            <Grid item md={3}>
-            <Paper elevation={3} style={{marginTop:"25px"}}>
-                    <img
-                    className="img"
-                    src="https://lal.lk/wp-content/uploads/2017/02/thump2.jpg"
-                    alt=""
-                    style={{width:"100%" , height:"10rem"}}
-                    
-                    />
-                    <Box paddingX={1}
-                    sx={{alignContent: 'center', alignItems: 'center'}}
-                    >
-                    <Typography variant="h6" align= "center" sx={{color: '#fff', }}>ECOMET 1212</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: '#999', }}>5660 cc</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: 'red', }}>100 per 1km</Typography>
-                    <Box
-                    component="span"
-                    m={1}
-                    display="flex"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    
-                    >
-                        <ButtonGroup variant="text" aria-label="text button group" sx={{marginTop:"10px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"45px" , fontSize:"10px"}}>
-                            Details 
-                        </Button>
-                        
-                        <Button variant="contained" color="info" sx={{fontSize:"10px"}}>
-                            Send Request
-                        </Button> 
-                        </ButtonGroup>
-                        </Box>
-                    </Box>                                    
-                </Paper>
-            </Grid>
-
-            <Grid item md={3}>
-            <Paper elevation={3} style={{marginTop:"25px"}}>
-                    <img
-                    className="img"
-                    src="https://lal.lk/wp-content/uploads/2017/02/thump2.jpg"
-                    alt=""
-                    style={{width:"100%" , height:"10rem"}}
-                    
-                    />
-                    <Box paddingX={1}
-                    sx={{alignContent: 'center', alignItems: 'center'}}
-                    >
-                    <Typography variant="h6" align= "center" sx={{color: '#fff', }}>ECOMET 1212</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: '#999', }}>5660 cc</Typography>
-                    <Typography variant="body2" align= "center" sx={{color: 'red', }}>100 per 1km</Typography>
-                    <Box
-                    component="span"
-                    m={1}
-                    display="flex"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    
-                    >
-                        <ButtonGroup variant="text" aria-label="text button group" sx={{marginTop:"10px" , marginBottom:"10px"}}>
-                        <Button variant="contained" color="success" sx={{marginRight:"45px" , fontSize:"10px"}}>
-                            Details 
-                        </Button>
-                        
-                        <Button variant="contained" color="info" sx={{fontSize:"10px"}}>
-                            Send Request
-                        </Button> 
-                        </ButtonGroup>
-                        </Box>
-                    </Box>                                    
-                </Paper>
-            </Grid>
-
-           
-
-        </Grid> */}
+      
         </Container>
     
     

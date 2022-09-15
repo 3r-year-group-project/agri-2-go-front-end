@@ -19,6 +19,8 @@ import ChatPage from '../../components/chat/chatPage';
 
 import TransporterTransactions from '../../pages/Transporter/Transactions';
 import CalendarScedule from '../../components/Calendar';
+import TransportationSchedule from '../../pages/Transporter/Schedule';
+import ChargersPage from '../../pages/Transporter/Chargers/chargers';
 
 
 export default function TransporterLayout() {
@@ -44,7 +46,7 @@ export default function TransporterLayout() {
             setOpenPane(<MyVehicals/>);
             break;
         case TRANSPORTER_SECTIONS.TRIPSCHEDULE:
-          setOpenPane(<CalendarScedule/>);
+          setOpenPane(<TransportationSchedule/>);
           break;
         case TRANSPORTER_SECTIONS.CHATMEMBERSLIST:
             setOpenPane(<ChatMemberList/>);
@@ -54,6 +56,9 @@ export default function TransporterLayout() {
             break;
         case TRANSPORTER_SECTIONS.TRANSACTIONS:
           setOpenPane(<TransporterTransactions/>);
+          break;
+        case TRANSPORTER_SECTIONS.CHARGERS:
+          setOpenPane(<ChargersPage/>);
           break;
         // case TRANSPORTER_SECTIONS.REVIEWS:
         //   setOpenPane();

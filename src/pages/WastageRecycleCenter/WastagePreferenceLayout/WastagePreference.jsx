@@ -7,6 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FormControl from '@mui/material/FormControl';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -59,9 +60,19 @@ const handleClose = () =>{
         >
         Wastage Preference
         </Typography>
-        <Button variant="contained" onClick={handleClickOpen}><AddBoxIcon/>{"\u00a0\u00a0"}Add New</Button>
+        <Box
+          m={1}
+
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+        
+        >
+        <Button variant="contained" size="large" onClick={handleClickOpen}  startIcon={<AddIcon/>} sx={{backgroundColor: '#075E54'}}>Add New</Button>
+        </Box>
+
       <WastagePreferenceCard 
-        vegitable={["Tomato","Potato","onion"]}
+        vegitable={["Tomato","Potato","Onion"]}
         quality="Animal fod"
         price='100'
 
@@ -72,6 +83,8 @@ const handleClose = () =>{
         price='150'
       />
       </div>
+
+      
       <Dialog 
         open={open} 
         onClose={handleClose}
@@ -170,42 +183,6 @@ const handleClose = () =>{
                     </FormControl> 
                   </ListItemText>
                 </ListItem>
-
-                {/* <ListItem>
-                  <ListItemText>
-                    <Typography gutterBottom variant='body2' color='text.primary' style={{fontSize:'17px',marginLeft:'40px',}}>
-                    Preferred Locations  :  
-                    </Typography>
-                  </ListItemText>
-
-                  <ListItemText>
-                  <FormControl fullWidth>
-                  <Autocomplete
-                        multiple
-                        id="checkboxes-tags-demo"
-                        options={locationsList}
-                        disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
-                        renderOption={(props, option, { selected }) => (
-                          <li {...props}>
-                            <Checkbox
-                              icon={icon}
-                              checkedIcon={checkedIcon}
-                              style={{ marginRight: 8, color: '#fff' }}
-                              checked={selected}
-                            />
-                            {option.title}
-                          </li>
-                        )}
-                        style={{ width: 500, color: '#fff' }}
-                        renderInput={(params) => (
-                          <TextField {...params} label="Preferred Locations" placeholder="Preferred Locations" />
-                        )}
-                      />
-                      
-                  </FormControl>      
-                  </ListItemText>
-                </ListItem> */}
 
                 <ListItem>
                 <ListItemText>

@@ -105,7 +105,7 @@ export default function Router() {
         <Route path="/farmer/profile" element={<FarmerProfilePage/>}/>
         <Route path="/transporter/profile" element={<TransporterProfilePage/>}/>
         <Route path="/stockbuyer/profile" element={<StockBuyerProfilePage/>}/>
-        <Route path="/stockbuyer/profile" element={<WastageRecycleCenterProfilePage/>}/>
+        <Route path="/wastagerecyclecenter/profile" element={<WastageRecycleCenterProfilePage/>}/>
 
         <Route path="/test" element={<MapContainer/>}/> 
 

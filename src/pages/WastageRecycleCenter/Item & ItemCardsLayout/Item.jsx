@@ -15,6 +15,7 @@ export default function Items() {
       quality="Rotten"
       location="Colombo"
       weight="50"
+      price="100"
       />
 
     <ItemCard
@@ -23,6 +24,7 @@ export default function Items() {
       quality="About to rot"
       location="Kandy"
       weight="150"
+      price="100"
       />
     </div>
     <div className='item-row-two'>
@@ -32,6 +34,7 @@ export default function Items() {
         quality="Rotten"
         location="Badulla"
         weight="72"
+        price="100"
         />
 
       <ItemCard
@@ -40,6 +43,7 @@ export default function Items() {
         quality="Rotten"
         location="NuwaraEliya"
         weight="15"
+        price="100"
         />
       </div>
     </div>

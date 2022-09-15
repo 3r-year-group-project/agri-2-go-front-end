@@ -37,13 +37,19 @@ export default function OrderPage() {
       <ListItem style={{marginLeft:'12px',}}>
         <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
-              Date
+              Order Date
           </Typography>
         </ListItemText>
 
         <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
               Order Name
+          </Typography>
+        </ListItemText>
+
+        <ListItemText>
+          <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
+              Pickup Date
           </Typography>
         </ListItemText>
 
@@ -59,11 +65,11 @@ export default function OrderPage() {
           </Typography>
         </ListItemText> */}
 
-        <ListItemText>
+        {/* <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
               Confirm Order
           </Typography>
-        </ListItemText>
+        </ListItemText> */}
 
         <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
@@ -71,19 +77,19 @@ export default function OrderPage() {
           </Typography>
         </ListItemText>
 
-        <ListItemText>
+        {/* <ListItemText>
           <Typography gutterBottom variant='subtitle1' style={{color:'#fff',fontSize:'18px',}}>
               Remove
           </Typography>
-        </ListItemText>
+        </ListItemText> */}
 
       </ListItem>
       <Divider color='#9df58c'/>
       </List>
-        <OrderComponent date="2021 - 05 - 30" orderName="#21540" />
-        <OrderComponent date="2016 - 08 - 23" orderName="#81254" />
-        <OrderComponent date="2019 - 12 - 05" orderName="#52454" />
-        <OrderComponent date="2020 - 02 - 10" orderName="#15486" />
+        <OrderComponent date="2021 - 05 - 30" orderName="Carrot" pickupDate="2021 - 05 - 31" status="Pending"/>
+        <OrderComponent date="2016 - 08 - 23" orderName="Potato" pickupDate="2021 - 05 - 31" status="Pending"/>
+        <OrderComponent date="2019 - 12 - 05" orderName="Beetroot" pickupDate="2021 - 05 - 31" status="Completed"/>
+        <OrderComponent date="2020 - 02 - 10" orderName="Tomato" pickupDate="2021 - 05 - 31" status="Completed"/>
 
     </div>
     </div>

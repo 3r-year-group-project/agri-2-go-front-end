@@ -30,7 +30,7 @@ export default function ItemCard(props) {
         <div className='image-card'>
         <CardMedia
           component="img"
-          height='235vh'
+          height='260vh'
           image={props.image}
           alt='carrot'
         />
@@ -50,8 +50,12 @@ export default function ItemCard(props) {
             <LocationOnIcon style={{color:color_icon,marginRight:marg,}}/> {props.location}     
           </Typography>
           <Typography gutterBottom variant='body2' color='text.primary'>
-            {props.weight} Kg      
+            {props.weight} kg      
           </Typography>
+          <Typography gutterBottom variant='body2' sx={{color: 'red'}}>
+            {props.price} LKR per 1kg    
+          </Typography>
+
 
           <CardActions style={{width:'160px',justifyContent:'center',alignItems:'center',}}>
             <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION)}>View Details</Button>

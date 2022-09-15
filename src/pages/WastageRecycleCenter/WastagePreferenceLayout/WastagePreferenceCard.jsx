@@ -51,14 +51,14 @@ export default function WastagePreferenceCard(props) {
   return (
     <div className='background-preference'>
         <Box 
-        width="90vw"
+        width="60vw"
         maxWidth="xl"
         >
           <Card style={{height:'auto', margin:'10px 30px',borderRadius:'5px',backgroundColor:'#075e54',color:'#fff',}}>
             
             <div className="topic-preference">
             <CardContent>
-              <h2 style={{fontSize:'28px',fontWeight: '500'}}>Wastage Preferences</h2>
+              <h2 style={{fontSize:'22px',fontWeight: '500'}}>My Preferences</h2>
             </CardContent>
             </div>
         <Divider color='#9df58c'/>
@@ -105,8 +105,10 @@ export default function WastagePreferenceCard(props) {
       
             <div className="button-pref">
             <CardActions>
-              <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/>
-              <ButtonForAdd name="Delete" action={handleOpenDelete} sx={{backgroundColor: 'red'}}/>
+              {/* <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/> */}
+              <Button variant="contained" onClick={handleClickOpen} color="info">Edit</Button>
+              <Button variant="contained" onClick={handleOpenDelete} color="error">Delete</Button>
+              
             </CardActions>
             </div>
           </Card>
@@ -211,42 +213,6 @@ export default function WastagePreferenceCard(props) {
                   </ListItemText>
                 </ListItem>
 
-                {/* <ListItem>
-                  <ListItemText>
-                    <Typography gutterBottom variant='body2' color='text.primary' style={{fontSize:'17px',marginLeft:'40px',}}>
-                    Preferred Locations  :  
-                    </Typography>
-                  </ListItemText>
-
-                  <ListItemText>
-                  <FormControl fullWidth>
-                  <Autocomplete
-                        multiple
-                        id="checkboxes-tags-demo"
-                        options={locationsList}
-                        disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
-                        renderOption={(props, option, { selected }) => (
-                          <li {...props}>
-                            <Checkbox
-                              icon={icon}
-                              checkedIcon={checkedIcon}
-                              style={{ marginRight: 8, color: '#fff' }}
-                              checked={selected}
-                            />
-                            {option.title}
-                          </li>
-                        )}
-                        style={{ width: 500, color: '#fff' }}
-                        renderInput={(params) => (
-                          <TextField {...params} label="Preferred Locations" placeholder="Preferred Locations" />
-                        )}
-                      />
-                      
-                  </FormControl>      
-                  </ListItemText>
-                </ListItem> */}
-
                 <ListItem>
                 <ListItemText>
                   <Typography gutterBottom variant='body2' color='text.primary' style={{fontSize:'17px',marginLeft:'40px',}}>
@@ -278,15 +244,15 @@ export default function WastagePreferenceCard(props) {
         </Dialog>
 
         <Dialog open={openDelete} onClose={handleCloseDelete}>
-        <DialogTitle style={{backgroundColor: 'white'}}>Add to schedule</DialogTitle>
+        <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Delete Confirmation</DialogTitle>
         <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
           <DialogContentText>
-            <h3>Confirm to Decline the request</h3>
+            <h3>Are you sure you want to delete this?</h3>
           </DialogContentText>
           </DialogContent>
         <DialogActions style={{backgroundColor: 'white'}}>
           <Button onClick={handleCloseDelete} variant="outlined" color="secondary">Cancel</Button>
-          <Button variant="contained" color="error" onClick={handleCloseDelete}>Remove</Button>
+          <Button variant="contained" color="error" onClick={handleCloseDelete}>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>

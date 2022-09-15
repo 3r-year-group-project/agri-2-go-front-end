@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, List, ListItem, ListItemText, TextField, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star';
 import Divider from '@mui/material/Divider';
 import './itemDetails.css';
@@ -12,6 +12,16 @@ export default function ItemDetails(props) {
     const navigate = useNavigate();
     function routeToPage(page) {
       navigate(`/wastageRecycleCenter/dash/${page}`);
+    }
+
+    const [open, setOpen] =React.useState(false);
+
+    const handleClickOpen = () =>{
+        setOpen(true);
+    }
+
+    const handleClose = () =>{
+        setOpen(false);
     }
 
   return (
@@ -116,10 +126,52 @@ export default function ItemDetails(props) {
 
                     <div className='btn-col-2'>
                         <CardActions>
-                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}>Add to Order List</Button>
+                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={handleClickOpen}>Place an Order</Button>
                         {/* <MyButton name="Add to Order Table" onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}/> */}
                         </CardActions>
+
+                        
                     </div>
+
+
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Add Details</DialogTitle>
+
+                        <DialogContent style={{borderColor:'green',}}>
+                            <DialogContentText>
+                                Enter the quantity you want to buy and preferred pickup date...
+                            </DialogContentText>
+                            <br/>
+
+                            <TextField
+                            autoFocus
+                            margin="dense"
+                            id="quantity"
+                            label="Quantity (kg)"
+                            type="text"
+                            placeholder='Quantity here'
+                            fullWidth
+                            variant="outlined"
+                            />
+
+                            <TextField 
+                            autoFocus
+                            margin="dense"
+                            id="date"
+                            type="date"
+                            // label="Schedule Date"
+                            // placeholder='Schedule Date'
+                            fullWidth
+                            variant="outlined"
+                            />
+                            
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
+                            <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
+                        </DialogActions>    
+
+                    </Dialog>
 
                 </div> 
 

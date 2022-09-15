@@ -9,7 +9,7 @@ export default function ItemDescription() {
     title = "Carrot"
     description="Carrot, (Daucus carota), herbaceous, generally biennial plant of the Apiaceae family that produces an edible taproot. Among common varieties root shapes range from globular to long, with lower ends blunt to pointed. Besides the orange-coloured roots, white-, yellow-, and purple-fleshed varieties are known."
     sellName="W.D Ruwan"
-    location="Kandy"
+    location="23/C, Mirissa Rd, Kandy"
     category="Carrot"
     quality="Good"
     

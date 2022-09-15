@@ -29,7 +29,7 @@ export default function NotificationIcon(Props) {
   };
 
   React.useEffect(() => {
-    axios.get('/api/users//notifications/'+ user.email).then(res => {});
+    axios.get('/api/users/notifications/'+ user.email).then(res => {});
   }, [isAuthenticated, isLoading]);
 
   return (

@@ -12,29 +12,12 @@ import { autoPlay } from 'react-swipeable-views-utils';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const images = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://img.krishijagran.com/media/19522/capsicum.jpg',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://assets.lybrate.com/q_auto:eco,f_auto,w_850/imgs/product/health-wiki/bpages/Benefitis-of-Carrot.jpg',
-  },
 
-];
 
-function  SlideShow() {
+function  SlideShow(props) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+  const maxSteps = props.imagesList.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -70,7 +53,7 @@ function  SlideShow() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {images.map((step, index) => (
+        {props.imagesList.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
@@ -82,8 +65,8 @@ function  SlideShow() {
                   overflow: 'hidden',
                   width: '100%',
                 }}
-                src={step.imgPath}
-                alt={step.label}
+                src={step.image}
+                alt={step.id}
               />
             ) : null}
           </div>

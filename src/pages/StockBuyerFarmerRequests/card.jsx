@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -14,8 +15,7 @@ import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import SlideShow from './slideShow';
 import Modal from '@mui/material/Modal';
-import { Typography } from '@mui/material';
-
+import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -28,6 +28,9 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+
+
     
 // const itemData = [
 //   {
@@ -53,6 +56,7 @@ const style = {
 
 
 export default function Card(props) {
+  const navigate =useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -65,9 +69,19 @@ export default function Card(props) {
       
       });
   }
+
+
+  const handleAccept = async (id)=>{
+    axios.post('/api/stockbuyer/paymethandler/pay',{'id':id,'email':user.email, 'cropName':props.cropName,'minAdvance':props.minAdvance,'images':props.itemData , 'farmerid':props.farmerid})
+    .then((res) => {
+      if(res.data.url){
+        window.location.href=res.data.url
+       
+      }
+    }).catch((err)=>console.log(err.message))
+  }
     return (
         <Grid item xs={12} md={12} lg={12}>
-           
             <Paper sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -94,7 +108,7 @@ export default function Card(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <SlideShow/>
+        <SlideShow  imagesList={props.itemData}/>
       </Modal>
       
       
@@ -126,7 +140,7 @@ export default function Card(props) {
                     
                 }}>
                     <Stack direction='row' spacing={5} >
-                    <Button variant="contained" color="success" startIcon={<CheckIcon />}>
+                    <Button variant="contained" onClick={()=>{handleAccept(props.id)}} color="success" startIcon={<CheckIcon />}>
                         Accept
                     </Button>
                     <Button variant="outlined" color="error" onClick={()=>{handleDecline(props.id)}} endIcon={<ClearIcon />}>

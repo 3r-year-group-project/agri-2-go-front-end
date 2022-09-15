@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Card from './card';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Typography } from '@mui/material';
 const mdTheme = createTheme();
 
 export default function FarmerRequests() {
@@ -40,7 +39,6 @@ export default function FarmerRequests() {
     <ThemeProvider theme={mdTheme}>
 
     <div style={{  padding:'5%',minHeight:'100%'}} >
-    <Typography variant="h5" sx={{color: '#075E54',mb:2}}>Farmer Requests</Typography>
         <Box
         component="span"
         m={1}
@@ -48,7 +46,6 @@ export default function FarmerRequests() {
         justifyContent="space-between"
         alignItems="center"
         >
-           
             <CssBaseline />
             <Grid
                 container
@@ -58,7 +55,7 @@ export default function FarmerRequests() {
                 alignItems="center"
                 >
                   {data.map((d)=>
-                <Card getFarmerRequest={getFarmerRequest} itemData={images.filter(e=>e.selling_request_id==d.selling_req_id)} farmerPlace={d.name} farmerDistance="10km" farmerName={d.first_name+" "+d.last_name} id={d.selling_req_id} cropName={d.vegetable} quantity={d.quantity} price={d.price} minAdvance="Rs.30" date={formatDate(d.date)}/>
+                <Card getFarmerRequest={getFarmerRequest} itemData={images.filter(e=>e.selling_request_id==d.selling_req_id)} farmerPlace={d.name} farmerDistance="10km" farmerName={d.first_name+" "+d.last_name} id={d.selling_req_id} cropName={d.vegetable} quantity={d.quantity} price={d.price} minAdvance={d.price!=0? Math.round(d.price/2):0} date={formatDate(d.date)}  farmerid={d.farmer_id}/>
                
                 )}
             </Grid>

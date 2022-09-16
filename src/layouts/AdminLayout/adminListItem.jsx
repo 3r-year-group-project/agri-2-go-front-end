@@ -10,6 +10,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
 import ReportIcon from '@mui/icons-material/Report';
+import PaymentsIcon from '@mui/icons-material/Payments';
 import { ADMIN_SECTIONS } from '../../constants';
 
 
@@ -45,6 +46,13 @@ export default function AdminListItems() {
           <InventoryIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Vegetables" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.PAYMENTS)}>
+        <ListItemIcon>
+          <PaymentsIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Payments" />
       </ListItemButton>
       <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>

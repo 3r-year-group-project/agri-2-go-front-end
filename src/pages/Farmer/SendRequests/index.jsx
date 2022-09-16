@@ -21,7 +21,6 @@ import { date } from 'joi';
 
 
 
-
 export default function SendRequests() {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -63,7 +62,7 @@ export default function SendRequests() {
   });
 
   const [image, setImage] = React.useState({ preview: ''})
-
+ 
   
   
 
@@ -101,12 +100,14 @@ export default function SendRequests() {
     });
   };
 
+  
   const checkImgFile = (e) => {
 
     const img = {
         preview: URL.createObjectURL(e.target.files[0]),
         
       }
+    setImage(img);  
     setImage(img);
     getBase64(e.target.files[0])
     .then(result => {
@@ -183,16 +184,20 @@ export default function SendRequests() {
         setData({...data,ecocenter:e.target.value})
   }
 
-  console.log(data)
+  // console.log(data)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
+    // e.preventDefault();
     console.log("data gonna be uploads!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",data);
     if(!Object.values(data).includes("")){
         axios.post('/api/farmer/sellrequest/insert',{...data,email:user.email})
             .then(res => {
-                setInsert(true);
+                // setInsert(!insert);
+                console.log('i have been called');
+                navigate("/farmer/dash/myrequests");
             });
     }else{
+      console.log("error");
       setErrorText((prev) => {
           return({...prev, totalError : "Please fill all the fields"});
       });
@@ -315,6 +320,7 @@ return (
                     onChange={checkImgFile}
                     style={{width:'450px',}}
                     />
+                    <img src={image.preview} alt='' height='25%' width='25%'/>
                     <div on className="lable-container" style={{width:"40%" , paddingTop:"10px",height:"45px" , backgroundColor:"green" , borderRadius:"10px" , fontWeight:"bold" }}>
                     <label for='files'>
                         Choose image
@@ -327,7 +333,7 @@ return (
             </Grid>
             <Button
               onClick={handleSubmit}
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}

@@ -12,8 +12,8 @@ export default function ItemDescription() {
     location="23/C, Mirissa Rd, Kandy"
     category="Carrot"
     quality="Good"
-    
     quantity="56.5"
+    price="200"
     />
   )
 }

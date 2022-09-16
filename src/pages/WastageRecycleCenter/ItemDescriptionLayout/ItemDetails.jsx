@@ -27,7 +27,7 @@ export default function ItemDetails(props) {
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
     <Box width='70vw' margin="auto">
-        <Card style={{height:'100vh', margin:'10px  80px',borderRadius:'20px',}}>
+        <Card style={{height:'110vh', margin:'10px  80px',borderRadius:'20px',}}>
             <div className='basic-details-row'>
                 <div className='image-cube'>
                 <CardMedia className='image-in'
@@ -109,6 +109,11 @@ export default function ItemDetails(props) {
                             <ListItem style={{padding:'10px',}}>
                                 <ListItemText primary="Quantity" style={{textAlign:'right',paddingRight:'80px',}}/>
                                 <ListItemText primary={props.quantity} style={{textAlign:'left',paddingLeft:'120px',}}/>
+                            </ListItem>
+
+                            <ListItem style={{padding:'10px',}}>
+                                <ListItemText primary="Price per 1kg" style={{textAlign:'right',paddingRight:'80px',}}/>
+                                <ListItemText primary={props.price} style={{textAlign:'left',paddingLeft:'120px',}}/>
                             </ListItem>
                             <Divider color='#9df58c'/>
                         </List>

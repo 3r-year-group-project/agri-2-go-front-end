@@ -8,26 +8,36 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FormControl from '@mui/material/FormControl';
 import AddIcon from '@mui/icons-material/Add';
-
+import axios from "axios";
 
 
 import WastagePreferenceCard from './WastagePreferenceCard';
+import dxTabPanel from 'devextreme/ui/tab_panel';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function WastagePreference(props) {
   const [open, setOpen] =React.useState(false);
-  const top20Vegetables = [
-    { title: 'Carrots' },
-    { title: 'Eggplant'},
-    { title: 'Cabbage'},
-    { title: 'Cauliflower'},
-   
-    
-   
-  ];
-  
+  const [top20Vegetables, setVeg] = React.useState([]);
+  const [category, setCategory]= React.useState([]);
+  const [level, setLevel]= React.useState([]);
+  const [price, setPrice]= React.useState(0);
+   const [dt, setData] =React.useState([]);
+
+   const runner = axios.get('/api/wrc/wastage').then((res)=>{                  
+          setData(res.data.data);
+    });
+    getVegetables();
+    function getVegetables() {    
+      axios.post('/api/farmer/sellrequest/getVegetableList').then((res)=>{                          
+        var tempArray = [];
+        for (let i = 0; i < res.data.data.length; i++) {
+          tempArray.push({title: res.data.data[i].name});
+         }
+         setVeg(tempArray);
+      });    
+     }
   const qualityLevels = [
     { title: 'Rotten' },
     { title: 'About to rot'},
@@ -44,6 +54,16 @@ export default function WastagePreference(props) {
 
 const handleClose = () =>{
     setOpen(false);
+}
+  
+const handleCreate = () =>{
+  var catString = Array.prototype.map.call(category, function(cat) { return cat.title; }).join(",");
+  var levelString = Array.prototype.map.call(level, function(lvl) { return lvl.title; }).join(",");
+  const wastage = {price : price, category:catString , level:levelString};
+  axios.post('/api/wrc/wastage/', wastage).then((res)=>{                        
+    alert("Wastage Category Created Successfully!");
+    setOpen(false); 
+  });
 }
   return (
     <>
@@ -71,18 +91,15 @@ const handleClose = () =>{
         <Button variant="contained" size="large" onClick={handleClickOpen}  startIcon={<AddIcon/>} sx={{backgroundColor: '#075E54'}}>Add New</Button>
         </Box>
 
-      <WastagePreferenceCard 
-        vegitable={["Tomato","Potato","Onion"]}
-        quality="Animal fod"
-        price='100'
-
-      />
-      <WastagePreferenceCard 
-        vegitable="Potato"
-        quality="Eadable"
-        price='150'
-      />
-      </div>
+        <>{dt != null ? dt.map (item => (<WastagePreferenceCard 
+          vegitable={item.category}
+          quality={item.quality_level}
+          price={item.price}
+          id={item.id}
+          items={top20Vegetables}
+        />)) : null} </>
+      
+    </div>
 
       
       <Dialog 
@@ -113,6 +130,7 @@ const handleClose = () =>{
                         id="checkboxes-tags-demo"
                         options={top20Vegetables}
                         disableCloseOnSelect
+                        onChange={(event, value) => setCategory(value)}
                         getOptionLabel={(option) => option.title}
                         renderOption={(props, option, { selected }) => (
                           <li {...props}>
@@ -163,6 +181,7 @@ const handleClose = () =>{
                         options={qualityLevels}
                         disableCloseOnSelect
                         getOptionLabel={(option) => option.title}
+                        onChange={(event, value) => setLevel(value)}
                         renderOption={(props, option, { selected }) => (
                           <li {...props}>
                             <Checkbox
@@ -198,6 +217,7 @@ const handleClose = () =>{
                   label="Price"
                   type="number"
                   placeholder='Price here'
+                  onChange={(event) => setPrice(event.target.value)}
                   
                   fullWidth
                   variant="outlined"
@@ -208,7 +228,7 @@ const handleClose = () =>{
             </List>
             <DialogActions>
               <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-              <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
+              <Button onClick={handleCreate} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
             </DialogActions>
 
           </DialogContent>

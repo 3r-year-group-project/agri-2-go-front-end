@@ -24,15 +24,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function createData(productName,buyerName,buyingPricePer1kg ,quantity, soldQuantity, wastedQuantity,availableQuantity,wastageEligibilityButton,sellStock) {
+function createData(productName,buyerName,buyingPricePer1kg ,quantity,wastageEligibilityButton,sellStock) {
   return {
     productName,
     buyerName,
     buyingPricePer1kg,
     quantity,
-    soldQuantity, 
-    wastedQuantity,
-    availableQuantity,
+    // soldQuantity, 
+    // wastedQuantity,
+    // availableQuantity,
     wastageEligibilityButton,
     sellStock
   };
@@ -93,22 +93,22 @@ const headCells = [
     disablePadding: false,
     label: 'Quantity',
   },
-  {
-    id: 'soldQuantity',
-    disablePadding: false,
-    label: 'Sold Quantity',
+  // {
+  //   id: 'soldQuantity',
+  //   disablePadding: false,
+  //   label: 'Sold Quantity',
   
-  },
-  {
-    id: 'wastedQuantity',
-    disablePadding: false,
-    label: 'Wasted Quantity',
-  },
-  {
-    id: 'availableQuantity',
-    disablePadding: false,
-    label: 'Available Quantity',
-  },
+  // },
+  // {
+  //   id: 'wastedQuantity',
+  //   disablePadding: false,
+  //   label: 'Wasted Quantity',
+  // },
+  // {
+  //   id: 'availableQuantity',
+  //   disablePadding: false,
+  //   label: 'Available Quantity',
+  // },
   {
     id: 'wastageEligibilityButton',
     disablePadding: false,
@@ -223,6 +223,7 @@ export default function LoadStocks(){
   const { user, isAuthenticated, isLoading } = useAuth0();
 
 
+
   React.useEffect(() => {
     console.log("Runnin!!!");
     axios.post('/api/stockbuyer/stocks/getstock',{email:user.email})
@@ -230,7 +231,8 @@ export default function LoadStocks(){
                 console.log(res.data.data);
                 rows = [];
                 for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].vegetable,res.data.data[i].first_name, res.data.data[i].price, res.data.data[i].quantity, '','','','Add to Wastage','Sell Stock'));
+                  rows.push(createData(res.data.data[i].vegetable,res.data.data[i].first_name, res.data.data[i].price, res.data.data[i].quantity,res.data.data[i].id,res.data.data[i].id));
+                  console.log(res.data.data[i])
                 }
               });
                 
@@ -238,16 +240,17 @@ export default function LoadStocks(){
   }, []);
 
 
-  let navigate = useNavigate(); 
-    const routeChangeWastageAdd = () =>{ 
-    let path = `/stockbuyer/addtowastage`; 
-    navigate(path);
-  }
+  // let navigate = useNavigate(); 
+  //   const routeChangeWastageAdd = (id) =>{ 
+  //   let path = `/stockbuyer/addtowastage/`+id; 
+  //   navigate(path);
+    
+  // }
 
-  const routeChangeSellStocks = () =>{ 
-    let path = `/stockbuyer/sellstock`; 
-    navigate(path);
-  }
+  // const routeChangeSellStocks = () =>{ 
+  //   let path = `/stockbuyer/sellstock`; 
+  //   navigate(path);
+  // }
 
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -282,7 +285,6 @@ export default function LoadStocks(){
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
 
-    
 
 
   return(
@@ -336,31 +338,31 @@ export default function LoadStocks(){
                       <TableCell align="left">{row.buyerName}</TableCell>
                       <TableCell align="left">{row.buyingPricePer1kg}</TableCell>
                       <TableCell align="left">{row.quantity}</TableCell>
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                       {row.soldQuantity}
                     
-                        {/* <Button color="secondary" variant="contained" sx={{
+                        <Button color="secondary" variant="contained" sx={{
                          width: 150,fontSize: 13, backgroundColor: "green",color:'white', marginRight:"10px"}}>
                             {row.optionsEdit}
                         </Button>
                         <Button color="error" variant="contained" sx={{
                          width: 150,fontSize: 13, color:'white'}}>
                             {row.optionsDelete}
-                        </Button> */}
+                        </Button>
                     
-                    </TableCell>
-                    <TableCell align="left">{row.wastedQuantity}</TableCell>
-                    <TableCell align="left">{row.availableQuantity}</TableCell>
+                    </TableCell> */}
+                    {/* <TableCell align="left">{row.wastedQuantity}</TableCell>
+                    <TableCell align="left">{row.availableQuantity}</TableCell> */}
                     <TableCell align="left">
                     <Button color="secondary" variant="contained" sx={{
-                         width: 150,fontSize: 12, backgroundColor: "orange",color:'white'}} onClick={routeChangeWastageAdd}>
-                            {row.wastageEligibilityButton}
+                         width: 150,fontSize: 12, backgroundColor: "orange",color:'black'}} >
+                            <a style={{color:"black"}} href={'/stockbuyer/addtowastage/'+row.wastageEligibilityButton}>ADD TO WASTAGE</a>
                         </Button>
                     </TableCell>
                     <TableCell align="left">
                     <Button color="secondary" variant="contained" sx={{
-                         width: 150,fontSize: 12, backgroundColor: "green",color:'white'}} onClick={routeChangeSellStocks}>
-                            {row.sellStock}
+                         width: 150,fontSize: 12, backgroundColor: "green",color:'black'}} >
+                            <a style={{color:"black"}} href={'/stockbuyer/sellstock/'+row.sellStock}>SELL STOCK</a>
                         </Button>
                     </TableCell>
                     

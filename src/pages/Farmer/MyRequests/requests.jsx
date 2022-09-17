@@ -16,25 +16,39 @@ export default function CenteredGrid() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [requests,setRequests] = React.useState([]);
   const [limit,setLimit] = React.useState([]);
+  const [count,setCount] = React.useState([]);
   const [insert,setInsert] = React.useState(false);
   
-  function limitCount(id){
-    return limit.find(({ eco_center_id }) => eco_center_id === id).shop_count;
-  }
-
   React.useEffect(() => {
     axios.post('/api/farmer/requests/sentrequests',{email:user.email})
     .then(res => {
       setRequests(res.data.data);
     });
-  },[insert]);
-
-  React.useEffect(() => {
     axios.post('/api/farmer/requests/declines_limit',{email:user.email})
     .then(res => {
       setLimit(res.data.data);
     });
+    axios.post('/api/farmer/requests/declines_count',{email:user.email})
+    .then(res => {
+      setCount(res.data.data);
+    });
   },[insert]);
+  
+  function declinesLimit(id){
+    try{
+      return limit.find(({ eco_center_id }) => eco_center_id === id).shop_count;
+    }catch{
+      return 1;
+    }
+  }
+  
+  function declinesCount(id){
+    try{
+      return count.find(({ request_id }) => request_id === id).declines_count;
+    }catch{
+      return 0;
+    }
+  }
   
   return (
     <ThemeProvider theme={mdTheme}>
@@ -56,7 +70,14 @@ export default function CenteredGrid() {
                 alignItems="center"
                 >
                   {requests.map((element) => (
-                    <Card declines={element.declines} limit={limitCount(element.economic_center_id)} marketName={element.economic_center} cropName={element.vegetable} quantity={element.quantity + "kg"} price={"Rs." + element.price}/>
+                    <Card 
+                      declines={declinesCount(element.request_id)} 
+                      limit={declinesLimit(element.economic_center_id)} 
+                      marketName={element.economic_center} 
+                      cropName={element.vegetable} 
+                      quantity={element.quantity} 
+                      price={element.price}
+                    />
                   ))}
             </Grid>
         </Box>
@@ -64,3 +85,4 @@ export default function CenteredGrid() {
     </ThemeProvider>
   );
 }
+

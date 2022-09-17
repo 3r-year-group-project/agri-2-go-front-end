@@ -71,6 +71,7 @@ export default function CenteredGrid() {
                 >
                   {requests.map((element) => (
                     <Card 
+                      requestId = {element.request_id}
                       declines={declinesCount(element.request_id)} 
                       limit={declinesLimit(element.economic_center_id)} 
                       marketName={element.economic_center} 

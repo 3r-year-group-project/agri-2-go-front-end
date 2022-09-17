@@ -11,7 +11,8 @@ function preventDefault(event) {
 
 export default function CropDetails(props) {
   const navigate = useNavigate();
-  const resendRequestGetData =  "vegetable=" + props.cropName + "&" +
+  const resendRequestGetData =  "id=" + props.requestId + "&" +
+                                "vegetable=" + props.cropName + "&" +
                                 "ecocenter=" + props.marketName + "&" +
                                 "price=" + props.price + "&" +
                                 "quantity=" + props.quantity;

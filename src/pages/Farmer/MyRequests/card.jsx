@@ -28,6 +28,7 @@ export default function Card(props) {
                     paddingLeft:1
                 }}>
                     <CropDetails
+                    requestId={props.requestId}
                     marketName={props.marketName}
                     marketDistance={props.marketDistance}
                     cropName={props.cropName}

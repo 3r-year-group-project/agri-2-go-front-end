@@ -2,6 +2,7 @@
     DASHBOARD: 'dashboard',
     USERS: 'users',
     VEGETABLES:'vegetables',
+    PAYMENTS: 'payments',
    SUUBSCRIPTIONS:'subscriptions',
    SCAMREPORTS:'scamreports',
  };
@@ -21,6 +22,8 @@
     VIEWPRICES:'viewprices',
     SENDREQUESTS: 'sendrequests',
     TRANSPORTERS: 'transporters',
+    ADDTRANSPORTER: 'addtransporter',
+    VIEWTRANSPORTER: 'viewtransporter',
    
  };
 
@@ -52,6 +55,7 @@ export const TRANSPORTER_SECTIONS = {
  CHATMEMBERSLIST:'chat',
    CHATPAGE:'chatpage',
  MYVEHICLES: 'myvehicles',
+ CHARGERS: 'chargers',
 
  
 };

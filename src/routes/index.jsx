@@ -77,7 +77,7 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
-        <Route path="/stockbuyer/addtowastage/:id" element={<AddToWastage/>}/>  
+        <Route path="/stockbuyer/addtowastage/:id/:vegetable" element={<AddToWastage/>}/>  
         <Route path="/stockbuyer/sellstock/:id" element={<StockBuyerSellStocks/>}/>  
         <Route path="/stockbuyer/sellwastagestocks" element={<StockBuyerSellWastageStocksDetails/>}/> 
        

@@ -356,7 +356,7 @@ export default function LoadStocks(){
                     <TableCell align="left">
                     <Button color="secondary" variant="contained" sx={{
                          width: 150,fontSize: 12, backgroundColor: "orange",color:'black'}} >
-                            <a style={{color:"black"}} href={'/stockbuyer/addtowastage/'+row.wastageEligibilityButton}>ADD TO WASTAGE</a>
+                            <a style={{color:"black"}} href={'/stockbuyer/addtowastage/'+row.wastageEligibilityButton+'/'+row.productName}>ADD TO WASTAGE</a>
                         </Button>
                     </TableCell>
                     <TableCell align="left">

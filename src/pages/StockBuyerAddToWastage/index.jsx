@@ -26,21 +26,45 @@ import Footer from "../../components/Footer";
 import NavBar from '../../components/Navbar';
 import Logo from '../../components/Logo/logo';
 import TextField from '@mui/material/TextField';
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 
 
 
 export default function AddToWastage() {
 
+  const [data,setData] = useState({
+    quantity:'',
+    vegetable:'',
+  })
+
   const navigate = useNavigate();
   const [searchItem, setSearchItem] = useState("");
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const  {id,vegetable}  = useParams(); 
+
+  const handleQuantity = (e) => {
+    setData({...data,quantity:e.target.value});
+  }
+
+  // const handelVegetable = (e) =>{
+    
+  // }
+
+
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(id)
+    console.log(data);
+    axios.post('/api/stockbuyer/stocks/addwastagedetails',{data,id,vegetable})
+    .then(res => {
+      if(res.status===200){
+        let path = `/stockbuyer/dash/stocks`; 
+        navigate(path);
+      }
+      
+    })
   };
 return (
     <Fragment>
@@ -78,29 +102,27 @@ return (
             
               <Grid item xs={12} >
               <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Wastage Quantity" color="secondary" style={{color:"green"}} focused fullWidth required />
+                  <TextField value={vegetable} label="Vegetable" color="secondary" style={{color:"green"}} focused fullWidth required />
+
+                  
             
                   </Box>
               </Grid>
               
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Wastage Quality" color="secondary"  focused fullWidth required />
+                  <TextField label="Wastage Quantity" color="secondary"  focused fullWidth required onChange={handleQuantity} />
             
                   </Box>
                 </Grid>
-                <Grid item xs={12}>
-            <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Notes(If any)" color="secondary"  focused fullWidth />
-            
-                  </Box>
-                </Grid>
+                
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit}
             >
               Add to Wastage
             </Button>

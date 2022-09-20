@@ -99,7 +99,7 @@ export default function Router() {
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
 
-        //<Route path="/test" element={<TransportationRequest />}/> 
+        {/* <Route path="/test" element={<TransportationRequest />}/>  */}
 
 
         <Route path="/farmer/profile" element={<FarmerProfilePage/>}/>

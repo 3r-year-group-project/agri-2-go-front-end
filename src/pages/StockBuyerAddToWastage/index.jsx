@@ -36,7 +36,6 @@ export default function AddToWastage() {
 
   const [data,setData] = useState({
     quantity:'',
-    vegetable:'',
   })
 
   const navigate = useNavigate();

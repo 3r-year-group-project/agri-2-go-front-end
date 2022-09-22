@@ -5,11 +5,26 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '../../../components/Orders/card';
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const mdTheme = createTheme();
 
 export default function CenteredGrid() {
 
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [orders,setOrders] = React.useState([]);
+  const [insert,setInsert] = React.useState(false);
+
+  React.useEffect(() => {
+    if(!isLoading) {
+      axios.post('/api/farmer/requests/orders',{email:user.email})
+      .then(res => {
+        setOrders(res.data.data);
+      });
+    }
+  },[insert]);
+  
   return (
     <ThemeProvider theme={mdTheme}>
 
@@ -27,23 +42,17 @@ export default function CenteredGrid() {
                 direction="column"
                
                 >
-                  <Grid item xs={12} md={6}>
-                    <Card orderCode="001" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
-                  </Grid>
-
-                  <Grid item xs={12} md={6}>
-                    <Card orderCode="002" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
-                  </Grid>
-
-                  <Grid item xs={12} md={6}>
-                    <Card orderCode="003" marketDistance="10km" marketName="Pettah" cropName="Carrot" quantity="100kg" price="Rs.100"/>
-                  </Grid>
-
-                  <Grid item xs={12} md={6}>
-                    <Card orderCode="004" marketDistance="20km" marketName="Meegoda" cropName="Beetroot" quantity="100kg" price="Rs.100"/>
-                  </Grid>
-                
-                
+                  {orders.map((element) => (
+                    <Grid item xs={12} md={6}>
+                      <Card 
+                        orderCode={element.request_id}
+                        marketName={element.economic_center} 
+                        cropName={element.vegetable} 
+                        quantity={element.quantity} 
+                        price={element.price}
+                      />
+                    </Grid>
+                  ))}
                 
             </Grid>
         </Box>

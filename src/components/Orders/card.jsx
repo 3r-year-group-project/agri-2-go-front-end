@@ -32,7 +32,7 @@ export default function Card(props) {
                 price={props.price}
                 orderCode={props.orderCode}
                 />
-                <Stack spacing={8} direction="row" alignItems="flex-end" sx={{mb: 5}}>
+                <Stack spacing={8} direction="row" alignItems="flex-end" justifyContent="center" sx={{mb: 5}}>
                     <Button sx={{width:"30%"}} variant="contained" color="info" startIcon={<AddIcon />} onClick={() => routeToPage(FARMER_SECTIONS.ADDTRANSPORTER)}>
                         Add Transporter
                     </Button>

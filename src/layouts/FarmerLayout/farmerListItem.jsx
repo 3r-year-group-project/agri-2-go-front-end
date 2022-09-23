@@ -38,7 +38,7 @@ export default function FarmerListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDSELLER)}>
+      {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
         <Tooltip title="Find Buyers">
         <SearchIcon color="secondary" />
@@ -55,8 +55,8 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="Find Transporters" />
       </ListItemButton>
-      <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CART)}>
+      <Divider/> */}
+      {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.CART)}>
         <ListItemIcon>
         <Tooltip title="Cart">
         <ShoppingCartIcon color="secondary" />
@@ -64,7 +64,7 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="Cart" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYCROP)}>
         <ListItemIcon>
         <Tooltip title="My Crops">
@@ -113,14 +113,14 @@ export default function FarmerListItems() {
         <ListItemText primary="My Requests" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>
+      {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <Tooltip title="Reviews">
           <RateReview  color="secondary" />
           </Tooltip>
         </ListItemIcon>
         <ListItemText primary="Reviews" />
-      </ListItemButton>
+      </ListItemButton> */}
       <Divider/>
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SENDREQUESTS)}>
         <ListItemIcon>

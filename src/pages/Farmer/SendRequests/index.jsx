@@ -24,17 +24,18 @@ import { date } from 'joi';
 export default function SendRequests() {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
-
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
   const navigate = useNavigate();
   const [searchItem, setSearchItem] = useState("");
 
   const[insert,setInsert] = React.useState(false);
 
   const [data,setData] = React.useState({
-    price:'',
-    quantity:'',
-    ecocenter:'',
-    vegetable:'',
+    price:    urlParams.has('price')      ? urlParams.get('price')     :'',
+    quantity: urlParams.has('quantity')   ? urlParams.get('quantity')  :'',
+    ecocenter:urlParams.has('ecocenter')  ? urlParams.get('ecocenter') :'',
+    vegetable:urlParams.has('vegetable')  ? urlParams.get('vegetable') :'',
     fileName:'',
     base64URL:'',
     date:'',
@@ -196,6 +197,12 @@ export default function SendRequests() {
                 console.log('i have been called');
                 navigate("/farmer/dash/myrequests");
             });
+        if(urlParams.has('id')){
+          axios.post('/api/farmer/requests/resendrequest',{id:urlParams.get('id'), email:user.email})
+              .then(res => {
+                  setInsert(true);
+              });
+        }
     }else{
       console.log("error");
       setErrorText((prev) => {
@@ -256,8 +263,9 @@ return (
                 id="combo-box-demo1"
                 onSelect={handleVegetable}
                 options={top20Vegetables}
+                value={data.vegetable}
                 renderInput={(params) => <TextField {...params} label="Vegetable Category" color="secondary"  focused fullWidth required />}
-            />
+                />
             </Box>
             </Grid>
 
@@ -268,6 +276,7 @@ return (
                 id="combo-box-demo2"
                 onSelect={handleEcoCenter}
                 options={top6EconomicCenters}
+                value={data.ecocenter}
                 renderInput={(params) => <TextField {...params} label="Dedicated Economic Center" color="secondary"  focused fullWidth required />}
             />
             </Box>
@@ -275,14 +284,14 @@ return (
               
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Selling Price (Rs)" color="secondary" onChange={handlePrice}  focused fullWidth required error={errorText.price}
+                  <TextField label="Selling Price (Rs)" color="secondary" onChange={handlePrice} defaultValue={data.price} focused fullWidth required error={errorText.price}
                 helperText={errorText.price} />
             </Box>
             </Grid>
 
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity}  focused fullWidth required error={errorText.quantity}
+                  <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity} defaultValue={data.quantity} focused fullWidth required error={errorText.quantity}
                 helperText={errorText.quantity} />
             </Box>
             </Grid>

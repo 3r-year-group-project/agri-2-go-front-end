@@ -1,78 +1,118 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
 import { Box, Button, Card, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, List, ListItem, ListItemText, MenuItem, Select, TextField, Typography } from '@mui/material'
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import React from 'react'
+import './wastagepref.css'
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import ButtonForAdd from '../OderLayout/ButtonForAdd';
+
 import Checkbox from '@mui/material/Checkbox';
 // import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import FormControl from '@mui/material/FormControl';
 
-
-
-import WastagePreferenceCard from './WastagePreferenceCard';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function WastagePreference(props) {
+export default function WastagePreferenceCard(props) {
+
+    
   const [open, setOpen] =React.useState(false);
-  const top20Vegetables = [
-    { title: 'Carrots' },
-    { title: 'Eggplant'},
-    { title: 'Cabbage'},
-    { title: 'Cauliflower'},
-   
-    
-   
-  ];
-  
-  const qualityLevels = [
-    { title: 'Rotten' },
-    { title: 'About to rot'},
-    { title: 'Slurries'},
-    { title: 'Animal fodder'},
-    { title: 'Peels'},
-   
-    
-   
-  ];
+  const [openDelete, setOpenDelete] = React.useState(false);
+
+  const handleOpenDelete = () => {
+    setOpenDelete(true);
+  }
+
+  const handleCloseDelete = () => {
+    setOpenDelete(false);
+  }
+
   const handleClickOpen = () =>{
-    setOpen(true);
-}
+      setOpen(true);
+  }
 
-const handleClose = () =>{
-    setOpen(false);
-}
+  const handleClose = () =>{
+      setOpen(false);
+  }
+
+  const [category, setCategory] = React.useState('');
+
+
+  const [quality, setQuality] = React.useState('');
+
+ 
+  const [location, setLocation] = React.useState('');
+
+ 
+
   return (
-    <>
-    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
-    <Typography
-          sx={{ flex: '1 1 100%' }}
-        //   variant="h5"
-          id="tableTitle"
-          component="div"
-          color='#075E54'
-          fontWeight='700'
-          fontSize='28px'
-
+    <div className='background-preference'>
+        <Box 
+        width="90vw"
+        maxWidth="xl"
         >
-        Wastage Preference
-        </Typography>
-        <Button variant="contained" onClick={handleClickOpen}><AddBoxIcon/>{"\u00a0\u00a0"}Add New</Button>
-      <WastagePreferenceCard 
-        vegitable={["Tomato","Potato","onion"]}
-        quality="Animal fod"
-        price='100'
+          <Card style={{height:'auto', margin:'10px 30px',borderRadius:'5px',backgroundColor:'#075e54',color:'#fff',}}>
+            
+            <div className="topic-preference">
+            <CardContent>
+              <h2 style={{fontSize:'28px',fontWeight: '500'}}>Wastage Preferences</h2>
+            </CardContent>
+            </div>
+        <Divider color='#9df58c'/>
+        
+            <CardContent>
+            <div className='preference-data-row'>
+              <List>
+              
+                <ListItem>
+                  <div className="listitem-data-row">
+                    <ListItemText style={{textAlign: 'left',}}>Preferred Category: {"\u00a0"}</ListItemText>
+                    <ListItemText style={{textAlign: 'right',}}>{props.vegitable}</ListItemText>
+                  </div>
+                </ListItem>
+                <Divider color='#9df58c'/>
 
-      />
-      <WastagePreferenceCard 
-        vegitable="Potato"
-        quality="Eadable"
-        price='150'
-      />
-      </div>
-      <Dialog 
+                <ListItem>
+                   <div className="listitem-data-row">
+                    <ListItemText style={{textAlign: 'left',}}>Expected Quality Level: {"\u00a0"}</ListItemText>
+                    <ListItemText style={{textAlign: 'right',}}>{props.quality}</ListItemText>
+                  </div>
+                </ListItem>
+                <Divider color='#9df58c'/>
+
+                {/* <ListItem>
+                <div className="listitem-data-row">
+                  <ListItemText style={{textAlign: 'left',}}>Preferred Location</ListItemText>
+                  <ListItemText style={{textAlign: 'right',}}>Kandy</ListItemText>
+                </div>
+                </ListItem>
+                <Divider color='#9df58c'/> */}
+
+                <ListItem>
+                <div className="listitem-data-row">
+                  <ListItemText style={{textAlign: 'left',}}>Price (1kg): {"\u00a0"}</ListItemText>
+                  <ListItemText style={{textAlign: 'right',}}>{props.price}</ListItemText>
+                </div>
+                </ListItem>
+                <Divider color='#9df58c'/>
+
+              </List>
+              </div>
+            </CardContent>
+      
+            <div className="button-pref">
+            <CardActions>
+              <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/>
+              <ButtonForAdd name="Delete" action={handleOpenDelete} sx={{backgroundColor: 'red'}}/>
+            </CardActions>
+            </div>
+          </Card>
+        </Box>
+
+        <Dialog 
         open={open} 
         onClose={handleClose}
         fullWidth
@@ -236,7 +276,41 @@ const handleClose = () =>{
 
           </DialogContent>
         </Dialog>
-    </>
-  );
+
+        <Dialog open={openDelete} onClose={handleCloseDelete}>
+        <DialogTitle style={{backgroundColor: 'white'}}>Add to schedule</DialogTitle>
+        <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
+          <DialogContentText>
+            <h3>Confirm to Decline the request</h3>
+          </DialogContentText>
+          </DialogContent>
+        <DialogActions style={{backgroundColor: 'white'}}>
+          <Button onClick={handleCloseDelete} variant="outlined" color="secondary">Cancel</Button>
+          <Button variant="contained" color="error" onClick={handleCloseDelete}>Remove</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  )
 }
-    
+
+const top20Vegetables = [
+  { title: 'Carrots' },
+  { title: 'Eggplant'},
+  { title: 'Cabbage'},
+  { title: 'Cauliflower'},
+ 
+  
+ 
+];
+
+const qualityLevels = [
+  { title: 'Rotten' },
+  { title: 'About to rot'},
+  { title: 'Slurries'},
+  { title: 'Animal fodder'},
+  { title: 'Peels'},
+ 
+  
+ 
+];
+

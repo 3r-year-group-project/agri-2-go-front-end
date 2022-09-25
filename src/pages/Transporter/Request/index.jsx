@@ -27,8 +27,8 @@ const changeSt = () => {
     <React.Fragment>
     <CssBaseline />
     {request.map(element => {
-      let name = element.first_name + " " + element.last_name;
-      let dy = element.date.getDate() + "/" + element.date.getMonth() + "/" + element.date.getFullYear();
+      let name = element.farmer_first_name+" "+element.farmer_last_name;
+      let dy = element.date.substring(0,10);
       return (
         <TransportationRequest  
         id = {element.id}     
@@ -36,16 +36,15 @@ const changeSt = () => {
         vegetableName = {element.name}
         quantity = {element.quantity}
         date = {dy}
-        time = {element.getTime()}
-        startAddress = {element.address1}
-        destinationAddress = {element.shop_address}
+        startAddress = {element.address}
+        destinationAddress = {element.buyer_address}
         phone = {element.phone}
         cost={element.payment}
         changeSt = {changeSt}
           />
       )
     })}
-    <TransportationRequest
+    {/* <TransportationRequest
       name = "sethni Dissanayake"
       vegetableName = "carrot"
       quantity = "100"
@@ -55,7 +54,7 @@ const changeSt = () => {
       destinationAddress = "no 203/b araliya road , nugegoda"
       phone = "0771234567"
       cost="100.0"
-    />
+    /> */}
     <br/>
    
     

@@ -129,6 +129,7 @@ export default function Card(props) {
                     price={props.price}
                     minAdvance={props.minAdvance}
                     date={props.date}
+                    deal_date={props.deal_date}
                     />
                 </Paper>
                 <Paper elevation={0} justifyContent="space-between" sx={{

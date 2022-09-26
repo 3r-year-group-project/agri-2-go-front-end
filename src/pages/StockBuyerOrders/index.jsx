@@ -72,16 +72,6 @@ export default function StockBuyerOrders() {
     }
     const handleClickOpen = (order,farmer) =>{
 
-export default function StockBuyerOrders() {
-    const [openDetails, setOpen] =React.useState(false);
-    const [openReceived, setOpenReceived] =React.useState(false);
-    const [openNotReceived, setOpenNotReceived] =React.useState(false);
-
-    const [reason, setNotReceivedReason] = React.useState('female');
-    const handleNotReceivedReason = (event) => {
-        setNotReceivedReason(event.target.value);
-  };
-
         setOpen(true);
         setOrderDetails(order)
         setFarmerDetails(farmer)
@@ -568,4 +558,3 @@ async function getOrders() {
 }
 
 
-}

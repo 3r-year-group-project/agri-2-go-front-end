@@ -71,7 +71,7 @@ export default function TransportationRequest(props) {
     const declineRequest = () => {
       axios.post('/api/transporter/request/decline',{id:props.id})
       .then(res => {
-        navigate('/');
+        props.changeSt();
       });
     };
   
@@ -92,15 +92,15 @@ export default function TransportationRequest(props) {
         </Box>
 
         <Box sx={{ bgcolor: '#d4fade',  padding:'10px 20px 20px 20px',height: 'auto', color:'black', borderRadius:'0 0 10px 10px',border:'2px' }}>
-        <Stack spacing={4} direction="row">
+        <Stack spacing={6} direction="row">
         <Typography  >Date</Typography>
         <Typography  >{props.date}</Typography>
         <Typography  >Contacts</Typography>
         <Typography  >{props.phone}</Typography>
         <Typography  >Total Payment</Typography>
         <Typography   >Rs.{props.cost}</Typography>
-        <Typography  >Quantity</Typography>
-        <Typography   >{props.quantity}&nbsp;KG</Typography>
+        {/* <Typography  >Quantity</Typography>
+        <Typography   >{props.quantity}&nbsp;KG</Typography> */}
 
         </Stack>
 

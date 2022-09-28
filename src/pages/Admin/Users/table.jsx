@@ -340,9 +340,9 @@ useEffect(()=>{
                   const labelId = `enhanced-table-checkbox-${index}`;
                   let userType='';
                   switch (row.user_type) {
-                    case 2:
-                      userType='Customer';
-                      break;
+                    // case 2:
+                    //   userType='Customer';
+                    //   break;
                     case 3:
                       userType='Farmer';
                       break;
@@ -351,6 +351,12 @@ useEffect(()=>{
                       break;
                     case 5:
                       userType='Stock Buyer';
+                      break;
+                    case 7:
+                      userType='Transporter';
+                      break;
+                    case 8:
+                      userType='Wastage Recycle Center';
                       break;
                     default:
                       break;

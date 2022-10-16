@@ -6,7 +6,7 @@ import SelectBox from './SelectBox';
 import ButtonForChat from './ButtonForChat';
 import ButtonForAdd from './ButtonForAdd';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
-
+import DoneIcon from '@mui/icons-material/Done';
 
 
 export default function OrderComponent(props) {
@@ -34,15 +34,10 @@ export default function OrderComponent(props) {
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.orderName}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.pickupDate}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.status}</Typography></ListItemText>
-                
-                {/* <ListItemText>
-                    <SelectBox/>
-                </ListItemText> */}
-                
-                {/* <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText> */}
-                {/* <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add Details</Button></ListItemText> */}
+               
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
-                {/* <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Remove</Button></ListItemText> */}
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>}>Collected</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Cancel</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
 

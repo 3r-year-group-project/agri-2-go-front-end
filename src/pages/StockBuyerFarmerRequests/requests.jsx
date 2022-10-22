@@ -55,7 +55,7 @@ export default function FarmerRequests() {
                 alignItems="center"
                 >
                   {data.map((d)=>
-                <Card getFarmerRequest={getFarmerRequest} itemData={images.filter(e=>e.selling_request_id==d.selling_req_id)} farmerPlace={d.name} farmerDistance="10km" farmerName={d.first_name+" "+d.last_name} id={d.selling_req_id} cropName={d.vegetable} quantity={d.quantity} price={d.price} minAdvance="Rs.30" date={formatDate(d.date)}/>
+                <Card getFarmerRequest={getFarmerRequest} itemData={images.filter(e=>e.selling_request_id==d.selling_req_id)} deal_date={d.deal_date} farmerPlace={d.name} farmerDistance="10km" farmerName={d.first_name+" "+d.last_name} id={d.selling_req_id} cropName={d.vegetable} quantity={d.quantity} price={d.price*d.quantity} minAdvance={d.price!=0? Math.round((d.price/2)*d.quantity):0} date={formatDate(d.date)}  farmerid={d.farmer_id}/>
                
                 )}
             </Grid>

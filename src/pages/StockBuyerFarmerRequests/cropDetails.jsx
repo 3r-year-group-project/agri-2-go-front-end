@@ -29,6 +29,9 @@ export default function CropDetails(props) {
         <Typography color="text.secondary" variant="h6" sx={{ flex: 1 }}>
           {props.farmerPlace} {props.farmerDistance}
         </Typography>
+        <Typography color="text.secondary" variant="h6" sx={{ flex: 1 }}>
+          {"Delivery date "+props.deal_date} 
+        </Typography>
         </div>
         <div>
         

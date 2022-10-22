@@ -28,7 +28,10 @@ import Logo from '../../components/Logo/logo';
 import TextField from '@mui/material/TextField';
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Autocomplete } from '@mui/material';
 
+
+const wastageQuality = ["Rotten","About to Rot","Peels","Slurries","Animal Fodder"];
 
 
 
@@ -36,6 +39,7 @@ export default function AddToWastage() {
 
   const [data,setData] = useState({
     quantity:'',
+    quality:'',
   })
 
   const navigate = useNavigate();
@@ -44,6 +48,11 @@ export default function AddToWastage() {
 
   const handleQuantity = (e) => {
     setData({...data,quantity:e.target.value});
+  }
+
+
+  const handleQuality = (e) => {
+    setData({...data,quality:e.target.value});
   }
 
   // const handelVegetable = (e) =>{
@@ -114,6 +123,17 @@ return (
             
                   </Box>
                 </Grid>
+                <Grid item xs={12}>
+            <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo1"
+                onSelect={handleQuality}
+                options={wastageQuality}
+                renderInput={(params) => <TextField {...params} label="Vegetable Category" color="secondary"  focused fullWidth required />}
+            />
+            </Box>
+            </Grid>
                 
             </Grid>
             <Button

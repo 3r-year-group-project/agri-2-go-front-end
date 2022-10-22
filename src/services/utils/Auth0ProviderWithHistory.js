@@ -6,7 +6,7 @@ export const Auth0ProviderWithHistory = ({children})=>{
     // const navigate = useNavigate();
     const domain = "dev-aggfkxjn.us.auth0.com";
     const clientId = "2QzYXflOeArvH1hkfBcOcCA4X02m7yW9";
-    const audience = "learning"
+    const audience = "agrigo"
     const scope = "openid profile email";
 
     const onRedirectCallback = appState => {
@@ -27,7 +27,7 @@ export const Auth0ProviderWithHistory = ({children})=>{
         <Auth0Provider
             domain={domain}
             clientId={clientId}
-            // audience={audience}
+            audience={audience}
             scope={scope}
             redirectUri={window.location.origin}
             onRedirectCallback={onRedirectCallback}

@@ -57,6 +57,7 @@ export default function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
+        <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4,ml:0,mr:0 }}>
             <Grid container spacing={3}>
                {/* Recent Cards */}

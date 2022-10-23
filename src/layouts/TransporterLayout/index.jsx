@@ -8,7 +8,7 @@ import { TRANSPORTER_SECTIONS } from '../../constants';
 import TransporterListItems from './transporterListItem';
 import SidePanel from '../../components/SidePanel';
 
-import Dashboard from '../../pages/Transporter/Dashboard';
+import Dashboard from '../../components/Dashboard';
 import MyVehicals from '../../pages/Transporter/My Vehicle/MyVehicals';
 import TransportationRequest from '../../pages/Transporter/Request'
 import TransactionTable from '../../components/Transactions';

@@ -18,7 +18,7 @@ import FarmerSales from '../../pages/Farmer/Sales';
 import FarmerOrders from '../../pages/Farmer/Orders/index';
 import { FarmerCart } from '../../pages/Farmer/Cart';
 import { FarmerReviews } from '../../pages/Farmer/Reviews';
-import Dashboard from '../../pages/Farmer/Dashboard';
+import Dashboard from '../../components/Dashboard';
 import ViewPrices from '../../pages/Farmer/ViewPrices';
 import SendRequests from '../../pages/Farmer/SendRequests';
 import Transporters from '../../pages/Farmer/Transporters';

@@ -9,7 +9,7 @@ import ItemDescription from '../../pages/WastageRecycleCenter/ItemDescriptionLay
 import OrderPage from '../../pages/WastageRecycleCenter/OderLayout/OrderPage';
 import Wislist from '../../pages/WastageRecycleCenter/WisListLayout/Wislist';
 import WastagePreference from '../../pages/WastageRecycleCenter/WastagePreferenceLayout/WastagePreference';
-import Dashboard from '../../pages/WastageRecycleCenter/Dashboard';
+import Dashboard from '../../components/Dashboard';
 import ChatPage from '../../components/chat/chatPage';
 import ChatMemberList from '../../components/chat/memberList';
 import CalendarScedule from '../../components/Calendar';

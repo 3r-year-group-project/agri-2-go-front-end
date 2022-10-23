@@ -16,7 +16,7 @@ import Stocks from '../../pages/StockBuyerStocks';
 import WastageOrders from '../../pages/StockBuyerWastageOrders';
 import Orders from '../../pages/StockBuyerOrders';
 import Transactions from '../../pages/StockBuyerTransactions';
-import Dashboard from '../../pages/StockBuyerDashboard';
+import Dashboard from '../../components/Dashboard';
 import StockBuyerReviews from '../../components/Review';
 import FindVeges from '../../pages/StockBuyerFindVeges';
 

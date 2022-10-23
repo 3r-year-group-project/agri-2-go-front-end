@@ -97,17 +97,16 @@ export default function SidePanel(Props) {
 
   const [notificationCount,setnotificationCount] = React.useState(0);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      axios.get('/api/users/notifications/'+ user.email).then(res => {
-        console.log('notification', res.data);
-        setnotificationCount(res.data.data.notification.length);
-      });
-    }, 2000);
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     axios.get('/api/users/notifications/'+ user.email).then(res => {
+  //       setnotificationCount(res.data.data.notification.length);
+  //     });
+  //   }, 2000);
 
-    return () => clearInterval(interval);
+  //   return () => clearInterval(interval);
     
-  }, [isAuthenticated, isLoading]);
+  // }, [isAuthenticated, isLoading]);
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />

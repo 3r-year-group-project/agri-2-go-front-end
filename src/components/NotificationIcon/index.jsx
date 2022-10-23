@@ -96,19 +96,17 @@ export default function NotificationIcon(Props) {
     userType:"farmer", notification:[{alert:1,time:"12:00PM"},
     {alert:2,time:"12:00AM"}]});
   
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      axios.get('/api/users/notifications/'+ user.email).then(res => {
-        console.log('notification', res.data);
-        setNotification(res.data.data);
-      });
-    }, 2000);
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     axios.get('/api/users/notifications/'+ user.email).then(res => {
+  //       setNotification(res.data.data);
+  //     });
+  //   }, 2000);
 
-    return () => clearInterval(interval);
+  //   return () => clearInterval(interval);
     
-  }, [isAuthenticated, isLoading]);
+  // }, [isAuthenticated, isLoading]);
 
-  console.log('not',notification.notification);
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>

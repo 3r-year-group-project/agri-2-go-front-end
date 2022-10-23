@@ -107,6 +107,12 @@ export default function NotificationIcon(Props) {
     
   // }, [isAuthenticated, isLoading]);
 
+  const clearNotification = () => {
+    axios.put('/api/users/notifications/clear/'+ user.email).then(res => {
+      console.log('notification cleared');
+    });
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -183,7 +189,7 @@ export default function NotificationIcon(Props) {
       
       <MenuItem>
       <Typography align='center'>
-    <Button variant="contained" startIcon={<DeleteIcon />}>
+    <Button onClick={clearNotification} variant="contained" startIcon={<DeleteIcon />}>
           Read all notifications
       </Button> 
   </Typography>

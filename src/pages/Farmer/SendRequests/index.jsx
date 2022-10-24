@@ -21,7 +21,6 @@ import { date } from 'joi';
 
 
 
-
 export default function SendRequests() {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -32,11 +31,22 @@ export default function SendRequests() {
 
   const[insert,setInsert] = React.useState(false);
 
+  // const [data,setData] = React.useState({
+  //   price:    urlParams.has('price')      ? urlParams.get('price') :'',
+  //   quantity: urlParams.has('quantity')   ? urlParams.get('quantity')  :'',
+  //   ecocenter:urlParams.has('ecocenter')  ? urlParams.get('ecocenter') :'',
+  //   vegetable:urlParams.has('vegetable')  ? urlParams.get('vegetable') :'',
+  //   fileName:'',
+  //   base64URL:'',
+  //   date:'',
+  
+  // });
+
   const [data,setData] = React.useState({
-    price:    urlParams.has('price')      ? urlParams.get('price')     :'',
-    quantity: urlParams.has('quantity')   ? urlParams.get('quantity')  :'',
-    ecocenter:urlParams.has('ecocenter')  ? urlParams.get('ecocenter') :'',
-    vegetable:urlParams.has('vegetable')  ? urlParams.get('vegetable') :'',
+    price:'',
+    quantity:'',
+    ecocenter:'',
+    vegetable:'',
     fileName:'',
     base64URL:'',
     date:'',
@@ -64,7 +74,7 @@ export default function SendRequests() {
   });
 
   const [image, setImage] = React.useState({ preview: ''})
-
+ 
   
   
 
@@ -102,12 +112,14 @@ export default function SendRequests() {
     });
   };
 
+  
   const checkImgFile = (e) => {
 
     const img = {
         preview: URL.createObjectURL(e.target.files[0]),
         
       }
+    setImage(img);  
     setImage(img);
     getBase64(e.target.files[0])
     .then(result => {
@@ -129,14 +141,11 @@ export default function SendRequests() {
 
     
 
-  // useEffect(() => {
-  //   console.log("Runnin!!!");
-  // }, []);
+
   
   const handlePrice = (e) => {
-    // setData({...data,price:e.target.value})
     let ob = checkWord(e.target.value,1,10);
-        if(ob.state == true){
+        if(ob.state === true){
             setData ((prev) => {
                 return({...prev, price : e.target.value});
             });
@@ -154,9 +163,8 @@ export default function SendRequests() {
   }
   
   const handleQuantity = (e) => {
-    // setData({...data,quantity:e.target.value})
     let ob = checkWord(e.target.value,1,10);
-        if(ob.state == true){
+        if(ob.state === true){
             setData ((prev) => {
                 return({...prev, quantity : e.target.value});
             });
@@ -174,24 +182,33 @@ export default function SendRequests() {
   }
   
   const handleVegetable = (e) => {
-    setData({...data,vegetable:e.target.value})
+    setData((prev) => {
+      return({...prev, vegetable:e.target.value});
+  });
   }
   const handleDate = (e) => {
-    setData({...data,date:e.target.value})
+    setData((prev) => {
+      return({...prev, date:e.target.value});
+  });
   }
 
   const handleEcoCenter = (e) => {
-        setData({...data,ecocenter:e.target.value})
+        setData((prev) => {
+          return({...prev, ecocenter:e.target.value});
+      });
   }
 
-  console.log(data)
+  // console.log(data)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
+    // e.preventDefault();
     console.log("data gonna be uploads!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",data);
     if(!Object.values(data).includes("")){
         axios.post('/api/farmer/sellrequest/insert',{...data,email:user.email})
             .then(res => {
-                setInsert(true);
+                // setInsert(!insert);
+                console.log('i have been called');
+                navigate("/farmer/dash/myrequests");
             });
         if(urlParams.has('id')){
           axios.post('/api/farmer/requests/resendrequest',{id:urlParams.get('id'), email:user.email})
@@ -200,6 +217,7 @@ export default function SendRequests() {
               });
         }
     }else{
+      console.log("error");
       setErrorText((prev) => {
           return({...prev, totalError : "Please fill all the fields"});
       });
@@ -218,13 +236,10 @@ export default function SendRequests() {
           setEcoCenterData(res.data.data);});   
   },[insert]);
   
+  React.useEffect(() => {
+    console.log(data);
+  },[data]);
 
-// React.useEffect(() => {
-//   console.log("data gonna be uploads!!!");
-//   axios.post('/api/farmer/sellrequest/getEconomicCentersList')
-//       .then(res => {
-//         setEcoCenterData(res.data.data);});
-// },[insert]);
 
 
 return (
@@ -279,14 +294,28 @@ return (
               
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Selling Price (Rs)" color="secondary" onChange={handlePrice} defaultValue={data.price} focused fullWidth required error={errorText.price}
+                  <TextField 
+                  label="Selling Price (Rs)" 
+                  color="secondary" 
+                  onChange={handlePrice} 
+                  value={data.price} 
+                  focused 
+                  fullWidth required 
+                  error={errorText.price}
                 helperText={errorText.price} />
             </Box>
             </Grid>
 
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-                  <TextField label="Quantity (kg)" color="secondary" onChange={handleQuantity} defaultValue={data.quantity} focused fullWidth required error={errorText.quantity}
+                  <TextField 
+                  label="Quantity (kg)" 
+                  color="secondary" 
+                  onChange={handleQuantity} 
+                  value={data.quantity} 
+                  focused fullWidth 
+                  required 
+                  error={errorText.quantity}
                 helperText={errorText.quantity} />
             </Box>
             </Grid>
@@ -301,6 +330,7 @@ return (
               focused
               fullWidth
               required
+              value={data.date}
               onChange={handleDate}
               sx={{ width: 220 }}
               InputLabelProps={{
@@ -315,6 +345,7 @@ return (
             <Typography style={{width:'150px' , fontSize:"17px"}} gutterBottom variant='body1' color="text.primary">
                     Upload Image
                 </Typography>
+                
                 <div className='image_upload'>
                     <input
                     type='file'
@@ -324,40 +355,30 @@ return (
                     onChange={checkImgFile}
                     style={{width:'450px',}}
                     />
+                    
                     <div on className="lable-container" style={{width:"40%" , paddingTop:"10px",height:"45px" , backgroundColor:"green" , borderRadius:"10px" , fontWeight:"bold" }}>
                     <label for='files'>
                         Choose image
                     </label>
                     </div>
-                    
+                    <br />
+                    <img src={image.preview} alt='' height='25%' width='25%'/>
                 </div>
             </Box>
             </Grid>
             </Grid>
             <Button
               onClick={handleSubmit}
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Send Request
             </Button>
-            
- 
-
-
-            
           </Box>
-          
-          
         </Box>
-        
-      
-      </Container>
-    
-    
-     
+      </Container>   
       </Fragment>
     
   );

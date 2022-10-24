@@ -12,6 +12,8 @@ import Subscription from '../../pages/Admin/Subscriptions';
 import ScamReports from '../../pages/Admin/ScamReports';
 import Vegetables from '../../pages/Admin/Vegetables';
 import Payments from '../../pages/Admin/Payments';
+import ReveneuRate from '../../pages/Admin/RevenueRate';
+import RevenueRate from '../../pages/Admin/RevenueRate';
 
 
 
@@ -45,6 +47,9 @@ export default function AdminLayout() {
           break;
         case ADMIN_SECTIONS.SCAMREPORTS:
           setOpenPane(<ScamReports/>);
+          break;
+        case ADMIN_SECTIONS.REVENEU_RATE:
+          setOpenPane(<RevenueRate/>);
           break;
          
         default:

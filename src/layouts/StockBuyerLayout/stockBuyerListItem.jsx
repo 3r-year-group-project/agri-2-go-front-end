@@ -35,13 +35,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYSCHEDULE)}>
+      {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Schedule" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.ORDERS)}>
         <ListItemIcon>
           <ShoppingCartIcon color="secondary" />
@@ -61,13 +61,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.REVIEWS)}>
+      {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <ReviewsIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Reviews" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FARMERREQUESTS)}>
         <ListItemIcon>
           <ChatIcon  color="secondary" />
@@ -75,13 +75,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Farmer Requests" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>
+      {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>
         <ListItemIcon>
           <ManageSearchIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Find Vegetables" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.WASTAGEORDERS)}>
         <ListItemIcon>
           <AutoDeleteIcon  color="secondary" />
@@ -89,13 +89,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Wastage Orders" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.DEMANDING)}>
+      {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.DEMANDING)}>
         <ListItemIcon>
           <TrendingUpIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Demanding" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.STOCKS)}>
         <ListItemIcon>
           <InventoryIcon  color="secondary" />

@@ -74,6 +74,7 @@ export default function Card(props) {
   const handleAccept = async (id)=>{
     axios.post('/api/stockbuyer/paymethandler/pay',{'id':id,'email':user.email, 'cropName':props.cropName,'minAdvance':props.minAdvance,'images':props.itemData , 'farmerid':props.farmerid})
     .then((res) => {
+      console.log(res.data);
       if(res.data.url){
         window.location.href=res.data.url
        

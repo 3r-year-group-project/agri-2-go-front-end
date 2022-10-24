@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import './index.css';
 import App from './App'
 import reportWebVitals from './reportWebVitals';
-import {Auth0ProviderWithHistory} from "./services/utils/Auth0ProviderWithHistory";
+import { Auth0Provider } from "@auth0/auth0-react";
 import axios from 'axios';
 // my API url
 axios.defaults.baseURL = "http://localhost:3002";
@@ -11,11 +11,37 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'; // for all r
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
+const domain = "dev-aggfkxjn.us.auth0.com";
+    const clientId = "2QzYXflOeArvH1hkfBcOcCA4X02m7yW9";
+    const audience = "agrigo"
+    const scope = "openid profile email";
+
+    const onRedirectCallback = appState => {
+        window.history.replaceState(
+          {},
+          document.title,
+          appState && appState.targetUrl
+            ? appState.targetUrl
+            : window.location.pathname
+        );
+      };
+
+
 root.render(
 <React.StrictMode>
-  <Auth0ProviderWithHistory>
-    <App/>
-  </Auth0ProviderWithHistory>
+<Auth0Provider
+domain={domain}
+clientId={clientId}
+audience={audience}
+scope={scope}
+redirectUri={window.location.origin}
+onRedirectCallback={onRedirectCallback}
+useRefreshTokens
+cacheLocation='localstorage'
+  >
+    <App />
+  </Auth0Provider>
 </React.StrictMode>
 );
 

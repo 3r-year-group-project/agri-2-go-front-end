@@ -3,12 +3,20 @@ import Typography from '@mui/material/Typography';
 import Title from './title';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
+import { useNavigate } from 'react-router-dom';
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
 export default function CropDetails(props) {
+  const navigate = useNavigate();
+  const resendRequestGetData =  "id=" + props.requestId + "&" +
+                                "vegetable=" + props.cropName + "&" +
+                                "ecocenter=" + props.marketName + "&" +
+                                "price=" + props.price + "&" +
+                                "quantity=" + props.quantity;
+
   return (
     <React.Fragment>
       <Title>
@@ -24,18 +32,18 @@ export default function CropDetails(props) {
         justifyContent: 'space-evenly',
         paddingBottom:2
       }}>
-        <Typography component="p" variant="h4">
+        <Typography component="p" variant="h5">
           {props.cropName}
         </Typography>
-        <Typography component="p" variant="h4">
-          {props.quantity}
+        <Typography component="p" variant="h5">
+          {props.quantity}kg
         </Typography>
-        <Typography component="p" variant="h4">
-          {props.price}
+        <Typography component="p" variant="h5">
+          Rs.{props.price}
         </Typography>
       </Paper>
       <center>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" onClick={()=>navigate(`/farmer/dash/sendrequests?${resendRequestGetData}`)}>
           Resend Request
         </Button>
       </center>

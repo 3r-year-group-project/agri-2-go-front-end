@@ -26,6 +26,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { Payment } from 'payment';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 
 
@@ -33,6 +36,7 @@ export default function TransportationRequest(props) {
 
     const [openContact,setOpenContact] = useState(false);
     const [openConfirm,setOpenConfirm] = useState(false);
+    const navigate = useNavigate();
 
     const handleConfirmOpen = () => {
         setOpenConfirm(true);
@@ -57,6 +61,19 @@ export default function TransportationRequest(props) {
     const handleDecline = () => {
       props.channgeSt();
     };
+
+    const acceptRequest = () => {
+      axios.post('/api/transporter/request/accept',{id:props.id})
+      .then(res => {
+        navigate('/transporter/dash/tripshedule');
+      });
+    };
+    const declineRequest = () => {
+      axios.post('/api/transporter/request/decline',{id:props.id})
+      .then(res => {
+        props.changeSt();
+      });
+    };
   
   return (
     <React.Fragment>
@@ -75,18 +92,18 @@ export default function TransportationRequest(props) {
         </Box>
 
         <Box sx={{ bgcolor: '#d4fade',  padding:'10px 20px 20px 20px',height: 'auto', color:'black', borderRadius:'0 0 10px 10px',border:'2px' }}>
-        <Stack spacing={8} direction="row">
+        <Stack spacing={6} direction="row">
         <Typography  >Date</Typography>
         <Typography  >{props.date}</Typography>
-        <Typography  >Time</Typography>
-        <Typography  >{props.time}</Typography>
         <Typography  >Contacts</Typography>
         <Typography  >{props.phone}</Typography>
         <Typography  >Total Payment</Typography>
         <Typography   >Rs.{props.cost}</Typography>
+        {/* <Typography  >Quantity</Typography>
+        <Typography   >{props.quantity}&nbsp;KG</Typography> */}
+
         </Stack>
 
-        
         
         <Timeline position="right" >
       <TimelineItem>
@@ -144,7 +161,7 @@ export default function TransportationRequest(props) {
         Contact Seller
       </Button> */}
       <Button onClick={handleConfirmOpen} variant="contained" color="success" startIcon={<PlaylistAddIcon /> }>
-        Add to Schedule
+        Accept and add to Schedule
       </Button>
       <Button onClick={handleClickOpenContact} variant="contained" color="error" startIcon={<DeleteSweepIcon /> }>
         Decline
@@ -166,7 +183,7 @@ export default function TransportationRequest(props) {
           </DialogContent>
         <DialogActions style={{backgroundColor: 'white'}}>
           <Button variant="contained" color="error" onClick={handleConfirmClose}>Cancel</Button>
-          <Button onClick={handleConfirmClose} variant="outlined" color="secondary">Add to Schedule</Button>
+          <Button onClick={()=>{acceptRequest();handleConfirmClose();}} variant="outlined" color="secondary">Add to Schedule</Button>
         </DialogActions>
       </Dialog>
 
@@ -179,7 +196,7 @@ export default function TransportationRequest(props) {
           </DialogContent>
         <DialogActions style={{backgroundColor: 'white'}}>
           <Button onClick={handleCloseContact} variant="outlined" color="secondary">Cancel</Button>
-          <Button variant="contained" color="error" onClick={handleCloseContact}>Remove</Button>
+          <Button variant="contained" color="error" onClick={()=>{declineRequest();handleCloseContact();}}>Remove</Button>
         </DialogActions>
       </Dialog>
     

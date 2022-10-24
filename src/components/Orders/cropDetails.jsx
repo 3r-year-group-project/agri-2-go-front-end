@@ -24,6 +24,12 @@ export default function CropDetails(props) {
           </Typography>
         </Title>
         <Title>
+          Deal date
+          <Typography color="text.secondary" sx={{ flex: 1 }}>
+            {props.dealDate}
+          </Typography>
+        </Title>
+        <Title>
           Order Code
           <Typography color="text.secondary" sx={{ flex: 1 }}>
             {props.orderCode}
@@ -40,10 +46,10 @@ export default function CropDetails(props) {
           {props.cropName}
         </Typography>
         <Typography component="p" variant="h4">
-          {props.quantity}
+          {props.quantity}kg
         </Typography>
         <Typography component="p" variant="h4">
-          {props.price}
+          Rs.{props.price}
         </Typography>
       </Paper>
     </React.Fragment>

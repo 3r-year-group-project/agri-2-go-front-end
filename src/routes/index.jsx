@@ -77,8 +77,8 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
-        <Route path="/stockbuyer/addtowastage" element={<AddToWastage/>}/>  
-        <Route path="/stockbuyer/sellstock" element={<StockBuyerSellStocks/>}/>  
+        <Route path="/stockbuyer/addtowastage/:id/:vegetable" element={<AddToWastage/>}/>  
+        <Route path="/stockbuyer/sellstock/:id" element={<StockBuyerSellStocks/>}/>  
         <Route path="/stockbuyer/sellwastagestocks" element={<StockBuyerSellWastageStocksDetails/>}/> 
        
         <Route path="/register/:id" element={<RegisterPage/>}/>
@@ -101,7 +101,7 @@ export default function Router() {
         <Route path="/wastagerecyclecenter/dash/:page/:id" element={<WastageRecyclecenterLayout/>}/>
 
 
-        //<Route path="/test" element={<TransportationRequest />}/> 
+        {/* <Route path="/test" element={<TransportationRequest />}/>  */}
 
 
         <Route path="/farmer/profile" element={<FarmerProfilePage/>}/>

@@ -24,6 +24,11 @@ export default function DashboardContent() {
   const [userCounts, setUserCounts] = React.useState([]);
   const [insert,setInsert] = React.useState(false);
 
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  const current = new Date()
+  const curr_date_str = `on ${current.getDate()} ${months[current.getMonth()]}, ${current.getFullYear()}`;
+
   const userType = {
     admin:1,
     customer:2,
@@ -70,7 +75,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Total Users" value={userCountForId("sum")} date="on 11 August, 2022"/>
+                  <Cards title="Total Users" value={userCountForId("sum")} date={curr_date_str}/>
                 </Paper>
               </Grid>
 
@@ -83,7 +88,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Farmers" value={userCountForId("farmer")} date="on 11 August, 2022"/>
+                  <Cards title="Farmers" value={userCountForId("farmer")} date={curr_date_str}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -95,7 +100,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Stock Buyers" value={userCountForId("stock")} date="on 11 August, 2022"/>
+                  <Cards title="Stock Buyers" value={userCountForId("stock")} date={curr_date_str}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -107,7 +112,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Wastage Recycle Center" value={userCountForId("wastage")} date="on 11 August, 2022"/>
+                  <Cards title="Wastage Recycle Center" value={userCountForId("wastage")} date={curr_date_str}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -119,7 +124,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Transporters" value={userCountForId("transporter")} date="on 11 August, 2022"/>
+                  <Cards title="Transporters" value={userCountForId("transporter")} date={curr_date_str}/>
                 </Paper>
               </Grid>
               {/* Chart */}

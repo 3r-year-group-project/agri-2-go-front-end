@@ -24,7 +24,13 @@ export default function CropDetails(props) {
           </Typography>
         </Title>
         <Title>
-          Request Code
+          Deal date
+          <Typography color="text.secondary" sx={{ flex: 1 }}>
+            {props.dealDate}
+          </Typography>
+        </Title>
+        <Title>
+          Order Code
           <Typography color="text.secondary" sx={{ flex: 1 }}>
             {props.orderCode}
           </Typography>

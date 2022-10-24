@@ -82,7 +82,7 @@ function Row(props) {
         <TableCell align="right">{row.price}</TableCell>
         <TableCell align="right">{row.quantity}</TableCell>
       </TableRow>
-      <TableRow>
+      {/* <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
@@ -116,7 +116,7 @@ function Row(props) {
             </Box>
           </Collapse>
         </TableCell>
-      </TableRow>
+      </TableRow> */}
     </React.Fragment>
   );
 }

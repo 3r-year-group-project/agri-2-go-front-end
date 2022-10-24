@@ -21,6 +21,7 @@ export default function CenteredGrid() {
       axios.post('/api/farmer/requests/orders',{email:user.email})
       .then(res => {
         setOrders(res.data.data);
+        console.log(res.data.data);
       });
     }
   },[insert]);
@@ -45,11 +46,15 @@ export default function CenteredGrid() {
                   {orders.map((element) => (
                     <Grid item xs={12} md={6}>
                       <Card 
-                        orderCode={element.request_id}
+                        orderId={element.request_id}
                         marketName={element.economic_center} 
                         cropName={element.vegetable} 
                         quantity={element.quantity} 
                         price={element.price}
+                        orderCode={element.code}
+                        dealDate={element.deal_date.substring(0,10)}
+                        longitude={element.longitude}
+                        latitude={element.latitude}
                       />
                     </Grid>
                   ))}

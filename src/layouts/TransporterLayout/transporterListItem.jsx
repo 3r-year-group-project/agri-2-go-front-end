@@ -64,12 +64,12 @@ export default function TransporterListItems() {
       </ListItemButton>
       <Divider/>
 
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
+      {/* <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <ChatIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
-      </ListItemButton>
+      </ListItemButton> */}
       <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>

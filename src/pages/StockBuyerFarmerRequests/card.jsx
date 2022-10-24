@@ -13,7 +13,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
-import SlideShow from './slideShow';
+// import SlideShow from './slideShow';
 import Modal from '@mui/material/Modal';
 import { useNavigate } from 'react-router-dom';
 
@@ -74,6 +74,7 @@ export default function Card(props) {
   const handleAccept = async (id)=>{
     axios.post('/api/stockbuyer/paymethandler/pay',{'id':id,'email':user.email, 'cropName':props.cropName,'minAdvance':props.minAdvance,'images':props.itemData , 'farmerid':props.farmerid})
     .then((res) => {
+      console.log(res.data);
       if(res.data.url){
         window.location.href=res.data.url
        
@@ -108,7 +109,7 @@ export default function Card(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <SlideShow  imagesList={props.itemData}/>
+        {/* <SlideShow  imagesList={props.itemData}/> */}
       </Modal>
       
       

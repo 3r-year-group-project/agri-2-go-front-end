@@ -1,31 +1,7 @@
-import Button from '@mui/material/Button';
-
 import React, { Fragment, useState } from 'react';
-
-
-import { useNavigate } from 'react-router-dom';
-
-import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
-
-import { CssBaseline, Stack, Typography } from '@mui/material';
-
-import FormControlLabel from '@mui/material/FormControlLabel';
-
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
-
 import Container from '@mui/material/Container';
-
-import Input from '../../components/Input/input';
-
-
-import Footer from "../../components/Footer";
-import NavBar from '../../components/Navbar';
-import Logo from '../../components/Logo/logo';
-
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -37,40 +13,38 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
-
+import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
+import { Button } from '@mui/material';
 
-import Tooltip from '@mui/material/Tooltip';
 import { visuallyHidden } from '@mui/utils';
-// import SearchBar from '../../../components/SearchBar';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import AddIcon from '@mui/icons-material/Add';
-import axios from "axios";
-import { useAuth0 } from "@auth0/auth0-react";
+import DoneIcon from '@mui/icons-material/Done';
 
-    function createData(productName,buyerName,quantity,quality,orderDate,dealDate,status) {
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
+
+function createData( name, accountNumber, bankName, branch, amount, markRelease) {
     return {
-      productName,
-      buyerName,
-      quantity,
-      quality,
-      orderDate,
-      dealDate,
-      status
-      // availabilityButton,
-      // throwButton,
+      name,
+      accountNumber, 
+      bankName,
+      branch,
+      amount,
+      markRelease,
     };
   }
   
-  let rows = [
-    // createData('Carrot', '200LKR','Animal Fodder','Sell Wastage Stock','Throw'),
-    // createData('Tomatoes', '400LKR','Slurries','Sell Wastage Stock','Throw'),
-    // createData('Cabbage', '2700LKR','Peels','Sell Wastage Stock','Throw'),
-    // createData('Beetroot', '1200LKR','About to Rot','Sell Wastage Stock','Throw'),
-    // createData('Leeks','1410LKR','Peels','Sell Wastage Stock','Throw'),
-    // createData('Potatoes', '1120LKR', 'Rotten','Sell Wastage Stock','Throw'),
-    // createData('Green Chillies','890LKR','Rotten','Sell Wastage Stock','Throw'),
+  const rows = [
+    createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
+    createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
+   
+
     
   ];
   
@@ -95,55 +69,42 @@ import { useAuth0 } from "@auth0/auth0-react";
   
   const headCells = [
     {
-      id: 'productName',
+      id: 'name',
       numeric: false,
       disablePadding: false,
-      label: 'Name of the Product',
-    },
-
-    {
-      id: 'buyerName',
-      disablePadding: false,
-      label: 'buyerName',
-    
-    },
-
-    {
-      id: 'quantity',
-      disablePadding: false,
-      label: 'Quantity',
+      label: 'Name',
     },
     {
-      id: 'quality',
+      id: 'accountnumber',
       disablePadding: false,
-      label: 'Quality',
-    
-    },
-   
-    {
-      id: 'orderDate',
-      disablePadding: false,
-      label: 'order Date',
+      label: 'Account Number',
     
     },
     {
-      id: 'dealDate',
-      disablePadding: false,
-      label: 'Pickup Date',
-    
-    },{
-      id: 'status',
-      disablePadding: false,
-      label: 'status',
-    
+        id: 'bankname',
+        disablePadding: false,
+        label: 'Bank Name',
+      
+      },
+    {
+        id: 'branch',
+        disablePadding: false,
+        label: 'Branch',
+      
     },
+    {
+        id: 'amount',
+        disablePadding: false,
+        label: 'Amount',
+      
+    },
+    {
+      id: '',
+      numeric: false,
     
-    // {
-    //   id: 'availabilityButton',
-    //   disablePadding: false,
-    //   label: 'Sell or Throw?',
-    // },
-    
+      disablePadding: false,
+      label: 'Status',
+    },
     
   ];
   
@@ -170,7 +131,7 @@ import { useAuth0 } from "@auth0/auth0-react";
                 direction={orderBy === headCell.id ? order : 'asc'}
                 onClick={createSortHandler(headCell.id)}
               >
-                {headCell.label}
+                <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
                 {orderBy === headCell.id ? (
                   <Box component="span" sx={visuallyHidden}>
                     {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -197,7 +158,11 @@ import { useAuth0 } from "@auth0/auth0-react";
     const { numSelected } = props;
   
     return (
-      <Toolbar
+        <div>
+        
+           
+         
+      {/* <Toolbar
         sx={{
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
@@ -207,32 +172,15 @@ import { useAuth0 } from "@auth0/auth0-react";
           }),
         }}
       >
-        { (
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            variant="h5"
-            id="tableTitle"
-            component="div"
-          
-          >
-          Wastage Stocks Management
-          
-          </Typography>
-          
-  
-          
+       
+        {(
+          <Button color="secondary" variant="contained" sx={{
+            width: 200,fontSize: 12, backgroundColor: "green",color:'white' , fontWeight:"bold" , margin:"10px 10px 0 0"}}>
+                            Add a Vegetable<AddIcon/>
+          </Button>
         )}
-        
-        {/* {<SearchBar/>} */}
-  
-        {/* { (
-          <Tooltip title="Filter list">
-            <IconButton>
-              <FilterListIcon color="secondary"/>
-            </IconButton>
-          </Tooltip>
-        )} */}
-      </Toolbar>
+       </Toolbar> */}
+      </div>
       
     );
   };
@@ -240,39 +188,31 @@ import { useAuth0 } from "@auth0/auth0-react";
   EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
   };
+  
 
 
 
-
-export default function LoadWastageStocks() {
-
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const[insert,setInsert] = React.useState(false);
-
-  React.useEffect(() => {
-    console.log("Running wastage orders!!!");
-    axios.post('/api/stockbuyer/wastagestocks/getdetails',{email:user.email})
-            .then(res => {
-                console.log(res.data.data);
-                rows = [];
-                for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].order_name,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name), res.data.data[i].quantity, res.data.data[i].quality,res.data.data[i].order_date.slice(0,10),res.data.data[i].pickup_date.slice(0,10),res.data.data[i].status));
-                  console.log(res.data.data[i])
-                  setInsert(true);
-                }
-              });
-                
-    
-  }, [insert]);
+const style = {
+    width: '100%',
+    maxWidth: 360,
+    bgcolor: 'background.paper',
+    marginTop:"60px",
+    marginLeft:"30px",
+  };
 
 
-    let navigate = useNavigate(); 
-    const routeChangeSellWastageStocks = () =>{ 
-    let path = `/stockbuyer/sellwastagestocks`; 
-    navigate(path);
-  }
+export default function WastageTable() {
+    //handle dialog box
+    const [open, setOpen] = React.useState(false);
 
- 
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -304,18 +244,31 @@ export default function LoadWastageStocks() {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+
 return (
     <Fragment>
-      <Container component="main" maxWidth="100%" >
-        <Grid container spacing={1} >
-        <Grid item xs={12} sx={{marginTop:"40px"}}>
-        <Box sx={{ width: '100%',}}>
-      <Paper sx={{ width: '100%', mb: 2,  }}>
+   
+   
+                
+           
+    <Container component="main" maxWidth="100%" >
+      
+        
+          
+          <Box >
+            <Grid container spacing={4}>
+              
+            <Grid item xs={12} sx={{marginTop:"5px"}}>
+              
+            <Box sx={{ width: '100%',}}>
+        
+            <Paper sx={{ width: '100%', mb: 2,  }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          
         <TableContainer  >
           <Table
-       fontSize="24"
+       fontSize="28"
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
             size={ 'large'}
@@ -350,25 +303,42 @@ return (
                         align='left'
                         
                       >
-                        {row.productName}
+                        {row.name}
                       </TableCell>
-                    <TableCell align="left">{row.buyerName}</TableCell>
-                    <TableCell align="left">{row.quantity}</TableCell>
-                    <TableCell align="left">{row.quality}</TableCell>
-                    <TableCell align="left">{row.orderDate}</TableCell>
-                    <TableCell align="left">{row.dealDate}</TableCell>
-                    <TableCell align="left">{row.status}</TableCell>
-                    {/* <TableCell align="left">
-                      <Button color="secondary" variant="contained" sx={{
-                        width: 180,fontSize: 11, backgroundColor: "orange",color:'white' , marginRight:"10px"}} onClick={routeChangeSellWastageStocks} >
-                            {row.availabilityButton}
-                      </Button>
-                        <Button color="error" variant="contained" sx={{
-                         width: 180,fontSize: 11, backgroundColor: "green",color:'white'}}>
-                            {row.throwButton}
-                        </Button>
-                    </TableCell> */}
+                      <TableCell align="left">{row.accountNumber}</TableCell>
+                      <TableCell align="left">{row.bankName}</TableCell>
+                      <TableCell align="left">{row.branch}</TableCell>
+                      <TableCell align="left">{row.amount}</TableCell>
+                      <TableCell align="left">
                     
+                        <Button color="info" variant="contained" startIcon={<DoneIcon/>} onClick={handleClickOpen} sx={{
+                         width: 200,fontSize: 13, color:'white'}}>
+                            {row.markRelease}
+                        </Button>
+
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">
+                            {"Confirm Payment"}
+                            </DialogTitle>
+                            <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Are you sure you want to release the payment?
+                            </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                            <Button variant="outlined" onClick={handleClose}>No</Button>
+                            <Button variant="contained" onClick={handleClose} autoFocus>
+                                Yes
+                            </Button>
+                            </DialogActions>
+                        </Dialog>
+                    
+                    </TableCell>
                       
                     </TableRow>
                   );
@@ -389,10 +359,27 @@ return (
       </Paper>
       
     </Box>
-        </Grid>
-        </Grid>
+                
+                </Grid>
+        
+            </Grid>
+            
+
+ 
+
+
+            
+          </Box>
+          
+          
+        
+      
       </Container>
-    </Fragment>
+    
+    
+     
+      </Fragment>
+     
     
   );
   

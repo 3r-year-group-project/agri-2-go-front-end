@@ -5,6 +5,7 @@
     PAYMENTS: 'payments',
    SUUBSCRIPTIONS:'subscriptions',
    SCAMREPORTS:'scamreports',
+   REVENEU_RATE:'revenuerate'
  };
  export const FARMER_SECTIONS = {
   DASHBOARD: 'dashboard',

@@ -25,6 +25,7 @@ let rows = [
 export default function FarmerTransactions() {
 
     const { user, isAuthenticated, isLoading } = useAuth0();
+    const[insert,setInsert] = React.useState(false);
 
     React.useEffect(() => {
         console.log("Running Transaction!!!!!!!!!!");
@@ -33,13 +34,14 @@ export default function FarmerTransactions() {
                     console.log(res.data.data);
                 rows = []
                 for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].date_time,res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));
+                  rows.push(createData(res.data.data[i].date_time.slice(0,10),res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));
                   console.log(res.data.data[i])
+                  setInsert(true);  
                 }
                   });
                     
         
-      }, []);
+      }, [insert]);
 
     return(
         <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >

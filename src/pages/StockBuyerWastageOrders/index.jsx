@@ -256,7 +256,7 @@ export default function LoadWastageStocks() {
                 console.log(res.data.data);
                 rows = [];
                 for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].order_name,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name), res.data.data[i].quantity, res.data.data[i].quality,res.data.data[i].order_date,res.data.data[i].pickup_date,res.data.data[i].status));
+                  rows.push(createData(res.data.data[i].order_name,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name), res.data.data[i].quantity, res.data.data[i].quality,res.data.data[i].order_date.slice(0,10),res.data.data[i].pickup_date.slice(0,10),res.data.data[i].status));
                   console.log(res.data.data[i])
                   setInsert(true);
                 }

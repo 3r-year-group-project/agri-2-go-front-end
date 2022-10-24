@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 import axios from "axios";
-import DashboardContent from '../../../components/Dashboard/dashboard'
+import DashboardContent from '../../components/Dashboard/dashboard'
 
 
 

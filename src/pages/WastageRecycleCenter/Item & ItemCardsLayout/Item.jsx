@@ -1,47 +1,52 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import './item.css';
 import ItemCard from './ItemCard';
 import SearchBar from '../../../components/SearchBar';
+import axios from 'axios'
 
 export default function Items() {
+
+  const [orderData, setOrderData] = useState()
+
+  useEffect(()=>{
+
+    const fetchData = async()=>{
+      const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_details')
+      setOrderData(data.data)
+    }
+
+    fetchData()
+    
+  },[])
+
+  useEffect(()=>{
+    console.log(orderData)
+  }, [orderData])
+
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
     <div className="App">
-      {<SearchBar/>}
+      <SearchBar/>
       <div className='item-row-one'>
-      <ItemCard
-      title="Carrot"
-      quality="Rotten"
-      location="Colombo"
-      weight="50"
-      price="100"
-      />
 
-    <ItemCard
-      title="Pumpkin"
-      quality="About to rot"
-      location="Kandy"
-      weight="150"
-      price="100"
-      />
+        {
+          orderData != undefined ? orderData.map(order=>{
+
+            return <ItemCard
+            title={order.vegetable}
+            quality={order.quality}
+            location="Colombo"
+            weight={order.quantity}
+            price={order.price}
+            orderInfo={order}
+            />
+      
+          }) : <></>
+        }
+
+
     </div>
-    <div className='item-row-two'>
-      <ItemCard
-        title="Eggplant"
-        quality="Rotten"
-        location="Badulla"
-        weight="72"
-        price="100"
-        />
 
-      <ItemCard
-        title="Leeks"
-        quality="Rotten"
-        location="NuwaraEliya"
-        weight="15"
-        price="100"
-        />
-      </div>
     </div>
     </div>
   )

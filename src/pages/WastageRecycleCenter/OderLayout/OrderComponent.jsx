@@ -7,12 +7,12 @@ import ButtonForChat from './ButtonForChat';
 import ButtonForAdd from './ButtonForAdd';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
-
+import axios from 'axios'
 
 export default function OrderComponent(props) {
 
 
-    const [open2, setOpen2] =React.useState(false);
+    const [open2, setOpen2] =React.useState(false);     
 
     const handleClickOpen2 = () =>{
         setOpen2(true);
@@ -21,10 +21,22 @@ export default function OrderComponent(props) {
     const handleClose2 = () =>{
         setOpen2(false);
     }
+ 
+    
+    const onClickCompleted = async()=>{
+        await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'MarkCollected', orderId: props.orderId})
+        const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+        props.setOrderData(data.data)
+    }
 
+    // const onClickCancel = async()=>{
+    //     await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'Cancel', orderId: props.orderId})
+    //     const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+    //     props.setOrderData(data.data)
+    // }
 
   return (
-    <div>
+    <div> 
     {/* <Box width='70vw' margin="auto">
         <Card style={{padding:'10px',width:'96.2%',backgroundColor:'#075e54', color:'#fff',}}> */}
        <div className='table-row'>
@@ -36,8 +48,8 @@ export default function OrderComponent(props) {
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.status}</Typography></ListItemText>
                
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
-                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>}>Collected</Button></ListItemText>
-                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Cancel</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>} onClick={onClickCompleted}>Collected</Button></ListItemText>
+                {/* <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel}>Cancel</Button></ListItemText> */}
             </ListItem>
             <Divider color='#9df58c'/>
 

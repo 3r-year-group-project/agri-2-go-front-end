@@ -7,22 +7,45 @@ import MyButton from './MyButton';
 import {useNavigate } from 'react-router-dom';
 import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import axios from 'axios'
+import { useAuth0 } from "@auth0/auth0-react";
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
 export default function ItemDetails(props) {
     const navigate = useNavigate();
+    const [open, setOpen] =React.useState(false);
+    const [pickUpDate, setPickUpDate] = React.useState()
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
     function routeToPage(page) {
       navigate(`/wastageRecycleCenter/dash/${page}`);
     }
 
-    const [open, setOpen] =React.useState(false);
+    const captureDate = (value)=>[
+        setPickUpDate(value)
+    ]
 
-    const handleClickOpen = () =>{
+    
+
+    const handleAcceptRequest = () =>{
         setOpen(true);
     }
 
     const handleClose = () =>{
         setOpen(false);
+    }
+
+    const confirmAcceptRequest = async()=>{
+
+        const {data} = await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
+            userInfo: user, 
+            sellerInfo:props.sellerInfo, 
+            orderInfo:props.orderInfo, 
+            pickUpDate: pickUpDate,
+            wastage_details_id: props.wastage_details_id
+
+        })
     }
 
   return (
@@ -111,7 +134,7 @@ export default function ItemDetails(props) {
 
                     <div className='btn-col-2'>
                         <CardActions>
-                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={handleClickOpen}>Accept Request</Button>
+                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={handleAcceptRequest}>Accept Request</Button>
                         </CardActions>
 
                         
@@ -145,12 +168,13 @@ export default function ItemDetails(props) {
                             type="date"
                             fullWidth
                             variant="outlined"
+                            onChange={e => captureDate(e.target.value)}
                             />
                             
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-                            <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
+                            <Button onClick={confirmAcceptRequest} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
                         </DialogActions>    
 
                     </Dialog>

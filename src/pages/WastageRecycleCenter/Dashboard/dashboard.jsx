@@ -6,7 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-
+import axios from 'axios'
 
 import Chart from './chart';
 import Cards from './card';
@@ -20,7 +20,8 @@ const mdTheme = createTheme();
 
 export default function DashboardContent() {
   const [open, setOpen] = React.useState(true);
- 
+
+
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -39,7 +40,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Pending Orders" value="5" date="on 11 August, 2022" linkname="View orders" link=""/>
+                  <Cards title="Pending Orders" value="5" date="on 27 October, 2022" linkname="View orders" link=""/>
                 </Paper>
               </Grid>
 
@@ -52,7 +53,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Completed Orders" value="12" date="on 11 August, 2022" linkname="View orders" link=""/>
+                  <Cards title="Completed Orders" value="12" date="on 27 October, 2022" linkname="View orders" link=""/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -64,7 +65,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="My Wishlist" value="4" date="on 11 August, 2022" linkname="View wishlist" link=""/>
+                  <Cards title="My Wishlist" value="4" date="on 27 October, 2022" linkname="View wishlist" link=""/>
                 </Paper>
               </Grid>
               {/* <Grid item xs={12} md={4} lg={3}>

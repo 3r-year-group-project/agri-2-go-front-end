@@ -12,7 +12,7 @@ import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
 export default function ItemCard(props) {
   const navigate = useNavigate();
   function routeToPage(page) {
-    navigate(`/wastageRecycleCenter/dash/${page}`);
+    navigate(`/wastageRecycleCenter/dash/${page}/${props.orderInfo.id}`);
   }
 
 

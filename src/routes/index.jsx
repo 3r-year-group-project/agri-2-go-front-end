@@ -98,6 +98,8 @@ export default function Router() {
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
+        <Route path="/wastagerecyclecenter/dash/:page/:id" element={<WastageRecyclecenterLayout/>}/>
+
 
         //<Route path="/test" element={<TransportationRequest />}/> 
 

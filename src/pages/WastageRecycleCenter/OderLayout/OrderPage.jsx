@@ -1,12 +1,32 @@
 import { CardContent, Divider, IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import OrderComponent from './OrderComponent'
 import './orderpage.css';
 import SearchBar from '../../../components/SearchBar';
 import Filter from '../../../components/FilterBar';
+import axios from 'axios'
 
 
 export default function OrderPage() {
+
+  const [orderData, setOrderData] = useState()
+
+  useEffect(()=>{
+
+    const fetchData = async()=>{
+      const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+      setOrderData(data.data)
+    }
+
+    fetchData()
+    
+  },[])
+
+  useEffect(()=>{
+    console.log(orderData)
+  },[orderData])
+
+
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
        <Typography
@@ -76,10 +96,15 @@ export default function OrderPage() {
       </ListItem>
       <Divider color='#9df58c'/>
       </List>
-        <OrderComponent date="2021 - 05 - 30" orderName="Carrot" pickupDate="2021 - 05 - 31" status="Pending"/>
-        <OrderComponent date="2016 - 08 - 23" orderName="Potato" pickupDate="2021 - 05 - 31" status="Pending"/>
-        <OrderComponent date="2019 - 12 - 05" orderName="Beetroot" pickupDate="2021 - 05 - 31" status="Completed"/>
-        <OrderComponent date="2020 - 02 - 10" orderName="Tomato" pickupDate="2021 - 05 - 31" status="Completed"/>
+        {orderData != undefined ? orderData.map((orderDetails)=>{
+
+        return <OrderComponent date={orderDetails.order_date} orderName={orderDetails.order_name} pickupDate="2021 - 05 - 31" status={orderDetails.status} orderId={orderDetails.order_id}
+          setOrderData={(data)=>setOrderData(data)}
+        />
+
+         
+        }) : <></>} 
+       
 
     </div>
     </div>

@@ -36,6 +36,7 @@ let rows = [
 export default function FarmerSales() {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const[insert,setInsert] = React.useState(false);
 
     React.useEffect(() => {
         console.log("Running Sales!!!!!!!!!!");
@@ -45,7 +46,8 @@ export default function FarmerSales() {
           rows = []
           for(let i=0;i<res.data.data.length;i++){
           if(res.data.data[i].status === 2){
-            rows.push(createData(res.data.data[i].vegetable,res.data.data[i].price,res.data.data[i].initial_quantity));  
+            rows.push(createData(res.data.data[i].vegetable,res.data.data[i].price,res.data.data[i].initial_quantity));
+            setInsert(true);    
           }
           
           console.log(res.data.data[i])
@@ -62,7 +64,7 @@ export default function FarmerSales() {
                 //   });
                     
         
-      }, []);
+      }, [insert]);
 
     return(
         <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >

@@ -221,6 +221,7 @@ export default function LoadStocks(){
 
 
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const[insert,setInsert] = React.useState(false);
 
 
 
@@ -233,11 +234,12 @@ export default function LoadStocks(){
                 for(let i=0;i<res.data.data.length;i++){
                   rows.push(createData(res.data.data[i].vegetable,res.data.data[i].first_name, res.data.data[i].price, res.data.data[i].quantity,res.data.data[i].id,res.data.data[i].id));
                   console.log(res.data.data[i])
+                  setInsert(true);
                 }
               });
                 
     
-  }, []);
+  }, [insert]);
 
 
   // let navigate = useNavigate(); 

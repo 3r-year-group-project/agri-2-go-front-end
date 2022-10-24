@@ -40,6 +40,7 @@ export default function AddToWastage() {
   const [data,setData] = useState({
     quantity:'',
     quality:'',
+    price:'',
   })
 
   const navigate = useNavigate();
@@ -53,6 +54,10 @@ export default function AddToWastage() {
 
   const handleQuality = (e) => {
     setData({...data,quality:e.target.value});
+  }
+
+  const handlePrice = (e) => {
+    setData({...data,price:e.target.value});
   }
 
   // const handelVegetable = (e) =>{
@@ -123,6 +128,13 @@ return (
             
                   </Box>
                 </Grid>
+
+                <Grid item xs={12}>
+            <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
+                  <TextField label="Price" color="secondary"  focused fullWidth required onChange={handlePrice} />
+            
+                  </Box>
+                </Grid>   
                 <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
             <Autocomplete

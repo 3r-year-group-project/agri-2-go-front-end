@@ -41,6 +41,7 @@ export default function AdminListItems() {
         </ListItemIcon>
         <ListItemText primary="Users" />
       </ListItemButton>
+      <Divider/>
       <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.VEGETABLES)}>
         <ListItemIcon>
           <InventoryIcon  color="secondary" />
@@ -55,24 +56,31 @@ export default function AdminListItems() {
         <ListItemText primary="Payments" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>
+      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.REVENEU_RATE)}>
+        <ListItemIcon>
+          <PaymentsIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Revenue Rate" />
+      </ListItemButton>
+      <Divider/>
+      {/* <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SUUBSCRIPTIONS)}>
         <ListItemIcon>
           <SubscriptionsIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Subscriptions" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
       </ListSubheader> */}
 
-      <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SCAMREPORTS)}>
+      {/* <ListItemButton onClick={() => routeToPage(ADMIN_SECTIONS.SCAMREPORTS)}>
         <ListItemIcon>
           <ReportIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Scam Reports" />
-      </ListItemButton>
+      </ListItemButton> */}
     </React.Fragment>
   );
 }

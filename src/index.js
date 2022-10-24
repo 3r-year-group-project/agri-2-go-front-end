@@ -29,7 +29,9 @@ const domain = "dev-aggfkxjn.us.auth0.com";
 
 
 root.render(
+
 <React.StrictMode>
+
 <Auth0Provider
 domain={domain}
 clientId={clientId}
@@ -42,6 +44,7 @@ cacheLocation='localstorage'
   >
     <App />
   </Auth0Provider>
+
 </React.StrictMode>
 );
 

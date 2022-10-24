@@ -112,7 +112,7 @@ export default function HomePage(props) {
                 Welcome to 'Agri2Go'. 
             </Typography>
             </div>
-      <Typography variant="h2" sx={{
+      <Typography variant="h3" sx={{
               fontWeight:600,
               display: { xs: 'none', md: 'flex' },
               fontFamily: "'Poppins', sans-serif",

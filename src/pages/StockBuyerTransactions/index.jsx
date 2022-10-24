@@ -22,6 +22,7 @@ let rows = [
 export default function GardenerTransactions() {
 
     const { user, isAuthenticated, isLoading } = useAuth0();
+    const[insert,setInsert] = React.useState(false);
 
     React.useEffect(() => {
         console.log("Running Transactions!!!!!!!!!!");
@@ -31,7 +32,8 @@ export default function GardenerTransactions() {
           rows = []
           
           for(let i=0;i<res.data.data.length;i++){
-            rows.push(createData(res.data.data[i].date_time,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));  
+            rows.push(createData(res.data.data[i].date_time,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));
+            setInsert(true);  
           
           
           console.log(res.data.data[i])
@@ -40,7 +42,7 @@ export default function GardenerTransactions() {
           
         })        
         
-      }, []);
+      }, [insert]);
 
 
 

@@ -46,25 +46,31 @@ import { visuallyHidden } from '@mui/utils';
 // import SearchBar from '../../../components/SearchBar';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import AddIcon from '@mui/icons-material/Add';
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
-    function createData(productName,quantity,quality,availabilityButton,throwButton) {
+    function createData(productName,buyerName,quantity,quality,orderDate,dealDate,status) {
     return {
       productName,
+      buyerName,
       quantity,
       quality,
-      availabilityButton,
-      throwButton,
+      orderDate,
+      dealDate,
+      status
+      // availabilityButton,
+      // throwButton,
     };
   }
   
-  const rows = [
-    createData('Carrot', '200LKR','Animal Fodder','Sell Wastage Stock','Throw'),
-    createData('Tomatoes', '400LKR','Slurries','Sell Wastage Stock','Throw'),
-    createData('Cabbage', '2700LKR','Peels','Sell Wastage Stock','Throw'),
-    createData('Beetroot', '1200LKR','About to Rot','Sell Wastage Stock','Throw'),
-    createData('Leeks','1410LKR','Peels','Sell Wastage Stock','Throw'),
-    createData('Potatoes', '1120LKR', 'Rotten','Sell Wastage Stock','Throw'),
-    createData('Green Chillies','890LKR','Rotten','Sell Wastage Stock','Throw'),
+  let rows = [
+    // createData('Carrot', '200LKR','Animal Fodder','Sell Wastage Stock','Throw'),
+    // createData('Tomatoes', '400LKR','Slurries','Sell Wastage Stock','Throw'),
+    // createData('Cabbage', '2700LKR','Peels','Sell Wastage Stock','Throw'),
+    // createData('Beetroot', '1200LKR','About to Rot','Sell Wastage Stock','Throw'),
+    // createData('Leeks','1410LKR','Peels','Sell Wastage Stock','Throw'),
+    // createData('Potatoes', '1120LKR', 'Rotten','Sell Wastage Stock','Throw'),
+    // createData('Green Chillies','890LKR','Rotten','Sell Wastage Stock','Throw'),
     
   ];
   
@@ -96,6 +102,13 @@ import AddIcon from '@mui/icons-material/Add';
     },
 
     {
+      id: 'buyerName',
+      disablePadding: false,
+      label: 'buyerName',
+    
+    },
+
+    {
       id: 'quantity',
       disablePadding: false,
       label: 'Quantity',
@@ -106,12 +119,30 @@ import AddIcon from '@mui/icons-material/Add';
       label: 'Quality',
     
     },
-    
+   
     {
-      id: 'availabilityButton',
+      id: 'orderDate',
       disablePadding: false,
-      label: 'Sell or Throw?',
+      label: 'order Date',
+    
     },
+    {
+      id: 'dealDate',
+      disablePadding: false,
+      label: 'Pickup Date',
+    
+    },{
+      id: 'status',
+      disablePadding: false,
+      label: 'status',
+    
+    },
+    
+    // {
+    //   id: 'availabilityButton',
+    //   disablePadding: false,
+    //   label: 'Sell or Throw?',
+    // },
     
     
   ];
@@ -214,6 +245,27 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 export default function LoadWastageStocks() {
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const[insert,setInsert] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log("Running wastage orders!!!");
+    axios.post('/api/stockbuyer/wastagestocks/getdetails',{email:user.email})
+            .then(res => {
+                console.log(res.data.data);
+                rows = [];
+                for(let i=0;i<res.data.data.length;i++){
+                  rows.push(createData(res.data.data[i].order_name,res.data.data[i].first_name.concat(" ",res.data.data[i].last_name), res.data.data[i].quantity, res.data.data[i].quality,res.data.data[i].order_date,res.data.data[i].pickup_date,res.data.data[i].status));
+                  console.log(res.data.data[i])
+                  setInsert(true);
+                }
+              });
+                
+    
+  }, [insert]);
+
+
     let navigate = useNavigate(); 
     const routeChangeSellWastageStocks = () =>{ 
     let path = `/stockbuyer/sellwastagestocks`; 
@@ -300,9 +352,13 @@ return (
                       >
                         {row.productName}
                       </TableCell>
-                      <TableCell align="left">{row.quantity}</TableCell>
+                    <TableCell align="left">{row.buyerName}</TableCell>
+                    <TableCell align="left">{row.quantity}</TableCell>
                     <TableCell align="left">{row.quality}</TableCell>
-                    <TableCell align="left">
+                    <TableCell align="left">{row.orderDate}</TableCell>
+                    <TableCell align="left">{row.dealDate}</TableCell>
+                    <TableCell align="left">{row.status}</TableCell>
+                    {/* <TableCell align="left">
                       <Button color="secondary" variant="contained" sx={{
                         width: 180,fontSize: 11, backgroundColor: "orange",color:'white' , marginRight:"10px"}} onClick={routeChangeSellWastageStocks} >
                             {row.availabilityButton}
@@ -311,7 +367,7 @@ return (
                          width: 180,fontSize: 11, backgroundColor: "green",color:'white'}}>
                             {row.throwButton}
                         </Button>
-                    </TableCell>
+                    </TableCell> */}
                     
                       
                     </TableRow>

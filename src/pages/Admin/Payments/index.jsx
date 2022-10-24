@@ -1,14 +1,12 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
-import PaymentTable from './table';
+import { Typography } from '@mui/material'
+import UserTabs from './userTabs'
 
 export default function Payments() {
     return(
         <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
            
-                <PaymentTable/>
-            
+           <Typography variant='h5' color='#075E54'><b>Payments</b></Typography><UserTabs/>
         </div>
     );
 }

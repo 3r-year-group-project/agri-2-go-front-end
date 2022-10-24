@@ -6,58 +6,12 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './title';
-import axios from "axios";
-
-// Generate Order Data
-function createData(id, name,   amount) {
-  return { id, name,  amount };
-}
-
-// const rows = [
-//   createData(
-//     0,
-//     'Carrot',
-    
-    
-//     866,
-//   ),
-//   createData(
-//     1,
-//     'Beans',
-    
-    
-//     654,
-//   ),
-//   createData(2,  'Green chilli', 355.78),
-//   createData(
-//     3,
-//     'Pumpkin',
-  
-//     354,
-//   ),
-//   createData(
-//     4,
-//     'Potato',
-   
-   
-//     212,
-//   ),
-// ];
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Orders() {
-  const [rows, setRows] = React.useState([]);
-  const [insert,setInsert] = React.useState(false);
-
-  React.useEffect(() => {
-    axios.get('/api/farmer/dashboard/best_selling_items')
-        .then(res => {
-          setRows(res.data.data);});
-  },[insert]);
-
+export default function Orders(props) {
   return (
     <React.Fragment>
       <Title>Best Selling Items</Title>
@@ -73,7 +27,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {props.best_selling_data.map((row, index) => (
             <TableRow key={index + 1}>
              <TableCell>{index + 1}</TableCell>
               <TableCell>{row.vegetable}</TableCell>

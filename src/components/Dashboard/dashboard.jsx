@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import axios from "axios";
 
 
 import Chart from './chart';
@@ -19,15 +18,8 @@ import PieChart from './pieChart';
 
 const mdTheme = createTheme();
 
-export default function DashboardContent() {
+export default function DashboardContent(props) {
   const [open, setOpen] = React.useState(true);
-  const [userCounts, setUserCounts] = React.useState([]);
-  const [insert,setInsert] = React.useState(false);
-
-  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-  const current = new Date()
-  const curr_date_str = `on ${current.getDate()} ${months[current.getMonth()]}, ${current.getFullYear()}`;
 
   const userType = {
     admin:1,
@@ -41,16 +33,10 @@ export default function DashboardContent() {
     sum:'SUM'
   }
 
-  React.useEffect(() => {
-    axios.get('/api/farmer/dashboard/user_counts')
-        .then(res => {
-          setUserCounts(res.data.data);});
-  },[insert]);
-
-  function userCountForId(user_type_name){
+  function userCountFor(user_type_name){
     const userTypeID = userType[user_type_name]
     if(!userTypeID) return "User Type Not Found"
-    for(let row of userCounts){
+    for(let row of props.user_data){
       if(row.user_type == userTypeID){
         return row.user_count
       }
@@ -75,7 +61,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Total Users" value={userCountForId("sum")} date={curr_date_str}/>
+                  <Cards title="Total Users" value={userCountFor("sum")} date={props.curr_date}/>
                 </Paper>
               </Grid>
 
@@ -88,7 +74,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Farmers" value={userCountForId("farmer")} date={curr_date_str}/>
+                  <Cards title="Farmers" value={userCountFor("farmer")} date={props.curr_date}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -100,7 +86,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Stock Buyers" value={userCountForId("stock")} date={curr_date_str}/>
+                  <Cards title="Stock Buyers" value={userCountFor("stock")} date={props.curr_date}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -112,7 +98,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Wastage Recycle Center" value={userCountForId("wastage")} date={curr_date_str}/>
+                  <Cards title="Wastage Recycle Center" value={userCountFor("wastage")} date={props.curr_date}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -124,7 +110,7 @@ export default function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Cards title="Transporters" value={userCountForId("transporter")} date={curr_date_str}/>
+                  <Cards title="Transporters" value={userCountFor("transporter")} date={props.curr_date}/>
                 </Paper>
               </Grid>
               {/* Chart */}
@@ -158,14 +144,14 @@ export default function DashboardContent() {
                     width:520,
                   }}
                 >
-                  <PieChart title="Users" data={userCounts}/>
+                  <PieChart title="Users" data={props.user_data}/>
                 </Paper>
               </Grid>
               
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column',width:520 }}>
-                  <Orders />
+                  <Orders best_selling_data={props.best_selling_data}/>
                 </Paper>
               </Grid>
             </Grid>

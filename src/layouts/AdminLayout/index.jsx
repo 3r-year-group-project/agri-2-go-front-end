@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import AdminListItems from './adminListItem';
 import { ADMIN_SECTIONS } from '../../constants';
 import SidePanel from '../../components/SidePanel';
-import DashBoard from '../../components/Dashboard';
+import DashBoard from '../../pages/Admin/Dashboard';
 import Users from '../../pages/Admin/Users';
 import Subscription from '../../pages/Admin/Subscriptions';
 import ScamReports from '../../pages/Admin/ScamReports';

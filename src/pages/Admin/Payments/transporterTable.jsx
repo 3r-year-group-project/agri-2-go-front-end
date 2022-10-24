@@ -19,7 +19,6 @@ import IconButton from '@mui/material/IconButton';
 import { Button } from '@mui/material';
 
 import { visuallyHidden } from '@mui/utils';
-import SearchBar from '../../../components/SearchBar';
 import DoneIcon from '@mui/icons-material/Done';
 
 import Dialog from '@mui/material/Dialog';
@@ -44,7 +43,7 @@ function createData( name, accountNumber, bankName, branch, amount, markRelease)
   const rows = [
     createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
     createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
-    createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
+    createData('Gale Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
 
     
   ];
@@ -132,7 +131,7 @@ function createData( name, accountNumber, bankName, branch, amount, markRelease)
                 direction={orderBy === headCell.id ? order : 'asc'}
                 onClick={createSortHandler(headCell.id)}
               >
-                {headCell.label}
+                <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
                 {orderBy === headCell.id ? (
                   <Box component="span" sx={visuallyHidden}>
                     {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -163,7 +162,7 @@ function createData( name, accountNumber, bankName, branch, amount, markRelease)
         
            
          
-      <Toolbar
+      {/* <Toolbar
         sx={{
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
@@ -174,17 +173,13 @@ function createData( name, accountNumber, bankName, branch, amount, markRelease)
         }}
       >
        
-        {/* {(
+        {(
           <Button color="secondary" variant="contained" sx={{
             width: 200,fontSize: 12, backgroundColor: "green",color:'white' , fontWeight:"bold" , margin:"10px 10px 0 0"}}>
                             Add a Vegetable<AddIcon/>
           </Button>
         )}
-        */}
-
-        {<SearchBar/>}
-        
-      </Toolbar>
+       </Toolbar> */}
       </div>
       
     );
@@ -206,7 +201,7 @@ const style = {
   };
 
 
-export default function PaymentTable() {
+export default function TransporterTable() {
     //handle dialog box
     const [open, setOpen] = React.useState(false);
 
@@ -264,25 +259,16 @@ return (
           <Box >
             <Grid container spacing={4}>
               
-            <Grid item xs={12} sx={{marginTop:"20px"}}>
+            <Grid item xs={12} sx={{marginTop:"5px"}}>
               
             <Box sx={{ width: '100%',}}>
-            <Typography
-              sx={{ flex: '1 1 100%', mb: 2 }}
-              variant="h4"
-              id="tableTitle"
-              component="div"
-              color='#075E54'
-              fontWeight='700'
-            >
-            Payments
-            </Typography>
+        
             <Paper sx={{ width: '100%', mb: 2,  }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          
         <TableContainer  >
           <Table
-       fontSize="24"
+       fontSize="28"
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
             size={ 'large'}

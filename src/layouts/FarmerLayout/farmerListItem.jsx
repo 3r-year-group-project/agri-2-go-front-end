@@ -65,7 +65,7 @@ export default function FarmerListItems() {
         <ListItemText primary="Cart" />
       </ListItemButton>
       <Divider/> */}
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYCROP)}>
+      {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYCROP)}>
         <ListItemIcon>
         <Tooltip title="My Crops">
         <AssignmentIcon  color="secondary" />
@@ -73,7 +73,7 @@ export default function FarmerListItems() {
         </ListItemIcon>
         <ListItemText primary="My Crops" />
       </ListItemButton>
-      <Divider/>
+      <Divider/> */}
       <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SALES)}>
         <ListItemIcon>
           <Tooltip title="Sales"><ReceiptIcon color="secondary" /></Tooltip>          

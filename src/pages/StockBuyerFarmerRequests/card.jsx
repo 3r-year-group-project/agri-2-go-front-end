@@ -119,7 +119,8 @@ export default function Card(props) {
                     flexDirection: 'column',
                     // width:600,
                     paddingBottom:1,
-                    paddingLeft:1
+                    paddingLeft:1,
+                    paddingRight:2,
                 }}>
                     <CropDetails
                     farmerName={props.farmerName}

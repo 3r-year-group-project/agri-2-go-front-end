@@ -21,6 +21,7 @@ import customer from "../../assets/images/customer.png";
 import NavBar from "../../components/Navbar";
 import background from "../../assets/images/bg4.jpg";
 import { borderRadius } from "@mui/system";
+import axios from 'axios';
 
 const inputStyles = {
   opacity: 0,
@@ -29,6 +30,25 @@ const inputStyles = {
 };
 
 export default function ViewRates() {
+  const [rates, setRates] = React.useState({
+    farmerRate: 0,
+    transRate: 0,
+    wrcRate: 0,
+  });
+  React.useEffect(() => {
+    axios.get('api/users/revenue/rates').then((res)=>{
+      res.data.data.map((rate) => {
+        if (rate.user_type == 3) {
+          setRates((old) => ({ ...old, farmerRate: rate.revenue_rate }));
+        } else if (rate.user_type == 7) {
+          setRates((old) => ({ ...old, transRate: rate.revenue_rate }));
+        } else if (rate.user_type == 8) {
+          setRates((old) => ({ ...old, wrcRate: rate.revenue_rate }));
+        }
+      });
+    });
+    
+  }, []);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -129,7 +149,7 @@ export default function ViewRates() {
                     variant="h5"
                     sx={{ color: "white" }}
                   >
-                    10 %
+                    {rates.farmerRate} %
                   </Typography>
                 </Box>
                 <br />
@@ -179,7 +199,7 @@ export default function ViewRates() {
                     variant="h5"
                     sx={{ color: "white" }}
                   >
-                    10 %
+                    {rates.transRate} %
                   </Typography>
                 </Box>
                 <br />
@@ -228,7 +248,7 @@ export default function ViewRates() {
                     variant="h5"
                     sx={{ color: "white" }}
                   >
-                    10 %
+                    {rates.wrcRate} %
                   </Typography>
                 </Box>
                 <br />

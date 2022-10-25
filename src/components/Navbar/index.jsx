@@ -19,6 +19,7 @@ const pages = ['About Us', 'Contact Us', 'Payment Plans'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -123,15 +124,28 @@ const NavBar = () => {
             Agri2GO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            
               <Button
-                key={page}
+               
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+               ABOUT US
               </Button>
-            ))}
+              <Button
+               
+               onClick={handleCloseNavMenu}
+               sx={{ my: 2, color: 'white', display: 'block' }}
+             >
+               CONTACT US
+             </Button>
+             <Button
+               onClick={() => navigate('/rates')}
+               sx={{ my: 2, color: 'white', display: 'block' }}
+             >
+               PAYMENT
+             </Button>
+         
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

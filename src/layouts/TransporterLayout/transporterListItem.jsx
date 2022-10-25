@@ -69,8 +69,8 @@ export default function TransporterListItems() {
           <ChatIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
-      </ListItemButton> */}
-      <Divider/>
+      </ListItemButton>
+      <Divider/> */}
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations

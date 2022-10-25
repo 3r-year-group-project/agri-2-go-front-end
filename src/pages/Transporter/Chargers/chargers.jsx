@@ -2,11 +2,12 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Toolbar } from '@mui/material';
+import { Toolbar,Typography  } from '@mui/material';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import Joi from "joi"
-import { useValidator } from "react-joi"
+import { useValidator } from "react-joi";
+
 
 export default function ChargersPage() {
   const [insert, setInsert] = React.useState(false);
@@ -153,11 +154,11 @@ export default function ChargersPage() {
       noValidate
       autoComplete="off"
     >
-      <div style={{color: "black"}}>
+      <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
         <br />
-        <h3 style={{marginLeft:10}}>Travel Chargers </h3>
+        <Typography variant='h5' color='#075E54' ><b>Travel Chargers</b></Typography>
         <br />
-        <h5 style={{marginLeft:10}}>Pickup Radius <small>(Minimum distance you go for pickup Km.)</small></h5>
+        <h5 style={{marginLeft:10, color:'#075E54'}}>Pickup Radius <small>(Minimum distance you go for pickup Km.)</small></h5>
         <TextField
           required
           id="Pickup Radius"

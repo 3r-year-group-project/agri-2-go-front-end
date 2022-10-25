@@ -33,6 +33,7 @@ import StockBuyerRegistrationForm from "../components/RegistrationForms/StockBuy
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+import ViewRates from "../pages/ViewRates/index";
 
 import LoginPage from "../pages/LoginPage";
 
@@ -77,6 +78,7 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
+        <Route path="/rates" element={<ViewRates/>}/>
         <Route path="/stockbuyer/addtowastage/:id/:vegetable" element={<AddToWastage/>}/>  
         <Route path="/stockbuyer/sellstock/:id" element={<StockBuyerSellStocks/>}/>  
         <Route path="/stockbuyer/sellwastagestocks" element={<StockBuyerSellWastageStocksDetails/>}/> 
@@ -98,6 +100,8 @@ export default function Router() {
         <Route path="/stockbuyer/dash/:page" element={<StockBuyerLayout/>}/>
         <Route path="/transporter/dash/:page" element={<TransporterLayout/>}/>
         <Route path="/wastagerecyclecenter/dash/:page" element={<WastageRecyclecenterLayout/>}/>
+        <Route path="/wastagerecyclecenter/dash/:page/:id" element={<WastageRecyclecenterLayout/>}/>
+
 
         {/* <Route path="/test" element={<TransportationRequest />}/>  */}
 
@@ -105,7 +109,7 @@ export default function Router() {
         <Route path="/farmer/profile" element={<FarmerProfilePage/>}/>
         <Route path="/transporter/profile" element={<TransporterProfilePage/>}/>
         <Route path="/stockbuyer/profile" element={<StockBuyerProfilePage/>}/>
-        <Route path="/stockbuyer/profile" element={<WastageRecycleCenterProfilePage/>}/>
+        <Route path="/wastagerecyclecenter/profile" element={<WastageRecycleCenterProfilePage/>}/>
 
         <Route path="/test" element={<MapContainer/>}/> 
 

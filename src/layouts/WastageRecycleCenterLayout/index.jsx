@@ -24,6 +24,7 @@ export default function WastageRecyclecenterLayout() {
   React.useEffect(() => {
     const params = location.pathname.split('/');
 
+    console.log(params, 'params length')
     if (params.length === 4) {
       const subComponent = params[3];
       switch (subComponent) {
@@ -56,6 +57,18 @@ export default function WastageRecyclecenterLayout() {
           break;
 
         
+        default:
+          break;
+      }
+    }
+
+    if(params.length === 5){
+      const subComponent = params[3];
+      const orderId = params[4]
+      switch (subComponent) {
+        case WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION:
+          setOpenPane(<ItemDescription orderId = {orderId}/>);
+          break;
         default:
           break;
       }

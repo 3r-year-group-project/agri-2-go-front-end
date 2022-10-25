@@ -11,16 +11,40 @@ import Checkbox from '@mui/material/Checkbox';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-
+import axios from "axios";
+import { PrintTwoTone } from '@mui/icons-material';
+import swal from 'sweetalert';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function WastagePreferenceCard(props) {
 
-    
+  const [top20Vegetables, setVeg] = React.useState(props.items);
   const [open, setOpen] =React.useState(false);
   const [openDelete, setOpenDelete] = React.useState(false);
+  const [category, setCategory]= React.useState(  getCategory());
+  const [level, setLevel]= React.useState(getLevel());
+  const [price, setPrice]= React.useState(props.price);
+
+  function getCategory() {
+   var vegArray= props.vegitable.split(',');
+   var lvlArray= props.quality.split(',');
+   var res = [];
+   for (let i = 0; i < vegArray.length; i++) {
+    res.push({title: vegArray[i]});
+   }
+   return res;
+  }
+
+  function getLevel() {    
+    var lvlArray= props.quality.split(',');
+    var res = [];
+    for (let i = 0; i < lvlArray.length; i++) {
+     res.push({title: lvlArray[i]});
+    }
+    return res;
+   }
 
   const handleOpenDelete = () => {
     setOpenDelete(true);
@@ -30,17 +54,39 @@ export default function WastagePreferenceCard(props) {
     setOpenDelete(false);
   }
 
+  const Printt = (val) => {
+    console.log(val,"val");
+  }
+
+  const handleDeleteCall = () => {
+    axios.delete('/api/wrc/wastage/'+props.id).then((res)=>{                  
+      setOpenDelete(false);
+      swal("Successful!", "You deleted wastage preference!", "success"); 
+      // alert("Wastage Category Removed Successfully!");
+    });  
+    
+  }
+
   const handleClickOpen = () =>{
-      setOpen(true);
+      setOpen(true);     
+  }
+
+  const handleUpdate = () =>{
+    var catString = Array.prototype.map.call(category, function(cat) { return cat.title; }).join(",");
+    var levelString = Array.prototype.map.call(level, function(lvl) { return lvl.title; }).join(",");
+    const wastage = {price : price, category:catString , level:levelString};
+    axios.post('/api/wrc/wastage/'+props.id, wastage).then((res)=>{  
+      swal("Successful!", "You updated wastage preference!", "success");                       
+      // alert("Wastage Category Updated Successfully!");
+      setOpen(false); 
+    });
   }
 
   const handleClose = () =>{
       setOpen(false);
   }
 
-  const [category, setCategory] = React.useState('');
-
-
+  
   const [quality, setQuality] = React.useState('');
 
  
@@ -51,14 +97,14 @@ export default function WastagePreferenceCard(props) {
   return (
     <div className='background-preference'>
         <Box 
-        width="90vw"
+        width="60vw"
         maxWidth="xl"
         >
           <Card style={{height:'auto', margin:'10px 30px',borderRadius:'5px',backgroundColor:'#075e54',color:'#fff',}}>
             
             <div className="topic-preference">
             <CardContent>
-              <h2 style={{fontSize:'28px',fontWeight: '500'}}>Wastage Preferences</h2>
+              <h2 style={{fontSize:'22px',fontWeight: '500'}}>My Preferences</h2>
             </CardContent>
             </div>
         <Divider color='#9df58c'/>
@@ -105,8 +151,10 @@ export default function WastagePreferenceCard(props) {
       
             <div className="button-pref">
             <CardActions>
-              <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/>
-              <ButtonForAdd name="Delete" action={handleOpenDelete} sx={{backgroundColor: 'red'}}/>
+              {/* <ButtonForAdd name="Edit" action={handleClickOpen} sx={{backgroundColor: 'blue'}}/> */}
+              <Button variant="contained" onClick={handleClickOpen} color="info">Edit</Button>
+              <Button variant="contained" onClick={handleOpenDelete} color="error">Delete</Button>
+              
             </CardActions>
             </div>
           </Card>
@@ -141,6 +189,8 @@ export default function WastagePreferenceCard(props) {
                         options={top20Vegetables}
                         disableCloseOnSelect
                         getOptionLabel={(option) => option.title}
+                        value={category}
+                        onChange={(event, value) => setCategory(value)}
                         renderOption={(props, option, { selected }) => (
                           <li {...props}>
                             <Checkbox
@@ -189,6 +239,8 @@ export default function WastagePreferenceCard(props) {
                         id="checkboxes-tags-demo"
                         options={qualityLevels}
                         disableCloseOnSelect
+                        onChange={(event, value) => setLevel(value)}
+                        value={level}
                         getOptionLabel={(option) => option.title}
                         renderOption={(props, option, { selected }) => (
                           <li {...props}>
@@ -211,42 +263,6 @@ export default function WastagePreferenceCard(props) {
                   </ListItemText>
                 </ListItem>
 
-                {/* <ListItem>
-                  <ListItemText>
-                    <Typography gutterBottom variant='body2' color='text.primary' style={{fontSize:'17px',marginLeft:'40px',}}>
-                    Preferred Locations  :  
-                    </Typography>
-                  </ListItemText>
-
-                  <ListItemText>
-                  <FormControl fullWidth>
-                  <Autocomplete
-                        multiple
-                        id="checkboxes-tags-demo"
-                        options={locationsList}
-                        disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
-                        renderOption={(props, option, { selected }) => (
-                          <li {...props}>
-                            <Checkbox
-                              icon={icon}
-                              checkedIcon={checkedIcon}
-                              style={{ marginRight: 8, color: '#fff' }}
-                              checked={selected}
-                            />
-                            {option.title}
-                          </li>
-                        )}
-                        style={{ width: 500, color: '#fff' }}
-                        renderInput={(params) => (
-                          <TextField {...params} label="Preferred Locations" placeholder="Preferred Locations" />
-                        )}
-                      />
-                      
-                  </FormControl>      
-                  </ListItemText>
-                </ListItem> */}
-
                 <ListItem>
                 <ListItemText>
                   <Typography gutterBottom variant='body2' color='text.primary' style={{fontSize:'17px',marginLeft:'40px',}}>
@@ -261,7 +277,8 @@ export default function WastagePreferenceCard(props) {
                   label="Price"
                   type="number"
                   placeholder='Price here'
-                  
+                  onChange={(event) => setPrice(event.target.value)}
+                  value={price}
                   fullWidth
                   variant="outlined"
                   />
@@ -271,37 +288,29 @@ export default function WastagePreferenceCard(props) {
             </List>
             <DialogActions>
               <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-              <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
+              <Button onClick={handleUpdate} variant="contained" sx={{backgroundColor: 'green'}}>Save</Button>
             </DialogActions>
 
           </DialogContent>
         </Dialog>
 
         <Dialog open={openDelete} onClose={handleCloseDelete}>
-        <DialogTitle style={{backgroundColor: 'white'}}>Add to schedule</DialogTitle>
+        <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Delete Confirmation</DialogTitle>
         <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
           <DialogContentText>
-            <h3>Confirm to Decline the request</h3>
+            <h3>Are you sure you want to delete this?</h3>
           </DialogContentText>
           </DialogContent>
         <DialogActions style={{backgroundColor: 'white'}}>
           <Button onClick={handleCloseDelete} variant="outlined" color="secondary">Cancel</Button>
-          <Button variant="contained" color="error" onClick={handleCloseDelete}>Remove</Button>
+          <Button variant="contained" color="error" onClick={handleDeleteCall}>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>
   )
 }
 
-const top20Vegetables = [
-  { title: 'Carrots' },
-  { title: 'Eggplant'},
-  { title: 'Cabbage'},
-  { title: 'Cauliflower'},
- 
-  
- 
-];
+
 
 const qualityLevels = [
   { title: 'Rotten' },

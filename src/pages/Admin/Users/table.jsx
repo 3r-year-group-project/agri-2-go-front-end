@@ -27,6 +27,7 @@ import SearchBar from '../../../components/SearchBar';
 import Filter from '../../../components/FilterBar'
 import SearchB from '../../../components/SearchBar';
 import axios from 'axios';
+import { fi } from 'date-fns/locale';
 
 
 
@@ -208,23 +209,26 @@ export default function OrderTable() {
   // the search result
   const [users, setFoundUsers] = useState(rows);
 
-  const filter = (e) => {
+  const filter = async (e) => {
     const keyword = e.target.value;
-
+    
     if (keyword !== '') {
-      const results = rows.filter((user) => {
-        return user.name.toLowerCase().startsWith(keyword.toLowerCase());
+      const results = userList.filter((user) => {
+        return user.first_name.toLowerCase().startsWith(keyword.toLowerCase());
         // Use the toLowerCase() method to make it case-insensitive
       });
-      setFoundUsers(results);
+      
+      setUserList(results);
     } else {
-      setFoundUsers(rows);
+     await getUserList()
       // If the text field is empty, show all users
     }
 
     setName(keyword);
   };
-
+const filterUserType = async  (e) =>{
+  console.log(e.target.value)
+}
   const[blockedUser,setBlockedUser]=useState(users)
 
  
@@ -255,14 +259,14 @@ async function getUserList() {
     });
 }
 async function handleblockUser(id) {
-  console.log('sethni',id)
+  
   await  axios.get(`/api/admin/handluser/blockuser/${id}`).then((res)=>{
      getUserList();
      
      });
  }
  async function handleunblockUser(id) {
-  console.log('sethni',id)
+  
   await  axios.get(`/api/admin/handluser/unblockuser/${id}`).then((res)=>{
      getUserList();
      
@@ -273,7 +277,7 @@ useEffect(()=>{
   getUserList();
 
 
-},[])
+},[users])
   
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
@@ -310,7 +314,7 @@ useEffect(()=>{
       <SearchIcon />
     </IconButton>
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-    <Filter id="order-filter-status" label="User Type" width="30%" options={[{title:"Customer"}, {title:"Farmer"},{title:"Farmer"},{title:"Gardener"},{title:"Wastage"},{title:"Grocery Seller"},{title:"Stock Buyer"}]}/>
+    <Filter onChange={filterUserType} id="order-filter-status" label="User Type" width="30%" options={[{title:"Customer"}, {title:"Farmer"},{title:"Farmer"},{title:"Gardener"},{title:"Wastage"},{title:"Grocery Seller"},{title:"Stock Buyer"}]}/>
   </Paper>
  
           <Table
@@ -340,9 +344,9 @@ useEffect(()=>{
                   const labelId = `enhanced-table-checkbox-${index}`;
                   let userType='';
                   switch (row.user_type) {
-                    // case 2:
-                    //   userType='Customer';
-                    //   break;
+                    case 2:
+                      userType='Customer';
+                      break;
                     case 3:
                       userType='Farmer';
                       break;

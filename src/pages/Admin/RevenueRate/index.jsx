@@ -18,8 +18,8 @@ import {
   TextField,
 } from "@mui/material";
 import axios from "axios";
-import Joi from "joi"
-import { useValidator } from "react-joi"
+import Joi from "joi";
+import { useValidator } from "react-joi";
 
 export default function RevenueRate() {
   const [openFarmer, setOpenFarmer] = React.useState(false);
@@ -39,97 +39,95 @@ export default function RevenueRate() {
 
   const { state, setData, setExplicitField, validate } = useValidator({
     initialData: {
-        farmerRate: null,
-        transRate: null,
-        wrcRate: null,
+      farmerRate: null,
+      transRate: null,
+      wrcRate: null,
     },
     schema: Joi.object({
-        farmerRate: Joi.number().required().min(0).max(100),
-        transRate: Joi.number().required().min(0).max(100),
-        wrcRate: Joi.number().required().min(0).max(100),
+      farmerRate: Joi.number().required().min(0).max(100),
+      transRate: Joi.number().required().min(0).max(100),
+      wrcRate: Joi.number().required().min(0).max(100),
     }),
     explicitCheck: {
-        farmerRate: false,
-        transRate: false,
-        wrcRate: false,
+      farmerRate: true,
+      transRate: true,
+      wrcRate: true,
     },
     validationOptions: {
-        abortEarly: true,
+      abortEarly: true,
     },
-});
-
-
-
-React.useEffect(() => {
-  axios.get("api/admin/get/revenue/rate").then((res) => {
-    console.log(res.data.data);
-    res.data.data.map((rate) => {
-      if (rate.user_type == 3) {
-        setRates((old) => ({ ...old, farmerRate: rate.revenue_rate }));
-      } else if (rate.user_type == 7) {
-        setRates((old) => ({ ...old, transRate: rate.revenue_rate }));
-      } else if (rate.user_type == 8) {
-        setRates((old) => ({ ...old, wrcRate: rate.revenue_rate }));
-      }
-    });
   });
-}, [update]);
 
-const updateFarmerRate = () => {
-  if(state.$data.farmerRate === null){}
-  else{axios.put('api/admin/update/revenue/rate/farmer/'+state.$data.farmerRate)
-  .then(res=>{
-    setUpdate(!update)
-  }); // update farmer rate}
-}};
+  React.useEffect(() => {
+    axios.get("api/admin/get/revenue/rate").then((res) => {
+      console.log(res.data.data);
+      res.data.data.map((rate) => {
+        if (rate.user_type == 3) {
+          setRates((old) => ({ ...old, farmerRate: rate.revenue_rate }));
+        } else if (rate.user_type == 7) {
+          setRates((old) => ({ ...old, transRate: rate.revenue_rate }));
+        } else if (rate.user_type == 8) {
+          setRates((old) => ({ ...old, wrcRate: rate.revenue_rate }));
+        }
+      });
+    });
+  }, [update]);
 
-const changeFarmerRate = (e) => {
-  setData((old) => ({
-    ...old,
-    farmerRate: e.target.value,
-}))
-};
+  const updateFarmerRate = () => {
+    if (state.$data.farmerRate === null) {
+    } else {
+      axios
+        .put("api/admin/update/revenue/rate/farmer/" + state.$data.farmerRate)
+        .then((res) => {
+          setUpdate(!update);
+        }); // update farmer rate}
+    }
+  };
 
-const changeTransRate = (e) => {
-  setData((old) => ({
-    ...old,
-    transRate: e.target.value,
-}))
-};
+  const changeFarmerRate = (e) => {
+    setData((old) => ({
+      ...old,
+      farmerRate: e.target.value,
+    }));
+  };
 
-const changeWrcRate = (e) => {
-  setData((old) => ({
-    ...old,
-    wrcRate: e.target.value,
-}))
-};
+  const changeTransRate = (e) => {
+    setData((old) => ({
+      ...old,
+      transRate: e.target.value,
+    }));
+  };
 
+  const changeWrcRate = (e) => {
+    setData((old) => ({
+      ...old,
+      wrcRate: e.target.value,
+    }));
+  };
 
+  const updateTransRate = () => {
+    if (state.$data.transRate === null) {
+    } else {
+      axios
+        .put(
+          "api/admin/update/revenue/rate/transporter/" + state.$data.transRate
+        )
+        .then((res) => {
+          setUpdate(!update);
+        }); // update transporter rate}
+    }
+  };
 
-const updateTransRate = () => {
-
-  if(state.$data.transRate === null){
-
-  }
-  else{
-    axios.put('api/admin/update/revenue/rate/transporter/'+state.$data.transRate)
-      .then(res=>{
-        setUpdate(!update)
-      }); // update transporter rate}
-}
-
-};
-
-const updateWrcRate = () => {
-
-  if(state.$data.wrcRate === null){
-
-  }
-  else{
-    axios.put('api/admin/update/revenue/rate/wrc/'+state.$data.wrcRate)
-      .then(res=>{setUpdate(!update)}); // update wrc rate}
-}
-};
+  const updateWrcRate = () => {
+    if (state.$data.wrcRate === null) {
+    } else {
+      axios
+        .put("api/admin/update/revenue/rate/wrc/" + state.$data.wrcRate)
+        .then((res) => {
+          setUpdate(!update);
+        }); // update wrc rate}
+    }
+  };
 
   const handleClickOpenFarmer = () => {
     setOpenFarmer(true);
@@ -160,7 +158,6 @@ const updateWrcRate = () => {
   };
   const Item = styled(Paper)();
 
-  
   return (
     <div style={{ background: "white", padding: "5%", minHeight: "100%" }}>
       <Typography variant="h5" color="#075E54">
@@ -238,7 +235,10 @@ const updateWrcRate = () => {
                   Cancel
                 </Button>
                 <Button
-                  onClick={()=>{updateFarmerRate();handleCloseFarmer();}}
+                  onClick={() => {
+                    updateFarmerRate();
+                    handleCloseFarmer();
+                  }}
                   variant="contained"
                   sx={{ backgroundColor: "green" }}
                 >
@@ -319,7 +319,10 @@ const updateWrcRate = () => {
                   Cancel
                 </Button>
                 <Button
-                  onClick={()=>{handleCloseTrans(); updateTransRate(); }}
+                  onClick={() => {
+                    handleCloseTrans();
+                    updateTransRate();
+                  }}
                   variant="contained"
                   sx={{ backgroundColor: "green" }}
                 >
@@ -378,7 +381,7 @@ const updateWrcRate = () => {
                   <ListItemText>
                     <TextField
                       onChange={changeWrcRate}
-                      value={state.$data.wrcRate} 
+                      value={state.$data.wrcRate}
                       helperText={state.$errors.wrcRate}
                       error={state.$errors.wrcRate}
                       autoFocus
@@ -401,7 +404,10 @@ const updateWrcRate = () => {
                   Cancel
                 </Button>
                 <Button
-                  onClick={()=>{handleCloseWrc(); updateWrcRate();}}
+                  onClick={() => {
+                    handleCloseWrc();
+                    updateWrcRate();
+                  }}
                   variant="contained"
                   sx={{ backgroundColor: "green" }}
                 >
@@ -415,4 +421,3 @@ const updateWrcRate = () => {
     </div>
   );
 }
-

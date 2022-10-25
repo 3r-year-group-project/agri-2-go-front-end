@@ -8,6 +8,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import './item.css';
 import {useNavigate } from 'react-router-dom';
 import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
+import axios from 'axios'
 
 export default function ItemCard(props) {
   const navigate = useNavigate();
@@ -28,8 +29,17 @@ export default function ItemCard(props) {
     setOpenDelete(true);
   }
 
-  const handleCloseDelete = () => {
+  const handleDecline = async() => {
+    const {data} = await axios.post('http://localhost:3002/api/wrc/wastage_decline_request', {id : props.orderInfo.id})
+    const results = await axios.get('http://localhost:3002/api/wrc/wastage_details')
+    props.setOrderData(results.data.data)
     setOpenDelete(false);
+    
+  }
+
+ 
+  const handleCloseDelete = async() =>{
+    setOpenDelete(false)
   }
 
 
@@ -77,7 +87,7 @@ export default function ItemCard(props) {
                     </DialogContent>
                     <DialogActions style={{backgroundColor: 'white'}}>
                     <Button onClick={handleCloseDelete} variant="outlined" color="secondary">Cancel</Button>
-                    <Button variant="contained" color="error" onClick={handleCloseDelete}>Decline</Button>
+                    <Button variant="contained" color="error" onClick={handleDecline}>Decline</Button>
                     </DialogActions>
                 </Dialog>
       </Card>

@@ -15,6 +15,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 export default function ItemDetails(props) {
     const navigate = useNavigate();
     const [open, setOpen] =React.useState(false);
+    const [openMessage, setOpenMessage] =React.useState(false);
     const [pickUpDate, setPickUpDate] = React.useState()
     const { user, isAuthenticated, isLoading } = useAuth0();
 
@@ -24,9 +25,7 @@ export default function ItemDetails(props) {
 
     const captureDate = (value)=>[
         setPickUpDate(value)
-    ]
-
-    
+    ]  
 
     const handleAcceptRequest = () =>{
         setOpen(true);
@@ -38,7 +37,7 @@ export default function ItemDetails(props) {
 
     const confirmAcceptRequest = async()=>{
 
-        const {data} = await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
+        await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
             userInfo: user, 
             sellerInfo:props.sellerInfo, 
             orderInfo:props.orderInfo, 
@@ -46,7 +45,13 @@ export default function ItemDetails(props) {
             wastage_details_id: props.wastage_details_id
 
         })
+
+        setOpenMessage(true);
     }
+    const handleCloseMessage = () =>{
+        setOpenMessage(false);
+    }
+
 
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
@@ -177,6 +182,20 @@ export default function ItemDetails(props) {
                             <Button onClick={confirmAcceptRequest} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
                         </DialogActions>    
 
+                    </Dialog>
+
+
+                    <Dialog open={openMessage} onClose={handleCloseMessage}>
+                        <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Alert</DialogTitle>
+                        <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
+                        <DialogContentText>
+                            <h3>Your order is placed</h3>
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions style={{backgroundColor: 'white'}}>
+                        <Button onClick={handleCloseMessage} variant="contained" color="secondary">OK</Button>
+                        {/* <Button variant="contained" color="error" onClick={handleDecline}>Decline</Button> */}
+                        </DialogActions>
                     </Dialog>
 
                 </div> 

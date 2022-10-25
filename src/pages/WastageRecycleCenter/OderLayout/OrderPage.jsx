@@ -23,7 +23,7 @@ export default function OrderPage() {
   },[])
 
   useEffect(()=>{
-    console.log(orderData)
+    console.log(orderData,'orderData')
   },[orderData])
 
 
@@ -98,7 +98,7 @@ export default function OrderPage() {
       </List>
         {orderData != undefined ? orderData.map((orderDetails)=>{
 
-        return <OrderComponent date={orderDetails.order_date} orderName={orderDetails.order_name} pickupDate="2021 - 05 - 31" status={orderDetails.status} orderId={orderDetails.order_id}
+        return <OrderComponent date={orderDetails.order_date} orderName={orderDetails.order_name} pickupDate={orderDetails.pickup_date} status={orderDetails.status} orderId={orderDetails.order_id}
           setOrderData={(data)=>setOrderData(data)}
         />
 

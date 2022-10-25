@@ -25,22 +25,25 @@ export default function ItemDescription({orderId}) {
     fetchUserInfo()
   }, [])
 
+  useEffect(()=>{
+    
+  },[])
 
   return (
 
-    itemInfo != undefined ? itemInfo.map(info=>{
-     return <ItemDetails
-      title = {info.vegetable}
-      sellName= {userInfo != undefined ? (userInfo.first_name + ' ' + userInfo.last_name) : null}
-      location= { userInfo != undefined ? (userInfo.address1+ " " + userInfo.city): null}
-      category= {info.vegetable}
-      quality={info.quality}
-      quantity=  {info.quantity}
-      price= {info.price}
-      sellerInfo={userInfo}
-      orderInfo={info}
-      wastage_details_id ={orderId}
-      />
+    itemInfo != undefined ? itemInfo.map(info=>{     
+        return <ItemDetails
+        title = {info.vegetable}
+        sellName= {userInfo != undefined ? (userInfo.first_name + ' ' + userInfo.last_name) : null}
+        location= { userInfo != undefined ? (userInfo.address1+ " " + userInfo.city): null}
+        category= {info.vegetable}
+        quality={info.quality}
+        quantity=  {info.quantity}
+        price= {info.price}
+        sellerInfo={userInfo}
+        orderInfo={info}
+        wastage_details_id ={orderId}
+        />
     }) : <></>
     
   )

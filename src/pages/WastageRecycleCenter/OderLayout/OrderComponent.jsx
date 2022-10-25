@@ -14,6 +14,11 @@ export default function OrderComponent(props) {
 
     const [open2, setOpen2] =React.useState(false);     
 
+
+    React.useEffect(()=>{
+        console.log(props)
+    },[])
+
     const handleClickOpen2 = () =>{
         setOpen2(true);
     }
@@ -29,11 +34,9 @@ export default function OrderComponent(props) {
         props.setOrderData(data.data)
     }
 
-    // const onClickCancel = async()=>{
-    //     await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'Cancel', orderId: props.orderId})
-    //     const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
-    //     props.setOrderData(data.data)
-    // }
+    const onClickCancel = async()=>{
+    
+    }
 
   return (
     <div> 
@@ -42,14 +45,14 @@ export default function OrderComponent(props) {
        <div className='table-row'>
         <List dense>
             <ListItem>
-                <ListItemText><Typography sx={{color:'#fff'}}>{props.date}</Typography></ListItemText>
+                <ListItemText><Typography sx={{color:'#fff'}}>{props.date.slice(0,10)}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.orderName}</Typography></ListItemText>
-                <ListItemText><Typography sx={{color:'#fff'}}>{props.pickupDate}</Typography></ListItemText>
+                <ListItemText><Typography sx={{color:'#fff'}}>{props.pickupDate.slice(0,10)}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.status}</Typography></ListItemText>
                
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
                 <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>} onClick={onClickCompleted}>Collected</Button></ListItemText>
-                {/* <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel}>Cancel</Button></ListItemText> */}
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel}>Cancel</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
 
@@ -110,7 +113,7 @@ export default function OrderComponent(props) {
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Pickup Date</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.pickupDate}</Typography></ListItemText>
+                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.pickupDate.slice(0,10)}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>

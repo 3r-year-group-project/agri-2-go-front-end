@@ -31,16 +31,18 @@ export default function Items() {
 
         {
           orderData != undefined ? orderData.map(order=>{
-
-            return <ItemCard
+            if(order.declined === 0 ){
+              return <ItemCard
             title={order.vegetable}
             quality={order.quality}
             location="Colombo"
             weight={order.quantity}
             price={order.price}
             orderInfo={order}
+            setOrderData={(orders)=>setOrderData(orders)}
             />
-      
+            }
+                  
           }) : <></>
         }
 

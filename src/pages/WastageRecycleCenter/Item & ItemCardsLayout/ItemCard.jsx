@@ -3,63 +3,97 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box,Button, CardActionArea, CardActions } from '@mui/material';
+import { Box,Button, CardActionArea, CardActions, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Stack } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { color } from '@mui/system';
 import './item.css';
 import {useNavigate } from 'react-router-dom';
 import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
+import axios from 'axios'
 
 export default function ItemCard(props) {
   const navigate = useNavigate();
   function routeToPage(page) {
-    navigate(`/wastageRecycleCenter/dash/${page}`);
+    navigate(`/wastageRecycleCenter/dash/${page}/${props.orderInfo.id}`);
   }
-  // const navigateToDetails = () => {
-  //   navigate('/wastageRecycleCenter/dash/findwastage/viewdetails');
-  // };
+
 
   const color_icon = '#cf1204'
   const marg = '5px'
   const back_color='green'
   const font_color='#fff'
+
+  const [open, setOpen] =React.useState(false);
+  const [openDelete, setOpenDelete] = React.useState(false);
+
+  const handleOpenDelete = () => {
+    setOpenDelete(true);
+  }
+
+  const handleDecline = async() => {
+    const {data} = await axios.post('http://localhost:3002/api/wrc/wastage_decline_request', {id : props.orderInfo.id})
+    const results = await axios.get('http://localhost:3002/api/wrc/wastage_details')
+    props.setOrderData(results.data.data)
+    setOpenDelete(false);
+    
+  }
+
+ 
+  const handleCloseDelete = async() =>{
+    setOpenDelete(false)
+  }
+
+
   return (
     <Box className='Box' width='450px'>
 
       <Card style={{display:'flex',flexDirection:'row', justifyContent:'space-between',flexWrap:'nowrap',borderRadius:'10px', margin: '50px 0px 50px 0px',maxWidth: '500', }}>
-        <div className='image-card'>
-        <CardMedia
-          component="img"
-          height='235vh'
-          image={props.image}
-          alt='carrot'
-        />
-        </div>
 
         <div className='details-card'>
         <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+          <Typography gutterBottom variant='h5' component='div' color='#075E54'>
            <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center',textAlign:'center',}}>
            {props.title}
            </div>
           </Typography>
-          <Typography gutterBottom variant='body2' color='text.primary'>
+          <Typography gutterBottom variant='body2' color='#075E54'>
             Quality level : {props.quality}      
           </Typography>
-          <Typography gutterBottom variant='body1' color='text.primary'>
+          <Typography gutterBottom variant='body1' color='#075E54'>
             <LocationOnIcon style={{color:color_icon,marginRight:marg,}}/> {props.location}     
           </Typography>
-          <Typography gutterBottom variant='body2' color='text.primary'>
-            {props.weight} Kg      
+          <Typography gutterBottom variant='body2' color='#075E54'>
+            {props.weight} kg      
+          </Typography>
+          <Typography gutterBottom variant='body2' sx={{color: 'red'}}>
+            {props.price} LKR per 1kg    
           </Typography>
 
-          <CardActions style={{width:'160px',justifyContent:'center',alignItems:'center',}}>
-            <Button style={{backgroundColor:back_color,color:font_color,fontSize:'12px',padding:'5px 15px',fontFamily:'sans-serif',margin:'20px 0px 0px 5px',}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION)}>View Details</Button>
+
+          <CardActions style={{justifyContent:'center',alignItems:'center'}}>
+            <Stack direction="row"  spacing={2} sx={{mt: 2}}>
+              <Button variant='outlined'color='error' onClick={handleOpenDelete}>Decline Request</Button>
+              <Button variant='contained' color='success' onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ITEMDESCRIPTION)}>View Details</Button>
+            </Stack>
+
           </CardActions>
         </CardContent>
         </div>
+                <Dialog open={openDelete} onClose={handleCloseDelete}>
+                    <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Decline Confirmation</DialogTitle>
+                    <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
+                    <DialogContentText>
+                        <h3>Are you sure you want to decline this?</h3>
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions style={{backgroundColor: 'white'}}>
+                    <Button onClick={handleCloseDelete} variant="outlined" color="secondary">Cancel</Button>
+                    <Button variant="contained" color="error" onClick={handleDecline}>Decline</Button>
+                    </DialogActions>
+                </Dialog>
       </Card>
 
     </Box>
+
+    
   );
 }

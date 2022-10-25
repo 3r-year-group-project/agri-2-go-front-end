@@ -1,61 +1,67 @@
 import * as React from 'react';
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
-import OrderTable from '../../../components/Orders';
+import Card from '../../../components/Orders/card';
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function createData(date, description, status, contact) {
-    return { date, description, status, contact };
-}
+const mdTheme = createTheme();
+
+export default function CenteredGrid() {
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [orders,setOrders] = React.useState([]);
+  const [insert,setInsert] = React.useState(false);
+
+  React.useEffect(() => {
+    if(!isLoading) {
+      axios.post('/api/farmer/requests/orders',{email:user.email})
+      .then(res => {
+        setOrders(res.data.data);
+        console.log(res.data.data);
+      });
+    }
+  },[insert]);
   
-const rows = [
-    createData('2022.08.25', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.26', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.27', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.28', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.29', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.30', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.31', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.01', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.02', "Description  alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.03', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.04', "Description blablbabla lblalblalb ", "Completed", "Buyer Name"),
-    createData('2022.09.05', "Description blablbabla lblalblalb alblalba  lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.06', "Description  lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.07', "Description", "Pending", "Buyer Name"),
-    createData('2022.09.08', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.09', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.10', "Description", "Pending", "Buyer Name"),
-    createData('2022.09.11', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.12', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.13', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.14', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.15', "Description  alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.16', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.09.17', "Description blablbabla lblalblalb ", "Pending", "Buyer Name"),
-    createData('2022.09.18', "Description blablbabla lblalblalb alblalba  lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.19', "Description  lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.20', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.21', "Description blablbabla  lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.22', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.23', "Description", "Pending", "Buyer Name"),
-    createData('2022.08.24', "Description blablbabla lblalblalb  lbalblabla", "Completed", "Buyer Name"),
-    createData('2022.08.25', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.08.26', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.27', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.28', "Description  alblalba lblalblabla lbalblabla", "Completed.", "Buyer Name"),
-    createData('2022.09.29', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "Pending", "Buyer Name"),
-    createData('2022.09.30', "Description blablbabla lblalblalb ", "Pending", "Buyer Name")
-].sort((a, b) => (a.date < b.date ? -1 : 1));
+  return (
+    <ThemeProvider theme={mdTheme}>
 
-export default function FarmerOrders() {
-    return(
-        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
-            <Box m={2} sx={{paddingLeft: 3, paddingRight: 3}}>
-                <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
-                    <center><FormLabel id="title"><font size="18"><b>Order Details</b></font></FormLabel></center>
-                </Box>
-                <OrderTable rows={rows}/>
-            </Box>
-        </div>
-    );
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
+        <Box
+        component="span"
+        m={1}
+        display="inline-block"
+      
+        >
+            <CssBaseline />
+            <Grid
+                container
+                spacing={2}
+                direction="column"
+               
+                >
+                  {orders.map((element) => (
+                    <Grid item xs={12} md={6}>
+                      <Card 
+                        orderId={element.request_id}
+                        marketName={element.economic_center} 
+                        cropName={element.vegetable} 
+                        quantity={element.quantity} 
+                        price={element.price}
+                        orderCode={element.code}
+                        dealDate={element.deal_date.substring(0,10)}
+                        longitude={element.longitude}
+                        latitude={element.latitude}
+                      />
+                    </Grid>
+                  ))}
+                
+            </Grid>
+        </Box>
+    </div>
+    </ThemeProvider>
+  );
 }

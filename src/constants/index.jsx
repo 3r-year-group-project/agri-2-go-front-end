@@ -1,8 +1,11 @@
  export const ADMIN_SECTIONS = {
     DASHBOARD: 'dashboard',
     USERS: 'users',
+    VEGETABLES:'vegetables',
+    PAYMENTS: 'payments',
    SUUBSCRIPTIONS:'subscriptions',
    SCAMREPORTS:'scamreports',
+   REVENEU_RATE:'revenuerate'
  };
  export const FARMER_SECTIONS = {
   DASHBOARD: 'dashboard',
@@ -20,6 +23,8 @@
     VIEWPRICES:'viewprices',
     SENDREQUESTS: 'sendrequests',
     TRANSPORTERS: 'transporters',
+    ADDTRANSPORTER: 'addtransporter',
+    VIEWTRANSPORTER: 'viewtransporter',
    
  };
 
@@ -51,6 +56,7 @@ export const TRANSPORTER_SECTIONS = {
  CHATMEMBERSLIST:'chat',
    CHATPAGE:'chatpage',
  MYVEHICLES: 'myvehicles',
+ CHARGERS: 'chargers',
 
  
 };

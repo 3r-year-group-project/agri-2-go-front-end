@@ -6,22 +6,18 @@ import SelectBox from './SelectBox';
 import ButtonForChat from './ButtonForChat';
 import ButtonForAdd from './ButtonForAdd';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
-
-
+import DoneIcon from '@mui/icons-material/Done';
+import axios from 'axios'
 
 export default function OrderComponent(props) {
 
-    const [open, setOpen] =React.useState(false);
 
-    const handleClickOpen = () =>{
-        setOpen(true);
-    }
+    const [open2, setOpen2] =React.useState(false);     
 
-    const handleClose = () =>{
-        setOpen(false);
-    }
 
-    const [open2, setOpen2] =React.useState(false);
+    React.useEffect(()=>{
+        console.log(props)
+    },[])
 
     const handleClickOpen2 = () =>{
         setOpen2(true);
@@ -30,26 +26,33 @@ export default function OrderComponent(props) {
     const handleClose2 = () =>{
         setOpen2(false);
     }
+ 
+    
+    const onClickCompleted = async()=>{
+        await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'MarkCollected', orderId: props.orderId})
+        const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+        props.setOrderData(data.data)
+    }
 
+    const onClickCancel = async()=>{
+    
+    }
 
   return (
-    <div>
+    <div> 
     {/* <Box width='70vw' margin="auto">
         <Card style={{padding:'10px',width:'96.2%',backgroundColor:'#075e54', color:'#fff',}}> */}
        <div className='table-row'>
         <List dense>
             <ListItem>
-                <ListItemText><Typography sx={{color:'#fff'}}>{props.date}</Typography></ListItemText>
+                <ListItemText><Typography sx={{color:'#fff'}}>{props.date.slice(0,10)}</Typography></ListItemText>
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.orderName}</Typography></ListItemText>
-                
-                <ListItemText>
-                    <SelectBox/>
-                </ListItemText>
-                
-                {/* <ListItemText><ButtonForChat name='Start Chat' links='/' icon={<QuestionAnswerIcon/>}/></ListItemText> */}
-                <ListItemText><Button variant='contained' endIcon={<ControlPointOutlinedIcon/>} onClick={handleClickOpen} sx={{backgroundColor: 'blue'}}>Add Details</Button></ListItemText>
+                <ListItemText><Typography sx={{color:'#fff'}}>{props.pickupDate.slice(0,10)}</Typography></ListItemText>
+                <ListItemText><Typography sx={{color:'#fff'}}>{props.status}</Typography></ListItemText>
+               
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
-                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}}>Remove</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>} onClick={onClickCompleted}>Collected</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel}>Cancel</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
 
@@ -60,53 +63,6 @@ export default function OrderComponent(props) {
   </Box>   */}
 
 
-  <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Add Details</DialogTitle>
-
-            <DialogContent style={{borderColor:'green',}}>
-                <DialogContentText>
-                    Enter Your Order Details Here!
-                </DialogContentText>
-
-                <TextField 
-                autoFocus
-                margin="dense"
-                id="quantity"
-                label="Quantity (kg)"
-                type="text"
-                placeholder='Quantity here'
-                fullWidth
-                variant="outlined"
-                />
-                <TextField 
-                autoFocus
-                margin="dense"
-                id="price"
-                label="Price (Rs)"
-                type="text"
-                placeholder='Price here'
-                fullWidth
-                variant="outlined"
-                />
-                <TextField 
-                autoFocus
-                margin="dense"
-                id="date"
-                type="date"
-                label="Schedule Date"
-                // placeholder='Schedule Date'
-                fullWidth
-                variant="outlined"
-                />
-                
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-                <Button onClick={handleClose} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
-            </DialogActions>    
-
-        </Dialog>
-    
         <Dialog open={open2} onClose={handleClose2} fullWidth
         maxWidth="sm">
             <DialogContent>
@@ -123,17 +79,17 @@ export default function OrderComponent(props) {
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Seller Name</Typography></ListItemText>
                         <ListItemText><Typography sx={{color:'#ffff',}}>K.U. Ashmitha</Typography></ListItemText>
                     </ListItem>
-                    
+
+                    <ListItem>
+                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Name</Typography> </ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{props.orderName}</Typography></ListItemText>
+                    </ListItem>                    
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}> <Typography sx={{color:'#ffff',}}>Location</Typography></ListItemText>
-                        <ListItemText> <Typography sx={{color:'#ffff',}}>Kandy</Typography> </ListItemText>
+                        <ListItemText> <Typography sx={{color:'#ffff',}}>32/C, Mirissa Rd, Kandy</Typography> </ListItemText>
                     </ListItem>
 
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Category</Typography></ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>Carrot</Typography></ListItemText>
-                    </ListItem>
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Waste Quality</Typography></ListItemText>
@@ -141,18 +97,23 @@ export default function OrderComponent(props) {
                     </ListItem>
 
                     <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Date</Typography> </ListItemText>
+                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Quantity</Typography> </ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>2kg</Typography></ListItemText>
+                    </ListItem>
+
+                    <ListItem>
+                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Price</Typography> </ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>200LKR</Typography></ListItemText>
+                    </ListItem>
+
+                    <ListItem>
+                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Date</Typography> </ListItemText>
                         <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.date}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Name</Typography> </ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{props.orderName}</Typography></ListItemText>
-                    </ListItem>
-
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Quantity</Typography> </ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>2kg</Typography></ListItemText>
+                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Pickup Date</Typography> </ListItemText>
+                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.pickupDate.slice(0,10)}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>

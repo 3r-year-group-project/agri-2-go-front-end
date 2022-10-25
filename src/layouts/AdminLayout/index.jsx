@@ -10,6 +10,10 @@ import DashBoard from '../../pages/Admin/Dashboard';
 import Users from '../../pages/Admin/Users';
 import Subscription from '../../pages/Admin/Subscriptions';
 import ScamReports from '../../pages/Admin/ScamReports';
+import Vegetables from '../../pages/Admin/Vegetables';
+import Payments from '../../pages/Admin/Payments';
+import ReveneuRate from '../../pages/Admin/RevenueRate';
+import RevenueRate from '../../pages/Admin/RevenueRate';
 
 
 
@@ -32,11 +36,20 @@ export default function AdminLayout() {
         case ADMIN_SECTIONS.USERS:
           setOpenPane(<Users/>);
           break;
+        case ADMIN_SECTIONS.VEGETABLES:
+          setOpenPane(<Vegetables/>);
+          break;
+        case ADMIN_SECTIONS.PAYMENTS:
+          setOpenPane(<Payments/>);
+          break;
         case ADMIN_SECTIONS.SUUBSCRIPTIONS:
           setOpenPane(<Subscription/>);
           break;
         case ADMIN_SECTIONS.SCAMREPORTS:
           setOpenPane(<ScamReports/>);
+          break;
+        case ADMIN_SECTIONS.REVENEU_RATE:
+          setOpenPane(<RevenueRate/>);
           break;
          
         default:

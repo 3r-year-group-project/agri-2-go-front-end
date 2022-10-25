@@ -6,7 +6,7 @@ export default function ButtonForAdd(props) {
     <div> <Button 
     onClick={props.action} 
     variant="contained" 
-    sx={{color:'#fff',backgroundColor:'green',}} 
+    sx={{color:'#fff',backgroundColor:'blue',}} 
     href={props.links} 
     endIcon={props.icon} >
       {props.name}</Button>

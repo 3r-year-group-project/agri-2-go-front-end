@@ -9,6 +9,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import ChatIcon from '@mui/icons-material/Chat';
+import PriceChangeIcon from '@mui/icons-material/PriceChange';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
@@ -55,12 +56,20 @@ export default function TransporterListItems() {
       </ListItemButton>
       <Divider/>
 
-      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
+      <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHARGERS)}>
+        <ListItemIcon>
+          <PriceChangeIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Chargers" />
+      </ListItemButton>
+      <Divider/>
+
+      {/* <ListItemButton onClick={() => routeToPage(TRANSPORTER_SECTIONS.CHATMEMBERSLIST)}>
         <ListItemIcon>
           <ChatIcon color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Chat" />
-      </ListItemButton>
+      </ListItemButton> */}
       <Divider/>
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>

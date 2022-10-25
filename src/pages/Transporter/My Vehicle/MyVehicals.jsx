@@ -326,8 +326,8 @@ export default function MyVehicals() {
                 </Typography>
 
                 <TextField
-                error={errorText.vehicleNumber}
-                helperText={errorText.vehicleNumber}
+                error={errorText.vehiclenumber}
+                helperText={errorText.vehiclenumber}
                 onChange={checkVehicleNumber}
                 autoFocus
                 margin="dense"

@@ -1,66 +1,84 @@
 import React from 'react'
-import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, List, ListItem, ListItemText, Typography } from '@mui/material'
+import { Alert, Box, Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star';
 import Divider from '@mui/material/Divider';
 import './itemDetails.css';
 import MyButton from './MyButton';
 import {useNavigate } from 'react-router-dom';
 import { WASTAGE_RECYCLE_CENTER_SECTIONS } from '../../../constants';
+import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import axios from 'axios'
+import { useAuth0 } from "@auth0/auth0-react";
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
 export default function ItemDetails(props) {
     const navigate = useNavigate();
+    const [open, setOpen] =React.useState(false);
+    // const [openMessage, setOpenMessage] =React.useState(false);
+    const [pickUpDate, setPickUpDate] = React.useState()
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
     function routeToPage(page) {
       navigate(`/wastageRecycleCenter/dash/${page}`);
     }
 
+    const captureDate = (value)=>[
+        setPickUpDate(value)
+    ]  
+
+    const handleAcceptRequest = () =>{
+        setOpen(true);
+    }
+
+    const handleClose = () =>{
+        setOpen(false);
+    }
+
+    const confirmAcceptRequest = async()=>{
+
+        await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
+            userInfo: user, 
+            sellerInfo:props.sellerInfo, 
+            orderInfo:props.orderInfo, 
+            pickUpDate: pickUpDate,
+            wastage_details_id: props.wastage_details_id
+
+        })
+
+        
+    }
+    // const handleCloseMessage = () =>{
+    //     setOpenMessage(false);
+    // }
+
+
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
-    <Box width='70vw' margin="auto">
-        <Card style={{height:'100vh', margin:'10px  80px',borderRadius:'20px',}}>
+    <Box width='60vw' margin="auto">
+        <Card style={{height:'auto', margin:'10px  80px',borderRadius:'20px', backgroundColor: 'white'}}>
             <div className='basic-details-row'>
-                <div className='image-cube'>
-                <CardMedia className='image-in'
-                    component="img"
-                    height='200'
-                    image={props.image}
-                    alt='carrot'
-                    />
-                </div>
-                
                 <div>
                 <CardContent>
-                    <div style={{textAlign:'left',}}>
+                    <div style={{textAlign:'left', color: '#075E54'}}>
                     <Typography gutterBottom variant='h3' component='div'>
                         {props.title} 
                     </Typography>
              
                     </div>
+                </CardContent>               
 
-                    <div className='item-description-col'>
-                        <Typography gutterBottom variant='body3' color='text.primary' align='justify'>
-                        {props.description}
-                        </Typography>
-                    </div>   
-                </CardContent>
-                <div className='wishlist-button'>
-                        <CardActions>
-                        <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}} onClick={() => <Alert severity="success">This is a success alert — check it out!</Alert>}>Add Seller to Wishlist</Button>
-                        </CardActions>
-                    </div>
                 </div>
                 
-
-                {/* <div>
-                <CardActions>
-                <Button variant='contained' endIcon={<StarIcon/>} sx={{backgroundColor:'#008000',color:'#fff'}}>Add Seller to Wishlist</Button>
-                </CardActions>
-                </div> */}
+                <Box sx={{justifyContent: 'right', alignItems: 'right', mt: 5}}>
+                                  
+                                <CardActions>
+                                    <Button variant='contained' size='small' endIcon={<StarOutlineOutlinedIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}}>Add Seller to Wishlist</Button>
+                                </CardActions>
+                  
+                </Box>
                 
-            </div>
-
-
-            
+            </div>    
 
 
             <div className='description-row'>
@@ -100,6 +118,11 @@ export default function ItemDetails(props) {
                                 <ListItemText primary="Quantity" style={{textAlign:'right',paddingRight:'80px',}}/>
                                 <ListItemText primary={props.quantity} style={{textAlign:'left',paddingLeft:'120px',}}/>
                             </ListItem>
+
+                            <ListItem style={{padding:'10px'}}>
+                                <ListItemText primary="Price per 1kg" style={{textAlign:'right',paddingRight:'80px',}}/>
+                                <ListItemText primary={props.price} style={{textAlign:'left',paddingLeft:'120px',}}/>
+                            </ListItem>
                             <Divider color='#9df58c'/>
                         </List>
                         
@@ -110,16 +133,70 @@ export default function ItemDetails(props) {
                 <div className='btn-colum'>
                     <div className='btn-col-1'>
                         <CardActions>
-                        <Button variant='outlined' sx={{color: '#fff'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.FINDWASTAGE)}>Cancel</Button>
+                        <Button variant='outlined' sx={{color: '#green'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.FINDWASTAGE)}>Cancel</Button>
                         </CardActions>
                     </div>
 
                     <div className='btn-col-2'>
                         <CardActions>
-                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}>Add to Order List</Button>
-                        {/* <MyButton name="Add to Order Table" onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.ORDERS)}/> */}
+                        <Button variant='contained' sx={{backgroundColor: 'green'}} onClick={handleAcceptRequest}>Accept Request</Button>
                         </CardActions>
+
+                        
                     </div>
+
+
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Add Details</DialogTitle>
+
+                        <DialogContent style={{borderColor:'green',}}>
+                            <DialogContentText>
+                                Enter your preferred pickup date here...
+                            </DialogContentText>
+                            <br/>
+
+                            {/* <TextField
+                            autoFocus
+                            margin="dense"
+                            id="quantity"
+                            label="Quantity (kg)"
+                            type="text"
+                            placeholder='Quantity here'
+                            fullWidth
+                            variant="outlined"
+                            /> */}
+
+                            <TextField 
+                            autoFocus
+                            margin="dense"
+                            id="date"
+                            type="date"
+                            fullWidth
+                            variant="outlined"
+                            onChange={e => captureDate(e.target.value)}
+                            />
+                            
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
+                            <Button onClick={confirmAcceptRequest} variant="contained" sx={{backgroundColor: 'green'}}>Confirm</Button>
+                        </DialogActions>    
+
+                    </Dialog>
+
+
+                    {/* <Dialog open={openMessage} onClose={handleCloseMessage}>
+                        <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Alert</DialogTitle>
+                        <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
+                        <DialogContentText>
+                            <h3>Your order is placed</h3>
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions style={{backgroundColor: 'white'}}>
+                        <Button onClick={handleCloseMessage} variant="contained" color="secondary">OK</Button>
+                        
+                        </DialogActions>
+                    </Dialog> */}
 
                 </div> 
 

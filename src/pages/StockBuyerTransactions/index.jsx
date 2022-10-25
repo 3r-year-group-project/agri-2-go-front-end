@@ -2,52 +2,50 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import TransactionTable from "../../components/Transactions";
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function createData(date, description, amount, contact) {
-    return { date, description, amount, contact };
+function createData(date, description, amount, status) {
+    return { date, description, amount, status };
 }
   
-const rows = [
+let rows = [
     
     
-    createData('2022.08.27', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "1600.00", "Seller Name"),
-    
-    createData('2022.08.29', "Description blablbabla lblalblalb  lbalblabla", "1600.00", "Seller Name"),
-    createData('2022.08.30', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "3200.00", "Seller Name"),
-    
-    createData('2022.09.01', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "10000.00", "Seller Name"),
-    createData('2022.09.02', "Description  alblalba lblalblabla lbalblabla", "2600.00", "Seller Name"),
-    createData('2022.09.03', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "2000.90", "Seller Name"),
-    createData('2022.09.04', "Description blablbabla lblalblalb ", "1700.00", "Seller Name"),
-    
-    createData('2022.09.06', "Description  lblalblalb alblalba lblalblabla lbalblabla", "1800.00", "Seller Name"),
-    
-    
-    createData('2022.09.09', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "1600.00", "Seller Name"),
-    
-    createData('2022.09.11', "Description blablbabla lblalblalb  lbalblabla", "1600.00", "Seller Name"),
-    createData('2022.09.12', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "3200.00", "Seller Name"),
-    createData('2022.09.13', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "9000.00", "Seller Name"),
-    createData('2022.09.14', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "10000.00", "Seller Name"),
-    
-    createData('2022.09.16', "Description blablbabla lblalblalb alblalba lblalblabla lbalblabla", "2000.90", "Seller Name"),
-    
-    
-    
-    
-    
-    
-    
-    createData('2022.08.24', "Description blablbabla lblalblalb  lbalblabla", "1600.00", "Seller Name"),
-    
-    
-    
-    createData('2022.09.28', "Description  alblalba lblalblabla lbalblabla", "2600.00", "Seller Name")
+    // createData('2022.08.27', "Kamal Fernando", "1600.00", "+ Pending"),  
+    // createData('2022.08.29', "Lakmal Silva", "1600.00", "- Completed"),
+    // createData('2022.08.30', "Nelum Peries", "3200.00", "- Pending")
     
     
 ].sort((a, b) => (a.date < b.date ? -1 : 1));
 
 export default function GardenerTransactions() {
+
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    const[insert,setInsert] = React.useState(false);
+
+    React.useEffect(() => {
+        console.log("Running Transactions!!!!!!!!!!");
+        axios.post('/api/stockbuyer/transactions/getdetails',{email:user.email})
+        .then(res => {
+          console.log("jhsyagfduyadsg")
+          rows = []
+          
+          for(let i=0;i<res.data.data.length;i++){
+            rows.push(createData(res.data.data[i].date_time.slice(0,10),res.data.data[i].first_name.concat(" ",res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));
+            setInsert(true);  
+          
+          
+          console.log(res.data.data[i])
+          }
+        console.log(res.data.data)
+          
+        })        
+        
+      }, [insert]);
+
+
+
     return(
         <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
             <Box m={2} sx={{paddingLeft: 3, paddingRight: 3}}>

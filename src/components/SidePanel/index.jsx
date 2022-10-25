@@ -28,6 +28,8 @@ import {Stack } from '@mui/material';
 import { FARMER_SECTIONS } from '../../constants';
 
 import NotificationIcon from '../NotificationIcon';
+import axios from 'axios';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const drawerWidth = 240;
@@ -84,7 +86,7 @@ export default function SidePanel(Props) {
   
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
- 
+  const {user, isAuthenticated, isLoading} = useAuth0();
   const location = useLocation();
 
   
@@ -93,6 +95,18 @@ export default function SidePanel(Props) {
     setOpen(!open);
   };
 
+  const [notificationCount,setnotificationCount] = React.useState(0);
+
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     axios.get('/api/users/notifications/'+ user.email).then(res => {
+  //       setnotificationCount(res.data.data.notification.length);
+  //     });
+  //   }, 2000);
+
+  //   return () => clearInterval(interval);
+    
+  // }, [isAuthenticated, isLoading]);
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -143,7 +157,7 @@ export default function SidePanel(Props) {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="secondary">
+          <Badge badgeContent={notificationCount} color="secondary">
           <NotificationIcon/>
             {/* <NotificationsIcon /> */}
           </Badge>

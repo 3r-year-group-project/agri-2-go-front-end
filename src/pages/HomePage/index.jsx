@@ -53,7 +53,7 @@ export default function HomePage(props) {
       navigate('/customer/category');
       break;
     case 3:
-      navigate('/farmer/category');
+      navigate('/farmer/dash/dashboard');
       break;
     case 4:
       navigate('/gardener/category');
@@ -98,11 +98,13 @@ export default function HomePage(props) {
     <div style={{ paddingTop:18, paddingLeft:5,
   }}>
             <Typography  sx={{
-              fontSize:22,
-              fontWeight:500,
-              display: { xs: 'none', md: 'flex' },
+              
+              
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: "'Poppins', sans-serif",
               color: "#074C0E", 
+              fontSize: {xs: '24px', md: '22px'},
+              fontWeight: {xs: 600, md: 500}
            
             
               
@@ -110,11 +112,12 @@ export default function HomePage(props) {
                 Welcome to 'Agri2Go'. 
             </Typography>
             </div>
-      <Typography variant="h2" sx={{
+      <Typography variant="h3" sx={{
               fontWeight:600,
               display: { xs: 'none', md: 'flex' },
               fontFamily: "'Poppins', sans-serif",
               color: "#075E54", 
+              
               
             // color: "primary", 
            

@@ -23,11 +23,12 @@ export default function Card(props) {
                 <Paper elevation={0} sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    width:600,
+                    width:400,
                     paddingBottom:1,
                     paddingLeft:1
                 }}>
                     <CropDetails
+                    requestId={props.requestId}
                     marketName={props.marketName}
                     marketDistance={props.marketDistance}
                     cropName={props.cropName}

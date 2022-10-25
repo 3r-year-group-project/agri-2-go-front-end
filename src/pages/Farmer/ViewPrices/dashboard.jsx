@@ -27,7 +27,7 @@ import { Typography } from '@mui/material';
 
 const mdTheme = createTheme();
 
-export default function DashboardContent() {
+export default function DashboardContent(props) {
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
  
@@ -52,7 +52,7 @@ export default function DashboardContent() {
                   maxWidth
         
                 >
-                  <Chart title="Price fluctuation for last 2 weeks"  yAxis="Price" data=""/>
+                  <Chart title="Price fluctuation for last 2 weeks"  yAxis="Price" data={props.pData}/>
                 </Paper>
                 
               </Grid>

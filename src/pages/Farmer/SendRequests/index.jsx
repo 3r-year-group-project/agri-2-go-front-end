@@ -244,7 +244,7 @@ export default function SendRequests() {
 
 return (
     <Fragment>
-    <Container component="main" maxWidth="md" style={{backgroundColor:"#075E54"}} >
+    <Container component="main" maxWidth="md" style={{backgroundColor:"white"}} >
       
         <CssBaseline  />
         <Box
@@ -260,9 +260,9 @@ return (
             <Grid container spacing={2}>
             <Grid item xs={12} >
               
-                  <Typography style={{color:"white" , display: 'flex',
+                  <Typography style={{color:"#075E54" , display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',}} variant="h6" component="h2">Selling Request Details</Typography>
+                    alignItems: 'center',}} variant="h6" component="h2"><b>Selling Request Details</b></Typography>
             
                   
             </Grid>
@@ -274,7 +274,7 @@ return (
                 onSelect={handleVegetable}
                 options={top20Vegetables}
                 value={data.vegetable}
-                renderInput={(params) => <TextField {...params} label="Vegetable Category" color="secondary"  focused fullWidth required />}
+                renderInput={(params) => <TextField {...params} label="Vegetable Category" color="primary"  sx={{input: { color: 'black' }}} focused fullWidth required />}
                 />
             </Box>
             </Grid>
@@ -287,7 +287,7 @@ return (
                 onSelect={handleEcoCenter}
                 options={top6EconomicCenters}
                 value={data.ecocenter}
-                renderInput={(params) => <TextField {...params} label="Dedicated Economic Center" color="secondary"  focused fullWidth required />}
+                renderInput={(params) => <TextField {...params} label="Dedicated Economic Center" color="primary" sx={{input: { color: 'black' }}} focused fullWidth required />}
             />
             </Box>
             </Grid>
@@ -326,13 +326,13 @@ return (
               id="date"
               label="Selling Date"
               type="date"
-              color="secondary"
+              color="primary"
+              sx={{width: 220, input: { color: 'black' }}}
               focused
               fullWidth
               required
               value={data.date}
               onChange={handleDate}
-              sx={{ width: 220 }}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -342,7 +342,7 @@ return (
 
             <Grid item xs={12}>
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
-            <Typography style={{width:'150px' , fontSize:"17px"}} gutterBottom variant='body1' color="text.primary">
+            <Typography style={{width:'150px' , fontSize:"17px"}} gutterBottom variant='body1' color="#075E54">
                     Upload Image
                 </Typography>
                 
@@ -373,6 +373,7 @@ return (
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              style={{width:"100%" , paddingTop:"5px",height:"45px",marginLeft:'10px' }}
             >
               Send Request
             </Button>

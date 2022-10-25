@@ -20,7 +20,7 @@ export default function CropDetails(props) {
           {props.date} 
         </Typography>
         <br/>
-        <Typography component="p" variant="h4">
+        <Typography component="p" variant="h4" color="#075E54">
           {props.cropName}
         </Typography>
         <Typography color="text.secondary" variant="h6" sx={{ flex: 1 }}>

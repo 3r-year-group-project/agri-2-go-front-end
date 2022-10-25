@@ -13,6 +13,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import axios from "axios";
 import { PrintTwoTone } from '@mui/icons-material';
+import swal from 'sweetalert';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -60,7 +61,8 @@ export default function WastagePreferenceCard(props) {
   const handleDeleteCall = () => {
     axios.delete('/api/wrc/wastage/'+props.id).then((res)=>{                  
       setOpenDelete(false);
-      alert("Wastage Category Removed Successfully!");
+      swal("Successful!", "You deleted wastage preference!", "success"); 
+      // alert("Wastage Category Removed Successfully!");
     });  
     
   }
@@ -73,8 +75,9 @@ export default function WastagePreferenceCard(props) {
     var catString = Array.prototype.map.call(category, function(cat) { return cat.title; }).join(",");
     var levelString = Array.prototype.map.call(level, function(lvl) { return lvl.title; }).join(",");
     const wastage = {price : price, category:catString , level:levelString};
-    axios.post('/api/wrc/wastage/'+props.id, wastage).then((res)=>{                        
-      alert("Wastage Category Updated Successfully!");
+    axios.post('/api/wrc/wastage/'+props.id, wastage).then((res)=>{  
+      swal("Successful!", "You updated wastage preference!", "success");                       
+      // alert("Wastage Category Updated Successfully!");
       setOpen(false); 
     });
   }

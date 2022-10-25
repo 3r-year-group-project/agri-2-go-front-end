@@ -9,6 +9,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FormControl from '@mui/material/FormControl';
 import AddIcon from '@mui/icons-material/Add';
 import axios from "axios";
+import Alert from '@mui/material/Alert';
+import swal from 'sweetalert';
 
 
 import WastagePreferenceCard from './WastagePreferenceCard';
@@ -60,8 +62,11 @@ const handleCreate = () =>{
   var catString = Array.prototype.map.call(category, function(cat) { return cat.title; }).join(",");
   var levelString = Array.prototype.map.call(level, function(lvl) { return lvl.title; }).join(",");
   const wastage = {price : price, category:catString , level:levelString};
-  axios.post('/api/wrc/wastage/', wastage).then((res)=>{                        
-    alert("Wastage Category Created Successfully!");
+  axios.post('/api/wrc/wastage/', wastage).then((res)=>{  
+    
+      
+    swal("Successful!", "You added wastage preference!", "success");                
+    // alert("Wastage Category Created Successfully!");
     setOpen(false); 
   });
 }

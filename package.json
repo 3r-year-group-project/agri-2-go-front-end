@@ -33,9 +33,7 @@
     "devextreme": "22.1.4",
     "devextreme-react": "22.1.4",
     "google-maps-react": "^2.0.6",
-
     "joi": "^17.6.1",
-
     "material-table": "^2.0.3",
     "material-ui-search-bar": "^1.0.0",
     "moment": "^2.29.4",
@@ -65,6 +63,7 @@
     "stream-chat": "^6.7.3",
     "stream-chat-react": "^9.3.0",
     "styled-components": "^5.3.5",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

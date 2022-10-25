@@ -15,7 +15,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 export default function ItemDetails(props) {
     const navigate = useNavigate();
     const [open, setOpen] =React.useState(false);
-    const [openMessage, setOpenMessage] =React.useState(false);
+    // const [openMessage, setOpenMessage] =React.useState(false);
     const [pickUpDate, setPickUpDate] = React.useState()
     const { user, isAuthenticated, isLoading } = useAuth0();
 
@@ -46,11 +46,11 @@ export default function ItemDetails(props) {
 
         })
 
-        setOpenMessage(true);
+        
     }
-    const handleCloseMessage = () =>{
-        setOpenMessage(false);
-    }
+    // const handleCloseMessage = () =>{
+    //     setOpenMessage(false);
+    // }
 
 
   return (
@@ -185,7 +185,7 @@ export default function ItemDetails(props) {
                     </Dialog>
 
 
-                    <Dialog open={openMessage} onClose={handleCloseMessage}>
+                    {/* <Dialog open={openMessage} onClose={handleCloseMessage}>
                         <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Alert</DialogTitle>
                         <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
                         <DialogContentText>
@@ -194,9 +194,9 @@ export default function ItemDetails(props) {
                         </DialogContent>
                         <DialogActions style={{backgroundColor: 'white'}}>
                         <Button onClick={handleCloseMessage} variant="contained" color="secondary">OK</Button>
-                        {/* <Button variant="contained" color="error" onClick={handleDecline}>Decline</Button> */}
+                        
                         </DialogActions>
-                    </Dialog>
+                    </Dialog> */}
 
                 </div> 
 

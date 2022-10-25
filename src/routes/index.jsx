@@ -33,7 +33,7 @@ import StockBuyerRegistrationForm from "../components/RegistrationForms/StockBuy
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
-import ViewRates from "../pages/ViewRates";
+import ViewRates from "../pages/ViewRates/index";
 
 import LoginPage from "../pages/LoginPage";
 

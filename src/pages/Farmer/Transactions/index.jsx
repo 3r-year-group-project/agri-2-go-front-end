@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
+import { Typography } from '@mui/material';
 import TransactionTable from "../../../components/Transactions";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -42,13 +41,12 @@ export default function FarmerTransactions() {
       }, []);
 
     return(
-        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
-            <Box m={2} sx={{paddingLeft: 3, paddingRight: 3}}>
-                <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
-                    <center><FormLabel id="title"><font size="18"><b>Transaction Details</b></font></FormLabel></center>
-                </Box>
+        <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
+         
+            <Typography variant='h5' color='#075E54' marginBottom='20px'><b>Transactions</b></Typography>
+              
                 <TransactionTable rows={rows}/>
-            </Box>
+
         </div>
     );
 }

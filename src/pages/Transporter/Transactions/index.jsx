@@ -20,7 +20,7 @@ const rows = [
 
 export default function TransporterTransactions() {
     return(
-        <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'0.5%',minHeight:'100%'}} >
+        <div style={{ background: 'white', padding:'0.5%',minHeight:'100%'}} >
             <Box m={2} sx={{paddingLeft: 3, paddingRight: 3}}>
                 <Box m={2} sx={{paddingTop: 3, paddingBottom: 2}}>
                     

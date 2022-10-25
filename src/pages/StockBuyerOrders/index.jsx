@@ -354,8 +354,9 @@ async function getOrders() {
           }}>
             <DialogContent>
 
-            <DialogTitle style={{marginLeft:'-10px',fontSize:'22px',}}>
-                Order Details
+            <DialogTitle >
+            <Typography variant='h5' color='#075E54' marginBottom='20px'><b>My orders</b></Typography>
+              
             <IconButton
             aria-label="close"
             onClick={handleCloseReceived}

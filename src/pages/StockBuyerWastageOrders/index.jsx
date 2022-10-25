@@ -1,31 +1,19 @@
 import Button from '@mui/material/Button';
-
 import React, { Fragment, useState } from 'react';
-
-
 import { useNavigate } from 'react-router-dom';
-
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
-
 import { CssBaseline, Stack, Typography } from '@mui/material';
-
 import FormControlLabel from '@mui/material/FormControlLabel';
-
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
-
 import Container from '@mui/material/Container';
-
 import Input from '../../components/Input/input';
-
-
 import Footer from "../../components/Footer";
 import NavBar from '../../components/Navbar';
 import Logo from '../../components/Logo/logo';
-
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -37,10 +25,8 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
-
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-
 import Tooltip from '@mui/material/Tooltip';
 import { visuallyHidden } from '@mui/utils';
 // import SearchBar from '../../../components/SearchBar';
@@ -124,6 +110,9 @@ import AddIcon from '@mui/icons-material/Add';
     };
   
     return (
+      <div>
+         
+          
       <TableHead>
         <TableRow>
           
@@ -139,7 +128,7 @@ import AddIcon from '@mui/icons-material/Add';
                 direction={orderBy === headCell.id ? order : 'asc'}
                 onClick={createSortHandler(headCell.id)}
               >
-                {headCell.label}
+                 <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
                 {orderBy === headCell.id ? (
                   <Box component="span" sx={visuallyHidden}>
                     {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -150,6 +139,7 @@ import AddIcon from '@mui/icons-material/Add';
           ))}
         </TableRow>
       </TableHead>
+      </div>
     );
   }
   
@@ -165,45 +155,7 @@ import AddIcon from '@mui/icons-material/Add';
   const EnhancedTableToolbar = (props) => {
     const { numSelected } = props;
   
-    return (
-      <Toolbar
-        sx={{
-          pl: { sm: 2 },
-          pr: { xs: 1, sm: 1 },
-          ...(numSelected > 0 && {
-            bgcolor: (theme) =>
-              alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity), 
-          }),
-        }}
-      >
-        { (
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            variant="h5"
-            id="tableTitle"
-            component="div"
-          
-          >
-          Wastage Stocks Management
-          
-          </Typography>
-          
-  
-          
-        )}
-        
-        {/* {<SearchBar/>} */}
-  
-        {/* { (
-          <Tooltip title="Filter list">
-            <IconButton>
-              <FilterListIcon color="secondary"/>
-            </IconButton>
-          </Tooltip>
-        )} */}
-      </Toolbar>
-      
-    );
+   
   };
   
   EnhancedTableToolbar.propTypes = {
@@ -226,7 +178,7 @@ export default function LoadWastageStocks() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -254,6 +206,14 @@ export default function LoadWastageStocks() {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 return (
     <Fragment>
+      <Typography
+        variant='h5' color='#075E54' marginTop='20px'marginLeft='20px'
+        
+        
+      >
+     <b> Wastage Stocks Management</b>
+      
+      </Typography>
       <Container component="main" maxWidth="100%" >
         <Grid container spacing={1} >
         <Grid item xs={12} sx={{marginTop:"40px"}}>

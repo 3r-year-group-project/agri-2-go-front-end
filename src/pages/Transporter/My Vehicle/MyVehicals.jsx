@@ -221,7 +221,7 @@ export default function MyVehicals() {
    
     
   return (
-    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'2%',minHeight:'100%'}}>
+    <div style={{ background: 'white', padding:'2%',minHeight:'100%'}}>
          {/* <Typography style={{textAlign:'left',margin:'20px 0', color: 'green'}} gutterBottom variant='h6' color="text.primary">
                 Vehical Details
         </Typography>  

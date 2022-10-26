@@ -45,7 +45,7 @@ export default function OrderPage() {
     <div className='table-pre'>
       <div className="topic-preference">
         
-            {<SearchBar/>}
+            {/* {<SearchBar/>} */}
             <Filter id="order-filter-status" label="Status" width="30%" options={[{title:"Pending"}, {title:"Completed"}, {title:"Cancelled"}]} setOrderData={e=>setOrderData(e)}/>
       </div>
       <br />

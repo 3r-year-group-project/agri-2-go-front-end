@@ -59,7 +59,7 @@ export default function NotificationIcon(Props) {
 
       ]
     },
-    "Transporter": {
+    "transporter": {
       "notification": [
         "Transport requests are available",
         "Your fund is released",

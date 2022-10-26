@@ -86,12 +86,7 @@ export default function UserProfileIcon(Props) {
           </ListItemIcon>
         <Typography>Profile</Typography>
         </MenuItem>
-        <MenuItem onClick={()=>{navigate(`/${currentuser}/category`);}}>
-          <ListItemIcon>
-            <Logout fontSize="small" color="secondary" />
-          </ListItemIcon>
-        <Typography>{Props.item2}</Typography>
-        </MenuItem>
+       
         <MenuItem onClick={()=>{navigate(`/${currentuser}/dash/dashboard`);}}>
           <ListItemIcon>
             <Logout fontSize="small" color="secondary" />

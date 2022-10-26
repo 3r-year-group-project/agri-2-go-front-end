@@ -102,6 +102,7 @@ export default function SidePanel(Props) {
       const interval = setInterval(() => {
         axios.get('/api/users/notifications/'+ user.email).then(res => {
           setnotificationCount(res.data.data.notification.length);
+          console.log(res.data.data.notification.length);
         });
       }, 2000);
   

@@ -54,7 +54,7 @@ export default function DashboardContent(props) {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     const d = R * c; 
 
-    const priceList = {50:2, 150:14 ,250:79, 500:87, 750:79, 1000:87, 1500:75, 2000:97}
+    const priceList = {50:100, 150:70 ,250:80, 500:150, 750:160, 1000:170, 1500:180, 2000:190}
     for (const [key, value] of Object.entries(priceList)) {
         if (key > d){
           setExpectedPrice(d * value)

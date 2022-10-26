@@ -37,8 +37,6 @@ function createData(id,name, type, block, view) {
     name,
     type,
     block,
-  
-    view
   };
 }
 
@@ -93,13 +91,7 @@ const headCells = [
     disablePadding: false,
     label: 'Block',
   },
-  {
-    id: 'view',
-    numeric: false,
-  
-    disablePadding: false,
-    label: 'View',
-  },
+
 ];
 
 function EnhancedTableHead(props) {
@@ -194,7 +186,7 @@ export default function OrderTable() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const navigate = useNavigate();
 
@@ -389,12 +381,12 @@ useEffect(()=>{
                             {row.user_status=='BLOCKED' && <Button id="myButton2" color="secondary" variant="contained" sx={{
                          width: 120,fontSize: 16, backgroundColor: "green",color:'white'}}  onClick={()=>{handleunblockUser(row.id)}}  > UNBLOCK</Button >}
                         </TableCell>
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                         <Button color="secondary" variant="contained" sx={{
                          width: 200,fontSize: 16, backgroundColor: "green",color:'white'}} onClick={navigateToProfile}>
                             {'VIEW'}
                         </Button>
-                    </TableCell>
+                    </TableCell> */}
                       
                     </TableRow>
                   );

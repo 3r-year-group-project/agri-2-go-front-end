@@ -11,11 +11,15 @@ export default function Request() {
   const [request, setRequest] = React.useState([]);
   const [st, setSt] = React.useState(false);
 
+
   React.useEffect(() => {
     axios.post('/api/transporter/request/getall',{email:user.email})
         .then(res => {
           console.log(res.data);
             setRequest(res.data.data);});
+
+                    
+    
 },[st]);
   
 const changeSt = () => {
@@ -28,6 +32,7 @@ const changeSt = () => {
     {request.map(element => {
       let name = element.farmer_first_name+" "+element.farmer_last_name;
       let dy = element.date.substring(0,10);
+      
       return (
         <TransportationRequest  
         id = {element.id}     
@@ -38,7 +43,7 @@ const changeSt = () => {
         startAddress = {element.address}
         destinationAddress = {element.buyer_address}
         phone = {element.phone}
-        cost={element.payment}
+        cost={Math.round(element.payment)}
         changeSt = {changeSt}
           />
       )

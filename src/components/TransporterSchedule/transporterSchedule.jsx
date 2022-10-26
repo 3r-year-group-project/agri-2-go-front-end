@@ -34,6 +34,10 @@ export default function TransportationSchedule(props) {
   const [openContact, setOpenContact] = useState(false);
   const [openConfirm, setOpenConfirm] = useState(false);
   const [openError, setOpenError] = useState(false);
+  const [code, setCode] = React.useState("");
+  const [update,setUpdate] = React.useState(false);
+
+  
 
   const { state, setData, setExplicitField, validate } = useValidator({
     initialData: {
@@ -50,6 +54,13 @@ export default function TransportationSchedule(props) {
     },
   });
 
+  React.useEffect(() => {
+    axios.get("/api/transporter/request/getcode/" + props.id).then((res) => {
+      console.log("code", res.data.data[0].code);
+      if (res.data.data[0].code != null) setCode(res.data.data[0].code);
+    });
+  }, [props.id, update]);
+
   const changeCode = (e) => {
     setData((old) => ({
       ...old,
@@ -58,17 +69,23 @@ export default function TransportationSchedule(props) {
   };
 
   const submitcode = () => {
-    if(state.$data.code !=null){
-      axios.post('/api/transporter/request/starttrip',{id:props.id,code:state.$data.code})
-      .then(res => {
-        if(res.data.stCode===1){
-          setOpenConfirm(false);
-          props.changeSt();
-        }else if(res.data.stCode===0){
-          setOpenConfirm(false);
-          setOpenError(true);
-        }
-      });
+    if (state.$data.code != null) {
+      axios
+        .post("/api/transporter/request/starttrip", {
+          id: props.id,
+          code: state.$data.code,
+        })
+        .then((res) => {
+          if (res.data.stCode === 1) {
+            setOpenConfirm(false);
+            
+
+            props.changeSt();
+          } else if (res.data.stCode === 0) {
+            setOpenConfirm(false);
+            setOpenError(true);
+          }
+        });
     }
   };
 
@@ -146,7 +163,11 @@ export default function TransportationSchedule(props) {
               <Typography>{props.phone}</Typography>
               <Typography>Total Payment</Typography>
               <Typography>Rs.{props.cost}</Typography>
-              <Typography><b>Code </b></Typography>
+              {code != "" ?? <Typography>
+                <b>Code </b>
+              </Typography>}
+              
+              <Typography>{code}</Typography>
             </Stack>
 
             <Timeline position="right">
@@ -205,7 +226,7 @@ export default function TransportationSchedule(props) {
                 onClick={handleConfirmOpen}
                 variant="contained"
                 color="success"
-                disabled={props.st === 'Started' ? true : false}
+                disabled={props.st === "Started" ? true : false}
                 startIcon={<PlaylistAddIcon />}
               >
                 Start Journery
@@ -256,9 +277,11 @@ export default function TransportationSchedule(props) {
                 label="Journery Code"
                 variant="filled"
                 onChange={changeCode}
-                helperText={state.$errors.code.map((data) => data.$message).join(",")}
+                helperText={state.$errors.code
+                  .map((data) => data.$message)
+                  .join(",")}
                 error={state.$errors.code.length > 0}
-                sx={{ input: { color: 'black' } }}
+                sx={{ input: { color: "black" } }}
               />
             </Box>
           </DialogContentText>
@@ -272,7 +295,12 @@ export default function TransportationSchedule(props) {
             Cancel
           </Button>
           <Button
-            onClick={()=>{submitcode();handleConfirmClose();}}
+            onClick={() => {
+              submitcode();
+              handleConfirmClose();
+              setUpdate(!update);
+              window.location.reload(false);
+            }}
             variant="outlined"
             color="secondary"
           >

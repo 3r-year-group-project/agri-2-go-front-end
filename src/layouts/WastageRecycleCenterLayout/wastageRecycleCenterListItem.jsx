@@ -47,13 +47,13 @@ export default function WastageRecycleCenterListItems() {
         <ListItemText primary="Orders" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.MYSCHEDULE)}>
+      {/* <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="My Schedule" />
       </ListItemButton>
-      <Divider/> 
+      <Divider/>  */}
       <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.WASTAGEPREFERENCES)}>
         <ListItemIcon>
           <NoteAltIcon color="secondary" />

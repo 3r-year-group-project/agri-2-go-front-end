@@ -92,8 +92,8 @@ export default function ViewRates() {
               flexDirection: "column",
             }}
           >
-            <Typography align="center" variant="h4" sx={{ color: "#075E54" }}>
-              <b>Rates</b>
+            <Typography align="center" variant="h2" sx={{ color: "#075E54" }}>
+              <b>Commision Rates</b>
             </Typography>
           </Box>
 
@@ -255,6 +255,19 @@ export default function ViewRates() {
               </Card>
             </Grid>
           </Grid>
+
+          <Box
+            sx={{
+              mt: 6,
+             
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography align="center" variant="h6" sx={{ color: "#075E54" }}>
+              <b>Commision Rates of payments received from Farmers, Transportors & Wastage Recycle Centers</b>
+            </Typography>
+          </Box>
 
           {/* </Box> */}
         </div>

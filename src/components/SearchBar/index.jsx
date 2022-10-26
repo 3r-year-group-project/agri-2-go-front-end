@@ -23,11 +23,12 @@ import { useNavigate} from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import axios from 'axios';
 
 
 
 
-export default function OrderTable() {
+export default function OrderTable(props) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -42,8 +43,12 @@ export default function OrderTable() {
   // the search result
   // const [users, setFoundUsers] = useState(rows);
 
-  const filter = (e) => {
+  const filter = async(e) => {
     const keyword = e.target.value;
+
+    console.log(keyword)
+
+    
 
     // if (keyword !== '') {
     //   const results = rows.filter((user) => {
@@ -59,6 +64,24 @@ export default function OrderTable() {
     setName(keyword);
   };
 
+  const searchKeyword = async(e)=>{
+
+    e.preventDefault()
+
+    switch(props.parentComponentName){
+
+      case 'find_wastage':
+        {
+          const {data} = await axios.post("http://localhost:3002/api/wrc/wastage_search",{search_query: name})
+          console.log(data) ; 
+          props.setOrderData(data.data)
+        }
+      
+
+       
+
+    }
+  }
 
 
   return (
@@ -87,7 +110,7 @@ export default function OrderTable() {
       
     />
     <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-      <SearchIcon />
+      <SearchIcon onClick={e=>searchKeyword(e)}/>
     </IconButton>
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     

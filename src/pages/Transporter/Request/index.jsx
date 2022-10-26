@@ -4,6 +4,7 @@ import TransportationRequest from '../../../components/TransportationRequest'
 
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
+import Vegetables from '../../Admin/Vegetables/index';
 
 export default function Request() {
 
@@ -37,7 +38,7 @@ const changeSt = () => {
         <TransportationRequest  
         id = {element.id}     
         name = {name}
-        vegetableName = {element.name}
+        vegetableName = {element.vegetable}
         quantity = {element.quantity}
         date = {dy}
         startAddress = {element.address}

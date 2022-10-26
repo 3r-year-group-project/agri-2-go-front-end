@@ -33,7 +33,7 @@ export default function FarmerTransactions() {
                     console.log(res.data.data);
                 rows = []
                 for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].advance_date_time.slice(0,10),res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].payment_status));
+                  rows.push(createData(res.data.data[i].advance_date_time.slice(0,10),res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),parseInt(res.data.data[i].min_advance)+parseInt(res.data.data[i].remaining_payment),res.data.data[i].payment_status));
                   console.log(res.data.data[i])
                   setInsert(true);  
                 }

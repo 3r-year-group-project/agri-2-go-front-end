@@ -296,7 +296,8 @@ return (
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
                   <TextField 
                   label="Selling Price (Rs)" 
-                  color="secondary" 
+                  color="primary"
+                  sx={{input: { color: 'black' }}} 
                   onChange={handlePrice} 
                   value={data.price} 
                   focused 
@@ -310,7 +311,8 @@ return (
             <Box style={{marginBottom:"20px", marginTop:"10px" , marginLeft:"10px" , marginRight:"10px"}}>
                   <TextField 
                   label="Quantity (kg)" 
-                  color="secondary" 
+                  color="primary" 
+                  sx={{input: { color: 'black' }}}
                   onChange={handleQuantity} 
                   value={data.quantity} 
                   focused fullWidth 

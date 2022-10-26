@@ -96,16 +96,18 @@ export default function NotificationIcon(Props) {
     userType:"farmer", notification:[{alert:1,time:"12:00PM"},
     {alert:2,time:"12:00AM"}]});
   
-  // React.useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     axios.get('/api/users/notifications/'+ user.email).then(res => {
-  //       setNotification(res.data.data);
-  //     });
-  //   }, 2000);
-
-  //   return () => clearInterval(interval);
+  React.useEffect(() => {
+    if(isAuthenticated && !isLoading){
+      const interval = setInterval(() => {
+        axios.get('/api/users/notifications/'+ user.email).then(res => {
+          setNotification(res.data.data);
+        });
+      }, 2000);
+  
+      return () => clearInterval(interval);
+    }
     
-  // }, [isAuthenticated, isLoading]);
+  }, [isAuthenticated, isLoading]);
 
   const clearNotification = () => {
     axios.put('/api/users/notifications/clear/'+ user.email).then(res => {

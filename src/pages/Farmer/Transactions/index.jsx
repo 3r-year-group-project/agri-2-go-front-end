@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
+import { Typography } from '@mui/material';
 import TransactionTable from "../../../components/Transactions";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -35,7 +34,7 @@ export default function FarmerTransactions() {
                     console.log(res.data.data);
                 rows = []
                 for(let i=0;i<res.data.data.length;i++){
-                  rows.push(createData(res.data.data[i].date_time.slice(0,10),res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].status));
+                  rows.push(createData(res.data.data[i].advance_date_time.slice(0,10),res.data.data[i].first_name.concat(" ", res.data.data[i].last_name),res.data.data[i].min_advance,res.data.data[i].payment_status));
                   console.log(res.data.data[i])
                   setInsert(true);  
                 }

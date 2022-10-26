@@ -26,6 +26,8 @@ export default function OrderPage() {
     console.log(orderData,'orderData')
   },[orderData])
 
+  console.log(orderData)
+
 
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
@@ -44,7 +46,7 @@ export default function OrderPage() {
       <div className="topic-preference">
         
             {<SearchBar/>}
-            <Filter id="order-filter-status" label="Status" width="30%" options={[{title:"Pending"}, {title:"Completed"}, {title:"Cancelled"}]}/>
+            <Filter id="order-filter-status" label="Status" width="30%" options={[{title:"Pending"}, {title:"Completed"}, {title:"Cancelled"}]} setOrderData={e=>setOrderData(e)}/>
       </div>
       <br />
          
@@ -98,8 +100,8 @@ export default function OrderPage() {
       </List>
         {orderData != undefined ? orderData.map((orderDetails)=>{
 
-        return <OrderComponent date={orderDetails.order_date} orderName={orderDetails.order_name} pickupDate={orderDetails.pickup_date} status={orderDetails.status} orderId={orderDetails.order_id}
-          setOrderData={(data)=>setOrderData(data)}
+        return <OrderComponent date={orderDetails.order_date} id={orderDetails.id} orderName={orderDetails.order_name} pickupDate={orderDetails.pickup_date} status={orderDetails.status} orderId={orderDetails.order_id}
+          setOrderData={(data)=>setOrderData(data) }
         />
 
          

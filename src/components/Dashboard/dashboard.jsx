@@ -98,7 +98,7 @@ export default function DashboardContent(props) {
                     height: 240,
                   }}
                 >
-                  <Cards title="Wastage Recycle Center" value={userCountFor("wastage")} date={props.curr_date}/>
+                  <Cards title="Transporters" value={userCountFor("transporter")} date={props.curr_date}/>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -107,12 +107,13 @@ export default function DashboardContent(props) {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 300,
                   }}
                 >
-                  <Cards title="Transporters" value={userCountFor("transporter")} date={props.curr_date}/>
+                  <Cards title="Wastage Recycle Center" value={userCountFor("wastage")} date={props.curr_date}/>
                 </Paper>
               </Grid>
+              
               {/* Chart */}
               {/* <Grid item xs={12} md={8} lg={6}>
 
@@ -140,8 +141,8 @@ export default function DashboardContent(props) {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 480,
-                    width:520,
+                    height: 300,
+                    width:785,
                   }}
                 >
                   <PieChart title="Users" data={props.user_data}/>

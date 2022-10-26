@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import TransactionTable from "../../../components/Transactions";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Typography } from '@mui/material';
 
 function createData(date, description, amount, status) {
     return { date, description, amount, status };
@@ -43,12 +44,12 @@ export default function FarmerTransactions() {
       }, [insert]);
 
     return(
-        <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
+         <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
          
-            <Typography variant='h5' color='#075E54' marginBottom='20px'><b>Transactions</b></Typography>
-              
-                <TransactionTable rows={rows}/>
+         <Typography variant='h5' color='#075E54' marginBottom='20px'><b>Transactions</b></Typography>
+           
+             <TransactionTable rows={rows}/>
 
-        </div>
+     </div>
     );
 }

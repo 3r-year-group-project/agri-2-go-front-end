@@ -557,5 +557,3 @@ async function getOrders() {
     
   
 }
-
-

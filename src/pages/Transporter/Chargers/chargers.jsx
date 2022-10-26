@@ -11,6 +11,7 @@ import { useValidator } from "react-joi";
 
 export default function ChargersPage() {
   const [insert, setInsert] = React.useState(false);
+  const [existCode,setExistCode] = React.useState(false);
   const [chargers, setChargers] = React.useState({
         pickUpRadius: '',
         price0To50: '',
@@ -34,19 +35,18 @@ export default function ChargersPage() {
         price750To1000: null,
         price1000To1500: null,
         price1500To2000: null,
-        existCode:null,
 
     },
     schema: Joi.object({
-        pickUpRadius: Joi.number().required(),
-        price0To50: Joi.number().required(),
-        price50To150: Joi.number().required(),
-        price150To250: Joi.number().required(),
-        price250To500: Joi.number().required(),
-        price500To750: Joi.number().required(),
-        price750To1000: Joi.number().required(),
-        price1000To1500: Joi.number().required(),
-        price1500To2000: Joi.number().required(),
+        pickUpRadius: Joi.number().required().min(1),
+        price0To50: Joi.number().required().min(1),
+        price50To150: Joi.number().required().min(1),
+        price150To250: Joi.number().required().min(1),
+        price250To500: Joi.number().required().min(1),
+        price500To750: Joi.number().required().min(1),
+        price750To1000: Joi.number().required().min(1),
+        price1000To1500: Joi.number().required().min(1),
+        price1500To2000: Joi.number().required().min(1),
     }),
     explicitCheck: {
         pickUpRadius: false,
@@ -65,18 +65,21 @@ export default function ChargersPage() {
 })
   React.useEffect(() => {
     axios.get('/api/transporter/chargers/exist/'+user.email).then((res) => {
-    setData({
-      existCode: res.data.code,
-      pickUpRadius: res.data.data[0].pickup_radius,
-      price0To50: res.data.data[0].cost_0_50,
-      price50To150: res.data.data[0].cost_50_150,
-      price150To250: res.data.data[0].cost_150_250,
-      price250To500: res.data.data[0].cost_250_500,
-      price500To750: res.data.data[0].cost_500_750,
-      price750To1000: res.data.data[0].cost_750_1000,
-      price1000To1500: res.data.data[0].cost_1000_1500,
-      price1500To2000: res.data.data[0].cost_1500_2000   
-    });
+      console.log('log',res.data);
+    setExistCode(res.data.code);
+    if(res.data.code){
+      setData({
+        pickUpRadius: res.data.data[0].pickup_radius,
+        price0To50: res.data.data[0].cost_0_50,
+        price50To150: res.data.data[0].cost_50_150,
+        price150To250: res.data.data[0].cost_150_250,
+        price250To500: res.data.data[0].cost_250_500,
+        price500To750: res.data.data[0].cost_500_750,
+        price750To1000: res.data.data[0].cost_750_1000,
+        price1000To1500: res.data.data[0].cost_1000_1500,
+        price1500To2000: res.data.data[0].cost_1500_2000   
+      });
+    }
     });
   }, [insert]);
 
@@ -136,10 +139,10 @@ export default function ChargersPage() {
   };
 
   const handleSubmit = () => {
-    if(Object.values(state.$data).includes('') || Object.values(state.$data).includes(null)){
-      alert("Please fill all the fields")   
+    if(Object.values(state.$data).includes(null) || Object.values(state.$data).includes(null)){
+      alert("Please fill all the fields");   
     }else{
-      axios.post('/api/transporter/Chargers/setcharges', {email:user.email, ...state.$data})
+      axios.post('/api/transporter/Chargers/setcharges', {email:user.email, ...state.$data,existCode:existCode})
         .then((res) => {
           setInsert(!insert);
         });
@@ -169,9 +172,8 @@ export default function ChargersPage() {
           }}
           defaultValue='Pickup radius'
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changeRadius}
-          onBlur={() => setExplicitField("pickUpRadius", true)}
           error={state.$errors.pickUpRadius.map((data) => data.$message).join(",")}
           helperText={state.$errors.pickUpRadius.map((data) => data.$message).join(",")}
           value={state.$data.pickUpRadius}
@@ -188,7 +190,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice0To50}
           onBlur={() => setExplicitField("price0To50", true)}
           error={state.$errors.price0To50.map((data) => data.$message).join(",")}
@@ -204,7 +206,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice50To150}
           onBlur={() => setExplicitField("price50To150", true)}
           error={state.$errors.price50To150.map((data) => data.$message).join(",")}
@@ -220,7 +222,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice150To250}
           onBlur={() => setExplicitField("price150To250", true)}
           error={state.$errors.price150To250.map((data) => data.$message).join(",")}
@@ -236,7 +238,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice250To500}
           onBlur={() => setExplicitField("price250To500", true)}
           error={state.$errors.price250To500.map((data) => data.$message).join(",")}
@@ -252,7 +254,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice500To750}
           onBlur={() => setExplicitField("price500To750", true)}
           error={state.$errors.price500To750.map((data) => data.$message).join(",")}
@@ -268,7 +270,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice750To1000}
           onBlur={() => setExplicitField("price750To1000", true)}
           error={state.$errors.price750To1000.map((data) => data.$message).join(",")}
@@ -284,7 +286,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice1000To1500}
           onBlur={() => setExplicitField("price1000To1500", true)}
           error={state.$errors.price1000To1500.map((data) => data.$message).join(",")}
@@ -300,7 +302,7 @@ export default function ChargersPage() {
             shrink: true,
           }}
           variant="filled"
-          sx={{color: "black"}}
+          sx={{ input:{ color: 'black' }}}
           onChange={changePrice1500To2000}
           onBlur={() => setExplicitField("price1500To2000", true)}
           error={state.$errors.price1500To2000.map((data) => data.$message).join(",")}
@@ -310,10 +312,10 @@ export default function ChargersPage() {
       </div>
       {console.log('chargers', chargers)}
       <Toolbar sx={{ justifyContent: "right" }}>
-        <Button variant="contained" onClick={()=>{validate();handleSubmit()}} sx={{mr:20}}>Set prices</Button>
+        <Button variant="contained" onClick={()=>{handleSubmit();}} sx={{mr:20}}>Set prices</Button>
       </Toolbar>
       {/* <code>
-        <pre style={{color:"black"}}>{JSON.stringify(state, null, 2)}</pre>
+        <pre style={{color:"black"}}>{JSON.stringify(state.$data, null, 2)}</pre>
       </code> */}
     </Box>
   );

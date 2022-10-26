@@ -35,7 +35,7 @@ export default function TransportationSchedulePage() {
               startAddress = {element.address}
               destinationAddress = {element.buyer_address}
               phone = {element.phone}
-              cost={element.payment}
+              cost={Math.round(element.payment)}
               changeSt = {changeSt}
               
                 />

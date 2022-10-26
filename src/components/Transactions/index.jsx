@@ -91,7 +91,7 @@ function EnhancedTableHead(props) {
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -117,40 +117,7 @@ EnhancedTableHead.propTypes = {
 const EnhancedTableToolbar = (props) => {
   const { numSelected } = props;
 
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity), 
-        }),
-      }}
-    >
-      { (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h5"
-          id="tableTitle"
-          component="div"
-        
-        >
-        Transactions
-        </Typography>
-      )}
-     
-      {<SearchBar/>}
-
-      {/* { (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon color="secondary"/>
-          </IconButton>
-        </Tooltip>
-      )} */}
-    </Toolbar>
-  );
+  
 };
 
 EnhancedTableToolbar.propTypes = {
@@ -163,7 +130,7 @@ export default function TransactionTable(props) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const rows = props.rows
 

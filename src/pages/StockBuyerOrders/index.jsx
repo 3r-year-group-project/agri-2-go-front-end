@@ -153,7 +153,7 @@ async function getOrders() {
          
             
             <Box>
-            <Card sx={{ display: 'flex', height: 200, backgroundColor: '#fff', boxShadow: 2 }}>
+            <Card sx={{ display: 'flex', height: 250, backgroundColor: '#fff', boxShadow: 2, }}>
             <CardMedia
                 component="img"
                 sx={{ width: 300, height: 200}}
@@ -162,15 +162,15 @@ async function getOrders() {
                 />
                 <Grid container spacing={0.5}>
                     <Grid item>
-                        <CardContent sx={{ flex: '2 0 auto' , pl: 10 , pt: 2 }}>
-                            <Typography component="div" variant="h5" color="primary">{d?.vegetable}</Typography>
-                            <Typography variant="subtitle1" color="text.secondary">{`${d?.quantity+"Kg"} from ${farmer?.first_name+" "+farmer?.last_name}`}</Typography>
-                            <Typography component="div" variant="body1" sx={{color: 'red'}}>{d.order_status}</Typography>
+                        <CardContent sx={{ flex: '2 0 auto' , pl: 10 , pt: 3 }}>
+                            <Typography component="div" variant="h5" color="primary"><b>{d?.vegetable}</b></Typography>
+                            <Typography variant="h6" color="text.secondary">{`${d?.quantity+"Kg"} from ${farmer?.first_name+" "+farmer?.last_name}`}</Typography>
+                            <Typography component="div" variant="h6" sx={{color: 'red'}}>{d.order_status}</Typography>
                         </CardContent>
                     </Grid>
 
                     <Grid item>
-                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', ml: 10, mb: 2}}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', ml: 10, mb: 2,mt:3,mr:2}}>
                             <Stack direction="row" spacing={4}>
                                 <Button variant="contained" color="info" size="small" sx={{padding: 1.5}} onClick={()=>handleClickOpen(d,farmer)}>
                                     Details 
@@ -187,7 +187,7 @@ async function getOrders() {
                                     Mark as Received
                                 </Button>}
                                 
-                                {( d.order_status== 'delivered')    && <Typography component="div" variant="h5" color="primary">Delivered</Typography>}
+                                {/* {( d.order_status== 'delivered')    && <Typography component="div" variant="h5" color="primary">Delivered</Typography>} */}
                             </Stack>
                         </Box> 
                     </Grid>
@@ -354,8 +354,9 @@ async function getOrders() {
           }}>
             <DialogContent>
 
-            <DialogTitle style={{marginLeft:'-10px',fontSize:'22px',}}>
-                Order Details
+            <DialogTitle >
+            <Typography variant='h5' color='#075E54' marginBottom='20px'><b>My orders</b></Typography>
+              
             <IconButton
             aria-label="close"
             onClick={handleCloseReceived}
@@ -556,5 +557,3 @@ async function getOrders() {
     
   
 }
-
-

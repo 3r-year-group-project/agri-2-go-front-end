@@ -16,10 +16,10 @@ export default function Dashboard() {
   const curr_date_str = `on ${current.getDate()} ${months[current.getMonth()]}, ${current.getFullYear()}`;
 
   React.useEffect(() => {
-    axios.get('/api/wastagerecyclecenter/dashboard/user_counts')
+    axios.get('/api/wrc/dashboard/user_counts')
         .then(res => {
           setUserCounts(res.data.data);});
-    axios.get('/api/wastagerecyclecenter/dashboard/best_selling_items')
+    axios.get('/api/wrc/dashboard/best_selling_items')
         .then(res => {
           setBestSellingData(res.data.data);});
   },[insert]);

@@ -139,13 +139,14 @@ export default function TransportationSchedule(props) {
               border: "2px",
             }}
           >
-            <Stack spacing={8} direction="row">
+            <Stack spacing={4} direction="row">
               <Typography>Date</Typography>
               <Typography>{props.date}</Typography>
               <Typography>Contacts</Typography>
               <Typography>{props.phone}</Typography>
               <Typography>Total Payment</Typography>
               <Typography>Rs.{props.cost}</Typography>
+              <Typography><b>Code </b></Typography>
             </Stack>
 
             <Timeline position="right">

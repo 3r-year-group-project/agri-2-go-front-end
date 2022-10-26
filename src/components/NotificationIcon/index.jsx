@@ -51,7 +51,7 @@ export default function NotificationIcon(Props) {
         "Your stock rejected by the buyer", 
       ],
       "icon":[
-        <PaidIcon sx={{ color: "#FFBF00" }}/>,
+        <PaidIcon/>,
         <DirectionsCarIcon/>,
         <CarCrashIcon/>,
         <SellIcon/>,
@@ -59,7 +59,7 @@ export default function NotificationIcon(Props) {
 
       ]
     },
-    "Transporter": {
+    "transporter": {
       "notification": [
         "Transport requests are available",
         "Your fund is released",
@@ -97,7 +97,7 @@ export default function NotificationIcon(Props) {
     {alert:2,time:"12:00AM"}]});
   
   React.useEffect(() => {
-    if(isAuthenticated && !isLoading){
+    if(isAuthenticated){
       const interval = setInterval(() => {
         axios.get('/api/users/notifications/'+ user.email).then(res => {
           setNotification(res.data.data);
@@ -172,6 +172,7 @@ export default function NotificationIcon(Props) {
          <DialogTitle>Notifications</DialogTitle>
          <Divider/>
         
+        {console.log(notificationData)}
         
         {
         notification.notification.map((item, index) => {

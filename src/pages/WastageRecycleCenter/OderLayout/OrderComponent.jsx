@@ -11,13 +11,13 @@ import axios from 'axios'
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function OrderComponent(props) {
-    let[WasteOrderData,setWasteOrderData] = React.useState({
-        fullName : '',
-        address:'',
-        quality:'',
-        quantity:'',
-        price:'',
-        
+    let [WasteOrderData, setWasteOrderData] = React.useState({
+        fullName: '',
+        address: '',
+        quality: '',
+        quantity: '',
+        price: '',
+
 
     })
 
@@ -94,11 +94,11 @@ export default function OrderComponent(props) {
 
         setOpen2(false);
     }
- 
-    
-    const onClickCompleted = async()=>{
-        await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'MarkCollected', orderId: props.orderId})
-        const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+
+
+    const onClickCompleted = async () => {
+        await axios.post('api/wrc/wastage_orders', { operation: 'MarkCollected', orderId: props.orderId })
+        const { data } = await axios.get('api/wrc/wastage_orders')
         props.setOrderData(data.data)
         setCancelButtonDisable(true)
     }
@@ -112,9 +112,9 @@ export default function OrderComponent(props) {
         
     }
 
-  return (
-    <div> 
-    {/* <Box width='70vw' margin="auto">
+    return (
+        <div>
+            {/* <Box width='70vw' margin="auto">
         <Card style={{padding:'10px',width:'96.2%',backgroundColor:'#075e54', color:'#fff',}}> */}
        <div className='table-row'>
         <List dense>
@@ -130,23 +130,23 @@ export default function OrderComponent(props) {
             </ListItem>
             <Divider color='#9df58c'/>
 
-        </List>
-        
-    </div>
-    {/* </Card>
+                </List>
+
+            </div>
+            {/* </Card>
   </Box>   */}
 
 
-        <Dialog open={open2} onClose={handleClose2} fullWidth
-        maxWidth="sm">
-            <DialogContent>
+            <Dialog open={open2} onClose={handleClose2} fullWidth
+                maxWidth="sm">
+                <DialogContent>
 
-            <DialogTitle style={{marginLeft:'-10px',fontSize:'28px',}}>Order Details</DialogTitle>
+                    <DialogTitle style={{ marginLeft: '-10px', fontSize: '28px', }}>Order Details</DialogTitle>
 
-                <DialogContentText style={{marginLeft:'15px',fontSize:'17px', color: '#999'}}>
-                    Details about your order.
-                </DialogContentText>
-                <br />
+                    <DialogContentText style={{ marginLeft: '15px', fontSize: '17px', color: '#999' }}>
+                        Details about your order.
+                    </DialogContentText>
+                    <br />
 
                 <List dense fullWidth>
                     <ListItem>
@@ -154,10 +154,10 @@ export default function OrderComponent(props) {
                         <ListItemText><Typography sx={{color:'#ffff',}}>{userInfo ? (userInfo.first_name+' '+ userInfo.last_name): null}</Typography></ListItemText>
                     </ListItem>
 
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Name</Typography> </ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{props.orderName}</Typography></ListItemText>
-                    </ListItem>                    
+                        <ListItem>
+                            <ListItemText style={{ marginRight: '10px', marginLeft: "50px", }}><Typography sx={{ color: '#ffff', }}>Order Name</Typography> </ListItemText>
+                            <ListItemText style={{ color: '#fff', }}><Typography sx={{ color: '#ffff', }}>{props.orderName}</Typography></ListItemText>
+                        </ListItem>
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}> <Typography sx={{color:'#ffff',}}>Location</Typography></ListItemText>
@@ -180,27 +180,27 @@ export default function OrderComponent(props) {
                         <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{wastageDetailsInfo? wastageDetailsInfo.price: null}</Typography></ListItemText>
                     </ListItem>
 
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Date</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.date.slice(0,10)}</Typography></ListItemText>
-                    </ListItem>
+                        <ListItem>
+                            <ListItemText style={{ marginRight: '10px', marginLeft: "50px", }}><Typography sx={{ color: '#ffff', }}>Order Date</Typography> </ListItemText>
+                            <ListItemText style={{ color: '#666', }}><Typography sx={{ color: '#ffff', }}>{props.date.slice(0, 10)}</Typography></ListItemText>
+                        </ListItem>
 
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Pickup Date</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.pickupDate.slice(0,10)}</Typography></ListItemText>
-                    </ListItem>
+                        <ListItem>
+                            <ListItemText style={{ marginRight: '10px', marginLeft: "50px", }}><Typography sx={{ color: '#ffff', }}>Pickup Date</Typography> </ListItemText>
+                            <ListItemText style={{ color: '#666', }}><Typography sx={{ color: '#ffff', }}>{props.pickupDate.slice(0, 10)}</Typography></ListItemText>
+                        </ListItem>
 
-                    <ListItem>
-                        <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Status</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.status}</Typography></ListItemText>
-                    </ListItem>
-                </List>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose2} variant="outlined" sx={{color: '#fff'}}>Cancel</Button>
-            </DialogActions> 
-        </Dialog>
-    
-</div>
-  )
+                        <ListItem>
+                            <ListItemText style={{ marginRight: '10px', marginLeft: "50px", }}><Typography sx={{ color: '#ffff', }}>Status</Typography> </ListItemText>
+                            <ListItemText style={{ color: '#666', }}><Typography sx={{ color: '#ffff', }}>{props.status}</Typography></ListItemText>
+                        </ListItem>
+                    </List>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose2} variant="outlined" sx={{ color: '#fff' }}>Cancel</Button>
+                </DialogActions>
+            </Dialog>
+
+        </div>
+    )
 }

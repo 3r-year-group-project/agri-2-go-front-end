@@ -35,6 +35,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import swal from 'sweetalert';
 
 
 
@@ -125,7 +126,7 @@ export default function Transporters() {
       email: user.email
     })
       .then((res) => {
-          navigate('/farmer/dash/dashboard');
+        swal("Successful!", "You Send a request!", "success");
       });
     };
 

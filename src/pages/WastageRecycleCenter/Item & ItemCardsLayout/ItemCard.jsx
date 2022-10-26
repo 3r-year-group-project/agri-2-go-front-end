@@ -79,7 +79,7 @@ export default function ItemCard(props) {
             {props.weight} kg      
           </Typography>
           <Typography gutterBottom variant='body2' sx={{color: 'red'}}>
-            {props.price} LKR per 1kg    
+            {props.price} LKR     
           </Typography>
 
 

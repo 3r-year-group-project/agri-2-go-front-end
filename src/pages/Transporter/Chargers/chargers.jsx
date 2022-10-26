@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import Joi from "joi"
 import { useValidator } from "react-joi";
+import swal from 'sweetalert';
 
 
 export default function ChargersPage() {
@@ -140,11 +141,13 @@ export default function ChargersPage() {
 
   const handleSubmit = () => {
     if(Object.values(state.$data).includes(null) || Object.values(state.$data).includes(null)){
-      alert("Please fill all the fields");   
+      swal("Successful!", "You updated trip costs!", "warning");
+
     }else{
       axios.post('/api/transporter/Chargers/setcharges', {email:user.email, ...state.$data,existCode:existCode})
         .then((res) => {
           setInsert(!insert);
+          swal("Successful!", "You updated trip costs!", "success");
         });
     }
   };
@@ -312,7 +315,7 @@ export default function ChargersPage() {
       </div>
       {console.log('chargers', chargers)}
       <Toolbar sx={{ justifyContent: "right" }}>
-        <Button variant="contained" onClick={()=>{handleSubmit();}} sx={{mr:20}}>Set prices</Button>
+        <Button variant="contained" onClick={()=>{handleSubmit();  }} sx={{mr:20}}>Set prices</Button>
       </Toolbar>
       {/* <code>
         <pre style={{color:"black"}}>{JSON.stringify(state.$data, null, 2)}</pre>

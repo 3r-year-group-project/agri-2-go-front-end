@@ -10,12 +10,12 @@ import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 import axios from 'axios'
 import { useAuth0 } from "@auth0/auth0-react";
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import swal from 'sweetalert';
 
 
 export default function ItemDetails(props) {
     const navigate = useNavigate();
     const [open, setOpen] =React.useState(false);
-    // const [openMessage, setOpenMessage] =React.useState(false);
     const [pickUpDate, setPickUpDate] = React.useState()
     const { user, isAuthenticated, isLoading } = useAuth0();
 
@@ -25,7 +25,9 @@ export default function ItemDetails(props) {
 
     const captureDate = (value)=>[
         setPickUpDate(value)
-    ]  
+    ]
+
+    
 
     const handleAcceptRequest = () =>{
         setOpen(true);
@@ -37,7 +39,7 @@ export default function ItemDetails(props) {
 
     const confirmAcceptRequest = async()=>{
 
-        await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
+        const {data} = await axios.post('http://localhost:3002/api/wrc/wastage_add_request',{
             userInfo: user, 
             sellerInfo:props.sellerInfo, 
             orderInfo:props.orderInfo, 
@@ -46,12 +48,10 @@ export default function ItemDetails(props) {
 
         })
 
-        
+        await swal("Successful!", "You placed an order!", "success");  
+        setOpen(false);
+        // alert('Response submitted')
     }
-    // const handleCloseMessage = () =>{
-    //     setOpenMessage(false);
-    // }
-
 
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
@@ -183,20 +183,6 @@ export default function ItemDetails(props) {
                         </DialogActions>    
 
                     </Dialog>
-
-
-                    {/* <Dialog open={openMessage} onClose={handleCloseMessage}>
-                        <DialogTitle style={{backgroundColor: 'white', color: 'black'}}>Alert</DialogTitle>
-                        <DialogContent style={{backgroundColor: 'white', color: 'black'}}>
-                        <DialogContentText>
-                            <h3>Your order is placed</h3>
-                        </DialogContentText>
-                        </DialogContent>
-                        <DialogActions style={{backgroundColor: 'white'}}>
-                        <Button onClick={handleCloseMessage} variant="contained" color="secondary">OK</Button>
-                        
-                        </DialogActions>
-                    </Dialog> */}
 
                 </div> 
 

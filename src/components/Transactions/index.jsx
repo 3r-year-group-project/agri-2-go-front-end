@@ -91,7 +91,7 @@ function EnhancedTableHead(props) {
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
-               <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
+              <Typography variant='h6'fontWeight='700'  color='white'>{headCell.label}</Typography>
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -117,7 +117,7 @@ EnhancedTableHead.propTypes = {
 const EnhancedTableToolbar = (props) => {
   const { numSelected } = props;
 
-
+  
 };
 
 EnhancedTableToolbar.propTypes = {

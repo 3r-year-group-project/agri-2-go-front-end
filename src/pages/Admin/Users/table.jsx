@@ -314,7 +314,7 @@ useEffect(()=>{
       <SearchIcon />
     </IconButton>
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-    <Filter onChange={filterUserType} id="order-filter-status" label="User Type" width="30%" options={[{title:"Customer"}, {title:"Farmer"},{title:"Farmer"},{title:"Gardener"},{title:"Wastage"},{title:"Grocery Seller"},{title:"Stock Buyer"}]}/>
+    {/* <Filter id="order-filter-status" label="User Type" width="30%" options={[{title:"Customer"}, {title:"Farmer"},{title:"Farmer"},{title:"Gardener"},{title:"Wastage"},{title:"Grocery Seller"},{title:"Stock Buyer"}]}/> */}
   </Paper>
  
           <Table

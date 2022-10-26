@@ -68,12 +68,12 @@ export default function WastageRecycleCenterListItems() {
         <ListItemText primary="Chat" />
       </ListItemButton>
       <Divider/> */}
-      <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST)}>
+      {/* <ListItemButton onClick={() => routeToPage(WASTAGE_RECYCLE_CENTER_SECTIONS.WISHLIST)}>
         <ListItemIcon>
           <StarIcon  color="secondary" />
         </ListItemIcon>
         <ListItemText primary="Wishlist" />
-      </ListItemButton>
+      </ListItemButton> */}
     </React.Fragment>
   );
 }

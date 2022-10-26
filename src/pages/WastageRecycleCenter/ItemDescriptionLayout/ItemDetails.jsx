@@ -71,10 +71,10 @@ export default function ItemDetails(props) {
                 </div>
                 
                 <Box sx={{justifyContent: 'right', alignItems: 'right', mt: 5}}>
-                                  
+{/*                                   
                                 <CardActions>
                                     <Button variant='contained' size='small' endIcon={<StarOutlineOutlinedIcon/>} sx={{backgroundColor:'#F57A38',color:'#fff'}}>Add Seller to Wishlist</Button>
-                                </CardActions>
+                                </CardActions> */}
                   
                 </Box>
                 

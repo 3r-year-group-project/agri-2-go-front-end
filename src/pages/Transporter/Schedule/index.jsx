@@ -29,7 +29,7 @@ export default function TransportationSchedulePage() {
               id = {element.id}     
               name = {name}
               st={element.status==3?'Pending':'Started'}
-              vegetableName = {element.name}
+              vegetableName = {element.vegetable}
               quantity = {element.quantity}
               date = {dy}
               startAddress = {element.address}

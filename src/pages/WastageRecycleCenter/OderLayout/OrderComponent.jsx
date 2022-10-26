@@ -1,5 +1,5 @@
 import { Box, Button, Card, Divider, List, ListItem, ListItemText, Typography } from '@mui/material'
-import React from 'react'
+import React, {useState} from 'react'
 import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import SelectBox from './SelectBox';
@@ -12,18 +12,36 @@ import axios from 'axios'
 export default function OrderComponent(props) {
 
 
-    const [open2, setOpen2] =React.useState(false);     
+    const [open2, setOpen2] =useState(false);     
+    const [userInfo, setUserInfo] =  useState()
+    const [wastageDetailsInfo, setWastageDetailsInfo] = useState()
+    const [cancelButtonDisable, setCancelButtonDisable] = useState(false)
+    const [collectedButtonDisable, setCollectedButtonDisable] = useState(false)
 
 
     React.useEffect(()=>{
-        console.log(props)
-    },[])
+        console.log(userInfo)
+      
+    },[userInfo])
 
-    const handleClickOpen2 = () =>{
+    const handleClickOpen2 = async() =>{
+        const fetchUserInfo = async()=>{
+            const {data} = await axios.get(`http://localhost:3002/api/wrc/wastage_detail_user/${props.orderId}`);
+            setUserInfo(data.data[0])        
+        }
+
+        const fetchWastageDetails = async()=>{
+            const {data} = await axios.get(`http://localhost:3002/api/wrc/wastage_detail_item_info/${props.orderId}`);
+            setWastageDetailsInfo(data.data[0])
+
+        }
+        fetchUserInfo()
+        fetchWastageDetails()
         setOpen2(true);
     }
 
     const handleClose2 = () =>{
+
         setOpen2(false);
     }
  
@@ -32,10 +50,16 @@ export default function OrderComponent(props) {
         await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'MarkCollected', orderId: props.orderId})
         const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
         props.setOrderData(data.data)
+        setCancelButtonDisable(true)
     }
 
     const onClickCancel = async()=>{
-    
+        
+        await axios.post('http://localhost:3002/api/wrc/wastage_orders',{operation:'Cancel', orderId: props.orderId})
+        const {data} = await axios.get('http://localhost:3002/api/wrc/wastage_orders')
+        props.setOrderData(data.data)
+        setCollectedButtonDisable(true)
+        
     }
 
   return (
@@ -51,8 +75,8 @@ export default function OrderComponent(props) {
                 <ListItemText><Typography sx={{color:'#fff'}}>{props.status}</Typography></ListItemText>
                
                 <ListItemText><ButtonForAdd name='View' action={handleClickOpen2}/></ListItemText>
-                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>} onClick={onClickCompleted}>Collected</Button></ListItemText>
-                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel}>Cancel</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'green'}} startIcon={<DoneIcon/>} onClick={onClickCompleted} disabled={collectedButtonDisable}>Collected</Button></ListItemText>
+                <ListItemText><Button variant='contained' sx={{backgroundColor: 'red'}} onClick={onClickCancel} disabled={cancelButtonDisable}>Cancel</Button></ListItemText>
             </ListItem>
             <Divider color='#9df58c'/>
 
@@ -77,7 +101,7 @@ export default function OrderComponent(props) {
                 <List dense fullWidth>
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Seller Name</Typography></ListItemText>
-                        <ListItemText><Typography sx={{color:'#ffff',}}>K.U. Ashmitha</Typography></ListItemText>
+                        <ListItemText><Typography sx={{color:'#ffff',}}>{userInfo ? (userInfo.first_name+' '+ userInfo.last_name): null}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
@@ -87,28 +111,28 @@ export default function OrderComponent(props) {
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}> <Typography sx={{color:'#ffff',}}>Location</Typography></ListItemText>
-                        <ListItemText> <Typography sx={{color:'#ffff',}}>32/C, Mirissa Rd, Kandy</Typography> </ListItemText>
+                        <ListItemText> <Typography sx={{color:'#ffff',}}>{userInfo ?(userInfo.address1 +' '+ userInfo.city) :null}</Typography> </ListItemText>
                     </ListItem>
 
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Waste Quality</Typography></ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>Rotten</Typography></ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{wastageDetailsInfo? wastageDetailsInfo.quality: null}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Quantity</Typography> </ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>2kg</Typography></ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{wastageDetailsInfo? wastageDetailsInfo.quantity: null}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Price</Typography> </ListItemText>
-                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>200LKR</Typography></ListItemText>
+                        <ListItemText style={{color:'#fff',}}><Typography sx={{color:'#ffff',}}>{wastageDetailsInfo? wastageDetailsInfo.price: null}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Order Date</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.date}</Typography></ListItemText>
+                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.date.slice(0,10)}</Typography></ListItemText>
                     </ListItem>
 
                     <ListItem>
@@ -118,7 +142,7 @@ export default function OrderComponent(props) {
 
                     <ListItem>
                         <ListItemText style={{marginRight:'10px',marginLeft:"50px",}}><Typography sx={{color:'#ffff',}}>Status</Typography> </ListItemText>
-                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>Pending</Typography></ListItemText>
+                        <ListItemText style={{color:'#666',}}><Typography sx={{color:'#ffff',}}>{props.status}</Typography></ListItemText>
                     </ListItem>
                 </List>
             </DialogContent>

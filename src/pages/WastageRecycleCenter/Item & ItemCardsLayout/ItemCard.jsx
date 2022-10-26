@@ -24,6 +24,7 @@ export default function ItemCard(props) {
 
   const [open, setOpen] =React.useState(false);
   const [openDelete, setOpenDelete] = React.useState(false);
+  const [location, setLocation]= React.useState()
 
   const handleOpenDelete = () => {
     setOpenDelete(true);
@@ -37,10 +38,23 @@ export default function ItemCard(props) {
     
   }
 
+  
  
   const handleCloseDelete = async() =>{
     setOpenDelete(false)
   }
+
+  React.useEffect(()=>{
+    const fetchOrderLocation = async()=>{
+      const {data} = await axios.get(`http://localhost:3002/api/wrc/wastage_detail_user/${props.id}`);
+      setLocation(data.data[0].city)
+    }
+    fetchOrderLocation()
+  },[])
+
+  React.useEffect(()=>{
+    console.log(location)
+  },[location])
 
 
   return (
@@ -59,7 +73,7 @@ export default function ItemCard(props) {
             Quality level : {props.quality}      
           </Typography>
           <Typography gutterBottom variant='body1' color='#075E54'>
-            <LocationOnIcon style={{color:color_icon,marginRight:marg,}}/> {props.location}     
+            <LocationOnIcon style={{color:color_icon,marginRight:marg,}}/> {location? location : null}     
           </Typography>
           <Typography gutterBottom variant='body2' color='#075E54'>
             {props.weight} kg      

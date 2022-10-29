@@ -21,17 +21,19 @@ export default function ReportTabs() {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} >
-              <Tab label="Farmer" value="1" />
-              {/* <Tab label="Stock Buyer" value="2" /> */}
-              <Tab label="Transporter" value="3" />
-              <Tab label="Wastage Recycle Center" value="4" />
+            <Tab label="Transporter" value="1" />
+            
+            <Tab label="Wastage Recycle Center" value="2" />
+              <Tab label="Farmer" value="3" />
+              <Tab label="Stock Buyer" value="4" />
+              
              
             </TabList>
           </Box>
-          <TabPanel value="1"><FarmerTable/></TabPanel>
-          {/* <TabPanel value="2"><StockBuyerTable/></TabPanel> */}
-          <TabPanel value="3"><TransporterTable/></TabPanel>
-          <TabPanel value="4"><WastageTable/></TabPanel>
+          <TabPanel value="1"><TransporterTable/></TabPanel>
+          <TabPanel value="2"><WastageTable/></TabPanel>
+          <TabPanel value="3"><FarmerTable/></TabPanel>
+          <TabPanel value="4"><StockBuyerTable/></TabPanel>
           
         </TabContext>
       </Box>

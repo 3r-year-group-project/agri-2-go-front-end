@@ -29,11 +29,12 @@ export default function CenteredGrid() {
   return (
     <ThemeProvider theme={mdTheme}>
 
-    <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
+    <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}} >
         <Box
         component="span"
         m={1}
         display="inline-block"
+        
       
         >
             <CssBaseline />

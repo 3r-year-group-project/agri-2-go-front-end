@@ -140,7 +140,7 @@ export default function TransportationSchedule(props) {
           >
             <Typography variant="h6">{props.name}</Typography>
             <Stack spacing={2} direction="row">
-              <Typography>{props.vegetableName}</Typography>
+              <Typography><b>{props.vegetableName}</b></Typography>
               <Typography>{props.quantity} kg</Typography>
               <Typography>Status: {props.st}</Typography>
             </Stack>

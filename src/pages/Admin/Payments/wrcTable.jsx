@@ -41,8 +41,8 @@ function createData( name, accountNumber, bankName, branch, amount, markRelease)
   }
   
   const rows = [
-    createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
-    createData('Boralu Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
+    createData('Saman Gamage', '11122263537', 'BOC','Galle', '2000LKR', 'Mark as Released'),
+    createData('Binari Perera', '11122263537', 'BOC','Kandy', '2000LKR', 'Mark as Released'),
    
 
     

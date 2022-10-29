@@ -15,7 +15,7 @@ import { color } from '@mui/system';
 import { Typography } from '@mui/material';
 
 export default function Chart(props) {
-
+console.log(props.data)
   props.data.map((row) => {
     row.Date = row.Date.substring(0, 10)
   })

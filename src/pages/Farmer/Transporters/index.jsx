@@ -234,7 +234,7 @@ return (
                         Recommended for your order
                       </Typography>
                       <Typography component="div" variant="h6" sx={{color: 'red'}}>
-                        {vehicle.cost} &nbsp;Lkr
+                        {Math.round(vehicle.cost)} &nbsp;LKR
                       </Typography>
                     </CardContent>
                   </Box>

@@ -38,6 +38,41 @@ export default function FarmerListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.VIEWPRICES)}>
+        <ListItemIcon>
+          <Tooltip title="View Prices">
+          <RateReview  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="View Prices" />
+      </ListItemButton>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SENDREQUESTS)}>
+        <ListItemIcon>
+          <Tooltip title="Send Requests">
+          <SendIcon  color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Send Requests" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYREQUESTS)}>
+        <ListItemIcon>
+          <Tooltip title="My Requests">
+        <ChatIcon color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="My Requests" />
+      </ListItemButton>
+      <Divider/>
+      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.ORDERS)}>
+        <ListItemIcon>
+          <Tooltip title="Orders">
+          <ViewListIcon color="secondary" />
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText primary="Orders" />
+      </ListItemButton>
+      <Divider/>
       {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.FINDSELLER)}>
         <ListItemIcon>
         <Tooltip title="Find Buyers">
@@ -81,15 +116,7 @@ export default function FarmerListItems() {
         <ListItemText primary="Sales" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.ORDERS)}>
-        <ListItemIcon>
-          <Tooltip title="Orders">
-          <ViewListIcon color="secondary" />
-          </Tooltip>
-        </ListItemIcon>
-        <ListItemText primary="Orders" />
-      </ListItemButton>
-      <Divider/>
+      
       {/* <Divider sx={{ my: 1 }} /> */}
       {/* <ListSubheader component="div" inset>
         Operations
@@ -104,15 +131,7 @@ export default function FarmerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.MYREQUESTS)}>
-        <ListItemIcon>
-          <Tooltip title="My Requests">
-        <ChatIcon color="secondary" />
-          </Tooltip>
-        </ListItemIcon>
-        <ListItemText primary="My Requests" />
-      </ListItemButton>
-      <Divider/>
+      
       {/* <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <Tooltip title="Reviews">
@@ -122,23 +141,8 @@ export default function FarmerListItems() {
         <ListItemText primary="Reviews" />
       </ListItemButton> */}
       <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.SENDREQUESTS)}>
-        <ListItemIcon>
-          <Tooltip title="Send Requests">
-          <SendIcon  color="secondary" />
-          </Tooltip>
-        </ListItemIcon>
-        <ListItemText primary="Send Requests" />
-      </ListItemButton>
-      <Divider/>
-      <ListItemButton onClick={() => routeToPage(FARMER_SECTIONS.VIEWPRICES)}>
-        <ListItemIcon>
-          <Tooltip title="View Prices">
-          <RateReview  color="secondary" />
-          </Tooltip>
-        </ListItemIcon>
-        <ListItemText primary="View Prices" />
-      </ListItemButton>
+      
+      
     </React.Fragment>
   );
 }

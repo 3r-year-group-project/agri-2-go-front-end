@@ -35,6 +35,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FARMERREQUESTS)}>
+        <ListItemIcon>
+          <ChatIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Farmer Requests" />
+      </ListItemButton>
+      <Divider/>
       {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.MYSCHEDULE)}>
         <ListItemIcon>
           <AssignmentIcon  color="secondary" />
@@ -61,6 +68,13 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Transactions" />
       </ListItemButton>
       <Divider/>
+      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.STOCKS)}>
+        <ListItemIcon>
+          <InventoryIcon  color="secondary" />
+        </ListItemIcon>
+        <ListItemText primary="Stocks" />
+      </ListItemButton>
+      <Divider/>
       {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.REVIEWS)}>
         <ListItemIcon>
           <ReviewsIcon  color="secondary" />
@@ -68,13 +82,7 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Reviews" />
       </ListItemButton>
       <Divider/> */}
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FARMERREQUESTS)}>
-        <ListItemIcon>
-          <ChatIcon  color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="Farmer Requests" />
-      </ListItemButton>
-      <Divider/>
+      
       {/* <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.FINDVEGETABLES)}>
         <ListItemIcon>
           <ManageSearchIcon  color="secondary" />
@@ -96,12 +104,7 @@ export default function StockBuyerListItems() {
         <ListItemText primary="Demanding" />
       </ListItemButton>
       <Divider/> */}
-      <ListItemButton onClick={() => routeToPage(STOCK_BUYER_SECTIONS.STOCKS)}>
-        <ListItemIcon>
-          <InventoryIcon  color="secondary" />
-        </ListItemIcon>
-        <ListItemText primary="Stocks" />
-      </ListItemButton>
+     
     </React.Fragment>
   );
 }

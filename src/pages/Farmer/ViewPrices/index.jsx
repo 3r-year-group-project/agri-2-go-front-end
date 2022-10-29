@@ -8,9 +8,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 import axios from 'axios';
 import DashboardContent from './dashboard'
 import {checkWord} from "../../../services/utils/FormValidation"; 
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function LoadStocks(){
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   const [data,setData] = React.useState({
     market:'',
@@ -53,30 +55,42 @@ export default function LoadStocks(){
   }
 
   const [pData, setPData] = React.useState([]);
+  const [farmerLocation, setFarmerLocation] = React.useState([-1]);
+  const [marketLocation, setMarketLocation] = React.useState([-1]);
+  const [expectedPrice, setExpectedPrice] = React.useState([]);
 
   const handleSubmit = (e) => {
     if(!Object.values(data).includes("")){
       axios.post('/api/farmer/viewprice/pricefluctuations', {...data})
           .then(res => {
             setPData(res.data.data);});
+      axios.post('/api/farmer/viewprice/farmerlocation', {email: user.email})
+          .then(res => {
+            setFarmerLocation(res.data.data);
+          });  
+      axios.post('/api/farmer/viewprice/marketlocation', {market: data.market})
+          .then(res => {
+            setMarketLocation(res.data.data);
+          });
     }else{
       setErrorText((prev) => {
-          return({...prev, totalError : "Please fill all the fields"});
+        return({...prev, totalError : "Please fill all the fields"});
       });
     }
   }
-
+  
   const [markets, setMarkets] = React.useState([]);
   const [vegetables, setVegetables] = React.useState([]);
   const [insert,setInsert] = React.useState(false);
- 
+  
   React.useEffect(() => {
     axios.get('/api/farmer/viewprice/markets')
         .then(res => {
           setMarkets(res.data.data);});  
     axios.get('/api/farmer/viewprice/vegetables')
         .then(res => {
-          setVegetables(res.data.data);});  
+          setVegetables(res.data.data);});
+
   },[insert]);
   
   return(
@@ -130,11 +144,10 @@ export default function LoadStocks(){
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
                 >
-                  Show
+                  Calculate Price Fluctuations
                 </Button>
-
                 <Grid item xs={12} sx={{display: 'flex' , alignItems: 'center',justifyContent: 'center'}}>
-                <DashboardContent pData={pData}/>
+                <DashboardContent pData={pData} farmerLocation={farmerLocation} marketLocation={marketLocation}/>
                 
                 </Grid>
     

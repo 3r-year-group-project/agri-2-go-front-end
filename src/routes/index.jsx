@@ -33,6 +33,7 @@ import StockBuyerRegistrationForm from "../components/RegistrationForms/StockBuy
 import CustomerRegistrationForm from "../components/RegistrationForms/Customer";
 import WastageRecycleCenterRegistrationForm from "../components/RegistrationForms/WastageRecycleCenter";
 import TransporterRegistrationForm from "../components/RegistrationForms/Transporter";
+import ViewRates from "../pages/ViewRates/index";
 
 import LoginPage from "../pages/LoginPage";
 
@@ -77,6 +78,7 @@ export default function Router() {
         <Routes>
 
         <Route path="/" element={<HomePage />}/>
+        <Route path="/rates" element={<ViewRates/>}/>
         <Route path="/stockbuyer/addtowastage/:id/:vegetable" element={<AddToWastage/>}/>  
         <Route path="/stockbuyer/sellstock/:id" element={<StockBuyerSellStocks/>}/>  
         <Route path="/stockbuyer/sellwastagestocks" element={<StockBuyerSellWastageStocksDetails/>}/> 

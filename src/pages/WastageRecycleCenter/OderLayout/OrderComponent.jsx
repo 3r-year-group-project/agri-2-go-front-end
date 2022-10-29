@@ -8,8 +8,18 @@ import ButtonForAdd from './ButtonForAdd';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import axios from 'axios'
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function OrderComponent(props) {
+    let[WasteOrderData,setWasteOrderData] = React.useState({
+        fullName : '',
+        address:'',
+        quality:'',
+        quantity:'',
+        price:'',
+        
+
+    })
 
 
     const [open2, setOpen2] =useState(false);     
@@ -38,7 +48,47 @@ export default function OrderComponent(props) {
         fetchUserInfo()
         fetchWastageDetails()
         setOpen2(true);
+        
+        // axios.post('/api/wrc/wastage_orders/getOrderDetails',{email:user.email,sellerId:props.sellerId,orderId:props.orderId})
+        // .then(res => {
+         
+        //  console.log(res.data.data[0])
+        //   console.log(res.data.data[0].address1)
+        //   console.log(res.data.data[0].address2)
+        //   console.log(res.data.data[0].first_name)
+        //   console.log(res.data.data[0].last_name)
+        //   console.log(res.data.data[0].order_date)
+        //   console.log(res.data.data[0].quality)
+        //   console.log(res.data.data[0].quantity)
+        //   console.log(res.data.data[0].status)
+          
+
+
+        //   const completeName = res.data.data[0].first_name.concat(" ",res.data.data[0].last_name)
+        //   const address = res.data.data[0].address1.concat(",",res.data.data[0].address2)
+
+          
+
+        //   setWasteOrderData({WasteOrderData , quality : res.data.data[0].quality})
+        //   setWasteOrderData({WasteOrderData , quantity : res.data.data[0].quantity})
+        //   setWasteOrderData({WasteOrderData , fullName : completeName })
+        //   setWasteOrderData({WasteOrderData , address : address})
+          
+        //   setWasteOrderData({WasteOrderData , price : res.data.data[0].price})
+
+
+          
+        //   //console.log(res.data.data[0].last_name)
+          
+        // })   
+
+
+
+
+        
     }
+
+    console.log(WasteOrderData)
 
     const handleClose2 = () =>{
 

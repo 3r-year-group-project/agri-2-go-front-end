@@ -171,45 +171,7 @@ EnhancedTableHead.propTypes = {
 const EnhancedTableToolbar = (props) => {
   const { numSelected } = props;
 
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity), 
-        }),
-      }}
-    >
-      { (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h5"
-          id="tableTitle"
-          component="div"
-        
-        >
-        Stocks Management
-        
-        </Typography>
-        
-
-        
-      )}
-      
-      {/* {<SearchBar/>} */}
-
-      {/* { (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon color="secondary"/>
-          </IconButton>
-        </Tooltip>
-      )} */}
-    </Toolbar>
-    
-  );
+ 
 };
 
 EnhancedTableToolbar.propTypes = {
@@ -291,16 +253,21 @@ export default function LoadStocks(){
 
   return(
     <Fragment>
+       <div style={{ background: 'white', padding:'5%',minHeight:'100%'}} >
+           <Typography variant='h5' color='#075E54' marginBottom='20px'><b>stocks</b></Typography>
+        
+   
+              
       <Container component="main" maxWidth="100%" >
         <Grid container spacing={1} >
-        <Grid item xs={12} sx={{marginTop:"40px"}}>
+        <Grid item xs={12}>
         <Box sx={{ width: '100%',}}>
       <Paper sx={{ width: '100%', mb: 2,  }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          
         <TableContainer  >
           <Table
-       fontSize="24"
+       fontSize="30"
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
             size={ 'large'}
@@ -391,6 +358,7 @@ export default function LoadStocks(){
         </Grid>
         </Grid>
       </Container>
+      </div>
     </Fragment>
     
   );

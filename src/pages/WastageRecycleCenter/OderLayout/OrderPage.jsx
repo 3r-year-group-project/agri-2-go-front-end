@@ -26,6 +26,8 @@ export default function OrderPage() {
     console.log(orderData,'orderData')
   },[orderData])
 
+  console.log(orderData)
+
 
   return (
     <div style={{ background: 'rgba(37, 211, 102, 0.2)', padding:'5%',minHeight:'100%'}}>
